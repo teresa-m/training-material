@@ -149,7 +149,7 @@ During sequencing, errors are introduced, such as incorrect nucleotides being ca
 Sequence quality control is therefore an essential first step in your analysis. We will use similar tools as described in the ["Quality control" tutorial]({% link topics/sequence-analysis/tutorials/quality-control/tutorial.md %}): [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to create a report of sequence quality, [MultiQC](https://multiqc.info/) ({% cite ewels2016multiqc %}) to aggregate generated reports and [Cutadapt](https://cutadapt.readthedocs.io/en/stable/guide.html) ({% cite marcel2011cutadapt %}) to improve the quality of sequences via trimming and filtering.
 
 Unfortunately the current version of multiQC (the tool we use to combine reports) does not support list of pairs collections.
-We will first need to transform our the list of pairs to a simple list.
+We will first need to transform our list of pairs to a simple list.
 
 > <details-title>What does this mean exactly?</details-title>
 >
@@ -163,7 +163,7 @@ We will first need to transform our the list of pairs to a simple list.
 >     - *"Input Collection"*: `2 PE fastqs`
 >
 > 2. {% tool [FastQC](toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.73+galaxy0) %} with the following parameters:
->    - {% icon param-collection %} *"Short read data from your current history"*: Output of **Flatten collection** {% icon tool %} selected as **Dataset collection**
+>    - {% icon param-collection %} *"Raw read data from your current history"*: Output of **Flatten collection** {% icon tool %} selected as **Dataset collection**
 >
 >    {% snippet faqs/galaxy/tools_select_collection.md %}
 >
@@ -676,7 +676,7 @@ In principle, the counting of reads overlapping with genomic features is a fairl
 
 RNAs that are typically targeted in RNA-Seq experiments are single stranded (*e.g.*, mRNAs) and thus have polarity (5' and 3' ends that are functionally distinct). During a typical RNA-Seq experiment the information about strandness is lost after both strands of cDNA are synthesized, size selected, and converted into a sequencing library. However, this information can be quite useful for the read counting step, especially for reads located on the overlap of 2 genes that are on different strands.
 
-![Why strandness?](../../images/ref-based/strandness_why.png "If strandess information was lost during library preparation, Read1 will be assigned to gene1 located on the forward strand but Read2 will be 'ambiguous' as it can be assigned to gene1 (forward strand) or gene2 (reverse strand).")
+![Why strandness?](../../images/ref-based/strandness_why.png "If strandness information was lost during library preparation, Read1 will be assigned to gene1 located on the forward strand but Read2 will be 'ambiguous' as it can be assigned to gene1 (forward strand) or gene2 (reverse strand).")
 
 Some library preparation protocols create so-called *stranded* RNA-Seq libraries that preserve the strand information ({% cite levin2010comprehensive %} provides an excellent overview). In practice, with Illumina RNA-Seq protocols you are unlikely to encounter all of the possibilities described in this article. You will most likely deal with either:
 
@@ -948,7 +948,7 @@ As you chose to use the featureCounts flavor of the tutorial, we now run **featu
 > 1. {% tool [featureCounts](toolshed.g2.bx.psu.edu/repos/iuc/featurecounts/featurecounts/2.0.3+galaxy1) %} with the following parameters to count the number of reads per gene:
 >    - {% icon param-collection %} *"Alignment file"*: `RNA STAR on collection N: mapped.bam` (output of **RNA STAR** {% icon tool %})
 >    - *"Specify strand information"*: `Unstranded`
->    - *"Gene annotation file"*: `in your history`
+>    - *"Gene annotation file"*: `A GFF/GTF file in your history`
 >        - {% icon param-file %} *"Gene annotation file"*: `Drosophila_melanogaster.BDGP6.32.109_UCSC.gtf.gz`
 >    - *"GFF feature type filter"*: `exon`
 >    - *"GFF gene identifier"*: `gene_id`
