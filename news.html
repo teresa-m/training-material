@@ -8,16 +8,45 @@
         
             <script async defer data-domain="training.galaxyproject.org" src="https://plausible.galaxyproject.eu/js/plausible.js"></script>
 
+<!-- JavaScript Error Monitoring, and performance tracking. -->
+<script
+  src="https://browser.sentry-cdn.com/7.52.1/bundle.tracing.min.js"
+  integrity="sha384-muuFXKS3752PNA4rPm9Uq6BLvOfV4CXyr9MHDBPvozOJJUWLKkogEFWOIRoVps43"
+  crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+Sentry.init({
+  dsn: "https://45e0ec6e4373462b92969505df37cf40@sentry.galaxyproject.org/10",
+  release: "galaxy-training-network@b1277bcc5233898cf1be9a3931cf54198b4c672e",
+  integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
+  sampleRate: 0.1,
+  tracesSampleRate: 0.1,
+  // Capture Replay for no sessions by default
+  replaysSessionSampleRate: 0.01,
+  // plus for 1% of sessions with an error
+  replaysOnErrorSampleRate: 0.01,
+  // PII OFF
+  sendDefaultPii: false, // Off by default but just in case.
+  environment: "production",
+});
+</script>
+
         
-        <link rel="stylesheet" href="/training-material/assets/css/bootstrap.min.css?v=3">
-        <link rel="stylesheet" href="/training-material/assets/css/bootstrap-toc.min.css">
-        <link rel="stylesheet" href="/training-material/assets/css/main.css?v=2">
-        <link rel="stylesheet" href="/training-material/assets/fontawesome/css/all.css">
-        <link rel="stylesheet" href="/training-material/assets/css/academicons.css">
         <link rel="shortcut icon" href="/training-material/favicon.ico" type="image/x-icon">
         <link rel="alternate" type="application/atom+xml" href="/training-material/feed.xml">
         <link rel="canonical" href="https://training.galaxyproject.org/training-material/news.html">
-        <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+        <link rel="license" href="https://spdx.org/licenses/CC-BY-4.0">
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Regular-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Bold-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Italic-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" as="script" crossorigin>
+        <link rel="preload" href="/training-material/assets/css/main.css?v=3" as="style">
+        <link rel='preload' href='/training-material/assets/js/bundle.theme.js?v=1689733011' as='script'>
+<link rel='preload' href='/training-material/assets/js/bundle.main.js?v=1689733011' as='script'>
+        <link rel="stylesheet" href="/training-material/assets/css/main.css?v=3">
+        <link rel="manifest" href="/training-material/manifest.json">
+        <meta name="theme-color" content="#2c3143"/>
+
 
         <meta name="DC.identifier" content="https://github.com/galaxyproject/training-material">
 <meta name="DC.type" content="text">
@@ -39,7 +68,7 @@
         
     </head>
     <body data-spy="scroll" data-target="#toc">
-        <script type="text/javascript" src="/training-material/assets/js/theme.js"></script>
+        <script src='/training-material/assets/js/bundle.theme.js?v=1689733011'></script>
         <header>
     <nav class="navbar navbar-expand-md navbar-dark" aria-label="Site Navigation">
         <div class="container">
@@ -103,7 +132,6 @@
     </a>
     <div class="dropdown-menu dropdown-menu-right">
 
-        
         <a class="dropdown-item" href="https://github.com/galaxyproject/training-material/edit/main/news.md" title="Edit on GitHub">
           <i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> Edit on GitHub
         </a>
@@ -148,11 +176,11 @@
 
             <div id="archive-selector">
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-05-01/news.html" title="Version 2019-05-01">2019-05-01</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-05-01/news.html">2019-05-01</a>
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-02-07/news.html" title="Version 2019-02-07">2019-02-07</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-02-07/news.html">2019-02-07</a>
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/" title="Older Versions">Older Versions</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/">Older Versions</a>
             </div>
 
         </div>
@@ -165,7 +193,7 @@
                     <li class="nav-item">
                       <div id="navbarSupportedContent" role="search">
                         <!-- Search form -->
-                        <form class="form-inline mr-auto" method="GET" action="/training-material/search">
+                        <form class="form-inline mr-auto" method="GET" action="/training-material/search2">
                           <i class="fas fa-search nav-link" aria-hidden="true"></i>
                           <div class="md-form mb-2">
                             <input name="query" class="form-control nicer" type="text" placeholder="Search Tutorials" aria-label="Search">
@@ -193,6 +221,452 @@
 
 
 
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="https://ai4life.eurobioimaging.eu/ai4life-teams-up-with-galaxy-training-network-gtn-to-enhance-training-resources/"><h3 class="card-title">AI4Life teams up with GTN to enhance training resources</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/06/27/ai4life.html"><h4 class="card-title">AI4Life teams up with GTN to enhance training resources</h4></a>-->
+        <div class="text-muted">
+        27 June 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=36" alt="Avatar" width="36" height="36" />Beatriz Serrano-Solano</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #ffabee; --color-darker: #ff84e9; --color-dimmed: #ff98ec;">new community</span>
+
+    <hr />
+    <p class="card-text">
+      
+        This is an external post, please follow the link to read it.
+      
+    </p>
+    <a href="https://ai4life.eurobioimaging.eu/ai4life-teams-up-with-galaxy-training-network-gtn-to-enhance-training-resources/" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2023/06/21/fair.html"><h3 class="card-title">ELIXIR-UK Fellow Launches New FAIR Data Management Training</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/06/21/fair.html"><h4 class="card-title">ELIXIR-UK Fellow Launches New FAIR Data Management Training</h4></a>-->
+        <div class="text-muted">
+        21 June 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/kkamieniecka/" class="contributor-badge contributor-kkamieniecka"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/kkamieniecka?s=36" alt="Avatar" width="36" height="36" />Katarzyna Kamieniecka</a><a href="/training-material/hall-of-fame/poterlowicz-lab/" class="contributor-badge contributor-poterlowicz-lab"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/poterlowicz-lab?s=36" alt="Avatar" width="36" height="36" />Krzysztof Poterlowicz</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
+
+    <hr />
+    <p class="card-text">
+      
+        Katarzyna Kamieniecka (University of Bradford), a member of the ELIXIR-UK Fellowship Programme, has just launched a new series of lessons to improve {FAIR} data management in the life sciences. The lessons are designed to help researchers and research support staff understand the principles of FAIR data management and apply them to their own work.
+
+      
+    </p>
+    <a href="/training-material/news/2023/06/21/fair.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2023/06/07/pan-galactic-search.html"><h3 class="card-title">New Feature: Pan-Galactic Tool Search</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/06/07/pan-galactic-search.html"><h4 class="card-title">New Feature: Pan-Galactic Tool Search</h4></a>-->
+        <div class="text-muted">
+        7 June 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
+
+    <hr />
+    <p class="card-text">
+      
+        Did you ever want to run a tool, but not know where it might be available?
+The GTN has you covered with the Pan-Galactic Tool Search that is now available.
+
+      
+    </p>
+    <a href="/training-material/news/2023/06/07/pan-galactic-search.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2023/06/01/hart.html"><h3 class="card-title">GTN Celebrates Pride Month: Alan Hart &amp; M. Tuberculosis</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/06/01/hart.html"><h4 class="card-title">GTN Celebrates Pride Month: Alan Hart & M. Tuberculosis</h4></a>-->
+        <div class="text-muted">
+        1 June 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+    <hr />
+    <p class="card-text">
+      
+        June is Pride Month in the US and countries around the world. We have automatically activated the new Progress Pride theme on the home page (Click to Activate) if you hadn’t already selected a theme.
+
+      
+    </p>
+    <a href="/training-material/news/2023/06/01/hart.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2023/05/15/isoform-usage-training.html"><h3 class="card-title">New Galaxy training: Genome-wide alternative splicing analysis</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material/news/images/isoform_usage_post.jpg" alt="Schematic of an isoform switch and detection pipeline. Data is annotated and a prediction is made for isoform switch consequences" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/05/15/isoform-usage-training.html"><h4 class="card-title">New Galaxy training: Genome-wide alternative splicing analysis</h4></a>-->
+        <div class="text-muted">
+        15 May 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/gallardoalba/" class="contributor-badge contributor-gallardoalba"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/gallardoalba?s=36" alt="Avatar" width="36" height="36" />Cristóbal Gallardo</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
+
+    <hr />
+    <p class="card-text">
+      
+        The GTN hosts a new training for analyzing alternative splicing at genome-wide scale!
+
+      
+    </p>
+    <a href="/training-material/news/2023/05/15/isoform-usage-training.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2023/05/11/ro-crate.html"><h3 class="card-title">BY-COVID and RO-Crate collaboration brings new topic: FAIR Data, Workflows &amp; More</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material/assets/images/BYCOVID_logo_tagline.png" alt="logo of by covid with subtitle reading beyond covid" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2023/05/11/ro-crate.html"><h4 class="card-title">BY-COVID and RO-Crate collaboration brings new topic: FAIR Data, Workflows & More</h4></a>-->
+        <div class="text-muted">
+        11 May 2023
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/simleo/" class="contributor-badge contributor-simleo"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/simleo?s=36" alt="Avatar" width="36" height="36" />Simone Leo</a><a href="/training-material/hall-of-fame/pauldg/" class="contributor-badge contributor-pauldg"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/pauldg?s=36" alt="Avatar" width="36" height="36" />Paul De Geest</a><a href="/training-material/hall-of-fame/stain/" class="contributor-badge contributor-stain"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/stain?s=36" alt="Avatar" width="36" height="36" />Stian Soiland-Reyes</a><a href="/training-material/hall-of-fame/ilveroluca/" class="contributor-badge contributor-ilveroluca"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/ilveroluca?s=36" alt="Avatar" width="36" height="36" />Luca Pireddu</a><a href="/training-material/hall-of-fame/kikkomep/" class="contributor-badge contributor-kikkomep"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/kikkomep?s=36" alt="Avatar" width="36" height="36" />Marco Enrico Piras</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+	<tr>
+		<td><abbr title="These people edited the text, either for spelling and grammar, flow, GTN-fit, or other similar editing categories">Editor(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a></td>
+	</tr>
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
+
+    <hr />
+    <p class="card-text">
+      
+        As part of the BY-COVID project, the RO-Crate team and BY-COVID members have
+brought several RO-Crate related tutorials into the Galaxy Training Network, under a brand new {FAIR} topic!
+
+      
+    </p>
+    <a href="/training-material/news/2023/05/11/ro-crate.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
 
 
 
@@ -203,7 +677,7 @@
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -214,16 +688,39 @@
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -237,12 +734,13 @@
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -253,7 +751,7 @@
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material/assets/images/purl.png" alt="" loading="lazy" />
+   <img class="card-img newscover" src="/training-material/assets/images/purl.png" alt="the bottom left corner of an overview box from a training material is shown, a label short link clearly has a short link as described in the tutorial" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -264,16 +762,39 @@
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -287,12 +808,13 @@
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -303,7 +825,7 @@
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -314,16 +836,39 @@
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -337,12 +882,13 @@
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -353,7 +899,7 @@
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -364,16 +910,39 @@
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -388,12 +957,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -421,7 +991,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
 		</td>
 	</tr>
 	
@@ -445,7 +1015,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -459,12 +1029,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -475,7 +1046,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -492,7 +1063,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/lldelisle/" class="contributor-badge contributor-lldelisle"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/lldelisle?s=27" alt="Avatar" />Lucille Delisle</a>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/lldelisle/" class="contributor-badge contributor-lldelisle"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/lldelisle?s=36" alt="Avatar" width="36" height="36" />Lucille Delisle</a>
 		</td>
 	</tr>
 	
@@ -516,11 +1087,11 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #a3f700; --color-darker: #91db00; --color-dimmed: #9ae900;">community building</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #90db00; --color-darker: #80c300; --color-dimmed: #88cf00;">community building</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #bdf200; --color-darker: #a8d700; --color-dimmed: #b3e400;">capacity building</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #a8d600; --color-darker: #95bf00; --color-dimmed: #9fcb00;">capacity building</span>
 
     <hr />
     <p class="card-text">
@@ -534,12 +1105,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -550,7 +1122,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -567,7 +1139,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
 		</td>
 	</tr>
 	
@@ -591,9 +1163,9 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -607,12 +1179,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -623,7 +1196,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -634,7 +1207,30 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
@@ -653,12 +1249,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -680,14 +1277,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a><a href="/training-material/hall-of-fame/EngyNasr/" class="contributor-badge contributor-EngyNasr"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/EngyNasr?s=27" alt="Avatar" />Engy Nasr</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a><a href="/training-material/hall-of-fame/EngyNasr/" class="contributor-badge contributor-EngyNasr"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/EngyNasr?s=36" alt="Avatar" width="36" height="36" />Engy Nasr</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
     <hr />
     <p class="card-text">
@@ -701,12 +1321,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -717,7 +1338,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -728,16 +1349,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
     <hr />
     <p class="card-text">
@@ -751,12 +1395,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -767,7 +1412,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -778,16 +1423,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/wm75/" class="contributor-badge contributor-wm75"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/wm75?s=27" alt="Avatar" />Wolfgang Maier</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/wm75/" class="contributor-badge contributor-wm75"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/wm75?s=36" alt="Avatar" width="36" height="36" />Wolfgang Maier</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #deddff; --color-darker: #c3c1ff; --color-dimmed: #d0cfff;">new topic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -801,12 +1469,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -828,14 +1497,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffdc8d; --color-darker: #f1c100; --color-dimmed: #ffcd16;">paper</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #f0c100; --color-darker: #d6ac00; --color-dimmed: #e3b600;">paper</span>
 
     <hr />
     <p class="card-text">
@@ -849,12 +1541,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -876,18 +1569,41 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=27" alt="Avatar" />Mehmet Tekman</a><a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=27" alt="Avatar" />Wendi Bacon</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=36" alt="Avatar" width="36" height="36" />Mehmet Tekman</a><a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=36" alt="Avatar" width="36" height="36" />Wendi Bacon</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fae7; --color-darker: #00decd; --color-dimmed: #00ecda;">single-cell</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00decd; --color-darker: #00c6b6; --color-dimmed: #00d2c1;">single-cell</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #f6e200; --color-darker: #dbc900; --color-dimmed: #e8d600;">transcriptomics</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #dac900; --color-darker: #c2b300; --color-dimmed: #cebe00;">transcriptomics</span>
 
     <hr />
     <p class="card-text">
@@ -901,12 +1617,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -928,18 +1645,41 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=27" alt="Avatar" />Wendi Bacon</a><a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=27" alt="Avatar" />Mehmet Tekman</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=36" alt="Avatar" width="36" height="36" />Wendi Bacon</a><a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=36" alt="Avatar" width="36" height="36" />Mehmet Tekman</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #deddff; --color-darker: #c3c1ff; --color-dimmed: #d0cfff;">new topic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fae7; --color-darker: #00decd; --color-dimmed: #00ecda;">single-cell</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00decd; --color-darker: #00c6b6; --color-dimmed: #00d2c1;">single-cell</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -953,12 +1693,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -980,14 +1721,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
     <hr />
     <p class="card-text">
@@ -1001,12 +1765,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1028,16 +1793,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #c9e2ff; --color-darker: #96ccff; --color-dimmed: #b1d7ff;">Galaxy Tips &amp; Tricks</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #95ccff; --color-darker: #55b9ff; --color-dimmed: #79c2ff;">Galaxy Tips &amp; Tricks</span>
 
     <hr />
     <p class="card-text">
@@ -1051,12 +1839,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1067,7 +1856,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -1078,14 +1867,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -1099,12 +1911,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1126,18 +1939,41 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/erasmusplus/" class="contributor-badge contributor-erasmusplus"><img src="https://avatars.githubusercontent.com/erasmusplus?s=27" alt="Avatar" />Erasmus+ Programme</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #e8d9ff; --color-darker: #d7baff; --color-dimmed: #e0caff;">tutorial authors</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #d7baff; --color-darker: #c99dff; --color-dimmed: #d0abff;">tutorial authors</span>
 
     <hr />
     <p class="card-text">
@@ -1151,12 +1987,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1178,23 +2015,48 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/gallardoalba/" class="contributor-badge contributor-gallardoalba"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/gallardoalba?s=27" alt="Avatar" />Cristóbal Gallardo</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/delphine-l?s=27" alt="Avatar" />Delphine Lariviere</a><a href="/training-material/hall-of-fame/astrovsky01/" class="contributor-badge contributor-astrovsky01"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/astrovsky01?s=27" alt="Avatar" />Alex Ostrovsky</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/gallardoalba/" class="contributor-badge contributor-gallardoalba"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/gallardoalba?s=36" alt="Avatar" width="36" height="36" />Cristóbal Gallardo</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/delphine-l?s=36" alt="Avatar" width="36" height="36" />Delphine Lariviere</a><a href="/training-material/hall-of-fame/astrovsky01/" class="contributor-badge contributor-astrovsky01"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/astrovsky01?s=36" alt="Avatar" width="36" height="36" />Alex Ostrovsky</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd4ea; --color-darker: #ffaedb; --color-dimmed: #ffc2e2;">assembly</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffaedb; --color-darker: #ff89ce; --color-dimmed: #ff9cd4;">assembly</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd4e9; --color-darker: #ffafd8; --color-dimmed: #ffc2e0;">pacbio</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffaed8; --color-darker: #ff8aca; --color-dimmed: #ff9dd1;">pacbio</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #fface9; --color-darker: #ff86e2; --color-dimmed: #ff9ae5;">vgp</span>
 
     <hr />
     <p class="card-text">
       
-        We are proud to announce that, as result of the collaboration with the Vertebrate Genomes Project (VGP), a new training describing the VGP assembly pipeline (fig. 1) is now available in the Galaxy Training Network. The Vertebrate Genomes Project aims to generate high-quality, near-error-free, gap-free, chromosome-level, haplotype-phased, annotated reference genome assemblies for every vertebrate species.
+        We are proud to announce that, as result of the collaboration with the Vertebrate Genomes Project (VGP), a new training describing the VGP assembly pipeline is now available in the Galaxy Training Network. The Vertebrate Genomes Project aims to generate high-quality, near-error-free, gap-free, chromosome-level, haplotype-phased, annotated reference genome assemblies for every vertebrate species.
 
       
     </p>
@@ -1203,12 +2065,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1236,7 +2099,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
 		</td>
 	</tr>
 	
@@ -1260,9 +2123,9 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -1276,12 +2139,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1302,49 +2166,6 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         </div>
         <div>
 
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #00f8ff; --color-darker: #00dce3; --color-dimmed: #00eaf1;">event</span>
-
-    <hr />
-    <p class="card-text">
-      
-        This is an external post, please follow the link to read it.
-      
-    </p>
-    <a href="https://gallantries.github.io/posts/2021/12/14/smorgasbord2-tapas/?utm_source=gtn&amp;utm_medium=news&amp;utm_campaign=smorgasbord2" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/12/14/funding.html"><h3 class="card-title">Support for annotating Funding Agencies</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/12/14/funding.html"><h4 class="card-title">Support for annotating Funding Agencies</h4></a>-->
-        <div class="text-muted">
-        14 December 2021
-        </div>
-        <div>
-
 	<div class="contributors-line">
 		
 <table class="contributions">
@@ -1352,7 +2173,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
 		</td>
 	</tr>
 	
@@ -1376,7 +2197,78 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #fffbae; --color-darker: #e8e100; --color-dimmed: #f7ef00;">new-feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce2; --color-darker: #00c4ca; --color-dimmed: #00d0d6;">event</span>
+
+    <hr />
+    <p class="card-text">
+      
+        This is an external post, please follow the link to read it.
+      
+    </p>
+    <a href="https://gallantries.github.io/posts/2021/12/14/smorgasbord2-tapas/?utm_source=gtn&amp;utm_medium=news&amp;utm_campaign=smorgasbord2" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/12/14/funding.html"><h3 class="card-title">Support for annotating Funding Agencies</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/12/14/funding.html"><h4 class="card-title">Support for annotating Funding Agencies</h4></a>-->
+        <div class="text-muted">
+        14 December 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #fef700; --color-darker: #e2db00; --color-dimmed: #f0e900;">new-feature</span>
 
     <hr />
     <p class="card-text">
@@ -1390,12 +2282,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1417,265 +2310,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/abretaud?s=27" alt="Avatar" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/alexcorm/" class="contributor-badge contributor-alexcorm"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/alexcorm?s=27" alt="Avatar" />Alexandre Cormier</a><a href="/training-material/hall-of-fame/lleroi/" class="contributor-badge contributor-lleroi"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/lleroi?s=27" alt="Avatar" />Laura Leroi</a><a href="/training-material/hall-of-fame/r1corre/" class="contributor-badge contributor-r1corre"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/r1corre?s=27" alt="Avatar" />Erwan Corre</a><a href="/training-material/hall-of-fame/stephanierobin/" class="contributor-badge contributor-stephanierobin"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/stephanierobin?s=27" alt="Avatar" />Stéphanie Robin</a>
-	</div>
-
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd4ea; --color-darker: #ffaedb; --color-dimmed: #ffc2e2;">assembly</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #bbf200; --color-darker: #a6d700; --color-dimmed: #b0e500;">genome-annotation</span>
-
-    <hr />
-    <p class="card-text">
-      
-        We have just finished a new collection of training material for genome assembly and annotation! You now have access to slides and tutorials, focused on the complete analysis of the genome of a fungus species (Mucor mucedo).
-
-      
-    </p>
-    <a href="/training-material/news/2021/12/01/assembly-annotation.html" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/12/01/FAIR.html"><h3 class="card-title">New FAQs: How does the GTN stay FAIR and Collaborative</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/12/01/FAIR.html"><h4 class="card-title">New FAQs: How does the GTN stay FAIR and Collaborative</h4></a>-->
-        <div class="text-muted">
-        1 December 2021
-        </div>
-        <div>
-
-	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
-	</div>
-
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd5de; --color-darker: #ffb1c4; --color-dimmed: #ffc4d1;">faq</span>
-
-    <hr />
-    <p class="card-text">
-      
-        The GTN does a lot of work to adhere to the best practices for FAIR training materials as set out in Garcia et al. 2020 and a lot of this work is behind-the-scenes or automatic from the infrastructure we provide, and we wanted to highlight that for educators and organisers who want to use GTN materials. This is one of the ways the GTN works to makes itself a fantastic platform training. Find out how contributing simple markdown tutorials can result in fantastically FAIR training.
-
-      
-    </p>
-    <a href="/training-material/news/2021/12/01/FAIR.html" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/11/23/video-library.html"><h3 class="card-title">New Feature: GTN Video Library</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material/news/images/gtn-videolib-stats.png" alt="Screenshot of the GTN Video Library Home page" loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/11/23/video-library.html"><h4 class="card-title">New Feature: GTN Video Library</h4></a>-->
-        <div class="text-muted">
-        23 November 2021
-        </div>
-        <div>
-
-	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
-	</div>
-
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
-
-    <hr />
-    <p class="card-text">
-      
-        After runnning a number of virtual training events this year (e.g. Smörgåsbord, GCC2021), we now have a large collection of training videos around the GTN materials, created by this community.
-
-      
-    </p>
-    <a href="/training-material/news/2021/11/23/video-library.html" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/11/10/api.html"><h3 class="card-title">New Feature: GTN API with OpenAPI 3 specification</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material/assets/images/swagger.png" alt="Image showing an OpenAPI / Swagger UI to the training material API featuring several APIs like topics, tutorials, contributors, and a couple internal APIs. At the bottom are a couple of data models." loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/11/10/api.html"><h4 class="card-title">New Feature: GTN API with OpenAPI 3 specification</h4></a>-->
-        <div class="text-muted">
-        10 November 2021
-        </div>
-        <div>
-
-	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
-	</div>
-
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
-
-    <hr />
-    <p class="card-text">
-      
-        As part of the work for the Gallantries Grant, we wanted to access some of the data from the GTN in a more accessible, API based way. We are working on building a Video Library based on the wild success of our Smörgåsbord and GCC2021 events and to support that we wanted to start pulling in data from the GTN to save course authors time and effort when designing their asynchronous courses.
-
-      
-    </p>
-    <a href="/training-material/news/2021/11/10/api.html" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/10/12/speed.html"><h3 class="card-title">Attention Contributors: GTN Performance Enhancements</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/10/12/speed.html"><h4 class="card-title">Attention Contributors: GTN Performance Enhancements</h4></a>-->
-        <div class="text-muted">
-        12 October 2021
-        </div>
-        <div>
-
-	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
-	</div>
-
-</div>
-
-
-        
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd7c7; --color-darker: #ffb691; --color-dimmed: #ffc7ae;">authors</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd2f8; --color-darker: #ffabf3; --color-dimmed: #ffbff5;">developers</span>
-
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd6d3; --color-darker: #ffb4ad; --color-dimmed: #ffc5c1;">performance</span>
-
-    <hr />
-    <p class="card-text">
-      
-        Are you one of our amazing GTN Contributors? Were you ever bothered by how slow it was to build the site locally? This is now fixed completely! We have replaced one of the slowest steps of the GTN’s build process and rewritten it ourselves to be more performant.
-
-      
-    </p>
-    <a href="/training-material/news/2021/10/12/speed.html" class="btn btn-primary">Full Story</a>
-   </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="card newsitem">
- <div class="card-header">
-     <a href="/training-material/news/2021/10/12/data-science.html"><h3 class="card-title">New Topic: Data Science Survival Kit</h3></a>
-  </div>
- <div class="row no-gutters">
-  <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
-  </div>
-  <div class="col-sm-7">
-   <div class="card-body">
-        <!--<a href="/training-material/news/2021/10/12/data-science.html"><h4 class="card-title">New Topic: Data Science Survival Kit</h4></a>-->
-        <div class="text-muted">
-        12 October 2021
-        </div>
-        <div>
-
-	<div class="contributors-line">
 		
 <table class="contributions">
 	
 	<tr>
 		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
 		<td>
-			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a><a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/abretaud?s=27" alt="Avatar" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/yvanlebras/" class="contributor-badge contributor-yvanlebras"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/yvanlebras?s=27" alt="Avatar" />Yvan Le Bras</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/fpsom?s=27" alt="Avatar" />Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/carpentries/" class="contributor-badge contributor-carpentries"><img src="https://avatars.githubusercontent.com/carpentries?s=27" alt="Avatar" />The Carpentries</a>
+			<a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/abretaud?s=36" alt="Avatar" width="36" height="36" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/alexcorm/" class="contributor-badge contributor-alexcorm"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/alexcorm?s=36" alt="Avatar" width="36" height="36" />Alexandre Cormier</a><a href="/training-material/hall-of-fame/lleroi/" class="contributor-badge contributor-lleroi"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/lleroi?s=36" alt="Avatar" width="36" height="36" />Laura Leroi</a><a href="/training-material/hall-of-fame/r1corre/" class="contributor-badge contributor-r1corre"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/r1corre?s=36" alt="Avatar" width="36" height="36" />Erwan Corre</a><a href="/training-material/hall-of-fame/stephanierobin/" class="contributor-badge contributor-stephanierobin"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/stephanierobin?s=36" alt="Avatar" width="36" height="36" />Stéphanie Robin</a>
 		</td>
 	</tr>
 	
@@ -1699,9 +2340,381 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #deddff; --color-darker: #c3c1ff; --color-dimmed: #d0cfff;">new topic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffaedb; --color-darker: #ff89ce; --color-dimmed: #ff9cd4;">assembly</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #a5d700; --color-darker: #93c000; --color-dimmed: #9ccb00;">genome-annotation</span>
+
+    <hr />
+    <p class="card-text">
+      
+        We have just finished a new collection of training material for genome assembly and annotation! You now have access to slides and tutorials, focused on the complete analysis of the genome of a fungus species (Mucor mucedo).
+
+      
+    </p>
+    <a href="/training-material/news/2021/12/01/assembly-annotation.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/12/01/FAIR.html"><h3 class="card-title">New FAQs: How does the GTN stay FAIR and Collaborative</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/12/01/FAIR.html"><h4 class="card-title">New FAQs: How does the GTN stay FAIR and Collaborative</h4></a>-->
+        <div class="text-muted">
+        1 December 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb1c3; --color-darker: #ff8eac; --color-dimmed: #ffa0b8;">faq</span>
+
+    <hr />
+    <p class="card-text">
+      
+        The GTN does a lot of work to adhere to the best practices for FAIR training materials as set out in Garcia et al. 2020 and a lot of this work is behind-the-scenes or automatic from the infrastructure we provide, and we wanted to highlight that for educators and organisers who want to use GTN materials. This is one of the ways the GTN works to makes itself a fantastic platform training. Find out how contributing simple markdown tutorials can result in fantastically FAIR training.
+
+      
+    </p>
+    <a href="/training-material/news/2021/12/01/FAIR.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/11/23/video-library.html"><h3 class="card-title">New Feature: GTN Video Library</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material/news/images/gtn-videolib-stats.png" alt="Screenshot of the GTN Video Library Home page" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/11/23/video-library.html"><h4 class="card-title">New Feature: GTN Video Library</h4></a>-->
+        <div class="text-muted">
+        23 November 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
+
+    <hr />
+    <p class="card-text">
+      
+        After runnning a number of virtual training events this year (e.g. Smörgåsbord, GCC2021), we now have a large collection of training videos around the GTN materials, created by this community.
+
+      
+    </p>
+    <a href="/training-material/news/2021/11/23/video-library.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/11/10/api.html"><h3 class="card-title">New Feature: GTN API with OpenAPI 3 specification</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material/assets/images/swagger.png" alt="Image showing an OpenAPI / Swagger UI to the training material API featuring several APIs like topics, tutorials, contributors, and a couple internal APIs. At the bottom are a couple of data models." loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/11/10/api.html"><h4 class="card-title">New Feature: GTN API with OpenAPI 3 specification</h4></a>-->
+        <div class="text-muted">
+        10 November 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
+
+    <hr />
+    <p class="card-text">
+      
+        As part of the work for the Gallantries Grant, we wanted to access some of the data from the GTN in a more accessible, API based way. We are working on building a Video Library based on the wild success of our Smörgåsbord and GCC2021 events and to support that we wanted to start pulling in data from the GTN to save course authors time and effort when designing their asynchronous courses.
+
+      
+    </p>
+    <a href="/training-material/news/2021/11/10/api.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/10/12/speed.html"><h3 class="card-title">Attention Contributors: GTN Performance Enhancements</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/10/12/speed.html"><h4 class="card-title">Attention Contributors: GTN Performance Enhancements</h4></a>-->
+        <div class="text-muted">
+        12 October 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb690; --color-darker: #ff9648; --color-dimmed: #ffa672;">authors</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #ffabf3; --color-darker: #ff83ef; --color-dimmed: #ff97f1;">developers</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb4ad; --color-darker: #ff9287; --color-dimmed: #ffa39b;">performance</span>
+
+    <hr />
+    <p class="card-text">
+      
+        Are you one of our amazing GTN Contributors? Were you ever bothered by how slow it was to build the site locally? This is now fixed completely! We have replaced one of the slowest steps of the GTN’s build process and rewritten it ourselves to be more performant.
+
+      
+    </p>
+    <a href="/training-material/news/2021/10/12/speed.html" class="btn btn-primary">Full Story</a>
+   </div>
+  </div>
+ </div>
+</div>
+</article>
+
+
+
+
+
+<article>
+
+
+
+
+<div class="card newsitem">
+ <div class="card-header">
+     <a href="/training-material/news/2021/10/12/data-science.html"><h3 class="card-title">New Topic: Data Science Survival Kit</h3></a>
+  </div>
+ <div class="row no-gutters">
+  <div class="col-sm-5">
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+  </div>
+  <div class="col-sm-7">
+   <div class="card-body">
+        <!--<a href="/training-material/news/2021/10/12/data-science.html"><h4 class="card-title">New Topic: Data Science Survival Kit</h4></a>-->
+        <div class="text-muted">
+        12 October 2021
+        </div>
+        <div>
+
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a><a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/abretaud?s=36" alt="Avatar" width="36" height="36" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/yvanlebras/" class="contributor-badge contributor-yvanlebras"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/yvanlebras?s=36" alt="Avatar" width="36" height="36" />Yvan Le Bras</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/fpsom?s=36" alt="Avatar" width="36" height="36" />Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/carpentries/" class="contributor-badge contributor-carpentries"><img src="https://avatars.githubusercontent.com/carpentries?s=36" alt="Avatar" width="36" height="36" />The Carpentries</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
+</div>
+
+
+        
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
+
+<span class="label label-default tutorial_tag" style="--color-primary: #c3c1ff; --color-darker: #aba8ff; --color-dimmed: #b7b4ff;">new topic</span>
 
     <hr />
     <p class="card-text">
@@ -1715,12 +2728,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1742,14 +2756,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #f6d4ff; --color-darker: #f0b0ff; --color-dimmed: #f3c3ff;">feedback</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #f0b0ff; --color-darker: #eb8cff; --color-dimmed: #ed9eff;">feedback</span>
 
     <hr />
     <p class="card-text">
@@ -1763,12 +2800,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1790,16 +2828,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -1813,12 +2874,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1840,16 +2902,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #30f7ff; --color-darker: #00dce4; --color-dimmed: #00eaf2;">contributors</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce3; --color-darker: #00c4cb; --color-dimmed: #00d0d7;">contributors</span>
 
     <hr />
     <p class="card-text">
@@ -1863,12 +2948,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1879,7 +2965,7 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -1890,14 +2976,37 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -1911,12 +3020,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1938,18 +3048,41 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a><a href="/training-material/hall-of-fame/wm75/" class="contributor-badge contributor-wm75"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/wm75?s=27" alt="Avatar" />Wolfgang Maier</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a><a href="/training-material/hall-of-fame/wm75/" class="contributor-badge contributor-wm75"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/wm75?s=36" alt="Avatar" width="36" height="36" />Wolfgang Maier</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fdc6; --color-darker: #00e1b0; --color-dimmed: #00efbb;">variant-analysis</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e0b0; --color-darker: #00c89c; --color-dimmed: #00d4a6;">variant-analysis</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #f2d6ff; --color-darker: #e8b4ff; --color-dimmed: #edc5ff;">covid-19</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #e8b3ff; --color-darker: #e192ff; --color-dimmed: #e4a3ff;">covid-19</span>
 
     <hr />
     <p class="card-text">
@@ -1963,12 +3096,13 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -1990,16 +3124,39 @@ If you are on either usegalaxy.org or usegalaxy.eu, we have implemented easy but
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/mblue9/" class="contributor-badge contributor-mblue9"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/mblue9?s=27" alt="Avatar" />Maria Doyle</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/mblue9/" class="contributor-badge contributor-mblue9"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/mblue9?s=36" alt="Avatar" width="36" height="36" />Maria Doyle</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd4e5; --color-darker: #ffb0d2; --color-dimmed: #ffc2db;">visualization</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffafd2; --color-darker: #ff8bc1; --color-dimmed: #ff9ec9;">visualization</span>
 
     <hr />
     <p class="card-text">
@@ -2015,12 +3172,13 @@ Happy plotting!
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2042,16 +3200,39 @@ Happy plotting!
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #30f7ff; --color-darker: #00dce4; --color-dimmed: #00eaf2;">contributors</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce3; --color-darker: #00c4cb; --color-dimmed: #00d0d7;">contributors</span>
 
     <hr />
     <p class="card-text">
@@ -2065,12 +3246,13 @@ Happy plotting!
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2092,16 +3274,39 @@ Happy plotting!
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/abretaud?s=27" alt="Avatar" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/nathandunn/" class="contributor-badge contributor-nathandunn"><img src="https://avatars.githubusercontent.com/nathandunn?s=27" alt="Avatar" />Nathan Dunn</a><a href="/training-material/hall-of-fame/mboudet/" class="contributor-badge contributor-mboudet"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/mboudet?s=27" alt="Avatar" />Mateo Boudet</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/abretaud/" class="contributor-badge contributor-abretaud"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/abretaud?s=36" alt="Avatar" width="36" height="36" />Anthony Bretaudeau</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/nathandunn/" class="contributor-badge contributor-nathandunn"><img src="https://avatars.githubusercontent.com/nathandunn?s=36" alt="Avatar" width="36" height="36" />Nathan Dunn</a><a href="/training-material/hall-of-fame/mboudet/" class="contributor-badge contributor-mboudet"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/mboudet?s=36" alt="Avatar" width="36" height="36" />Mateo Boudet</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #bbf200; --color-darker: #a6d700; --color-dimmed: #b0e500;">genome-annotation</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #a5d700; --color-darker: #93c000; --color-dimmed: #9ccb00;">genome-annotation</span>
 
     <hr />
     <p class="card-text">
@@ -2115,12 +3320,13 @@ Happy plotting!
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2131,7 +3337,7 @@ Happy plotting!
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2142,14 +3348,37 @@ Happy plotting!
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -2164,12 +3393,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2180,7 +3410,7 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2191,14 +3421,37 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/rikeshi/" class="contributor-badge contributor-rikeshi"><img src="https://avatars.githubusercontent.com/rikeshi?s=27" alt="Avatar" />Erik Schill</a><a href="/training-material/hall-of-fame/simonbray/" class="contributor-badge contributor-simonbray"><img src="https://avatars.githubusercontent.com/simonbray?s=27" alt="Avatar" />Simon Bray</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/rikeshi/" class="contributor-badge contributor-rikeshi"><img src="https://avatars.githubusercontent.com/rikeshi?s=36" alt="Avatar" width="36" height="36" />Erik Schill</a><a href="/training-material/hall-of-fame/simonbray/" class="contributor-badge contributor-simonbray"><img src="https://avatars.githubusercontent.com/simonbray?s=36" alt="Avatar" width="36" height="36" />Simon Bray</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
     <hr />
     <p class="card-text">
@@ -2212,12 +3465,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2228,7 +3482,7 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2239,14 +3493,37 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/rikeshi/" class="contributor-badge contributor-rikeshi"><img src="https://avatars.githubusercontent.com/rikeshi?s=27" alt="Avatar" />Erik Schill</a><a href="/training-material/hall-of-fame/simonbray/" class="contributor-badge contributor-simonbray"><img src="https://avatars.githubusercontent.com/simonbray?s=27" alt="Avatar" />Simon Bray</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/rikeshi/" class="contributor-badge contributor-rikeshi"><img src="https://avatars.githubusercontent.com/rikeshi?s=36" alt="Avatar" width="36" height="36" />Erik Schill</a><a href="/training-material/hall-of-fame/simonbray/" class="contributor-badge contributor-simonbray"><img src="https://avatars.githubusercontent.com/simonbray?s=36" alt="Avatar" width="36" height="36" />Simon Bray</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -2260,12 +3537,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2287,16 +3565,39 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=27" alt="Avatar" />Wendi Bacon</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=27" alt="Avatar" />Beatriz Serrano-Solano</a><a href="/training-material/hall-of-fame/pclo/" class="contributor-badge contributor-pclo"><img src="https://avatars.githubusercontent.com/pclo?s=27" alt="Avatar" />Patricia Carvajal López</a><a href="/training-material/hall-of-fame/ales-ibt/" class="contributor-badge contributor-ales-ibt"><img src="https://avatars.githubusercontent.com/ales-ibt?s=27" alt="Avatar" />Alejandra Escobar-Zepeda</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/nomadscientist/" class="contributor-badge contributor-nomadscientist"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/nomadscientist?s=36" alt="Avatar" width="36" height="36" />Wendi Bacon</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=36" alt="Avatar" width="36" height="36" />Beatriz Serrano-Solano</a><a href="/training-material/hall-of-fame/pclo/" class="contributor-badge contributor-pclo"><img src="https://avatars.githubusercontent.com/pclo?s=36" alt="Avatar" width="36" height="36" />Patricia Carvajal López</a><a href="/training-material/hall-of-fame/ales-ibt/" class="contributor-badge contributor-ales-ibt"><img src="https://avatars.githubusercontent.com/ales-ibt?s=36" alt="Avatar" width="36" height="36" />Alejandra Escobar-Zepeda</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00f9ed; --color-darker: #00ded3; --color-dimmed: #00ece0;">español</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00ded3; --color-darker: #00c5bc; --color-dimmed: #00d1c7;">español</span>
 
     <hr />
     <p class="card-text">
@@ -2310,12 +3611,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2337,20 +3639,43 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/gallardoalba/" class="contributor-badge contributor-gallardoalba"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/gallardoalba?s=27" alt="Avatar" />Cristóbal Gallardo</a><a href="/training-material/hall-of-fame/pavanvidem/" class="contributor-badge contributor-pavanvidem"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/pavanvidem?s=27" alt="Avatar" />Pavankumar Videm</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=27" alt="Avatar" />Beatriz Serrano-Solano</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/gallardoalba/" class="contributor-badge contributor-gallardoalba"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/gallardoalba?s=36" alt="Avatar" width="36" height="36" />Cristóbal Gallardo</a><a href="/training-material/hall-of-fame/pavanvidem/" class="contributor-badge contributor-pavanvidem"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/pavanvidem?s=36" alt="Avatar" width="36" height="36" />Pavankumar Videm</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=36" alt="Avatar" width="36" height="36" />Beatriz Serrano-Solano</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #f6e200; --color-darker: #dbc900; --color-dimmed: #e8d600;">transcriptomics</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #dac900; --color-darker: #c2b300; --color-dimmed: #cebe00;">transcriptomics</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #74fd00; --color-darker: #67e100; --color-dimmed: #6def00;">plants</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #66e100; --color-darker: #5ac800; --color-dimmed: #60d500;">plants</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd3ed; --color-darker: #ffaee1; --color-dimmed: #ffc1e7;">mirna</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffade0; --color-darker: #ff88d6; --color-dimmed: #ff9bdb;">mirna</span>
 
     <hr />
     <p class="card-text">
@@ -2364,12 +3689,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2391,18 +3717,41 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #88efff; --color-darker: #00dbef; --color-dimmed: #00e9fe;">video</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dbef; --color-darker: #00c3d5; --color-dimmed: #00cfe2;">video</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -2416,12 +3765,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2443,18 +3793,41 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=27" alt="Avatar" />Mehmet Tekman</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=27" alt="Avatar" />Beatriz Serrano-Solano</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/mtekman/" class="contributor-badge contributor-mtekman"><img src="https://avatars.githubusercontent.com/mtekman?s=36" alt="Avatar" width="36" height="36" />Mehmet Tekman</a><a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=36" alt="Avatar" width="36" height="36" />Beatriz Serrano-Solano</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fae7; --color-darker: #00decd; --color-dimmed: #00ecda;">single-cell</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00decd; --color-darker: #00c6b6; --color-dimmed: #00d2c1;">single-cell</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #e6daff; --color-darker: #d3bbff; --color-dimmed: #ddcbff;">plant</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #d3bbff; --color-darker: #c39fff; --color-dimmed: #cbadff;">plant</span>
 
     <hr />
     <p class="card-text">
@@ -2468,12 +3841,13 @@ On every tag, we’d build a copy of the website which we would place online and
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2495,24 +3869,47 @@ On every tag, we’d build a copy of the website which we would place online and
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/bazante1/" class="contributor-badge contributor-bazante1"><img src="https://avatars.githubusercontent.com/bazante1?s=27" alt="Avatar" />Bazante Sanders</a><a href="/training-material/hall-of-fame/miaomiaozhou88/" class="contributor-badge contributor-miaomiaozhou88"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/miaomiaozhou88?s=27" alt="Avatar" />Miaomiao Zhou</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/bazante1/" class="contributor-badge contributor-bazante1"><img src="https://avatars.githubusercontent.com/bazante1?s=36" alt="Avatar" width="36" height="36" />Bazante Sanders</a><a href="/training-material/hall-of-fame/miaomiaozhou88/" class="contributor-badge contributor-miaomiaozhou88"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/miaomiaozhou88?s=36" alt="Avatar" width="36" height="36" />Miaomiao Zhou</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd4ea; --color-darker: #ffaedb; --color-dimmed: #ffc2e2;">assembly</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffaedb; --color-darker: #ff89ce; --color-dimmed: #ff9cd4;">assembly</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #30f7ff; --color-darker: #00dce4; --color-dimmed: #00eaf2;">mrsa</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce3; --color-darker: #00c4cb; --color-dimmed: #00d0d7;">mrsa</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #d5dfff; --color-darker: #b1c6ff; --color-dimmed: #c3d2ff;">amr</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #b0c6ff; --color-darker: #8dafff; --color-dimmed: #9fbaff;">amr</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #c7e3ff; --color-darker: #91cdff; --color-dimmed: #add8ff;">nanopore</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #90cdff; --color-darker: #47baff; --color-dimmed: #72c3ff;">nanopore</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd9b0; --color-darker: #ffba45; --color-dimmed: #ffca86;">illumina</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffba43; --color-darker: #e8a400; --color-dimmed: #f6ae00;">illumina</span>
 
     <hr />
     <p class="card-text">
@@ -2532,12 +3929,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2548,7 +3946,7 @@ JBrowse.
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2559,20 +3957,43 @@ JBrowse.
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #18ff9e; --color-darker: #00e38b; --color-dimmed: #00f194;">gtn infrastructure</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e38a; --color-darker: #00ca7b; --color-dimmed: #00d683;">gtn infrastructure</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #30f7ff; --color-darker: #00dce4; --color-dimmed: #00eaf2;">contributors</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce3; --color-darker: #00c4cb; --color-dimmed: #00d0d7;">contributors</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fcd3; --color-darker: #00e0bb; --color-dimmed: #00eec7;">instructors</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e0bb; --color-darker: #00c7a6; --color-dimmed: #00d3b0;">instructors</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
     <hr />
     <p class="card-text">
@@ -2586,12 +4007,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2613,16 +4035,39 @@ JBrowse.
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=27" alt="Avatar" />Beatriz Serrano-Solano</a><a href="/training-material/hall-of-fame/sunyi000/" class="contributor-badge contributor-sunyi000"><img src="https://avatars.githubusercontent.com/sunyi000?s=27" alt="Avatar" />Yi Sun</a><a href="/training-material/hall-of-fame/jkh1/" class="contributor-badge contributor-jkh1"><img src="https://avatars.githubusercontent.com/jkh1?s=27" alt="Avatar" />Jean-Karim Hériché</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/beatrizserrano/" class="contributor-badge contributor-beatrizserrano"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/beatrizserrano?s=36" alt="Avatar" width="36" height="36" />Beatriz Serrano-Solano</a><a href="/training-material/hall-of-fame/sunyi000/" class="contributor-badge contributor-sunyi000"><img src="https://avatars.githubusercontent.com/sunyi000?s=36" alt="Avatar" width="36" height="36" />Yi Sun</a><a href="/training-material/hall-of-fame/jkh1/" class="contributor-badge contributor-jkh1"><img src="https://avatars.githubusercontent.com/jkh1?s=36" alt="Avatar" width="36" height="36" />Jean-Karim Hériché</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd8ba; --color-darker: #ffb96c; --color-dimmed: #ffc998;">new tutorial</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb86b; --color-darker: #f29f00; --color-dimmed: #ffa91e;">new tutorial</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd3ed; --color-darker: #ffaedf; --color-dimmed: #ffc1e6;">imaging</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffaddf; --color-darker: #ff88d4; --color-dimmed: #ff9bda;">imaging</span>
 
     <hr />
     <p class="card-text">
@@ -2636,12 +4081,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2663,14 +4109,37 @@ JBrowse.
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar" />Bérénice Batut</a><a href="/training-material/hall-of-fame/jennaj/" class="contributor-badge contributor-jennaj"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/jennaj?s=27" alt="Avatar" />Jennifer Hillman-Jackson</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/delphine-l?s=27" alt="Avatar" />Delphine Lariviere</a><a href="/training-material/hall-of-fame/annasyme/" class="contributor-badge contributor-annasyme"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/annasyme?s=27" alt="Avatar" />Anna Syme</a><a href="/training-material/hall-of-fame/mblue9/" class="contributor-badge contributor-mblue9"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/mblue9?s=27" alt="Avatar" />Maria Doyle</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36" />Bérénice Batut</a><a href="/training-material/hall-of-fame/jennaj/" class="contributor-badge contributor-jennaj"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/jennaj?s=36" alt="Avatar" width="36" height="36" />Jennifer Hillman-Jackson</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/delphine-l?s=36" alt="Avatar" width="36" height="36" />Delphine Lariviere</a><a href="/training-material/hall-of-fame/annasyme/" class="contributor-badge contributor-annasyme"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/annasyme?s=36" alt="Avatar" width="36" height="36" />Anna Syme</a><a href="/training-material/hall-of-fame/mblue9/" class="contributor-badge contributor-mblue9"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/mblue9?s=36" alt="Avatar" width="36" height="36" />Maria Doyle</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd2f5; --color-darker: #ffacee; --color-dimmed: #ffc0f2;">cofest</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffabee; --color-darker: #ff84e9; --color-dimmed: #ff98ec;">cofest</span>
 
     <hr />
     <p class="card-text">
@@ -2684,12 +4153,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2700,7 +4170,7 @@ JBrowse.
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2710,11 +4180,38 @@ JBrowse.
         </div>
         <div>
 
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #00f8ff; --color-darker: #00dce3; --color-dimmed: #00eaf1;">event</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce2; --color-darker: #00c4ca; --color-dimmed: #00d0d6;">event</span>
 
     <hr />
     <p class="card-text">
@@ -2727,12 +4224,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2754,18 +4252,41 @@ JBrowse.
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36" />Saskia Hiltemann</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #00f8ff; --color-darker: #00dce3; --color-dimmed: #00eaf1;">event</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce2; --color-darker: #00c4ca; --color-dimmed: #00d0d6;">event</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd5e1; --color-darker: #ffb1c9; --color-dimmed: #ffc3d5;">pandemic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb0c8; --color-darker: #ff8db4; --color-dimmed: #ff9fbe;">pandemic</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #b1e8ff; --color-darker: #47d6ff; --color-dimmed: #87dfff;">remote-teaching</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #45d6ff; --color-darker: #00c0e8; --color-dimmed: #00ccf6;">remote-teaching</span>
 
     <hr />
     <p class="card-text">
@@ -2779,12 +4300,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2805,11 +4327,38 @@ JBrowse.
         </div>
         <div>
 
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #b9e6ff; --color-darker: #68d3ff; --color-dimmed: #95ddff;">galaxy</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #67d3ff; --color-darker: #00bff0; --color-dimmed: #00cbff;">galaxy</span>
 
     <hr />
     <p class="card-text">
@@ -2823,12 +4372,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2839,7 +4389,7 @@ JBrowse.
   </div>
  <div class="row no-gutters">
   <div class="col-sm-5">
-   <img class="card-img newscover" src="/training-material//assets/images/GTN.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
+   <img class="card-img newscover" src="/training-material//assets/images/GTNLogo1000.png" alt="GTN logo with a multi-coloured star and the words Galaxy Training Network" loading="lazy" />
   </div>
   <div class="col-sm-7">
    <div class="card-body">
@@ -2850,22 +4400,45 @@ JBrowse.
         <div>
 
 	<div class="contributors-line">
-		Authors: <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar" />Helena Rasche</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" /><img src="https://avatars.githubusercontent.com/delphine-l?s=27" alt="Avatar" />Delphine Lariviere</a>
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a><a href="/training-material/hall-of-fame/delphine-l/" class="contributor-badge contributor-delphine-l"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/delphine-l?s=36" alt="Avatar" width="36" height="36" />Delphine Lariviere</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
 	</div>
 
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #dcddff; --color-darker: #c0c2ff; --color-dimmed: #cecfff;">new feature</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #c0c1ff; --color-darker: #a6a9ff; --color-dimmed: #b3b5ff;">new feature</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00ffa3; --color-darker: #00e391; --color-dimmed: #00f19a;">videos</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e291; --color-darker: #00ca80; --color-dimmed: #00d688;">videos</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #fff8d5; --color-darker: #f3de00; --color-dimmed: #ffeb5c;">gtn</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #fff2aa; --color-darker: #edd800; --color-dimmed: #fbe600;">gtn</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd5e1; --color-darker: #ffb1c9; --color-dimmed: #ffc3d5;">pandemic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb0c8; --color-darker: #ff8db4; --color-dimmed: #ff9fbe;">pandemic</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #b1e8ff; --color-darker: #47d6ff; --color-dimmed: #87dfff;">remote-teaching</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #45d6ff; --color-darker: #00c0e8; --color-dimmed: #00ccf6;">remote-teaching</span>
 
     <hr />
     <p class="card-text">
@@ -2879,12 +4452,13 @@ JBrowse.
   </div>
  </div>
 </div>
+</article>
 
 
 
 
 
-
+<article>
 
 
 
@@ -2905,19 +4479,46 @@ JBrowse.
         </div>
         <div>
 
+	<div class="contributors-line">
+		
+<table class="contributions">
+	
+	<tr>
+		<td><abbr title="These people wrote the bulk of the tutorial, they may have done the analysis, built the workflow, and wrote the text themselves.">Author(s)</abbr></td>
+		<td>
+			<a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36" /><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36" />Helena Rasche</a>
+		</td>
+	</tr>
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+</table>
+
+
+	</div>
+
 </div>
 
 
         
-<span class="label label-default tutorial_tag" style="--color-primary: #00ffa3; --color-darker: #00e391; --color-dimmed: #00f19a;">admin</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e291; --color-darker: #00ca80; --color-dimmed: #00d688;">admin</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00fdc0; --color-darker: #00e1aa; --color-dimmed: #00efb5;">gat</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00e1aa; --color-darker: #00c897; --color-dimmed: #00d4a1;">gat</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #00f8ff; --color-darker: #00dce3; --color-dimmed: #00eaf1;">event</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #00dce2; --color-darker: #00c4ca; --color-dimmed: #00d0d6;">event</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #ffd5e1; --color-darker: #ffb1c9; --color-dimmed: #ffc3d5;">pandemic</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #ffb0c8; --color-darker: #ff8db4; --color-dimmed: #ff9fbe;">pandemic</span>
 
-<span class="label label-default tutorial_tag" style="--color-primary: #b1e8ff; --color-darker: #47d6ff; --color-dimmed: #87dfff;">remote-teaching</span>
+<span class="label label-default tutorial_tag" style="--color-primary: #45d6ff; --color-darker: #00c0e8; --color-dimmed: #00ccf6;">remote-teaching</span>
 
     <hr />
     <p class="card-text">
@@ -2931,7 +4532,7 @@ JBrowse.
   </div>
  </div>
 </div>
-
+</article>
 
 
 
@@ -2942,54 +4543,48 @@ JBrowse.
 </section>
 
         </div>
-        
-            <footer>
-    <div class="container">
-        <br><br>
-        <p>
-            The <a href="https://galaxyproject.org/teach/gtn/">Galaxy Training Network</a>
-            provides researchers with online training materials, connects them with local trainers, and helps promoting open data analysis practices worldwide.
-        </p>
-        <p>
-        The content of the tutorials is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. The website and infrastructure is licensed under <a rel="license" href="https://github.com/galaxyproject/training-material/blob/main/LICENSE.md">MIT</a>.
-        </p>
+        <footer>
+	<hr />
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6" style="text-align: left">
+				<p>
+					The <a href="https://galaxyproject.org/teach/gtn/">Galaxy Training Network</a>
+					provides researchers with online training materials, connects them with local trainers, and helps promoting FAIR and Open Science practices worldwide. All contributions are subject to the <a rel="code-of-conduct" href="https://galaxyproject.org/community/coc/">Galaxy Project Code of Conduct</a>.
+				</p>
+				<p>
+				The GTN infrastructure is licensed under <a rel="license" href="https://github.com/galaxyproject/training-material/blob/main/LICENSE.md">MIT</a>
+				</p>
+				<p>
+				Revision <a href="https://github.com/galaxyproject/training-material/commit/b1277bcc5233898cf1be9a3931cf54198b4c672e">b1277bc</a>, built with Jekyll (4.3.2 | production)
+				</p>
+			</div>
+			<div class="col-sm-6" style="text-align: right">
+				
+				<p>
+					<i>This Material</i>:
+					
+					is licensed under
+					<a rel="license" href="https://spdx.org/licenses/CC-BY-4.0">
+						Creative Commons Attribution 4.0 International License
+					</a>
+				</p>
+				<p>
+					<a href="https://github.com/galaxyproject/training-material/edit/main/news.md" title="Edit on GitHub">
+					<i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> Edit on GitHub
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
-        <p>This is revision <a href="https://github.com/galaxyproject/training-material/commit/5d73faeb6dab92ec3d10efdd5a390ef944817348">5d73faeb6dab92ec3d10efdd5a390ef944817348</a>. </p>
+
     </div>
 </footer>
 
-        
-        <script src="/training-material/assets/js/jquery.slim.min.js"></script>
-        <script src="/training-material/assets/js/popper.min.js"></script>
-        <script src="/training-material/assets/js/bootstrap.min.js?v=3"></script>
-        <script src="/training-material/assets/js/details-element-polyfill.js"></script>
+
+        <script src='/training-material/assets/js/bundle.main.js?v=1689733011'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script src="/training-material/assets/js/bootstrap-toc.min.js"></script>
-        <script src="/training-material/assets/js/main.js"></script>
-        <script src="/training-material/assets/js/clipboard.min.js"></script>
-        <script>
-        var snippets=document.querySelectorAll('div.highlight');
-        [].forEach.call(snippets,function(snippet){
-            snippet.firstChild.insertAdjacentHTML('beforebegin','<button class="btn btn-light" data-clipboard-snippet tabindex="0"><i class="fa fa-copy"></i>&nbsp;Copy</button>');
-        });
-
-        var clipboardSnippets=new ClipboardJS('[data-clipboard-snippet]',{
-            target:function(trigger){return trigger.nextElementSibling;
-        }});
-        </script>
-        
-
-        <script type="text/javascript">
-            if(window.location.hostname === "galaxyproject.github.io") {
-                // Redirect
-                var redirect = "https://training.galaxyproject.org" + window.location.pathname + window.location.search;
-                $('div.container.main-content').prepend("<div class='alert alert-warning'><strong>Note: </strong>This content has a new home at <a href=\"" + redirect + "\">" + redirect + "</a>, which you will be redirected to in 5 seconds.</div>");
-
-                window.setTimeout(function(){
-                    window.location.href = redirect;
-                }, 5000)
-
-            }
-        </script>
     </body>
 </html>

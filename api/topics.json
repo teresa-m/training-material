@@ -10,10 +10,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",
@@ -26,7 +27,7 @@
       },
       {
         "name": "Nate Coraor",
-        "gitter": "natefoo",
+        "matrix": "natefoo:matrix.org",
         "twitter": "natefoo",
         "email": "nate@bx.psu.edu",
         "joined": "2017-12",
@@ -50,7 +51,9 @@
         "name": "Björn Grüning",
         "email": "bjoern.gruening@gmail.com",
         "twitter": "bjoerngruening",
-        "gitter": "bgruening",
+        "fediverse": "https://fosstodon.org/@bgruening",
+        "fediverse_flavor": "mastodon",
+        "matrix": "bgruening:matrix.org",
         "orcid": "0000-0002-3079-6586",
         "linkedin": "bgruening",
         "joined": "2017-09",
@@ -62,7 +65,7 @@
       {
         "name": "Martin Čech",
         "email": "marten@bx.psu.edu",
-        "gitter": "martenson",
+        "matrix": "martenson:matrix.org",
         "orcid": "0000-0002-9318-1781",
         "elixir_node": "cz",
         "contact_for_training": true,
@@ -72,6 +75,7 @@
           "lon": -122.0
         },
         "fediverse": "https://mastodon.world/@martenson",
+        "fediverse_flavor": "mastodon",
         "joined": "2017-09",
         "id": "martenson",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/martenson.json",
@@ -90,7 +94,7 @@
         "email": "beatrizserrano.galaxy@gmail.com",
         "twitter": "BSerranoSolano",
         "linkedin": "beatriz-serrano",
-        "gitter": "beatrizserrano",
+        "matrix": "beatrizserrano:matrix.org",
         "orcid": "0000-0002-5862-6132",
         "joined": "2020-07",
         "id": "beatrizserrano",
@@ -170,7 +174,6 @@
     "maintainers": [
       {
         "name": "Christopher Barnett",
-        "gitter": "chrisbarnettster",
         "joined": "2019-05",
         "id": "chrisbarnettster",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/chrisbarnettster.json",
@@ -195,7 +198,9 @@
         "name": "Björn Grüning",
         "email": "bjoern.gruening@gmail.com",
         "twitter": "bjoerngruening",
-        "gitter": "bgruening",
+        "fediverse": "https://fosstodon.org/@bgruening",
+        "fediverse_flavor": "mastodon",
+        "matrix": "bgruening:matrix.org",
         "orcid": "0000-0002-3079-6586",
         "linkedin": "bgruening",
         "joined": "2017-09",
@@ -217,7 +222,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -228,6 +233,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -236,7 +242,9 @@
         "name": "Björn Grüning",
         "email": "bjoern.gruening@gmail.com",
         "twitter": "bjoerngruening",
-        "gitter": "bgruening",
+        "fediverse": "https://fosstodon.org/@bgruening",
+        "fediverse_flavor": "mastodon",
+        "matrix": "bgruening:matrix.org",
         "orcid": "0000-0002-3079-6586",
         "linkedin": "bgruening",
         "joined": "2017-09",
@@ -256,8 +264,11 @@
       {
         "name": "Wolfgang Maier",
         "orcid": "0000-0002-9464-6640",
+        "matrix": "wm75:matrix.org",
         "joined": "2017-09",
         "elixir_node": "de",
+        "fediverse": "https://scholar.social/@zerodivision",
+        "fediverse_flavor": "mastodon",
         "id": "wm75",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/wm75.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/wm75/"
@@ -275,10 +286,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",
@@ -295,7 +307,7 @@
         "email": "saskia.hiltemann@gmail.com",
         "twitter": "shiltemann",
         "linkedin": "shiltemann",
-        "gitter": "shiltemann",
+        "matrix": "shiltemann:matrix.org",
         "orcid": "0000-0003-3803-468X",
         "joined": "2017-09",
         "bio": "Researcher at Erasmus Medical Center",
@@ -314,7 +326,7 @@
         "name": "Fotis E. Psomopoulos",
         "email": "fpsom@certh.gr",
         "twitter": "fopsom",
-        "gitter": "fpsom",
+        "matrix": "fpsom:matrix.org",
         "orcid": "0000-0002-0222-4273",
         "linkedin": "fpsom",
         "joined": "2019-03",
@@ -328,7 +340,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -339,6 +351,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -347,7 +360,7 @@
         "name": "Yvan Le Bras",
         "email": "yvan.le-bras@mnhn.fr",
         "twitter": "Yvan2935",
-        "gitter": "yvanlebras",
+        "matrix": "yvanlebras:matrix.org",
         "orcid": "0000-0002-8504-068X",
         "joined": "2017-09",
         "elixir_node": "fr",
@@ -376,7 +389,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -387,6 +400,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -396,10 +410,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",
@@ -422,7 +437,7 @@
         "name": "Yvan Le Bras",
         "email": "yvan.le-bras@mnhn.fr",
         "twitter": "Yvan2935",
-        "gitter": "yvanlebras",
+        "matrix": "yvanlebras:matrix.org",
         "orcid": "0000-0002-8504-068X",
         "joined": "2017-09",
         "elixir_node": "fr",
@@ -506,6 +521,78 @@
       }
     ]
   },
+  "fair": {
+    "name": "fair",
+    "title": "FAIR Data, Workflows, and Research",
+    "summary": "These lessons will teach you how to make your research objects more FAIR with practical, hands-on advice.",
+    "url": "https://training.galaxyproject.org/training-material/api/topics/fair.json",
+    "maintainers": [
+      {
+        "name": "Simone Leo",
+        "joined": "2023-04",
+        "elixir_node": "it",
+        "orcid": "0000-0001-8271-5429",
+        "id": "simleo",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/simleo.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/simleo/"
+      },
+      {
+        "name": "Luca Pireddu",
+        "joined": "2023-04",
+        "orcid": "0000-0002-4663-5613",
+        "id": "ilveroluca",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/ilveroluca.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/ilveroluca/"
+      },
+      {
+        "name": "Stian Soiland-Reyes",
+        "email": "soiland-reyes@manchester.ac.uk",
+        "twitter": "soilandreyes",
+        "orcid": "0000-0001-9842-9718",
+        "joined": "2023-04",
+        "elixir_node": "uk",
+        "location": {
+          "country": "UK",
+          "lat": 53.46724379071192,
+          "lon": -2.233631283105614
+        },
+        "fediverse": "https://scholar.social/@soilandreyes",
+        "fediverse_flavor": "mastodon",
+        "id": "stain",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/stain.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/stain/"
+      },
+      {
+        "name": "Paul De Geest",
+        "joined": "2023-04",
+        "elixir_node": "be",
+        "orcid": "0000-0002-8940-4946",
+        "id": "pauldg",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/pauldg.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/pauldg/"
+      },
+      {
+        "name": "Katarzyna Kamieniecka",
+        "twitter": "katemurat",
+        "orcid": "0009-0004-2454-5950",
+        "joined": "2018-08",
+        "elixir_node": "uk",
+        "id": "kkamieniecka",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/kkamieniecka.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/kkamieniecka/"
+      },
+      {
+        "name": "Krzysztof Poterlowicz",
+        "twitter": "bioinfbrad",
+        "orcid": "0000-0001-6173-5674",
+        "joined": "2017-09",
+        "elixir_node": "uk",
+        "id": "poterlowicz-lab",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/poterlowicz-lab.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/poterlowicz-lab/"
+      }
+    ]
+  },
   "galaxy-interface": {
     "name": "galaxy-interface",
     "title": "Using Galaxy and Managing your Data",
@@ -516,7 +603,7 @@
         "name": "Jennifer Hillman-Jackson",
         "maintainer_contact": "https://help.galaxyproject.org/",
         "email": "jen@galaxyproject.org",
-        "gitter": "jennaj",
+        "matrix": "jennaj:matrix.org",
         "twitter": "jennaj_io",
         "linkedin": "jennifer.hillman.jackson",
         "orcid": "0000-0003-4012-8116",
@@ -536,10 +623,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",
@@ -563,10 +651,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",
@@ -592,7 +681,7 @@
         "name": "Anthony Bretaudeau",
         "email": "anthony.bretaudeau@inrae.fr",
         "twitter": "abretau",
-        "gitter": "abretaud",
+        "matrix": "abretaud:matrix.org",
         "orcid": "0000-0003-0914-2470",
         "joined": "2017-09",
         "elixir_node": "fr",
@@ -603,6 +692,7 @@
           "lon": -1.64
         },
         "fediverse": "https://genomic.social/@abretaud",
+        "fediverse_flavor": "mastodon",
         "id": "abretaud",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/abretaud.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/abretaud/"
@@ -635,7 +725,7 @@
         "name": "Jennifer Hillman-Jackson",
         "maintainer_contact": "https://help.galaxyproject.org/",
         "email": "jen@galaxyproject.org",
-        "gitter": "jennaj",
+        "matrix": "jennaj:matrix.org",
         "twitter": "jennaj_io",
         "linkedin": "jennifer.hillman.jackson",
         "orcid": "0000-0003-4012-8116",
@@ -685,7 +775,7 @@
         "name": "Melanie Föll",
         "email": "melanie.foell@mol-med.uni-freiburg.de",
         "twitter": "MCFoell",
-        "gitter": "foellmelanie",
+        "matrix": "foellmelanie:matrix.org",
         "orcid": "0000-0002-1887-7543",
         "joined": "2018-10",
         "elixir_node": "de",
@@ -706,7 +796,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -717,6 +807,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -727,7 +818,7 @@
         "email": "saskia.hiltemann@gmail.com",
         "twitter": "shiltemann",
         "linkedin": "shiltemann",
-        "gitter": "shiltemann",
+        "matrix": "shiltemann:matrix.org",
         "orcid": "0000-0003-3803-468X",
         "joined": "2017-09",
         "bio": "Researcher at Erasmus Medical Center",
@@ -744,6 +835,68 @@
       }
     ]
   },
+  "one-health": {
+    "name": "one-health",
+    "title": "One Health",
+    "summary": "One Health is unified approach that aims to sustainably balance the health of humans, animals, and ecosystems, as all of the health of each of these groups is closely interlinked.\n",
+    "url": "https://training.galaxyproject.org/training-material/api/topics/one-health.json",
+    "maintainers": [
+      {
+        "name": "Wolfgang Maier",
+        "orcid": "0000-0002-9464-6640",
+        "matrix": "wm75:matrix.org",
+        "joined": "2017-09",
+        "elixir_node": "de",
+        "fediverse": "https://scholar.social/@zerodivision",
+        "fediverse_flavor": "mastodon",
+        "id": "wm75",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/wm75.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/wm75/"
+      },
+      {
+        "name": "Peter van Heusden",
+        "twitter": "pvanheus",
+        "orcid": "0000-0001-6553-5274",
+        "joined": "2017-09",
+        "bio": "Research at the South African National Bioinformatics Institute",
+        "id": "pvanheus",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/pvanheus.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/pvanheus/"
+      },
+      {
+        "name": "Tomas Klingström",
+        "email": "tomas.klingstrom@slu.se",
+        "twitter": "TKlingstrom",
+        "matrix": "TKlingstrom:matrix.org",
+        "orcid": "0000-0002-9504-1352",
+        "joined": "2018-11",
+        "elixir_node": "se",
+        "id": "TKlingstrom",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/TKlingstrom.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/TKlingstrom/"
+      },
+      {
+        "name": "Helena Rasche",
+        "email": "hexylena@galaxians.org",
+        "orcid": "0000-0001-9760-8992",
+        "maintainer_contact": "gitter",
+        "matrix": "hexylena:matrix.org",
+        "joined": "2017-09",
+        "elixir_node": "nl",
+        "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
+        "contact_for_training": false,
+        "location": {
+          "country": "NL",
+          "lat": 51.91,
+          "lon": 4.46
+        },
+        "id": "hexylena",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/hexylena.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/hexylena/"
+      }
+    ]
+  },
   "proteomics": {
     "name": "proteomics",
     "title": "Proteomics",
@@ -754,7 +907,7 @@
         "name": "Melanie Föll",
         "email": "melanie.foell@mol-med.uni-freiburg.de",
         "twitter": "MCFoell",
-        "gitter": "foellmelanie",
+        "matrix": "foellmelanie:matrix.org",
         "orcid": "0000-0002-1887-7543",
         "joined": "2018-10",
         "elixir_node": "de",
@@ -767,7 +920,7 @@
         "email": "subinamehta@gmail.com",
         "twitter": "Subina_Mehta",
         "linkedin": "subinamehta",
-        "gitter": "subinamehta",
+        "matrix": "subinamehta:matrix.org",
         "orcid": "0000-0001-9818-0537",
         "joined": "2018-06",
         "id": "subinamehta",
@@ -787,7 +940,9 @@
         "name": "Björn Grüning",
         "email": "bjoern.gruening@gmail.com",
         "twitter": "bjoerngruening",
-        "gitter": "bgruening",
+        "fediverse": "https://fosstodon.org/@bgruening",
+        "fediverse_flavor": "mastodon",
+        "matrix": "bgruening:matrix.org",
         "orcid": "0000-0002-3079-6586",
         "linkedin": "bgruening",
         "joined": "2017-09",
@@ -808,7 +963,7 @@
         "name": "Yvan Le Bras",
         "email": "yvan.le-bras@mnhn.fr",
         "twitter": "Yvan2935",
-        "gitter": "yvanlebras",
+        "matrix": "yvanlebras:matrix.org",
         "orcid": "0000-0002-8504-068X",
         "joined": "2017-09",
         "elixir_node": "fr",
@@ -821,7 +976,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -832,6 +987,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -850,14 +1006,14 @@
   "single-cell": {
     "name": "single-cell",
     "title": "Single Cell",
-    "summary": "Training material and practicals for all kinds of single cell analysis (particularly scRNA-seq!). When you generate your lovely gene lists for your cells, consider checking out our Transcriptomics tutorials for further network analysis!",
+    "summary": "Training material and practicals for all kinds of single cell analysis (particularly scRNA-seq!). When you generate your lovely gene lists for your cells, consider checking out our Transcriptomics tutorials for further network analysis!\n\nWhat else do you want to see? You can submit tool and/or tutorial requests, as well as up-vote requests from others at our [Single Cell Community Planning site](https://github.com/orgs/galaxyproject/projects/31/views/1).\n{: .alert.alert-success}\n",
     "url": "https://training.galaxyproject.org/training-material/api/topics/single-cell.json",
     "maintainers": [
       {
         "name": "Wendi Bacon",
         "email": "wendi.bacon@open.ac.uk",
         "twitter": "WendiBacon1",
-        "gitter": "nomadscientist",
+        "matrix": "nomadscientist:matrix.org",
         "joined": "2020-03",
         "elixir_node": "uk",
         "orcid": "0000-0002-8170-8806",
@@ -874,6 +1030,14 @@
         "id": "mtekman",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/mtekman.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/mtekman/"
+      },
+      {
+        "name": "Pavankumar Videm",
+        "orcid": "0000-0002-5192-126X",
+        "joined": "2017-09",
+        "id": "pavanvidem",
+        "url": "https://training.galaxyproject.org/training-material/api/contributors/pavanvidem.json",
+        "page": "https://training.galaxyproject.org/training-material/hall-of-fame/pavanvidem/"
       }
     ]
   },
@@ -896,7 +1060,6 @@
         "email": "fabio.cumbo@gmail.com",
         "twitter": "cumbofabio",
         "linkedin": "fabiocumbo",
-        "gitter": "cumbof",
         "orcid": "0000-0003-2920-5838",
         "joined": "2018-02",
         "id": "cumbof",
@@ -925,7 +1088,6 @@
         "name": "Kenza Bazi-Kabbaj",
         "email": "kenza.bazi-kabbaj@inrae.fr",
         "orcid": "0000-0002-4319-5616",
-        "gitter": "kenza12",
         "joined": "2022-03",
         "id": "kenza12",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/kenza12.json",
@@ -945,7 +1107,6 @@
         "name": "Joan Hérisson",
         "email": "joan.herisson@univ-evry.fr",
         "orcid": "0000-0001-9741-0847",
-        "gitter": "breakthewall",
         "linkedin": "joanherisson",
         "joined": "2022-03",
         "id": "breakthewall",
@@ -975,7 +1136,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -986,6 +1147,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -1003,7 +1165,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -1014,6 +1176,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -1048,7 +1211,7 @@
         "email": "berenice.batut@gmail.com",
         "twitter": "bebatut",
         "linkedin": "berenicebatut",
-        "gitter": "bebatut",
+        "matrix": "bebatut:matrix.org",
         "orcid": "0000-0001-9852-1987",
         "joined": "2017-09",
         "elixir_node": "de",
@@ -1059,6 +1222,7 @@
           "lon": 3.08
         },
         "fediverse": "https://piaille.fr/@bebatut",
+        "fediverse_flavor": "mastodon",
         "id": "bebatut",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/bebatut.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/bebatut/"
@@ -1066,8 +1230,11 @@
       {
         "name": "Wolfgang Maier",
         "orcid": "0000-0002-9464-6640",
+        "matrix": "wm75:matrix.org",
         "joined": "2017-09",
         "elixir_node": "de",
+        "fediverse": "https://scholar.social/@zerodivision",
+        "fediverse_flavor": "mastodon",
         "id": "wm75",
         "url": "https://training.galaxyproject.org/training-material/api/contributors/wm75.json",
         "page": "https://training.galaxyproject.org/training-material/hall-of-fame/wm75/"
@@ -1076,7 +1243,9 @@
         "name": "Björn Grüning",
         "email": "bjoern.gruening@gmail.com",
         "twitter": "bjoerngruening",
-        "gitter": "bgruening",
+        "fediverse": "https://fosstodon.org/@bgruening",
+        "fediverse_flavor": "mastodon",
+        "matrix": "bgruening:matrix.org",
         "orcid": "0000-0002-3079-6586",
         "linkedin": "bgruening",
         "joined": "2017-09",
@@ -1107,7 +1276,7 @@
         "email": "saskia.hiltemann@gmail.com",
         "twitter": "shiltemann",
         "linkedin": "shiltemann",
-        "gitter": "shiltemann",
+        "matrix": "shiltemann:matrix.org",
         "orcid": "0000-0003-3803-468X",
         "joined": "2017-09",
         "bio": "Researcher at Erasmus Medical Center",
@@ -1127,10 +1296,11 @@
         "email": "hexylena@galaxians.org",
         "orcid": "0000-0001-9760-8992",
         "maintainer_contact": "gitter",
-        "gitter": "hexylena",
+        "matrix": "hexylena:matrix.org",
         "joined": "2017-09",
         "elixir_node": "nl",
         "fediverse": "https://galaxians.garden/hexylena",
+        "fediverse_flavor": "akkoma",
         "contact_for_training": false,
         "location": {
           "country": "NL",

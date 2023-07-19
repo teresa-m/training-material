@@ -8,16 +8,45 @@
         
             <script async defer data-domain="training.galaxyproject.org" src="https://plausible.galaxyproject.eu/js/plausible.js"></script>
 
+<!-- JavaScript Error Monitoring, and performance tracking. -->
+<script
+  src="https://browser.sentry-cdn.com/7.52.1/bundle.tracing.min.js"
+  integrity="sha384-muuFXKS3752PNA4rPm9Uq6BLvOfV4CXyr9MHDBPvozOJJUWLKkogEFWOIRoVps43"
+  crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+Sentry.init({
+  dsn: "https://45e0ec6e4373462b92969505df37cf40@sentry.galaxyproject.org/10",
+  release: "galaxy-training-network@b1277bcc5233898cf1be9a3931cf54198b4c672e",
+  integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
+  sampleRate: 0.1,
+  tracesSampleRate: 0.1,
+  // Capture Replay for no sessions by default
+  replaysSessionSampleRate: 0.01,
+  // plus for 1% of sessions with an error
+  replaysOnErrorSampleRate: 0.01,
+  // PII OFF
+  sendDefaultPii: false, // Off by default but just in case.
+  environment: "production",
+});
+</script>
+
         
-        <link rel="stylesheet" href="/training-material/assets/css/bootstrap.min.css?v=3">
-        <link rel="stylesheet" href="/training-material/assets/css/bootstrap-toc.min.css">
-        <link rel="stylesheet" href="/training-material/assets/css/main.css?v=2">
-        <link rel="stylesheet" href="/training-material/assets/fontawesome/css/all.css">
-        <link rel="stylesheet" href="/training-material/assets/css/academicons.css">
         <link rel="shortcut icon" href="/training-material/favicon.ico" type="image/x-icon">
         <link rel="alternate" type="application/atom+xml" href="/training-material/feed.xml">
         <link rel="canonical" href="https://training.galaxyproject.org/training-material/topics/data-science/">
-        <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+        <link rel="license" href="https://spdx.org/licenses/CC-BY-4.0">
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Regular-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Bold-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/training-material/assets/fonts/AtkinsonHyperlegible/Atkinson-Hyperlegible-Italic-102a.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" as="script" crossorigin>
+        <link rel="preload" href="/training-material/assets/css/main.css?v=3" as="style">
+        <link rel='preload' href='/training-material/assets/js/bundle.theme.js?v=1689733011' as='script'>
+<link rel='preload' href='/training-material/assets/js/bundle.main.js?v=1689733011' as='script'>
+        <link rel="stylesheet" href="/training-material/assets/css/main.css?v=3">
+        <link rel="manifest" href="/training-material/manifest.json">
+        <meta name="theme-color" content="#2c3143"/>
+
 
         <meta name="DC.identifier" content="https://github.com/galaxyproject/training-material">
 <meta name="DC.type" content="text">
@@ -39,7 +68,7 @@
         
     </head>
     <body data-spy="scroll" data-target="#toc">
-        <script type="text/javascript" src="/training-material/assets/js/theme.js"></script>
+        <script src='/training-material/assets/js/bundle.theme.js?v=1689733011'></script>
         <header>
     <nav class="navbar navbar-expand-md navbar-dark" aria-label="Site Navigation">
         <div class="container">
@@ -109,8 +138,7 @@
     </a>
     <div class="dropdown-menu dropdown-menu-right">
 
-        
-        <a class="dropdown-item" href="https://github.com/galaxyproject/training-material/edit/main/topics/data-science/" title="Edit on GitHub">
+        <a class="dropdown-item" href="https://github.com/galaxyproject/training-material/edit/main/topics/data-science/index.md" title="Edit on GitHub">
           <i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> Edit on GitHub
         </a>
 
@@ -157,11 +185,11 @@
 
             <div id="archive-selector">
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-05-01/topics/data-science/" title="Version 2019-05-01">2019-05-01</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-05-01/topics/data-science/">2019-05-01</a>
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-02-07/topics/data-science/" title="Version 2019-02-07">2019-02-07</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/2019-02-07/topics/data-science/">2019-02-07</a>
             
-                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/" title="Older Versions">Older Versions</a>
+                <a class="btn btn-warning" href="https://training.galaxyproject.org/archive/">Older Versions</a>
             </div>
 
         </div>
@@ -174,7 +202,7 @@
                     <li class="nav-item">
                       <div id="navbarSupportedContent" role="search">
                         <!-- Search form -->
-                        <form class="form-inline mr-auto" method="GET" action="/training-material/search">
+                        <form class="form-inline mr-auto" method="GET" action="/training-material/search2">
                           <i class="fas fa-search nav-link" aria-hidden="true"></i>
                           <div class="md-form mb-2">
                             <input name="query" class="form-control nicer" type="text" placeholder="Search Tutorials" aria-label="Search">
@@ -199,13 +227,6 @@
 <!-- Gitter -->
 
 
-<script>
-  ((window.gitter = {}).chat = {}).options = {
-  room: 'Galaxy-Training-Network/Lobby'
-  };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
-
 <section class="tutorials-list data-science topic-type-data-science">
     <h1>Foundations of Data Science</h1>
     <p><p>These lessons will help you get your feet in data science and give you tools to help you slice and dice your data into results.</p>
@@ -217,6 +238,646 @@
     <h2 id="material">Material</h2>
     
     
+        <!-- subtopic = [olympics, {subtopic => {"id"=>"olympics", "title"=>"Data Manipulation Olympics", "description"=>"These tutorials take the same dataset, and show you how to slice and dice it in numerous languages"}, materials => [ ... ]} ] -->
+
+        
+        <h3 id="st-olympics">Data Manipulation Olympics</h3>
+        <p>These tutorials take the same dataset, and show you how to slice and dice it in numerous languages</p>
+        
+
+        <table class="table table-responsive table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+
+      
+
+      
+    </tr>
+  </thead>
+  <tbody class="list">
+
+  
+  
+        <!-- MAT: data-science/data-manipulation-olympics-jq -->
+      
+
+        <tr>
+          <td class="tutorial_title">
+            
+            
+            <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-jq/tutorial.html">
+                Data Manipulation Olympics - JQ
+            </a>
+            
+
+
+            <div class="extra">
+            
+              
+
+
+
+<span class="level introductory" title="Introductory Tutorial">
+  <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+</span>
+
+
+            
+            
+              
+              <a href="/training-material/search?query=cyoa" class="label label-default tutorial_tag" style="--color-primary: #fface9; --color-darker: #ff86e2; --color-dimmed: #ff9ae5;" title="Click to show all tutorials tagged cyoa">cyoa</a>
+              
+              <a href="/training-material/search?query=json" class="label label-default tutorial_tag" style="--color-primary: #ffb0c9; --color-darker: #ff8db5; --color-dimmed: #ff9fbf;" title="Click to show all tutorials tagged json">json</a>
+              
+            
+            </div>
+
+            <div class="duplicate">
+              <div class="btn-group" role="group" aria-label="Supporting materials for this resource">
+              
+
+
+
+<!-- video slides -->
+
+
+              
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-jq/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+              
+
+              
+              </div>
+            </div>
+          </td>
+
+          <td> 
+
+
+
+<!-- video slides -->
+
+ </td>
+          <td> 
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-jq/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-jq%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+ </td>
+          <td> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ </td>
+
+          
+
+          
+         </tr>
+       
+    
+        <!-- MAT: data-science/data-manipulation-olympics-sql -->
+      
+
+        <tr>
+          <td class="tutorial_title">
+            
+            
+            <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-sql/tutorial.html">
+                Data Manipulation Olympics - SQL
+            </a>
+            
+
+
+            <div class="extra">
+            
+              
+
+
+
+<span class="level introductory" title="Introductory Tutorial">
+  <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+</span>
+
+
+            
+            
+              
+              <a href="/training-material/search?query=cyoa" class="label label-default tutorial_tag" style="--color-primary: #fface9; --color-darker: #ff86e2; --color-dimmed: #ff9ae5;" title="Click to show all tutorials tagged cyoa">cyoa</a>
+              
+              <a href="/training-material/search?query=sql" class="label label-default tutorial_tag" style="--color-primary: #ffade3; --color-darker: #ff87d9; --color-dimmed: #ff9bde;" title="Click to show all tutorials tagged sql">sql</a>
+              
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              
+            
+            </div>
+
+            <div class="duplicate">
+              <div class="btn-group" role="group" aria-label="Supporting materials for this resource">
+              
+
+
+
+<!-- video slides -->
+
+
+              
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-sql/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+              
+
+              
+              </div>
+            </div>
+          </td>
+
+          <td> 
+
+
+
+<!-- video slides -->
+
+ </td>
+          <td> 
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-sql/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-sql%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+ </td>
+          <td> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ </td>
+
+          
+
+          
+         </tr>
+       
+    
+        <!-- MAT: data-science/data-manipulation-olympics-viz-r -->
+      
+
+        <tr>
+          <td class="tutorial_title">
+            
+            
+            <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-viz-r/tutorial.html">
+                Data visualisation Olympics - Visualization in R
+            </a>
+            
+
+
+            <div class="extra">
+            
+              
+
+
+
+<span class="level introductory" title="Introductory Tutorial">
+  <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i> <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+</span>
+
+
+            
+            
+              
+              <a href="/training-material/search?query=cyoa" class="label label-default tutorial_tag" style="--color-primary: #fface9; --color-darker: #ff86e2; --color-dimmed: #ff9ae5;" title="Click to show all tutorials tagged cyoa">cyoa</a>
+              
+              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #a3d800; --color-darker: #91c000; --color-dimmed: #9acc00;" title="Click to show all tutorials tagged R">R</a>
+              
+              <a href="/training-material/search?query=rmarkdown-notebook" class="label label-default tutorial_tag" style="--color-primary: #d2bcff; --color-darker: #c1a0ff; --color-dimmed: #c9aeff;" title="Click to show all tutorials tagged rmarkdown-notebook">rmarkdown-notebook</a>
+              
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              
+            
+            </div>
+
+            <div class="duplicate">
+              <div class="btn-group" role="group" aria-label="Supporting materials for this resource">
+              
+
+
+
+<!-- video slides -->
+
+
+              
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-viz-r/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+              
+
+              
+              </div>
+            </div>
+          </td>
+
+          <td> 
+
+
+
+<!-- video slides -->
+
+ </td>
+          <td> 
+    <div class="btn-group">
+        <a href="/training-material/topics/data-science/tutorials/data-manipulation-olympics-viz-r/tutorial.html" class="btn btn-default" title="Follow the tutorial">
+            <i class="fas fa-laptop" aria-hidden="true"></i><span class="visually-hidden">tutorial</span>
+        </a>
+        <a href="#" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Follow the tutorial in a different language">
+            <span class="sr-only">Toggle Dropdown</span>
+        </a>
+        <ul class="dropdown-menu">
+        
+        
+         <li class="dropdown-item"><strong>Automatic translations</strong></li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=fr&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Français
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ja&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                日本語
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=es&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Español
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=pt&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                Português
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+            <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=ar&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+                العربية
+            </a>
+	</li>
+        
+	<li class="dropdown-item">
+        <a class="dropdown-item" href="https://translate.google.com/translate?hl=jp&sl=en&tl=&u=https%3A%2F%2Ftraining.galaxyproject.org%2Ftopics%2Fdata-science%2Ftutorials%2Fdata-manipulation-olympics-viz-r%2Ftutorial.html&edit-text=&act=url" title="">
+            More Languages
+        </a>
+	</li>
+    </ul>
+</div>
+
+ </td>
+          <td> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ </td>
+
+          
+
+          
+         </tr>
+       
+    
+  </tbody>
+</table>
+
+
+
+
+    
         <!-- subtopic = [bash, {subtopic => {"id"=>"bash", "title"=>"Bash", "description"=>"These lessons focus on using the Command Line Interface (CLI) and Bash for processing data."}, materials => [ ... ]} ] -->
 
         
@@ -227,10 +888,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -268,9 +929,9 @@
             
             
               
-              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #92fa00; --color-darker: #81de00; --color-dimmed: #89ec00;" title="Click to show all tutorials tagged bash">bash</a>
+              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #81de00; --color-darker: #72c500; --color-dimmed: #79d100;" title="Click to show all tutorials tagged bash">bash</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -469,11 +1130,11 @@
             
             
               
-              <a href="/training-material/search?query=game" class="label label-default tutorial_tag" style="--color-primary: #ffd3f4; --color-darker: #ffacec; --color-dimmed: #ffc0ef;" title="Click to show all tutorials tagged game">game</a>
+              <a href="/training-material/search?query=game" class="label label-default tutorial_tag" style="--color-primary: #ffacec; --color-darker: #ff85e5; --color-dimmed: #ff99e8;" title="Click to show all tutorials tagged game">game</a>
               
-              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #92fa00; --color-darker: #81de00; --color-dimmed: #89ec00;" title="Click to show all tutorials tagged bash">bash</a>
+              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #81de00; --color-darker: #72c500; --color-dimmed: #79d100;" title="Click to show all tutorials tagged bash">bash</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -672,9 +1333,9 @@
             
             
               
-              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #92fa00; --color-darker: #81de00; --color-dimmed: #89ec00;" title="Click to show all tutorials tagged bash">bash</a>
+              <a href="/training-material/search?query=bash" class="label label-default tutorial_tag" style="--color-primary: #81de00; --color-darker: #72c500; --color-dimmed: #79d100;" title="Click to show all tutorials tagged bash">bash</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -863,10 +1524,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -1479,10 +2140,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -3275,9 +3936,9 @@
             
             
               
-              <a href="/training-material/search?query=conda" class="label label-default tutorial_tag" style="--color-primary: #34ff8d; --color-darker: #00e478; --color-dimmed: #00f280;" title="Click to show all tutorials tagged conda">conda</a>
+              <a href="/training-material/search?query=conda" class="label label-default tutorial_tag" style="--color-primary: #00e478; --color-darker: #00cb6a; --color-dimmed: #00d771;" title="Click to show all tutorials tagged conda">conda</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -5026,10 +5687,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -5067,9 +5728,9 @@
             
             
               
-              <a href="/training-material/search?query=interactive-tools" class="label label-default tutorial_tag" style="--color-primary: #ffd7cb; --color-darker: #ffb69b; --color-dimmed: #ffc6b4;" title="Click to show all tutorials tagged interactive-tools">interactive-tools</a>
+              <a href="/training-material/search?query=interactive-tools" class="label label-default tutorial_tag" style="--color-primary: #ffb59b; --color-darker: #ff9562; --color-dimmed: #ffa581;" title="Click to show all tutorials tagged interactive-tools">interactive-tools</a>
               
-              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #b8f300; --color-darker: #a3d800; --color-dimmed: #ade500;" title="Click to show all tutorials tagged R">R</a>
+              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #a3d800; --color-darker: #91c000; --color-dimmed: #9acc00;" title="Click to show all tutorials tagged R">R</a>
               
             
             </div>
@@ -5326,7 +5987,7 @@
             
             
               
-              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #b8f300; --color-darker: #a3d800; --color-dimmed: #ade500;" title="Click to show all tutorials tagged R">R</a>
+              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #a3d800; --color-darker: #91c000; --color-dimmed: #9acc00;" title="Click to show all tutorials tagged R">R</a>
               
             
             </div>
@@ -5583,11 +6244,11 @@
             
             
               
-              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #b8f300; --color-darker: #a3d800; --color-dimmed: #ade500;" title="Click to show all tutorials tagged R">R</a>
+              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #a3d800; --color-darker: #91c000; --color-dimmed: #9acc00;" title="Click to show all tutorials tagged R">R</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=rmarkdown-notebook" class="label label-default tutorial_tag" style="--color-primary: #d2bcff; --color-darker: #c1a0ff; --color-dimmed: #c9aeff;" title="Click to show all tutorials tagged rmarkdown-notebook">rmarkdown-notebook</a>
               
-              <a href="/training-material/search?query=rmarkdown-notebook" class="label label-default tutorial_tag" style="--color-primary: #e6daff; --color-darker: #d2bcff; --color-dimmed: #dccbff;" title="Click to show all tutorials tagged rmarkdown-notebook">rmarkdown-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -5776,10 +6437,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -5817,9 +6478,9 @@
             
             
               
-              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffd4e3; --color-darker: #ffb0ce; --color-dimmed: #ffc3d8;" title="Click to show all tutorials tagged SQL">SQL</a>
+              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffb0ce; --color-darker: #ff8cbb; --color-dimmed: #ff9fc4;" title="Click to show all tutorials tagged SQL">SQL</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -6018,9 +6679,9 @@
             
             
               
-              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffd4e3; --color-darker: #ffb0ce; --color-dimmed: #ffc3d8;" title="Click to show all tutorials tagged SQL">SQL</a>
+              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffb0ce; --color-darker: #ff8cbb; --color-dimmed: #ff9fc4;" title="Click to show all tutorials tagged SQL">SQL</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -6219,11 +6880,11 @@
             
             
               
-              <a href="/training-material/search?query=game" class="label label-default tutorial_tag" style="--color-primary: #ffd3f4; --color-darker: #ffacec; --color-dimmed: #ffc0ef;" title="Click to show all tutorials tagged game">game</a>
+              <a href="/training-material/search?query=game" class="label label-default tutorial_tag" style="--color-primary: #ffacec; --color-darker: #ff85e5; --color-dimmed: #ff99e8;" title="Click to show all tutorials tagged game">game</a>
               
-              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffd4e3; --color-darker: #ffb0ce; --color-dimmed: #ffc3d8;" title="Click to show all tutorials tagged SQL">SQL</a>
+              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffb0ce; --color-darker: #ff8cbb; --color-dimmed: #ff9fc4;" title="Click to show all tutorials tagged SQL">SQL</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -6422,11 +7083,11 @@
             
             
               
-              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffd4e3; --color-darker: #ffb0ce; --color-dimmed: #ffc3d8;" title="Click to show all tutorials tagged SQL">SQL</a>
+              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffb0ce; --color-darker: #ff8cbb; --color-dimmed: #ff9fc4;" title="Click to show all tutorials tagged SQL">SQL</a>
               
-              <a href="/training-material/search?query=Python" class="label label-default tutorial_tag" style="--color-primary: #e5daff; --color-darker: #d1bcff; --color-dimmed: #dbcbff;" title="Click to show all tutorials tagged Python">Python</a>
+              <a href="/training-material/search?query=Python" class="label label-default tutorial_tag" style="--color-primary: #d0bcff; --color-darker: #bfa0ff; --color-dimmed: #c8aeff;" title="Click to show all tutorials tagged Python">Python</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -6625,13 +7286,13 @@
             
             
               
-              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffd4e3; --color-darker: #ffb0ce; --color-dimmed: #ffc3d8;" title="Click to show all tutorials tagged SQL">SQL</a>
+              <a href="/training-material/search?query=SQL" class="label label-default tutorial_tag" style="--color-primary: #ffb0ce; --color-darker: #ff8cbb; --color-dimmed: #ff9fc4;" title="Click to show all tutorials tagged SQL">SQL</a>
               
-              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #b8f300; --color-darker: #a3d800; --color-dimmed: #ade500;" title="Click to show all tutorials tagged R">R</a>
+              <a href="/training-material/search?query=R" class="label label-default tutorial_tag" style="--color-primary: #a3d800; --color-darker: #91c000; --color-dimmed: #9acc00;" title="Click to show all tutorials tagged R">R</a>
               
-              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #7df0ff; --color-darker: #00dbed; --color-dimmed: #00e9fb;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
+              <a href="/training-material/search?query=rmarkdown-notebook" class="label label-default tutorial_tag" style="--color-primary: #d2bcff; --color-darker: #c1a0ff; --color-dimmed: #c9aeff;" title="Click to show all tutorials tagged rmarkdown-notebook">rmarkdown-notebook</a>
               
-              <a href="/training-material/search?query=rmarkdown-notebook" class="label label-default tutorial_tag" style="--color-primary: #e6daff; --color-darker: #d2bcff; --color-dimmed: #dccbff;" title="Click to show all tutorials tagged rmarkdown-notebook">rmarkdown-notebook</a>
+              <a href="/training-material/search?query=jupyter-notebook" class="label label-default tutorial_tag" style="--color-primary: #00dbec; --color-darker: #00c3d2; --color-dimmed: #00cfdf;" title="Click to show all tutorials tagged jupyter-notebook">jupyter-notebook</a>
               
             
             </div>
@@ -6820,10 +7481,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -7046,10 +7707,10 @@
         <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Lesson</th>
-      <th title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
-      <th title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
-      <th title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
+      <th scope="col">Lesson</th>
+      <th scope="col" title="Lecture for this training. May include a video version using automated text-to-speech.">Slides</th>
+      <th scope="col" title="Practical tutorial guiding you through an analysis step by step.">Hands-on</th>
+      <th scope="col" title="Recordings of various instructors teaching this tutorial. May use an outdated version of the tutorial.">Recordings</th>
 
       
 
@@ -7623,6 +8284,8 @@
 
     
 
+    
+
 
     
 
@@ -7634,7 +8297,7 @@
     <h2 id="maintainers">Maintainers</h2>
     <p>This material is maintained by:</p>
     
-    <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar">Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar">Saskia Hiltemann</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/fpsom?s=27" alt="Avatar">Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar">Bérénice Batut</a><a href="/training-material/hall-of-fame/yvanlebras/" class="contributor-badge contributor-yvanlebras"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/yvanlebras?s=27" alt="Avatar">Yvan Le Bras</a>
+    <a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36">Helena Rasche</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36">Saskia Hiltemann</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/fpsom?s=36" alt="Avatar" width="36" height="36">Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36">Bérénice Batut</a><a href="/training-material/hall-of-fame/yvanlebras/" class="contributor-badge contributor-yvanlebras"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/yvanlebras?s=36" alt="Avatar" width="36" height="36">Yvan Le Bras</a>
 
     <p>
         <em>For any question related to this topic and the content, you can contact them or visit our <a href="https://gitter.im/Galaxy-Training-Network/Lobby">Gitter channel</a>.</em>
@@ -7643,63 +8306,59 @@
     <h2 id="contributors">Contributors</h2>
     <p>This material was contributed to by:</p>
     
-    <a href="/training-material/hall-of-fame/mvdbeek/" class="contributor-badge contributor-mvdbeek"><img src="https://avatars.githubusercontent.com/mvdbeek?s=27" alt="Avatar">Marius van den Beek</a><a href="/training-material/hall-of-fame/carpentries/" class="contributor-badge contributor-carpentries"><img src="https://avatars.githubusercontent.com/carpentries?s=27" alt="Avatar">The Carpentries</a><a href="/training-material/hall-of-fame/dirowa/" class="contributor-badge contributor-dirowa"><img src="https://avatars.githubusercontent.com/dirowa?s=27" alt="Avatar">Donny Vrins</a><a href="/training-material/hall-of-fame/bazante1/" class="contributor-badge contributor-bazante1"><img src="https://avatars.githubusercontent.com/bazante1?s=27" alt="Avatar">Bazante Sanders</a><a href="/training-material/hall-of-fame/avans-atgm/" class="contributor-badge contributor-avans-atgm"><img src="https://avatars.githubusercontent.com/avans-atgm?s=27" alt="Avatar">Avans Hogeschool</a><a href="/training-material/hall-of-fame/Sofokli5/" class="contributor-badge contributor-Sofokli5"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/Sofokli5?s=27" alt="Avatar">Sofoklis Keisaris</a><a href="/training-material/hall-of-fame/pvanheus/" class="contributor-badge contributor-pvanheus"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/pvanheus?s=27" alt="Avatar">Peter van Heusden</a><a href="/training-material/hall-of-fame/mcmaniou/" class="contributor-badge contributor-mcmaniou"><img src="https://avatars.githubusercontent.com/mcmaniou?s=27" alt="Avatar">Maria Christina Maniou</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/hexylena?s=27" alt="Avatar">Helena Rasche</a><a href="/training-material/hall-of-fame/erasmusplus/" class="contributor-badge contributor-erasmusplus"><img src="https://avatars.githubusercontent.com/erasmusplus?s=27" alt="Avatar">Erasmus+ Programme</a><a href="/training-material/hall-of-fame/NUKnightLab/" class="contributor-badge contributor-NUKnightLab"><img src="https://avatars.githubusercontent.com/NUKnightLab?s=27" alt="Avatar">NU Knight Lab</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/bebatut?s=27" alt="Avatar">Bérénice Batut</a><a href="/training-material/hall-of-fame/tobyhodges/" class="contributor-badge contributor-tobyhodges"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/tobyhodges?s=27" alt="Avatar">Toby Hodges</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/fpsom?s=27" alt="Avatar">Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo"/><img src="https://avatars.githubusercontent.com/shiltemann?s=27" alt="Avatar">Saskia Hiltemann</a>
+    <a href="/training-material/hall-of-fame/mcmaniou/" class="contributor-badge contributor-mcmaniou"><img src="https://avatars.githubusercontent.com/mcmaniou?s=36" alt="Avatar" width="36" height="36">Maria Christina Maniou</a><a href="/training-material/hall-of-fame/hexylena/" class="contributor-badge contributor-hexylena"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/hexylena?s=36" alt="Avatar" width="36" height="36">Helena Rasche</a><a href="/training-material/hall-of-fame/tobyhodges/" class="contributor-badge contributor-tobyhodges"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/tobyhodges?s=36" alt="Avatar" width="36" height="36">Toby Hodges</a><a href="/training-material/hall-of-fame/NUKnightLab/" class="contributor-badge contributor-NUKnightLab"><img src="https://avatars.githubusercontent.com/NUKnightLab?s=36" alt="Avatar" width="36" height="36">NU Knight Lab</a><a href="/training-material/hall-of-fame/shiltemann/" class="contributor-badge contributor-shiltemann"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/shiltemann?s=36" alt="Avatar" width="36" height="36">Saskia Hiltemann</a><a href="/training-material/hall-of-fame/carpentries/" class="contributor-badge contributor-carpentries"><img src="https://avatars.githubusercontent.com/carpentries?s=36" alt="Avatar" width="36" height="36">The Carpentries</a><a href="/training-material/hall-of-fame/dirowa/" class="contributor-badge contributor-dirowa"><img src="https://avatars.githubusercontent.com/dirowa?s=36" alt="Avatar" width="36" height="36">Donny Vrins</a><a href="/training-material/hall-of-fame/fpsom/" class="contributor-badge contributor-fpsom"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/fpsom?s=36" alt="Avatar" width="36" height="36">Fotis E. Psomopoulos</a><a href="/training-material/hall-of-fame/pvanheus/" class="contributor-badge contributor-pvanheus"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/pvanheus?s=36" alt="Avatar" width="36" height="36">Peter van Heusden</a><a href="/training-material/hall-of-fame/bebatut/" class="contributor-badge contributor-bebatut"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/bebatut?s=36" alt="Avatar" width="36" height="36">Bérénice Batut</a><a href="/training-material/hall-of-fame/Sofokli5/" class="contributor-badge contributor-Sofokli5"><img src="/training-material/assets/images/orcid.png" alt="orcid logo" width="36" height="36"/><img src="https://avatars.githubusercontent.com/Sofokli5?s=36" alt="Avatar" width="36" height="36">Sofoklis Keisaris</a><a href="/training-material/hall-of-fame/bazante1/" class="contributor-badge contributor-bazante1"><img src="https://avatars.githubusercontent.com/bazante1?s=36" alt="Avatar" width="36" height="36">Bazante Sanders</a><a href="/training-material/hall-of-fame/mvdbeek/" class="contributor-badge contributor-mvdbeek"><img src="https://avatars.githubusercontent.com/mvdbeek?s=36" alt="Avatar" width="36" height="36">Marius van den Beek</a>
+
+    <h2 id="funders">Funders</h2>
+    <p>This material was funded by:</p>
+    
+    <a href="/training-material/hall-of-fame/erasmusplus/" class="contributor-badge contributor-erasmusplus"><img src="https://www.erasmusplus.nl/assets/images/logo.png" alt="Avatar" width="36" height="36">Erasmus+ Programme</a><a href="/training-material/hall-of-fame/avans-atgm/" class="contributor-badge contributor-avans-atgm"><img src="https://avatars.githubusercontent.com/avans-atgm?s=36" alt="Avatar" width="36" height="36">Avans Hogeschool</a>
 
     
 </section>
 
         </div>
-        
-            <footer>
-    <div class="container">
-        <br><br>
-        <p>
-            The <a href="https://galaxyproject.org/teach/gtn/">Galaxy Training Network</a>
-            provides researchers with online training materials, connects them with local trainers, and helps promoting open data analysis practices worldwide.
-        </p>
-        <p>
-        The content of the tutorials is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. The website and infrastructure is licensed under <a rel="license" href="https://github.com/galaxyproject/training-material/blob/main/LICENSE.md">MIT</a>.
-        </p>
+        <footer>
+	<hr />
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6" style="text-align: left">
+				<p>
+					The <a href="https://galaxyproject.org/teach/gtn/">Galaxy Training Network</a>
+					provides researchers with online training materials, connects them with local trainers, and helps promoting FAIR and Open Science practices worldwide. All contributions are subject to the <a rel="code-of-conduct" href="https://galaxyproject.org/community/coc/">Galaxy Project Code of Conduct</a>.
+				</p>
+				<p>
+				The GTN infrastructure is licensed under <a rel="license" href="https://github.com/galaxyproject/training-material/blob/main/LICENSE.md">MIT</a>
+				</p>
+				<p>
+				Revision <a href="https://github.com/galaxyproject/training-material/commit/b1277bcc5233898cf1be9a3931cf54198b4c672e">b1277bc</a>, built with Jekyll (4.3.2 | production)
+				</p>
+			</div>
+			<div class="col-sm-6" style="text-align: right">
+				
+				<p>
+					<i>This Material</i>:
+					
+					is licensed under
+					<a rel="license" href="https://spdx.org/licenses/CC-BY-4.0">
+						Creative Commons Attribution 4.0 International License
+					</a>
+				</p>
+				<p>
+					<a href="https://github.com/galaxyproject/training-material/edit/main/topics/data-science/index.md" title="Edit on GitHub">
+					<i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">github</span> Edit on GitHub
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
-        <p>This is revision <a href="https://github.com/galaxyproject/training-material/commit/5d73faeb6dab92ec3d10efdd5a390ef944817348">5d73faeb6dab92ec3d10efdd5a390ef944817348</a>. </p>
+
     </div>
 </footer>
 
-        
-        <script src="/training-material/assets/js/jquery.slim.min.js"></script>
-        <script src="/training-material/assets/js/popper.min.js"></script>
-        <script src="/training-material/assets/js/bootstrap.min.js?v=3"></script>
-        <script src="/training-material/assets/js/details-element-polyfill.js"></script>
+
+        <script src='/training-material/assets/js/bundle.main.js?v=1689733011'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script src="/training-material/assets/js/bootstrap-toc.min.js"></script>
-        <script src="/training-material/assets/js/main.js"></script>
-        <script src="/training-material/assets/js/clipboard.min.js"></script>
-        <script>
-        var snippets=document.querySelectorAll('div.highlight');
-        [].forEach.call(snippets,function(snippet){
-            snippet.firstChild.insertAdjacentHTML('beforebegin','<button class="btn btn-light" data-clipboard-snippet tabindex="0"><i class="fa fa-copy"></i>&nbsp;Copy</button>');
-        });
-
-        var clipboardSnippets=new ClipboardJS('[data-clipboard-snippet]',{
-            target:function(trigger){return trigger.nextElementSibling;
-        }});
-        </script>
-        
-        <script type="text/javascript" src="/training-material/assets/js/list.min.js"></script>
-        <script type="text/javascript" src="/training-material/assets/js/topic.js"></script>
-        
-
-        <script type="text/javascript">
-            if(window.location.hostname === "galaxyproject.github.io") {
-                // Redirect
-                var redirect = "https://training.galaxyproject.org" + window.location.pathname + window.location.search;
-                $('div.container.main-content').prepend("<div class='alert alert-warning'><strong>Note: </strong>This content has a new home at <a href=\"" + redirect + "\">" + redirect + "</a>, which you will be redirected to in 5 seconds.</div>");
-
-                window.setTimeout(function(){
-                    window.location.href = redirect;
-                }, 5000)
-
-            }
-        </script>
     </body>
 </html>
