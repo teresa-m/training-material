@@ -1,6 +1,7 @@
 {
     "a_galaxy_workflow": "true",
     "annotation": "Reference-based RNA-Seq data analysis",
+    "comments": [],
     "creator": [
         {
             "class": "Person",
@@ -56,6 +57,9 @@
     "format-version": "0.1",
     "license": "MIT",
     "name": "DEG Part - Ref Based RNA Seq - Transcriptomics - GTN",
+    "report": {
+        "markdown": "\n# Workflow Execution Report\n\n## Workflow Inputs\n```galaxy\ninvocation_inputs()\n```\n\n## Workflow Outputs\n```galaxy\ninvocation_outputs()\n```\n\n## Workflow\n```galaxy\nworkflow_display()\n```\n"
+    },
     "steps": {
         "0": {
             "annotation": "Counts obtained by Feature counts",
@@ -291,7 +295,7 @@
             },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.3+galaxy1",
             "tool_shed_repository": {
-                "changeset_revision": "fbf99087e067",
+                "changeset_revision": "86755160afbf",
                 "name": "text_processing",
                 "owner": "bgruening",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
@@ -422,7 +426,7 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"advanced_options\": {\"esf_cond\": {\"esf\": \"\", \"__current_case__\": 0}, \"fit_type\": \"1\", \"outlier_replace_off\": false, \"outlier_filter_off\": false, \"auto_mean_filter_off\": false, \"prefilter_conditional\": {\"prefilter\": \"\", \"__current_case__\": 1}, \"use_beta_priors\": false}, \"batch_factors\": {\"__class__\": \"RuntimeValue\"}, \"header\": true, \"output_options\": {\"output_selector\": [\"pdf\", \"normCounts\"], \"alpha_ma\": \"0.1\"}, \"select_data\": {\"how\": \"group_tags\", \"__current_case__\": 0, \"countsFile\": {\"__class__\": \"ConnectedValue\"}, \"rep_factorName\": [{\"__index__\": 0, \"factorName\": \"Treatment\", \"rep_factorLevel\": [{\"__index__\": 0, \"factorLevel\": \"treated\", \"groups\": [\"treat\"]}, {\"__index__\": 1, \"factorLevel\": \"untreated\", \"groups\": [\"untreat\"]}]}, {\"__index__\": 1, \"factorName\": \"Sequencing\", \"rep_factorLevel\": [{\"__index__\": 0, \"factorLevel\": \"PE\", \"groups\": [\"paired\"]}, {\"__index__\": 1, \"factorLevel\": \"SE\", \"groups\": [\"single\"]}]}]}, \"tximport\": {\"tximport_selector\": \"count\", \"__current_case__\": 1}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"advanced_options\": {\"esf_cond\": {\"esf\": \"\", \"__current_case__\": 0}, \"fit_type\": \"1\", \"outlier_replace_off\": false, \"outlier_filter_off\": false, \"auto_mean_filter_off\": false, \"prefilter_conditional\": {\"prefilter\": \"\", \"__current_case__\": 1}, \"use_beta_priors\": true}, \"batch_factors\": {\"__class__\": \"RuntimeValue\"}, \"header\": true, \"output_options\": {\"output_selector\": [\"pdf\", \"normCounts\"], \"alpha_ma\": \"0.1\"}, \"select_data\": {\"how\": \"group_tags\", \"__current_case__\": 0, \"countsFile\": {\"__class__\": \"RuntimeValue\"}, \"rep_factorName\": [{\"__index__\": 0, \"factorName\": \"Treatment\", \"rep_factorLevel\": [{\"__index__\": 0, \"factorLevel\": \"treated\", \"groups\": [\"treat\"]}, {\"__index__\": 1, \"factorLevel\": \"untreated\", \"groups\": [\"untreat\"]}]}, {\"__index__\": 1, \"factorName\": \"Sequencing\", \"rep_factorLevel\": [{\"__index__\": 0, \"factorLevel\": \"PE\", \"groups\": [\"paired\"]}, {\"__index__\": 1, \"factorLevel\": \"SE\", \"groups\": [\"single\"]}]}]}, \"tximport\": {\"tximport_selector\": \"count\", \"__current_case__\": 1}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.11.40.8+galaxy0",
             "type": "tool",
             "uuid": "45883538-b692-4e35-8dee-d08974682a9c",
@@ -653,7 +657,7 @@
             },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/9.3+galaxy1",
             "tool_shed_repository": {
-                "changeset_revision": "fbf99087e067",
+                "changeset_revision": "86755160afbf",
                 "name": "text_processing",
                 "owner": "bgruening",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
@@ -868,6 +872,11 @@
             "when": null,
             "workflow_outputs": [
                 {
+                    "label": "go_terms",
+                    "output_name": "wallenius_tab",
+                    "uuid": "c06c58d4-ab5d-49da-b481-baf668c6fc29"
+                },
+                {
                     "label": "go_genes",
                     "output_name": "cat_genes_tab",
                     "uuid": "a0dd7397-7262-4336-abd6-a915ab6be36a"
@@ -876,11 +885,6 @@
                     "label": "go_plot",
                     "output_name": "top_plot",
                     "uuid": "659fec58-4ed5-4aee-9e50-7acce21113cb"
-                },
-                {
-                    "label": "go_terms",
-                    "output_name": "wallenius_tab",
-                    "uuid": "c06c58d4-ab5d-49da-b481-baf668c6fc29"
                 }
             ]
         },
@@ -1535,6 +1539,6 @@
     "tags": [
         "transcriptomics"
     ],
-    "uuid": "94c5bcd5-dcf1-4b73-94f0-4ea4193269d8",
-    "version": 6
+    "uuid": "4eeb28f2-ea52-4dde-ac04-5f9e3f328e0e",
+    "version": 1
 }
