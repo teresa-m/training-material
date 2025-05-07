@@ -50,8 +50,7 @@ recordings:
   speakers:
   - rlibouba
   captioners:
-  - stephanierobin
-  - abretaud
+  - rlibouba
   bot-timestamp: 1726077703
 
 
