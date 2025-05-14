@@ -24,6 +24,7 @@ contributions:
   authorship:
     - bebatut
     - paulzierep
+    - scorreard
 
 ---
 
@@ -56,21 +57,24 @@ The aim is this tutorial is to create such table for a community.
 >
 {: .agenda}
 
-# Add your community to the Galaxy CoDex
+# Pull list of tools releavnt to your community from the Galaxy ToolShed
 
-You first need to make sure that your Community is in the [Galaxy CoDex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities), a central resource for Galaxy communities.
-
-{% snippet topics/community/faqs/codex.md %}
-
-# Add your community to the Galaxy Catalog pipeline
-
-One of the filters for the main community table is based on the tool categories on the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/). Only tools in the selected ToolShed categories will be added to the filtered table. As a result, it is recommended to include broad categories.
+To add tools in your community tool table, you will need to indicate a list of tags relevant to your community, and tools associated with this tag will be automatically pulled from the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/). Only tools in the selected ToolShed categories will be added to the filtered table. As a result, it is recommended to include broad categories.$
+You will then be able to remove tools that are not relevant to your community or deprecated.
 
 > <hands-on-title>Select the ToolShed categories</hands-on-title>
 >
 > 1. Go to the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/)
-> 2. On the main page, pick the most obvious categories that represent tools used by your community
-> 3. Add the name of these categories in the `categories` file you started above, with 1 ToolShed category per row
+> 2. On the main page, pick the most obvious categories that represent tools used by your community - Note the names of these categories
+> 3. Search on the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/) for some of the popular tools in your community
+> 5. Open the tool entries on the ToolShed, and note their categories
+{: .hands_on}
+
+# Add the list releavnt tags for your community in the categories file
+
+> <hands-on-title>Add the TooShed catgories to the categories file</hands-on-title>
+> 1. Create a file named `categories` in your comunity metadata folder (created previously)
+> 2. Add the name of the categories relevant to your community in the `categories` file you started above, with 1 ToolShed category per row
 >
 >    For example:
 >    ```
@@ -78,17 +82,15 @@ One of the filters for the main community table is based on the tool categories 
 >    Metagenomics
 >    ```
 >
-> 4. Search on the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/) for some of the popular tools in your community
-> 5. Open the tool entries on the ToolShed, and note their categories
-> 6. Add any new categories to the `categories` file
+
 {: .hands_on}
 
 Once you have a list of the ToolShed categories that you wish to keep, you can submit this to Galaxy Codex.
 
-> <hands-on-title>Submit the new community to Galaxy Codex</hands-on-title>
+> <hands-on-title>Submit the new list of categories to Galaxy Codex</hands-on-title>
 >
 > 1. Click on **Commit changes** at the top
-> 2. Fill in the commit message with something like `Add X community`
+> 2. Fill in the commit message with something like `Add tools categories for my community`
 > 3. Click on `Create a new branch for this commit and start a pull request`
 > 4. Create the pull request by following the instructions
 >
