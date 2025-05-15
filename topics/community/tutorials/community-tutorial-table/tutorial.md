@@ -92,7 +92,7 @@ Once the Pull Request is merged, a table with all tutorial will be created in `c
 
 The generated table will contain all the tutorials associated with the tags that you selected. However, not all of these tutorials might be interesting for your community.
 
-Galaxy Codex allows for an additional optional filter for workflows, that can be defined by the community curator (maybe that is you!).
+Galaxy Codex allows for an additional optional filter for tutorials, that can be defined by the community curator (maybe that is you!).
 
 TO DO : We Will soon update this section to explain how to filter tutorials, sorry for the inconvenience.
 
