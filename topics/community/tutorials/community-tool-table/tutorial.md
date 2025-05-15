@@ -57,7 +57,7 @@ The aim is this tutorial is to create such table for a community.
 >
 {: .agenda}
 
-# Pull list of tools releavnt to your community from the Galaxy ToolShed
+# Pull list of tools relevant to your community from the Galaxy ToolShed
 
 To add tools in your community tool table, you will need to indicate a list of tags relevant to your community, and tools associated with this tag will be automatically pulled from the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/). Only tools in the selected ToolShed categories will be added to the filtered table. As a result, it is recommended to include broad categories.$
 You will then be able to remove tools that are not relevant to your community or deprecated.
