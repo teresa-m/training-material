@@ -28,9 +28,9 @@ contributions:
 
 Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorail will take you through the steps to display the most relevant tutorials on your community codex page.
 
-The pipeline creates an [interactive table with all tutorials and their metadata](https://galaxyproject.github.io/galaxy_codex/). This table can be **filtered to only include tutorials that are relevant to a specific research community**.
+The pipeline creates table with all the tutorials. This table can be **filtered to only include tutorials that are relevant to a specific research community**.
 
-The generated community-specific interactive table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
+The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
 
 The pipeline is **fully automated** and executes on a **weekly** basis. Any research community can apply the pipeline to create a table specific to their community.
 
