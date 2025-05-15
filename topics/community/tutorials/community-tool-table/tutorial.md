@@ -65,9 +65,9 @@ You will then be able to remove tools that are not relevant to your community or
 > <hands-on-title>Select the ToolShed categories</hands-on-title>
 >
 > 1. Go to the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/)
-> 2. On the main page, pick the most obvious categories that represent tools used by your community - Note the names of these categories
+> 2. On the main page, pick the most obvious categories that represent tools used by your community and note the names of these categories
 > 3. Search on the [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/) for some of the popular tools in your community
-> 5. Open the tool entries on the ToolShed, and note their categories
+> 4. Open the tool entries on the ToolShed, and note their categories
 {: .hands_on}
 
 # Add the list releavnt tags for your community in the categories file
