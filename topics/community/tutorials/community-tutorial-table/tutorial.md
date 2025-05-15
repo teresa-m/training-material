@@ -61,7 +61,7 @@ Note : You can also create a tag (for example, your community name) and tag all 
 # Add the list releavnt tags for your community in the tutorial_tags file
 
 > <hands-on-title>Add the relevant tags to the tutorial_tags file</hands-on-title>
-> 1. Create a file named `tutorial_tags` in your comunity metadata folder (created previously)
+> 1. Create a file named `tutorial_tags` in your comunity metadata folder (`communities/<your community>/metadata` created previously)
 > 2. Add the name of the tags relevant to your community in the `tutorial_tags` file you started above, with 1 tag per row
 >
 >    For example:
