@@ -26,11 +26,11 @@ contributions:
 
 ---
 
-Similarly to the numerous tools available on Galaxy, the galaxy training network includes numerous workflow. In order to display the ones that are most relevant to your community on your community codex page, you can follow this tutorial.
+Similarly to the numerous tools available on Galaxy, numerous workflow are available on public Galaxy instances and in [Workflow Hub](https://workflowhub.eu/). This tutorail will take you through the steps to display the most relevant workflows on your community codex page.
 
-The pipeline creates an [interactive table with all workflows and their metadata](https://galaxyproject.github.io/galaxy_codex/). This table can be **filtered to only include workflows that are relevant to a specific research community**.
+The pipeline creates an table with all the workflows. This table can be **filtered to only include workflows that are relevant to a specific research community**.
 
-The generated community-specific interactive table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
+The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
 
 The pipeline is **fully automated** and executes on a **weekly** basis. Any research community can apply the pipeline to create a table specific to their community.
 
@@ -47,7 +47,7 @@ The aim is this tutorial is to create a workflow table for a community.
 
 # Pull list of tags relevant to your community
 
-To add workflows in your community workflow table, you will need to indicate a list of tags relevant to your community, and workflows associated with this tag will be automatically pulled from public Galaxy instances and [Workflow Hub](https://workflowhub.eu/). Only workflows with the selected tags will be added to the filtered table.
+To add workflows in your community workflow table, you will need to indicate a list of tags relevant to your community, and workflows associated with these tags will be automatically pulled from public Galaxy instances and [Workflow Hub](https://workflowhub.eu/). Only workflows with the selected tags will be added to the filtered table.
 You will then be able to remove workflows that are not relevant to your community or deprecated.
 
 > <hands-on-title>Select workflows tags from the Galaxy instances</hands-on-title>
@@ -56,7 +56,7 @@ You will then be able to remove workflows that are not relevant to your communit
 > 2. Go to the `Workflow` section
 > 3. Select `Public workflows` (for example: [Public workflows on the French instance](https://usegalaxy.fr/workflows/list_published))
 > 4. Browse for workflow that are releavnt to your community
-> 5. Note the tags that are associated with workflows of interest (in the tag section on the left of the workflow page)
+> 5. Note the tags that are associated with workflows of interest
 {: .hands_on}
 
 > <hands-on-title>Select workflows tags from the Workflow Hub</hands-on-title>
@@ -66,10 +66,10 @@ You will then be able to remove workflows that are not relevant to your communit
 > 3. Note the tags that are associated with workflows of interest (in the `tag` section on the left of the workflow page)
 {: .hands_on}
 
-# Add the list releavnt tags for your community in the workflow_tags file
+# Add the list relevant tags for your community in the workflow_tags file
 
 > <hands-on-title>Add the relevant tags to the workflow_tags file</hands-on-title>
-> 1. Create a file named `workflow_tags` in your comunity metadata folder (created previously)
+> 1. Create a file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata` created previously)
 > 2. Add the name of the tags relevant to your community in the `workflow_tags` file you started above. The file is split in two sections : `Public`, which should inidcate the tags used on public Galaxy instances; and `workflowhub`, which inidcates the tags to use to select workflow on [Workflow Hub](https://workflowhub.eu/).
 
 >
@@ -110,9 +110,9 @@ Galaxy Codex allows for an additional optional filter for workflows, that can be
 
 TO DO : We Will soon update this section to explain how to filter workflow, sorry for the inconvenience.
 
-# Embed the interactive table in your community page on the Hub
+# Embed the table in your community page on the Hub
 
-The interactive table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#workflows-and-tutorials).
+The table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#workflows-and-tutorials).
 
 > <hands-on-title>Embed your table</hands-on-title>
 >
@@ -126,4 +126,4 @@ The interactive table you have created can be embedded in your community page on
 
 # Conclusion
 
-You now have an interactive table with workflows available for your community, and this table is embedded in a community page.
+You now have a table with workflows available for your community, and this table is embedded in a community page.
