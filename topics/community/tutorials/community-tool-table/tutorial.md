@@ -73,7 +73,7 @@ You will then be able to remove tools that are not relevant to your community or
 # Add the list relevant tags for your community in the categories file
 
 > <hands-on-title>Add the TooShed catgories to the categories file</hands-on-title>
-> 1. Create a file named `categories` in your comunity metadata folder (created previously)
+> 1. Create a file named `categories` in your comunity metadata folder (`communities/<your community>/metadata` created previously)
 > 2. Add the name of the categories relevant to your community in the `categories` file you started above, with 1 ToolShed category per row
 >
 >    For example:
