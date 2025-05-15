@@ -26,7 +26,7 @@ contributions:
 
 ---
 
-Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. In order to display the ones that are most relevant to your community on your community codex page, you can follow this tutorial.
+Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorail will take you through the steps to display the most relevant tutorials on your community codex page.
 
 The pipeline creates an [interactive table with all tutorials and their metadata](https://galaxyproject.github.io/galaxy_codex/). This table can be **filtered to only include tutorials that are relevant to a specific research community**.
 
