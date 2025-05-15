@@ -96,9 +96,9 @@ Galaxy Codex allows for an additional optional filter for tutorials, that can be
 
 TO DO : We Will soon update this section to explain how to filter tutorials, sorry for the inconvenience.
 
-# Embed the interactive table in your community page on the Hub
+# Embed the table in your community page on the Hub
 
-The interactive table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#workflows-and-tutorials).
+The table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#workflows-and-tutorials).
 
 > <hands-on-title>Embed your table</hands-on-title>
 >
@@ -112,4 +112,4 @@ The interactive table you have created can be embedded in your community page on
 
 # Conclusion
 
-You now have an interactive table with tutorials available for your community, and this table is embedded in a community page.
+You now have a table with tutorials available for your community, and this table is embedded in a community page.
