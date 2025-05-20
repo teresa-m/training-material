@@ -101,18 +101,45 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
 Once the Pull Request is merged, a few files will be created :
-- `communities/<your community>/metadata/workflow_status.tsv` : A table with all workflow
-- `communities/<your community>/resources/curated_workflows.json`
-- `communities/<your community>/resources/curated_workflows.tsv`
-- `communities/<your community>/resources/tag_filtered_workflows.json`
+- `communities/<your community>/metadata/workflow_status.tsv` : A table with all the workflows extracted with the tags mentionned above.
+- `communities/<your community>/resources/curated_workflows.tsv` : A table with the same workflows as in the metadata file and additional information.
+- `communities/<your community>/resources/curated_workflows.json` : A json file with the same info as the correponding table.
+- `communities/<your community>/resources/tag_filtered_workflows.tsv` : At this stage, the same table as `curated_workflows.tsv`.
+- `communities/<your community>/resources/tag_filtered_workflows.json` : At this stage, the same json as `curated_workflows.json`.
 
-# Review the generated table to curate tools
 
-The generated table will contain all the workflows associated with the tags that you selected. However, not all of these workflows might be interesting for your community.
+# Review the generated table to curate workflows
+
+The generated table in the metadata folder (`communities/<your community>/metadata/workflow_status.tsv`) contains all the workflows associated with the tags that you selected. However, not all of these workflows might be interesting for your community.
 
 Galaxy Codex allows for an additional optional filter for workflows, that can be defined by the community curator (maybe that is you!).
 
-TO DO : We Will soon update this section to explain how to filter workflow, sorry for the inconvenience.
+To filter the workflows, you will update the values in the last two columns of the `communities/<your community>/metadata/workflow_status.tsv` file
+- `To keep` indicating whether the tool should be included in the final table (TRUE/FALSE).
+- `Deprecated` indicating whether the tool is deprecated (TRUE/FALSE).
+
+You can modify the file directly in GitHub or download it to create a spreadsheet, easier to edit as a community.
+
+> <hands-on-title>Modify workflows using spreadsheets</hands-on-title>
+>
+> 1. Download the `workflow_status.tsv` file in `communities/<your community>/metadata/`.
+> 2. Open `workflow_status.tsv` with a Spreadsheet Software.
+> 3. Review each line corresponding to a workflow.
+>     1. Add `TRUE` to the `To keep` column if the tool should be kept, and `FALSE` if not.
+>     2. Add `TRUE` or `FALSE` also to the `Deprecated` column.
+> 5. Export the new table as TSV.
+> 6. Submit the TSV as `workflow_status.tsv` in your `communities/<your community>/metadata/` folder.
+> 7. Wait for the Pull Request to be merged
+>
+{: .hands_on}
+
+Once merged, the following files, reflecting the Galaxy tool landscape for your community, will be updated :
+- `communities/<your community>/resources/curated_workflows.tsv`
+- `communities/<your community>/resources/curated_workflows.json` 
+- `communities/<your community>/resources/tag_filtered_workflows.tsv`
+- `communities/<your community>/resources/tag_filtered_workflows.json`
+You can step-by-step review all workflows in your community and update the `workflow_status.tsv` file. You could also share this file with your community members and discuss weather the workflow should be kept or not. Collaborative work could be established using google spreadsheet.
+
 
 # Embed the table in your community page on the Hub
 
