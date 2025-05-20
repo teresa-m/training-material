@@ -100,7 +100,11 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
-Once the Pull Request is merged, a table with all workflow will be created in `communities/<your community>/resources/workflow_status.tsv`
+Once the Pull Request is merged, a few files will be created :
+- `communities/<your community>/metadata/workflow_status.tsv` : A table with all workflow
+- `communities/<your community>/resources/curated_workflows.json`
+- `communities/<your community>/resources/curated_workflows.tsv`
+- `communities/<your community>/resources/tag_filtered_workflows.json`
 
 # Review the generated table to curate tools
 
