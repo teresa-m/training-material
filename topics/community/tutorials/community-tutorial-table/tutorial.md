@@ -56,7 +56,9 @@ You will then be able to remove tutorials that are not relevant to your communit
 > 2. Browse for tutorials that are relevant to your community
 > 3. Note the tags that are associated with tutorials of interest
 {: .hands_on}
-Note : You can also create a tag (for example, your community name) and tag all relevant tutorials with it. Then, you only need to use this tag to pull all the relevant tutorials.
+> <comment-title>Tips</comment-title>
+> You can also create a tag (for example, your community name) and tag all relevant tutorials with it. Then, you only need to use this tag to pull all the relevant tutorials.
+{: .comment}
 
 # Add the list releavnt tags for your community in the tutorial_tags file
 
