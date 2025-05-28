@@ -81,8 +81,6 @@ You will then be able to remove tools that are not relevant to your community or
 >    Assembly
 >    Metagenomics
 >    ```
->
-
 {: .hands_on}
 
 Once you have a list of the ToolShed categories that you wish to keep, you can submit this to Galaxy Codex.
