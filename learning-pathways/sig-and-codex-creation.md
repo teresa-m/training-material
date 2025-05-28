@@ -19,11 +19,9 @@ pathway:
   - section: "Module 1: Create a Galaxy Codex for your community"
     description: |
       The aim is this learning pathway is to create a Galaxy codex for your community.
-      With the first tutorial, you will create the folder that will allow the creation of the community codex. Then, with the second tutorial, you will create an interactive table with all tools and their metadata in your community codex page. Tutorial 3 will create a tutorial table and tutorial 4 will create a workflow table.
-      It is essential to start with the first tutorial (Creation of the codex folder), but then tutorial 2, 3 and 4 are independant and can be done in any order (or skipped altogether).
+      With the first tutorial, you will create an interactive table with all tools and their metadata in your community codex page. Tutorial 2 will create a tutorial table and tutorial 3 will create a workflow table.
+      Each tutorial is a stand alone one and they can be done in any order (or skipped altogether).
     tutorials:
-      - name: community-codex
-        topic: community
       - name: community-tool-table
         topic: community        
       - name: community-tutorial-table
