@@ -10,7 +10,7 @@ questions:
 - How can I create a new Galaxy community?
 objectives:
 - Create a community page
-time_estimation: 5min
+time_estimation: "5m"
 key_points:
 - The Galaxy community will have it's own page
 tags:
