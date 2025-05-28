@@ -58,8 +58,8 @@ If you community is not already included, follow this tutorial :
 > 2. Go to the `communities` folder
 > 3. Click on **Add file** in the drop-down menu at the top
 > 4. Select **Create a new file**
-> 5. Fill in the `Name of your file` field with:  name of your community + `/metadata/`
->    This will create a folder for your community and a new folder for your community called metadata.
+> 5. Fill in the `Name of your file` field with:  name of your community + `/metadata/workflow_tags`
+>    This will create a folder for your community, a new folder for your community called metadata and a file called workflow_tags.
 > 6. Click on **Commit changes**
 > 7. Fill in the commit message with something like `Add X community`
 > 8. Click on `Create a new branch for this commit and start a pull request`
@@ -91,7 +91,7 @@ You will then be able to remove workflows that are not relevant to your communit
 # Add the list relevant tags for your community in the workflow_tags file
 
 > <hands-on-title>Add the relevant tags to the workflow_tags file</hands-on-title>
-> 1. Create a file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata` created previously)
+> 1. Open the file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata/workflow_tags` created previously)
 > 2. Add the name of the tags relevant to your community in the `workflow_tags` file you started above. The file is split in two sections : `Public`, which should inidcate the tags used on public Galaxy instances; and `workflowhub`, which inidcates the tags to use to select workflow on [Workflow Hub](https://workflowhub.eu/).
 >
 >    For example:
