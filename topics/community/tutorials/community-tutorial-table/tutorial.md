@@ -52,7 +52,7 @@ You will then be able to remove tutorials that are not relevant to your communit
 
 > <hands-on-title>Select tutorials tags from the Galaxy Training Network</hands-on-title>
 >
-> 1. Go to the [Galaxy Training Network](https://training.galaxyproject.org/)
+> 1. Go to the [Galaxy Training Network]({% link index.md %})
 > 2. Browse for tutorials that are relevant to your community
 > 3. Note the tags that are associated with tutorials of interest
 {: .hands_on}
