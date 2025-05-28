@@ -45,6 +45,28 @@ The aim is this tutorial is to create a tutorial table for a community.
 >
 {: .agenda}
 
+# Add your community to the Galaxy CoDex
+
+You first need to check if your Community is in the [Galaxy CoDex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities), a central resource for Galaxy communities.
+If the community is already there, you can move to the next tutorial of the learning pathway to include tools, tutorials and workflows.
+
+If you community is not already included, follow this tutorial :
+> <hands-on-title>Add your community to the Galaxy CoDex</hands-on-title>
+>
+> You need to create a new folder in the data/community folder within Galaxy Codex code source.
+> 1. If not already done, fork the [Galaxy Codex repository](https://github.com/galaxyproject/galaxy_codex)
+> 2. Go to the `communities` folder
+> 3. Click on **Add file** in the drop-down menu at the top
+> 4. Select **Create a new file**
+> 5. Fill in the `Name of your file` field with:  name of your community + `/metadata/`
+>    This will create a folder for your community and a new folder for your community called metadata.
+> 6. Click on **Commit changes**
+> 7. Fill in the commit message with something like `Add X community`
+> 8. Click on `Create a new branch for this commit and start a pull request`
+> 9. Create the pull request by following the instructions
+>
+{: .hands_on}
+
 # Pull list of tags relevant to your community
 
 To add tutorials in your community tutorial table, you will need to indicate a list of tags relevant to your community, and tutorials associated with this tag will be automatically pulled from the [Galaxy Training Network](https://training.galaxyproject.org/). Only tutorials with the selected tags will be added to the filtered table.
