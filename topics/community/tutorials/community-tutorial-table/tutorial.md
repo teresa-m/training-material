@@ -88,14 +88,6 @@ The Pull Request will be reviewed. Make sure to respond to any feedback.
 
 Once the Pull Request is merged, a table with all tutorial will be created in `communities/<your community>/resources/tutorials.tsv`
 
-# Review the generated table to curate tutorials
-
-The generated table will contain all the tutorials associated with the tags that you selected. However, not all of these tutorials might be interesting for your community.
-
-Galaxy Codex allows for an additional optional filter for tutorials, that can be defined by the community curator (maybe that is you!).
-
-TO DO : We Will soon update this section to explain how to filter tutorials, sorry for the inconvenience.
-
 # Embed the table in your community page on the Hub
 
 The table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#workflows-and-tutorials).
