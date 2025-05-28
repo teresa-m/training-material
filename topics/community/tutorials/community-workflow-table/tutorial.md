@@ -71,7 +71,6 @@ You will then be able to remove workflows that are not relevant to your communit
 > <hands-on-title>Add the relevant tags to the workflow_tags file</hands-on-title>
 > 1. Create a file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata` created previously)
 > 2. Add the name of the tags relevant to your community in the `workflow_tags` file you started above. The file is split in two sections : `Public`, which should inidcate the tags used on public Galaxy instances; and `workflowhub`, which inidcates the tags to use to select workflow on [Workflow Hub](https://workflowhub.eu/).
-
 >
 >    For example:
 >    ```
@@ -84,7 +83,6 @@ You will then be able to remove workflows that are not relevant to your communit
 >    - amplicon
 >    ```
 >
-
 {: .hands_on}
 
 Once you have a list of the tags that you wish to keep, you can submit this to Galaxy Codex.
