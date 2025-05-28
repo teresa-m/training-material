@@ -69,8 +69,6 @@ Note : You can also create a tag (for example, your community name) and tag all 
 >    Assembly
 >    Metagenomics
 >    ```
->
-
 {: .hands_on}
 
 Once you have a list of the tags that you wish to keep, you can submit this to Galaxy Codex.
@@ -81,7 +79,6 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 > 2. Fill in the commit message with something like `Add tutorials tags for my community`
 > 3. Click on `Create a new branch for this commit and start a pull request`
 > 4. Create the pull request by following the instructions
->
 {: .hands_on}
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
@@ -99,7 +96,6 @@ The table you have created can be embedded in your community page on the Hub, e.
 > 3. TO DO : We Will soon update this section to explain how to include the table, sorry for the inconvenience. 
 > 4. Submit the changes
 > 5. Wait for the Pull Request to be merged
->
 {: .hands_on}
 
 # Conclusion
