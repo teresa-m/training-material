@@ -14,7 +14,7 @@ objectives:
 time_estimation: 1H
 key_points:
 - The Galaxy Codex extracts all Galaxy tutorials to create tables
-- The community interactive Galaxy tutorials table can be embed into any website
+- The community Galaxy tutorials table can be embed into any website
 tags:
 - Community
 - SIG
@@ -26,7 +26,7 @@ contributions:
 
 ---
 
-Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorail will take you through the steps to display the most relevant tutorials on your community codex page.
+Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorail will take you through the steps to generate resources listing all the relevant tutorials and display the tutorial table on your community codex page.
 
 The pipeline creates table with all the tutorials. This table can be **filtered to only include tutorials that are relevant to a specific research community**.
 
@@ -48,12 +48,12 @@ The aim is this tutorial is to create a tutorial table for a community.
 # Add your community to the Galaxy CoDex
 
 You first need to check if your Community is in the [Galaxy CoDex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities), a central resource for Galaxy communities.
-If the community is already there, you can move to the next tutorial of the learning pathway to include tools, tutorials and workflows.
+If the community is already there, you can move to the next step of this tutorial.
 
-If you community is not already included, follow this tutorial :
+If you community is not already included, follow this step :
 > <hands-on-title>Add your community to the Galaxy CoDex</hands-on-title>
 >
-> You need to create a new folder in the data/community folder within Galaxy Codex code source.
+> You need to create a new folder in the data/community folder within Galaxy CoDex code source.
 > 1. If not already done, fork the [Galaxy Codex repository](https://github.com/galaxyproject/galaxy_codex)
 > 2. Go to the `communities` folder
 > 3. Click on **Add file** in the drop-down menu at the top
@@ -69,7 +69,7 @@ If you community is not already included, follow this tutorial :
 
 # Pull list of tags relevant to your community
 
-To add tutorials in your community tutorial table, you will need to indicate a list of tags relevant to your community, and tutorials associated with this tag will be automatically pulled from the [Galaxy Training Network](https://training.galaxyproject.org/). Only tutorials with the selected tags will be added to the filtered table.
+To add tutorials in your community tutorial table, you will need to indicate a list of tags relevant to your community, and tutorials associated with this tag will be automatically pulled from the [Galaxy Training Network](https://training.galaxyproject.org/) one a week. Only tutorials with the selected tags will be added to the filtered table.
 You will then be able to remove tutorials that are not relevant to your community or deprecated.
 
 > <hands-on-title>Select tutorials tags from the Galaxy Training Network</hands-on-title>
@@ -82,11 +82,11 @@ You will then be able to remove tutorials that are not relevant to your communit
 > You can also create a tag (for example, your community name) and tag all relevant tutorials with it. Then, you only need to use this tag to pull all the relevant tutorials.
 {: .comment}
 
-# Add the list releavnt tags for your community in the tutorial_tags file
+# Add the list releavant tags for your community in the tutorial_tags file
 
 > <hands-on-title>Add the relevant tags to the tutorial_tags file</hands-on-title>
-> 1. Open the file named `tutorial_tags` in your comunity metadata folder (`communities/<your community>/metadata/tutorial_tags` created previously)
-> 2. Add the name of the tags relevant to your community in the `tutorial_tags` file you started above, with 1 tag per row
+> 1. Open or create a file named `tutorial_tags` in your comunity metadata folder (`communities/<your community>/metadata/tutorial_tags`)
+> 2. Add the name of the tags relevant to your community in the `tutorial_tags` file, with 1 tag per row
 >
 >    For example:
 >    ```
@@ -95,9 +95,9 @@ You will then be able to remove tutorials that are not relevant to your communit
 >    ```
 {: .hands_on}
 
-Once you have a list of the tags that you wish to keep, you can submit this to Galaxy Codex.
+Once you have a list of the tags that you wish to keep, you can submit this to Galaxy CoDex.
 
-> <hands-on-title>Submit the new list of tags to Galaxy Codex</hands-on-title>
+> <hands-on-title>Submit the new list of tags to Galaxy CoDex</hands-on-title>
 >
 > 1. Click on **Commit changes** at the top
 > 2. Fill in the commit message with something like `Add tutorials tags for my community`
@@ -107,7 +107,10 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
-Once the Pull Request is merged, a table with all tutorial will be created in `communities/<your community>/resources/tutorials.tsv`
+On the sunday following the Pull Request merge, a table with all tutorial will be created in `communities/<your community>/resources/tutorials.tsv`
+
+![Flowchart illustrating the steps to generate the tutorials resources for your community.](./images/codex_tuto_flowchart.png "Flowchart illustrating the steps to generate the tutorials resources for your community.")
+
 
 # Embed the table in your community page on the Hub
 
