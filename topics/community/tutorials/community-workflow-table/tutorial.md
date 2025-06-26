@@ -1,6 +1,6 @@
 ---
 layout: tutorial_hands_on
-title: Creation of a Galaxy workflow table for your community
+title: Creation of resources listing Galaxy workflow for your community
 level: Introductory
 redirect_from:
 - /topics/dev/tutorials/community-workflow-table/tutorial
@@ -26,9 +26,9 @@ contributions:
 
 ---
 
-Similarly to the numerous tools available on Galaxy, numerous workflow are available on public Galaxy instances and in [Workflow Hub](https://workflowhub.eu/). This tutorail will take you through the steps to display the most relevant workflows on your community codex page.
+Similarly to the numerous tools available on Galaxy, numerous workflow are available on public Galaxy instances and in [Workflow Hub](https://workflowhub.eu/). This tutorail will take you through the steps to generate resources listing the relevant workflows and how to display them on your community codex page.
 
-The pipeline creates an table with all the workflows. This table can be **filtered to only include workflows that are relevant to a specific research community**.
+The pipeline creates a table with all the workflows associated to selected tags. This table can be **filtered to only include workflows that are relevant to a specific research community**.
 
 The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
 
@@ -48,12 +48,12 @@ The aim is this tutorial is to create a workflow table for a community.
 # Add your community to the Galaxy CoDex
 
 You first need to check if your Community is in the [Galaxy CoDex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities), a central resource for Galaxy communities.
-If the community is already there, you can move to the next tutorial of the learning pathway to include tools, tutorials and workflows.
+If the community is already there, you can move to the next step of this tutorial.
 
-If you community is not already included, follow this tutorial :
+If you community is not already included, follow this step :
 > <hands-on-title>Add your community to the Galaxy CoDex</hands-on-title>
 >
-> You need to create a new folder in the data/community folder within Galaxy Codex code source.
+> You need to create a new folder in the data/community folder within Galaxy CoDex code source.
 > 1. If not already done, fork the [Galaxy Codex repository](https://github.com/galaxyproject/galaxy_codex)
 > 2. Go to the `communities` folder
 > 3. Click on **Add file** in the drop-down menu at the top
@@ -69,7 +69,7 @@ If you community is not already included, follow this tutorial :
 
 # Pull list of tags relevant to your community
 
-To add workflows in your community workflow table, you will need to indicate a list of tags relevant to your community, and workflows associated with these tags will be automatically pulled from public Galaxy instances and [Workflow Hub](https://workflowhub.eu/). Only workflows with the selected tags will be added to the filtered table.
+To add workflows in your community workflow table, you will need to indicate a list of tags relevant to your community, and workflows associated with these tags will be automatically pulled from public Galaxy instances and [Workflow Hub](https://workflowhub.eu/). Only workflows with the selected tags will be added to the table.
 You will then be able to remove workflows that are not relevant to your community or deprecated.
 
 > <hands-on-title>Select workflows tags from the Galaxy instances</hands-on-title>
@@ -91,7 +91,7 @@ You will then be able to remove workflows that are not relevant to your communit
 # Add the list relevant tags for your community in the workflow_tags file
 
 > <hands-on-title>Add the relevant tags to the workflow_tags file</hands-on-title>
-> 1. Open the file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata/workflow_tags` created previously)
+> 1. Open or create a file named `workflow_tags` in your comunity metadata folder (`communities/<your community>/metadata/workflow_tags`)
 > 2. Add the name of the tags relevant to your community in the `workflow_tags` file you started above. The file is split in two sections : `Public`, which should inidcate the tags used on public Galaxy instances; and `workflowhub`, which inidcates the tags to use to select workflow on [Workflow Hub](https://workflowhub.eu/).
 >
 >    For example:
@@ -107,7 +107,7 @@ You will then be able to remove workflows that are not relevant to your communit
 >
 {: .hands_on}
 
-Once you have a list of the tags that you wish to keep, you can submit this to Galaxy Codex.
+Once you have a list of the tags that you wish to keep, you can submit this to Galaxy CoDex.
 
 > <hands-on-title>Submit the new list of tags to Galaxy Codex</hands-on-title>
 >
@@ -120,7 +120,7 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
-Once the Pull Request is merged, a few files will be created :
+On the sunday following merging of the pull request, a few files will be created :
 - `communities/<your community>/metadata/workflow_status.tsv` : A table with all the workflows extracted with the tags mentionned above.
 - `communities/<your community>/resources/curated_workflows.tsv` : A table with the same workflows as in the metadata file and additional information.
 - `communities/<your community>/resources/curated_workflows.json` : A json file with the same info as the correponding table.
@@ -132,7 +132,7 @@ Once the Pull Request is merged, a few files will be created :
 
 The generated table in the metadata folder (`communities/<your community>/metadata/workflow_status.tsv`) contains all the workflows associated with the tags that you selected. However, not all of these workflows might be interesting for your community.
 
-Galaxy Codex allows for an additional optional filter for workflows, that can be defined by the community curator (maybe that is you!).
+Galaxy CoDex allows for an additional optional filter for workflows, that can be defined by the community curator (maybe that is you!).
 
 To filter the workflows, you will update the values in the last two columns of the `communities/<your community>/metadata/workflow_status.tsv` file
 - `To keep` indicating whether the tool should be included in the final table (TRUE/FALSE).
@@ -153,12 +153,15 @@ You can modify the file directly in GitHub or download it to create a spreadshee
 >
 {: .hands_on}
 
-Once merged, the following files, reflecting the Galaxy tool landscape for your community, will be updated :
+On the sunday following merging of the pull request, the following files, reflecting the Galaxy tool landscape for your community, will be updated :
 - `communities/<your community>/resources/curated_workflows.tsv`
 - `communities/<your community>/resources/curated_workflows.json` 
 - `communities/<your community>/resources/tag_filtered_workflows.tsv`
 - `communities/<your community>/resources/tag_filtered_workflows.json`
+
 You can step-by-step review all workflows in your community and update the `workflow_status.tsv` file. You could also share this file with your community members and discuss weather the workflow should be kept or not. Collaborative work could be established using google spreadsheet.
+
+![Flowchart illustrating the steps to generate the workflow resources for your community.](./images/codex_workflows_flowchart.png "Flowchart illustrating the steps to generate the workflow resources for your community.")
 
 
 # Embed the table in your community page on the Hub
