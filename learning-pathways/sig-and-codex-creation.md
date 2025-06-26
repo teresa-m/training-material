@@ -1,26 +1,51 @@
 ---
 layout: learning-pathway
 
-title: Creation of a Community codex (and optionnally of a Special Interest Group (SIG))
+title: Creation of a Community CoDex and lab (and optionnally of a Special Interest Group (SIG))
 description: |
-  This learning pathway will take you through the creation of a community codex, and the generation of three tables to include in your community codex page : A tool table, a tutorial table and a workflow table (Module 1).
-  It is also possible to create a Special Interest Group (SIG) page. SIG refers to a dedicated scientific community that crosses individual lab boundaries and wants to collaborate, share resources, support each other, and/or collectively advocate on a given theme (Module 2).
+  **What are Galaxy CoDex, lab and SIG?**
+  The Galaxy Communities Dock or **Galaxy CoDex** is a centralized repository that ensures the versioning and documentation of the community components (Batut et al., 2024; NASR et al., 2025).
+  The codex is composed of 
+  - A GitHub repository specific to each community with curated lists of tools, workflows and tutorials relevant to the community.
+  For example : [The curated resources (tools, workflows, tutorials) for the microgalaxy codex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities/microgalaxy/resources).
+  - The **Community lab**, a centralised webpage that enables communities to rapidly aggregate, curate, integrate, display, and launch relevant tools, workflows, and training on different Galaxy servers. This user-friendly interfaces, built on the Galaxy framework, provides community members with data analysis capacity without requiring programming expertise. Users can run individual tools or create complex workflows, with full provenance tracking to ensure reproducibility, designed specifically for the community research (NASR et al., 2025). 
+  For example, [the microgalaxy lab (Europe)](https://microbiology.usegalaxy.eu/).
+
+  The **Special Interest Group (SIG)** refers to a dedicated scientific community that crosses individual lab boundaries and wants to collaborate, share resources, support each other, and/or collectively advocate on a given theme. We have SIGs based on region, domain of science, and more. You might consider that a SIG covers any group of like-minded Galaxy enthusiasts not currently combined into a Working Group.
+  Here is the list of [currently existing SIGs](https://galaxyproject.org/community/sig/) and the [microgalaxy community of practice webpage](https://galaxyproject.org/community/sig/microbial#microgalaxy-community)
+
+  *References:*
+  Bérénice Batut, Wendi Bacon, Paul Zierep, Matthias Bernt, Nicola Soranzo, et al.. Galaxy CoDex for finding tools, workflows, and training. GCC 2024 - Galaxy Community Conference, Jun 2024, Brno, Czech Republic. ⟨10.7490/f1000research.1119764.1⟩. ⟨hal-04644966⟩
+  Nasr E, Amato P, Bernt M, et al. The Microbiology Galaxy Lab: A community-driven gateway to tools, workflows, and training for reproducible and FAIR analysis of microbial data. Preprint. bioRxiv. 2025;2024.12.23.629682. Published 2025 Mar 26. doi:10.1101/2024.12.23.629682
+
+  **Description of the learning pathway:**
+  This learning pathway is composed of two modules :
+  - Module 1 : The creation of a community CoDex (including the lab interface). Generation of the CoDex includes the generation of three tables : A tool table, a tutorial table and a workflow table.
+  - Module 2: Creation a Special Interest Group (SIG) page (optional).
 
 type: use 
-tags: [community, codex, sig]
+tags: [community, codex, lab, sig]
 editorial_board:
 - scorreard
 - shiltemann
+- bebatut
 
 cover-image: assets/images/gat.png
 cover-image-alt: Default image
 
 pathway:
-  - section: "Module 1: Create a Galaxy Codex for your community"
+  - section: "Module 1: Create a Galaxy CoDex for your community"
     description: |
-      The aim is this learning pathway is to create a Galaxy codex for your community.
-      With the first tutorial, you will create an interactive table with all tools and their metadata in your community codex page. Tutorial 2 will create a tutorial table and tutorial 3 will create a workflow table.
-      Each tutorial is a stand alone one and they can be done in any order (or skipped altogether).
+      The aim is this learning pathway is to create a Galaxy CoDex for your community (including the lab interface).
+      This module is composed of four tutorials :
+        - Tutorial 1 : Creation of resources listing all the tools and their metadata relevant to your community.
+        - Tutorial 2 : Creation of resources listing all the tutorials and their metadata relevant to your community.
+        - Tutorial 3 : Creation of resources listing all the workflows and their metadata relevant to your community.
+        - Tutorial 4 : Creation of the lab interface (in development)
+
+      Tutorials 1, 2 and 3 are stand alones one and they can be done in any order (or skipped altogether).
+      Tutorial 4 requires files generated by tutorials 1, 2 and 3 so should be done last.
+    
     tutorials:
       - name: community-tool-table
         topic: community        
@@ -28,12 +53,14 @@ pathway:
         topic: community
       - name: community-workflow-table
         topic: community
+<!---      - name: community-lab
+        topic: community
+-->
         
   - section: "Module 2: Create a Special Interest Group (SIG)"
     description: |
-      The aim is this learning pathway is to create a Galaxy codex for your community.
-      With the first tutorial, you will create the folder that will allow the creation of the community codex. Then, with the second tutorial, you will create an interactive table with all tools and their metadata in your community codex page. Tutorial 3 will create a tutorial table and tutorial 4 will create a workflow table.
-      It is essential to start with the first tutorial (Creation of the codex folder), but then tutorial 2, 3 and 4 are independant and can be done in any order (or skipped altogether).
+      The aim is this learning pathway is to create a Special Interest Group (SIG) webpage for your community.
+      You can see the list of [currently existing SIGs](https://galaxyproject.org/community/sig/) for insipration.
     tutorials:
       - name: sig-define
         topic: community
