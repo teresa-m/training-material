@@ -162,6 +162,8 @@ To generate this file, we recommend you to use the `tools_filtered_by_ts_categor
 
 On the sunday following the merge of the previous pull request, a `curated_tools.tsv` file will be generated in `communities/<your community>/resources/` folder reflecting the Galaxy tool landscape for your community. You can step-by-step review all tools in your community and update the `tools_status.tsv` file. You could also share this file with your community members and discuss weather the tool should be kept or not. Collaborative work could be established using google spreadsheet.
 
+![Flowchart illustrating the steps to generate the tool resources for your community.](./images/codex_tools_flowchart.png "Flowchart illustrating the steps to generate the tool resources for your community.")
+
 # Embed the interactive table in your community page on the Hub
 
 The interactive table you have created can be embedded in your community page on the Hub, e.g. [microGalaxy](https://galaxyproject.org/community/sig/microbial/#tools).
