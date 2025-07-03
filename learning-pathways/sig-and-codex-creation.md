@@ -53,9 +53,9 @@ pathway:
         topic: community
       - name: community-workflow-table
         topic: community
-<!---      - name: community-lab
-        topic: community
--->
+      #- name: community-lab
+      #  topic: community
+
         
   - section: "Module 2: Create a Special Interest Group (SIG)"
     description: |
