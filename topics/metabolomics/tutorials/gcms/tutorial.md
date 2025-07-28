@@ -226,9 +226,7 @@ Concerning the current GC-MS tutorial, you **just have to compute the following 
 >    > | sample_name |  class  | 
 >    > |:-----------:|:-------:|
 >    > |    file1    |   marine strain   |
->    > |-------------+---------|
 >    > |    file2    |  pool  |
->    > |-------------+---------|
 >    > |    file3    |   freshwater strain  |
 >    >
 >    {: .comment}
