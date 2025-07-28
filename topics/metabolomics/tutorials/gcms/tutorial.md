@@ -190,7 +190,7 @@ The first step in the workflow is to detect the peaks in our data using **XCMS**
 > > 2. Import the following files from [Zenodo]({{ page.zenodo_link }}):
 > >
 > >    ```
-> >    https://zenodo.org/record/16538501/files/xcms_outputs
+> >    https://zenodo.org/records/16538501/files/xset.merged.RData
 > >    ```
 > >
 > >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
