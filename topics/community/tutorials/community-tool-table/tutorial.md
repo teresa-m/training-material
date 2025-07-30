@@ -62,7 +62,7 @@ The aim is this tutorial is to create such table for a community.
 You first need to check if your Community is in the [Galaxy CoDex](https://github.com/galaxyproject/galaxy_codex/tree/main/communities), a central resource for Galaxy communities.
 If the community is already there, you can move to the next step of this tutorial.
 
-If you community is not already included, follow this step :
+If you community is not already included, follow these steps :
 > <hands-on-title>Add your community to the Galaxy CoDex</hands-on-title>
 >
 > You need to create a new folder in the data/community folder within Galaxy CoDex code source.
@@ -94,9 +94,9 @@ You will then be able to remove tools that are not relevant to your community or
 
 # Add the list relevant tags for your community in the categories file
 
-> <hands-on-title>Add the TooShed catgories to the categories file</hands-on-title>
+> <hands-on-title>Add the ToolShed catgories to the categories file</hands-on-title>
 > 1. Open or create the file named `categories` in your comunity metadata folder (`communities/<your community>/metadata/categories`)
-> 2. Add the name of the categories relevant to your community in the `categories` file you started above, with 1 ToolShed category per row
+> 2. Add the name of the categories relevant to your community in the `categories` file you started above, with 1 ToolShed category per row. A list of valid ToolShed categories can be found [here](https://toolshed.g2.bx.psu.edu/).
 >
 >    For example:
 >    ```
@@ -118,7 +118,7 @@ Once you have a list of the ToolShed categories that you wish to keep, you can s
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
-Once the Pull Request is merged, a table with all tool suites and a short description will be created in `communities/<your community>/resources/tools_filtered_by_ts_categories.tsv` on the following sunday.
+Once the Pull Request is merged, a table with all tool suites and a short description will be created in `communities/<your community>/resources/tools_filtered_by_ts_categories.tsv` on the following Sunday.
 
 # Review the generated table to curate tools
 

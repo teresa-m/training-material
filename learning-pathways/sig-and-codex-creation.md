@@ -1,7 +1,7 @@
 ---
 layout: learning-pathway
 
-title: Creation of a Community CoDex and lab (and optionnally of a Special Interest Group (SIG))
+title: Creation of a Community CoDex and lab (and optionally of a Special Interest Group (SIG))
 description: |
   **What are Galaxy CoDex, lab and SIG?**
   The Galaxy Communities Dock or **Galaxy CoDex** is a centralized repository that ensures the versioning and documentation of the community components (Batut et al., 2024; NASR et al., 2025).

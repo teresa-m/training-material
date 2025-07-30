@@ -14,7 +14,7 @@ objectives:
 time_estimation: 1H
 key_points:
 - The Galaxy Codex extracts all Galaxy tutorials to create tables
-- The community Galaxy tutorials table can be embed into any website
+- The community Galaxy tutorials table can be embedded into any website
 tags:
 - Community
 - SIG
@@ -26,9 +26,9 @@ contributions:
 
 ---
 
-Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorail will take you through the steps to generate resources listing all the relevant tutorials and display the tutorial table on your community codex page.
+Similarly to the numerous tools available on Galaxy, the [Galaxy Training Network](https://training.galaxyproject.org/) includes numerous tutorials. This tutorial will take you through the steps to generate resources listing all the relevant tutorials and display the tutorial table on your community codex page.
 
-The pipeline creates table with all the tutorials. This table can be **filtered to only include tutorials that are relevant to a specific research community**.
+The pipeline creates a table with all the tutorials. This table can be **filtered to only include tutorials that are relevant to a specific research community**.
 
 The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
 
@@ -82,7 +82,7 @@ You will then be able to remove tutorials that are not relevant to your communit
 > You can also create a tag (for example, your community name) and tag all relevant tutorials with it. Then, you only need to use this tag to pull all the relevant tutorials.
 {: .comment}
 
-# Add the list releavant tags for your community in the tutorial_tags file
+# Add the list relevant tags for your community in the `tutorial_tags` file
 
 > <hands-on-title>Add the relevant tags to the tutorial_tags file</hands-on-title>
 > 1. Open or create a file named `tutorial_tags` in your comunity metadata folder (`communities/<your community>/metadata/tutorial_tags`)
