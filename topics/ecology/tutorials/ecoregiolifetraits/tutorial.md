@@ -1,7 +1,7 @@
 ---
 layout: tutorial_hands_on
 
-title: Life Traits Ecorgionalization workflow
+title: Life Traits Ecoregionalization workflow
 zenodo_link: ''
 questions:
 - How to use the life traits ecoregionalization?
@@ -23,7 +23,8 @@ contributors:
 contributions:
   funding:
   - pndb
-
+tags:
+  - biodiversity
 subtopic: ecologyanalysis
 ---
 

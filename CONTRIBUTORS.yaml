@@ -1085,6 +1085,9 @@ guillaume-gricourt:
 hvelab:
     name: Helena Vela
     joined: 2024-09
+    contact_for_training: true
+    affiliations:
+      - biont
 
 hannahkimincompbio:
     name: Hannah Kim
@@ -1340,6 +1343,7 @@ jkreplak:
 
 jochenblom:
     name: Jochen Blom
+    elixir_node: de
     joined: 2025-04
 
 joelvdavies:
@@ -1593,15 +1597,17 @@ lgallegovillar:
 
 lldelisle:
     name: Lucille Delisle
-    email: lucille.delisle@epfl.ch
+    email: lucille.delisle@unige.ch
     orcid: 0000-0002-1964-4960
     joined: 2019-08
     elixir_node: ch
+    matrix: 'lldelisle:matrix.org'
     contact_for_training: true
+    maintainer_contact: matrix
     location:
       country: CH
-      lat: 46.52
-      lon: 6.56
+      lat: 46.19
+      lon: 6.15
     affiliations:
       - elixir-europe
 
@@ -1610,6 +1616,8 @@ lisanna:
     joined: 2023-09
     email: lisanna.paladin@gmail.com
     orcid: 0000-0003-0011-9397
+    elixir_node: de
+    contact_for_training: true
     affiliations:
       - elixir-europe
       - embl-ebi
@@ -1945,6 +1953,12 @@ mirelaminkova:
     affiliations:
       - surf
 
+mittler-works:
+    name: Nils Mittler
+    joined: 2025-06
+    affiliations:
+      - deKCD
+
 moffmade:
     name: Cory Maughmer
     joined: 2018-06
@@ -1954,6 +1968,10 @@ moheydarian:
     email: mheydarian@gmail.com
     orcid: 0000-0001-9449-9364
     joined: 2017-09
+
+Morphy427: 
+    name: Elouan Le Mestric
+    joined: 2025-05
 
 mritchie:
     name: Matt Ritchie
@@ -2158,6 +2176,11 @@ odoppelt:
     elixir_node: fr
     affiliations:
       - elixir-europe
+
+ogerdfx:
+    name: Christine Oger
+    joined: 2025-06
+    elixir_node: fr
 
 olanag1:
     name: Olha Nahorna
@@ -2517,6 +2540,12 @@ sanjaysrikakulam:
       - elixir-europe
       - eurosciencegateway
 
+santamccloud:
+    name: Santino Faack
+    joined: 2025-07
+    affiliations:
+      - uni-freiburg
+
 saramorsy:
     name: Sara Morsy
     joined: 2021-10
@@ -2609,6 +2638,9 @@ shiltemann:
 silviadg87:
     name: Silvia Di Giorgio
     joined: 2025-05
+    contact_for_training: true
+    affiliations:
+      - biont
 
 Shorla:
     name: Olushola Ogunkelu
@@ -2765,6 +2797,11 @@ sunyi000:
     email: yi.sun@embl.de
     joined: 2021-03
 
+maulakhan:
+    name: Arif UI Maula Khan
+    email: arif.khan@embl.de
+    joined: 2025-07
+
 Swathi266:
     name: Swathi Nataraj
     joined: 2024-12
@@ -2918,6 +2955,12 @@ tsenapathi:
 tflowers15:
     name: Tristan Reynolds
     joined: 2025-03
+    email: treynolds@unimelb.edu.au
+    orcid: 0000-0002-6606-5953
+    affiliations:
+      - AustralianBioCommons
+      - unimelb
+      - melbournebioinformatics
 
 trungN:
     name: Nguyen Vo Minh Trung
