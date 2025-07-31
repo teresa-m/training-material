@@ -1,6 +1,6 @@
 ---
 layout: tutorial_hands_on
-draft: true
+draft: false
 
 title: 'Mass spectrometry : GC-MS analysis with metaMS package'
 level: Introductory
@@ -21,7 +21,7 @@ requirements:
 - type: "internal"
   topic_name: metabolomics
   tutorials:
-    - gcms-preprocessing
+    - gcms
 contributions:
   autorship: 
     - jsaintvanne
@@ -495,3 +495,4 @@ Don't forget to always check your files format!
 {% icon trophy %} Well done, you’ve processed GC-MS data with [metaMS (option 1)](#processing-with-metams-option-1) or [all with XCMS (option 2)](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) ! You might want to explore other [Galaxy trainings for Metabolomics]({% link topics/metabolomics/ %})  
 <br>
 You might want to consult your results with the [key history](https://usegalaxy.fr/u/yguitton/h/gcms) or use [the workflow](https://usegalaxy.fr/u/yguitton/h/gcms) associated with this tutorial. 
+
