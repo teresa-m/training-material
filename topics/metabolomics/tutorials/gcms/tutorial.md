@@ -62,9 +62,8 @@ To process the GC-MS data, we can use several tools. One of these is  **XCMS** (
 In this tutorial we use **XCMS** to detect chromatographic peaks within our samples. Once we have detected them, they need to be deconvoluted into mass spectra representing chemical compounds. For that, we use **metaMS** functions. To normalize the retention time of deconvoluted spectra in our sample, we compute the retention index using Alkane references and a dedicated function of **metaMS**. Finally, we identify detected spectra by aligning them with a database of known compounds. This can be achieved using an in-house built database in the common MSP format (`.msp`) (used in the NIST MS search program for example), resulting in a table of annotated compounds.
 {: .text-justify}
 
-> <comment-title></comment-title>
-> In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link](https://training.galaxyproject.org/training-material/topics/metabolomics/)]
-
+<comment-title></comment-title>
+In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link](https://training.galaxyproject.org/training-material/topics/metabolomics/)
 {: .comment}
 
 > <agenda-title></agenda-title>
@@ -133,7 +132,7 @@ Before we can start with the actual analysis pipeline, we first need to download
 >
 {: .hands_on}
 
-As a result of this step, you should have in our history a green Dataset collection with all 6 samples `.mzML` files as well as three separate files with reference alkanes, reference spectral library, and sample metadata.
+As a result of this step, you should have in our history a green Dataset collection {% icon param-collection %} with all 6 samples `.mzML` files as well as three separate files with reference alkanes, reference spectral library, and sample metadata.
 
 ## Create the XCMS object
 
@@ -191,9 +190,8 @@ The first step in the workflow is to detect the peaks in our data using **XCMS**
 >
 {: .details}
 
-## Peak picking
 
-The first step is to extract peaks from each of your data files independently. For this purpose, we use the _MatchedFilter_ chromatographic peak detection algorithm implemented in {% tool [xcms findChromPeaks (xcmsSet)](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_xcmsset/abims_xcms_xcmsSet/3.12.0+galaxy0) %}.
+The first step (*called peak picking*) is to extract peaks from each of your data files independently. For this purpose, we use the _MatchedFilter_ chromatographic peak detection algorithm implemented in {% tool [xcms findChromPeaks (xcmsSet)](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_xcmsset/abims_xcms_xcmsSet/3.12.0+galaxy0) %}.
 
  One Galaxy Training material already explains how to act with MS data. We encourage you to **follow this link and complete the corresponding tutorial**: [Mass spectrometry: LC-MS preprocessing with XCMS]({% link topics/metabolomics/tutorials/lcms-preprocessing/tutorial.md %}). 
 For GC-MS analysis you **don't really need to follow all of this previous tutorial** but for a better understanding of your data, it is recommended to try it with their test dataset.
@@ -204,7 +202,7 @@ Concerning the current GC-MS tutorial, you **just have to compute the following 
 > <hands-on-title>Peak picking of GC-MS data with XCMS</hands-on-title>
 >
 > 1. {% tool [xcms findChromPeaks (xcmsSet)](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_xcmsset/abims_xcms_xcmsSet/3.12.0+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"RData file"*: `input.raw.RData` (the output file from the **MSnbase readMSData** {% icon tool %} step)
+>    - {% icon param-collection %} *"RData file"*: `input.raw.RData` (the output collection of files from the **MSnbase readMSData** {% icon tool %} step)
 >    - *"Extraction method for peaks detection"*: `MatchedFilter - peak detection in chromatographic space`
 >        - *"Full width at half maximum of matched filtration gaussian model peak"*: `5`
 >        - *"Step size to use for profile generation"*: `0.5`
@@ -221,14 +219,14 @@ Concerning the current GC-MS tutorial, you **just have to compute the following 
 >    {: .comment}
 >
 > 2. {% tool [xcms findChromPeaks Merger](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_merge/xcms_merge/3.12.0+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"RData file"*: `input.raw.xset.RData` (output of the **xcms findChromPeaks (xcmsSet)** {% icon tool %} job)
+>    - {% icon param-collection %} *"RData file"*: `input.raw.xset.RData` (output collection of files from the **xcms findChromPeaks (xcmsSet)** {% icon tool %} job)
 >    - {% icon param-file %} *"Sample metadata file "*: `sampleMetadata.tsv` (One of the uploaded files from Zenodo)
 >
 >    > <comment-title></comment-title>
 >    >
 >    > To merge your data, you need to **input a sampleMetadata file** containing filenames and their metadata informations like their class for example.
 >    > If you don't add a sampleMetadata file, the **xcms findChromPeaks Merger** {% icon tool %} tool will **group all your files together**. 
->    > You can also **create your sampleMetadata file** with W4M Galaxy tool {% tool [xcms get a sampleMetadata file](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_export_samplemetadata/xcms_export_samplemetadata/3.12.0+galaxy3) %} with the following parameters: {% icon param-file %} *"RData file"*: `input.raw.RData` output from  **MSnbase readMSData** {% icon tool %}. 
+>    > You can also **create your sampleMetadata file** with W4M Galaxy tool {% tool [xcms get a sampleMetadata file](toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_export_samplemetadata/xcms_export_samplemetadata/3.12.0+galaxy3) %} with the following parameters: {% icon param-collection %} *"RData file"*: `input.raw.RData` output from  **MSnbase readMSData** {% icon tool %}. 
 >    > Here is an example of the minimum expectations about a sampleMetadata file (**important**: remove file extension from the sample names, file1.mzML should be file1):
 >    >
 >    >
@@ -246,6 +244,7 @@ The output from **xcms findChromPeaks Merger** {% icon tool %} is an *.RData* fi
 There are two available options: 
 - using the metaMS strategy specifically designed for GC-MS data deconvolution and annotation
 - using a full XCMS process for GC-MS data processing 
+
 The two options are illustrated in this tutorial.
 
 {% include _includes/cyoa-choices.html option1="Deconvolution and annotation using metaMS" option2="Process GC-MS data with XCMS function" default="Deconvolution and annotation using metaMS" text="Choose below if you just want to follow the pipeline using **metaMS** or **XCMS** for GC-MS deconvolution and annotation" disambiguation="gcms_metams_vs_xcms" %}
@@ -254,27 +253,26 @@ The two options are illustrated in this tutorial.
 
 # Processing with metaMS (option 1)
 
-**metaMS** is an R package for MS-based metabolomics data. It was made to ease peak picking and deconvolution steps using functions from **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format. 
+**metaMS** is an R package for MS-based metabolomics data. It was made to ease GC-MS data deconvolution and alignement steps using functions from **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format.
+The biggest difference between **XCMS** only workflow (option 2) or **XCMS + metaMS** GC-MS data processing (option 1) is that rather than a feature-based analysis with individual peaks, as in the option 2 case, **metaMS** performs a pseudospectrum-based analysis and use it to align compound between samples. One other advantage is that **metaMS** allows creation of MSP (`.msp`) spectra export files ready for annotation.
 
-> <comment-title> Tips </comment-title>
+> <comment-title></comment-title>
 >
-> >**Pro-tips:** You can {% icon dataset-save %} download the MSP file and open it in your favorite spectra processing software or online database for further investigation!
-> >
-> >**Note:** Not all **metaMS** R package functions have been made available in Galaxy.
+> >Not all **metaMS** R package functions have been made available in Galaxy.
 When run in R, the **metaMS** package offers a lot of possibilities. For more information on the full set of metaMS functions, visit the [metaMS Bioconductor page](https://www.bioconductor.org/packages/release/bioc/html/metaMS.html).
 {: .comment}
  
 During this part of the tutorial we are interested in GC-MS analysis with **metaMS**, so we will use the *runGC* function of **metaMS** and describe it in detail to understand all the capabilities of that function.
 The standard workflow of **metaMS** for GC-MS data is the following: 
 
-![Workflow diagram of metaMS for GC-MS data analysis](../../images/tuto_gcms_workflow_metaMS.png "Workflow of metaMS for GC datas")
+![Workflow diagram of metaMS for GC-MS data analysis](../../images/tuto_gcms_workflow_2options.png "Workflow of metaMS for GC datas")
 
-The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in Galaxy. It takes as inputs an .RData file after XCMS and optionally for annotation purposes an alkane reference file (in `.csv` format) for RI calculation and/or a spectral database in `.msp` format.
+The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in Galaxy. It takes as inputs an {% icon param-collection %} *.RData* file after **XCMS** peak picking  and optionally for annotation purposes an alkane reference file (in `.csv` format) for RI calculation and/or a spectral database in `.msp` format.
 {: .text-justify}
 
-## Peak picking with metaMS
+## Deconvolution and Alignement with metaMS
 
-The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and annotation steps with _runGC_ function.
+The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and Alignment steps with _runGC_ function.
 {: .text-justify}
 
 > <hands-on-title>metaMS.runGC</hands-on-title>
@@ -300,55 +298,45 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"* : `hide` and *"Use RI option* : `hide`
 >    {: .comment}
 >
+>    > <tip-title>Export MSP file to external databases </tip-title>
+>    > >You can {% icon dataset-save %} download the MSP file and open it in your favorite spectra processing software or online database for further investigation!
+>    {: .tip}
 {: .hands_on}
 
-<details-title> Definitions </details-title>
+> <details-title> Definitions </details-title>
 >    > <details-title> Pseudo-spectra </details-title>
->    >The biggest difference between **XCMS** only or **XCMS + metaMS** GC-MS data processing is that rather than a feature-based analysis with individual peaks, as is the case with **XCMS**, **metaMS** performs a pseudospectrum-based analysis. So, the basic entity is a set of m/z values showing a chromatographic peak at the same retention time. The idea behind that is that Electron Ionization (EI), which is the most widely used ionization mode in GC-MS analysis, generates a lot more ions for the same molecule than Electrospray Ionisation used in LC-MS. The function _runGC_ from **metaMS** is able to group all ions belonging to a molecule into one single cluster that will be used for statistical analysis. For each compound found by **metaMS** a list of gouped m/z and their intensity is exported as pseudospectrum and this will be used for annotation purpose. For that the MSP file format is used, which is a common format for mass spectra databases. The pseudospectra are created by grouping all m/z values of a chromatographic peak at the same retention time into one single entry, and then exporting this information in the `.msp` format.
+>    > The biggest difference between **XCMS** only or **XCMS + metaMS** GC-MS data processing is that rather than a feature-based analysis with individual peaks, as is the case with **XCMS**, **metaMS** performs a pseudospectrum-based analysis. So, the basic entity is a set of m/z values showing a chromatographic peak at the same retention time. The idea behind that is that Electron Ionization (EI), which is the most widely used ionization mode in GC-MS analysis, generates a lot more ions for the same molecule than Electrospray Ionisation used in LC-MS. The function _runGC_ from **metaMS** is able to group all ions belonging to a molecule into one single cluster that will be used for statistical analysis. For each compound found by **metaMS** a list of gouped m/z and their intensity is exported as pseudospectrum and this will be used for annotation purpose. For that the MSP file format is used, which is a common format for mass spectra databases. The pseudospectra are created by grouping all m/z values of a chromatographic peak at the same retention time into one single entry, and then exporting this information in the `.msp` format.
+>    > 
+>    > ![TIC](../../images/tuto_gcms_eic.png "Example of cluster of ions EIC's (left) and the associated pseudospectra (right)")
+>    > 
+>    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC** : peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/)
+>    {: .details}
 >
->    > ![Pseudospectrum example](../../images/tuto_gcms_pseudospectrum_example.png "Pseudospectrum example from `msp` file")
->
->    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC** : peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/) 
->
+>    > <details-title>MSP files </details-title>
+>    > MSP (Mass Spectrum Peak) file is a text file structured according to the NIST MSSearch spectra format. MSP is one of the generally accepted formats for mass spectral libraries (or collections of unidentified spectra, so called spectral archives), and it is compatible with lots of spectra processing programs (MS-DIAL, NIST MS Search, AMDIS, matchms, etc.). It can contain one or more mass spectra, which are split by an empty line. The individual spectra essentially consist of two sections: metadata (such as name, spectrum type, ion mode, retention time, and the number of m/z peaks) and peaks, consisting of m/z and intensity tuples.
+>    > 
+>    > **Example of an MSP file entry:**
+>    > ```
+>    >  Name: Biomarker1
+>    >  Retention_time: 5.23
+>    >  Num Peaks: 3
+>    >  43  100
+>    >  57  80
+>    >  71  60
+>    >  ```
+>    >  
+>    >  For more details, you can view an [example MSP file here](https://zenodo.org/records/16538501/files/W4M0004_database_small.msp).
 >    {: .details}
 {: .details}
-## Definition of pseudo-spectra
 
-The biggest difference between **XCMS** only or **XCMS + metaMS** GC-MS data processing is that rather than a feature-based analysis with individual peaks, as is the case with **XCMS**, **metaMS** performs a pseudospectrum-based analysis. So, the basic entity is a set of m/z values showing a chromatographic peak at the same retention time. The idea behind that is that Electron Ionization (EI), which is the most widely used ionization mode in GC-MS analysis, generates a lot more ions for the same molecule than Electrospray Ionisation used in LC-MS. The function _runGC_ from **metaMS** is able to group all ions belonging to a molecule into one single cluster that will be used for statistical analysis. For each compound found by **metaMS** a list of gouped m/z and their intensity is exported as pseudospectrum and this will be used for annotation purpose. For that the MSP file format is used, which is a common format for mass spectra databases. The pseudospectra are created by grouping all m/z values of a chromatographic peak at the same retention time into one single entry, and then exporting this information in the `.msp` format.
-{: .text-justify}
+## Alignement
 
-![Pseudospectrum example](../../images/tuto_gcms_pseudospectrum_example.png "Pseudospectrum example from `msp` file")
-
-This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC** : peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/) 
-{: .text-justify}
-
-The  `.msp` format exported by **metaMS** is the same as the one used the AMDIS software ({% cite Stein1999 %}) generally available on GC-MS instrument. The `.msp`  file is a nested list, with one entry for each compound pseudo-spectra. The pseudo-spectra are two-column matrices, containing m/z, intensity information, respectively. In R they can be drawn with the *plotPseudoSpectrum* function of **metaMS** package easily (Figure 2).
-{: .text-justify}
-
-><details-title>MSP files </details-title>
-> MSP (Mass Spectrum Peak) file is a text file structured according to the NIST MSSearch spectra format. MSP is one of the generally accepted formats for mass spectral libraries (or collections of unidentified spectra, so called spectral archives), and it is compatible with lots of spectra processing programs (MS-DIAL, NIST MS Search, AMDIS, matchms, etc.). It can contain one or more mass spectra, which are split by an empty line. The individual spectra essentially consist of two sections: metadata (such as name, spectrum type, ion mode, retention time, and the number of m/z peaks) and peaks, consisting of m/z and intensity tuples.
->
-> **Example of an MSP file entry:**
-> ```
-> Name: Biomarker1
-> Retention_time: 5.23
-> Num Peaks: 3
-> 43  100
-> 57  80
-> 71  60
-> ```
-> 
-> For more details, you can view an [example MSP file here](https://zenodo.org/records/16538501/files/W4M0004_database_small.msp).
-{: .details}
-
-## Annotation
-
-Once **metaMS** have created the pseudo-spectra for each unknown compound, we can start the annotation process. This is done by **comparing every pseudospectrum to a database of spectra**. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. The corresponding R function is *matchSamples2DB*. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons.
+Once **metaMS** have created the pseudo-spectra for each unknown compound in each files, we can start the annotation process. This is done by **comparing every pseudospectrum ** to each others in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index) then thay are aligned. This process will create the *dataMatrix* and *variableMetadata* outputs.
 {: .text-justify}
 
 ![Match spectra](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
 
-This *matchSamples2DB* function returns a table where all patterns that have a match with a DB entry are shown in the first column, and the DB entry itself in the second column. If for a particular experimental pattern more than one match is found, the alternatives (with a lower match factor) are shown in the last column. To see the match for a particular pattern, one can use the function *matchExpSpec*, returning matchfactors (numbers between 0 and 1, where the latter means a perfect match) for all entries in the database (if the plotIt argument is TRUE, the best match is shown – see Figure 2). Samples may contain compounds that are not of any interest, such as plasticizers, internal standards, column material etc.... These can be filtered out before doing an annotation : **metaMS** allows certain categories of database entries (defined in slot *matchIrrelevants* of the settings object) to be removed before further annotation. If the spectra of these compounds are very specific (and they often are), the retention criterion may be bypassed by setting the maximal retention time difference to very high values, which leads to the removal of such spectra wherever they occur in the chromatogram.
+If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 {: .text-justify}
 
 
@@ -359,7 +347,7 @@ An important aspect of untargeted metabolomics is the definition of unknowns—f
 In defining unknowns we have so far used settings that are more strict than when compared to a database : since all samples are typically measured in one single run, expected retention time differences are rather small. In addition, one would expect reproducible spectra for a single compound. A true unknown, or at least an interesting one, is also present in a significant fraction of the samples. All these parameters are gathered in the betweenSamples element of the settingsobject .Since the matching is done using scaled patterns, we need to create a scaled version of the experimental pseudo-spectra first.
 {: .text-justify}
 
-For large numbers of samples, this process can take quite some time (it scales quadratically), especiallyif the allowed difference in retention time is large. The result now is a list of two elements : the first is the annotation table that we also saw after the comparison with the database, and the second is a list of pseudo-spectra corresponding to unknowns. In the annotation table, negative indices correspond to the pseudo-spectra in this list.
+For large numbers of samples, this process can take quite some time (it scales quadratically), especially if the allowed difference in retention time is large. The result now is a list of two elements : the first is the annotation table that we also saw after the comparison with the database, and the second is a list of pseudo-spectra corresponding to unknowns. 
 {: .text-justify}
 
 
@@ -381,8 +369,6 @@ In both cases, the result is a list containing a set of patterns corresponding w
 That file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search a tutorial is available [here](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
 {: .text-justify}
 
-
-
 # Take a look at your results after metaMS processing
 
 We choose to separate our first W4M Galaxy tool into 2 parts: the processing of GC-MS data (**metaMS.runGC {% icon tool %}**) and the plotting results of these data (**metaMS.plot {% icon tool %}**). So we now have the first part describes just before and the second part we will describe just after. This part allows users to see the TIC (Total Ion Chromatogram), BPC (Base Peak Chromatogram), and also all EICs (Extracted Ion Chromatogram) you want, from our previous result outputted from **metaMS.runGC {% icon tool %} tool**. 
@@ -398,16 +384,13 @@ Concerning EICs, it is possible to choose for which compound you want to draw an
 
 ![TIC](../../images/tuto_gcms_eic.png "Example of EIC of the 'Unknown 1' in sample 'alg2'")
 
-# Conclusion
-{% icon trophy %} Well done, you’ve processed GC-MS data! You might want to consult your results with the [key history](https://usegalaxy.eu/u/hechth/h/end-to-end-ei-mass-spectra-prediction-workflow-using-qcxms-1) or use [the workflow](https://usegalaxy.eu/u/hechth/h/end-to-end-ei-mass-spectra-prediction-workflow-using-qcxms-1) associated with this tutorial. 
-
 </div>
 
-<div class="Process-GC-MS-data-with-XCMS-function" markdown="1">
+<div class="Process-gc-ms-data-with-xcms-function" markdown="1">
   
-# Carrying on using the standard XCMS workflow (option 2)
+# Process GC-MS data with a full XCMS workflow (option 2)
 
-This option follows the standard **XCMS** workflow to obtain in the end a *dataMatrix* file and its corresponding *variableMetadata* file. The main difference with the [option 1](#processing-with-metams-option-1) is that the *dataMatrix* file will contain individual peaks rather than pseudo-spectra, and the *variableMetadata* file will contain information about each peak, such as its retention time, m/z, and intensity. **No** `.msp` file will be generated in this case, as the peaks are not grouped into pseudo-spectra so the annotation proces will be different.
+This option follows the standard **XCMS** workflow with GC-MS data at start to obtain in the end a *dataMatrix* file and its corresponding *variableMetadata* file. The main difference with the [option 1](#processing-with-metams-option-1) is that the *dataMatrix* file will contain individual peaks rather than pseudo-spectra, and the *variableMetadata* file will contain information about each peak, such as its retention time, m/z, and intensity. **No** `.msp` file will be generated in this case, as the peaks are not grouped into pseudo-spectra so the annotation proces will be different.
 
 > <hands-on-title>Example untargeted GC-MS data processing with the standard XCMS workflow</hands-on-title>
 >
@@ -424,47 +407,13 @@ This option follows the standard **XCMS** workflow to obtain in the end a *dataM
 >        - *"Number of decimal places for retention time values reported in ions' identifiers."*: `2`
 >        - *"Reported intensity values"*: `maxo`
 >
->
+> > <comment-title></comment-title>
+> > After **XCMS** extraction of MSP formated spectra can be done with **RAMclustR**{% icon tool %} tool (See this [GTN]({% link topics/metabolomics/tutorials/gc_ms_with_xcms/tutorial.md %})).
+> {: .comment}
 {: .hands_on}
 
 The outputs of this strategy are similar to the ones described in the LC-MS tutotial mentioned previously. 
 
-> <comment-title>Important : Be careful of the file format</comment-title>
->
-> During each step of pre-processing, your dataset has its format changed and can have also its name changed.
-> To be able to continue to GC-MS processing, you need to have a RData object which is **merged and grouped** (from **xcms findChromPeaks Merger** {% icon tool %} and **xcms groupChromPeaks (group)** {% icon tool %}) at least. 
-> It means that you should have a file named `xset.merged.groupChromPeaks.RData` (and maybe with some step more in it).
-{: .comment} 
-
-
-# Stopover : Verify your data after the XCMS pre-processing
-
-When you have processed **all or only needed** steps described before, you can continue the GC-MS processing with statistics or annotation tools. 
-Don't forget to always check your files format! 
-{: .text-justify}
-
-> <comment-title></comment-title>
-> 
-> The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting selecting the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make a better peak picking in the future in the same history and it will not be polluted by statistical analysis part of your process.
-> {: .text-justify}
-> 
-> > <tip-title>Copy dataset to a new history</tip-title>
-> >
-> > 1. Click on the {% icon galaxy-gear %} icon (**History options**) on the top of the history panel
-> > 2. Click on **Copy Dataset**
-> > 3. Select the desired files
-> > 4. Give a relevant name to the "New history"
-> > 5. Click on the new history name in the green box that have just appear to switch to this history
-> {: .tip}
-> 
-> To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
-> {: .text-justify}
-> 
-> You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, we highly recommend you to rename it **with something short**, e.g. "xset", "XCMSSetObject", or anything not too long that you may find convenient.
-> {: .text-justify}
-> {% snippet faqs/galaxy/datasets_rename.md %}
->
-{: .comment}
 
 Before going to the next step of your GC-MS data processing, here are some questions to be able to verify if your files are ready and if you have the same results as us. Please check these questions : 
 {: .text-justify}
@@ -502,7 +451,42 @@ Before going to the next step of your GC-MS data processing, here are some quest
 > {: .solution}
 {: .question}
 
-# Conclusion 
-{% icon trophy %} Well done, you’ve processed GC-MS data! You might want to explore other [Galaxy trainings](https://training.galaxyproject.org/training-material/topics/metabolomics/)  
-
 </div>
+
+
+# Verify your data after the pre-processing and clean datasets
+
+When you have processed **all or only needed** steps described before, you can continue the processing of your data with statistics or annotation tools. 
+Don't forget to always check your files format! 
+{: .text-justify}
+
+The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make adjust peak picking parameters in the future in the same history and it will not be polluted by statistical analysis part of your process.
+{: .text-justify}
+> 
+> > <tip-title>Copy dataset to a new history</tip-title>
+> >
+> > 1. Click on the {% icon galaxy-gear %} icon (**History options**) on the top of the history panel
+> > 2. Click on **Copy Dataset**
+> > 3. Select the desired files
+> > 4. Give a relevant name to the "New history"
+> > 5. Click on the new history name in the green box that have just appear to switch to this history
+> {: .tip}
+
+> To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
+> {: .text-justify}
+> 
+> You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, we highly recommend you to rename it **with something short**, e.g. "xset", "XCMSSetObject", or anything not too long that you may find convenient.
+
+> {% snippet faqs/galaxy/datasets_rename.md %}
+
+> <comment-title>Important : Be careful of the file format</comment-title>
+>
+> During each step of pre-processing, your dataset has its format changed and can have also its name changed.
+> To be able to continue to GC-MS processing, you need to have a RData object which is **merged and grouped** (from **xcms findChromPeaks Merger** {% icon tool %} and **xcms groupChromPeaks (group)** {% icon tool %}) at least. 
+> It means that you should have a file named `xset.merged.groupChromPeaks.RData` (and maybe with some step more in it).
+{: .comment} 
+
+# Conclusion 
+{% icon trophy %} Well done, you’ve processed GC-MS data with [metaMS (option 1)](#processing-with-metams-option-1) or [all with XCMS (option 2)](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) ! You might want to explore other [Galaxy trainings](https://training.galaxyproject.org/training-material/topics/metabolomics/)  
+<br>
+You might want to consult your results with the [key history](https://usegalaxy.fr/u/yguitton/h/gcms) or use [the workflow](https://usegalaxy.fr/u/yguitton/h/gcms) associated with this tutorial. 
