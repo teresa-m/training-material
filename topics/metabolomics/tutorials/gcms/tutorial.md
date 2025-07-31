@@ -141,7 +141,7 @@ The first part of data processing is using the **XCMS** tool to detect peaks in 
 
 > <comment-title></comment-title>
 > **MSnbase readMSData** {% icon tool %} function, prior to **XCMS**, is able to read files with open format as `mzXML`, `mzML`, `mzData` and `netCDF`, which are independent of the manufacturers' proprietary formats. Working with open MS data file format allows users to us tools developed outside of the MS instrument provider. This set of packages/functions gives modularity, and thus is particularly well adapted to define workflows, one of the key points of Galaxy.
-{: .text-justify}
+> {: .text-justify}
 {: .comment}
 
 > <hands-on-title> Create the XCMS object </hands-on-title>
@@ -257,8 +257,7 @@ The two options are illustrated in this tutorial.
 The biggest difference between **XCMS** only workflow (option 2) or **XCMS + metaMS** GC-MS data processing (option 1) is that rather than a feature-based analysis with individual peaks, as in the option 2 case, **metaMS** performs a pseudospectrum-based analysis and use it to align compound between samples. One other advantage is that **metaMS** allows creation of MSP (`.msp`) spectra export files ready for annotation.
 
 > <comment-title></comment-title>
->
-> >Not all **metaMS** R package functions have been made available in Galaxy.
+> > Not all **metaMS** R package functions have been made available in Galaxy.
 When run in R, the **metaMS** package offers a lot of possibilities. For more information on the full set of metaMS functions, visit the [metaMS Bioconductor page](https://www.bioconductor.org/packages/release/bioc/html/metaMS.html).
 {: .comment}
  
@@ -297,7 +296,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    >
 >    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"* : `hide` and *"Use RI option* : `hide`
 >    {: .comment}
->
+
 >    > <tip-title>Export MSP file to external databases </tip-title>
 >    > >You can {% icon dataset-save %} download the MSP file and open it in your favorite spectra processing software or online database for further investigation!
 >    {: .tip}
@@ -454,15 +453,17 @@ Before going to the next step of your GC-MS data processing, here are some quest
 </div>
 
 
-# Verify your data after the pre-processing and clean datasets
-
-When you have processed **all or only needed** steps described before, you can continue the processing of your data with statistics or annotation tools. 
+># Verify your data after the pre-processing and clean datasets
+>
+>When you have processed **all or only needed** steps described before, you can continue the processing of your data with statistics or annotation tools. 
 Don't forget to always check your files format! 
+>
 {: .text-justify}
 
-The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make adjust peak picking parameters in the future in the same history and it will not be polluted by statistical analysis part of your process.
+>The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make adjust peak picking parameters in the future in the same history and it will not be polluted by statistical analysis part of your process.
+>
 {: .text-justify}
-> 
+
 > > <tip-title>Copy dataset to a new history</tip-title>
 > >
 > > 1. Click on the {% icon galaxy-gear %} icon (**History options**) on the top of the history panel
@@ -470,20 +471,23 @@ The pre-processing part of this analysis can be **quite time-consuming**, and al
 > > 3. Select the desired files
 > > 4. Give a relevant name to the "New history"
 > > 5. Click on the new history name in the green box that have just appear to switch to this history
+> >
 > {: .tip}
 
 > To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
-> {: .text-justify}
 > 
+> {: .text-justify}
+
 > You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, we highly recommend you to rename it **with something short**, e.g. "xset", "XCMSSetObject", or anything not too long that you may find convenient.
-
+>
 > {% snippet faqs/galaxy/datasets_rename.md %}
-
+>
 > <comment-title>Important : Be careful of the file format</comment-title>
 >
 > During each step of pre-processing, your dataset has its format changed and can have also its name changed.
 > To be able to continue to GC-MS processing, you need to have a RData object which is **merged and grouped** (from **xcms findChromPeaks Merger** {% icon tool %} and **xcms groupChromPeaks (group)** {% icon tool %}) at least. 
 > It means that you should have a file named `xset.merged.groupChromPeaks.RData` (and maybe with some step more in it).
+> 
 {: .comment} 
 
 # Conclusion 
