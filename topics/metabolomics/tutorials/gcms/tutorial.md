@@ -365,7 +365,7 @@ In addition, one is ignoring the information in the other peaks of the pseudospe
 In both cases, the result is a list containing a set of patterns corresponding with the compounds that have been found, either annotated or unknown, the relative intensities of these patterns in the individual annotations, and possibly the xcmsSetobject for further inspection. In practice, the *runGC* function is all that users need to use.
 {: .text-justify}
 
-That file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search a tutorial is available [here](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
+That file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search a [PDF tutorial is available](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
 {: .text-justify}
 
 # Take a look at your results after metaMS processing
@@ -407,7 +407,7 @@ This option follows the standard **XCMS** workflow with GC-MS data at start to o
 >        - *"Reported intensity values"*: `maxo`
 >
 > > <comment-title></comment-title>
-> > After **XCMS** extraction of MSP formated spectra can be done with **RAMclustR**{% icon tool %} tool (See this [GTN]({% link topics/metabolomics/tutorials/gc_ms_with_xcms/tutorial.md %})).
+> > After **XCMS** extraction of MSP formated spectra can be done with **RAMclustR**{% icon tool %} tool (See this [GTN on GC-MS data processing]({% link topics/metabolomics/tutorials/gc_ms_with_xcms/tutorial.md %})).
 > {: .comment}
 {: .hands_on}
 
@@ -491,6 +491,6 @@ Don't forget to always check your files format!
 {: .comment} 
 
 # Conclusion 
-{% icon trophy %} Well done, you’ve processed GC-MS data with [metaMS (option 1)](#processing-with-metams-option-1) or [all with XCMS (option 2)](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) ! You might want to explore other [Galaxy trainings](https://training.galaxyproject.org/training-material/topics/metabolomics/)  
+{% icon trophy %} Well done, you’ve processed GC-MS data with [metaMS (option 1)](#processing-with-metams-option-1) or [all with XCMS (option 2)](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) ! You might want to explore other [Galaxy trainings for Metabolomics]({% link topics/metabolomics/ %})  
 <br>
 You might want to consult your results with the [key history](https://usegalaxy.fr/u/yguitton/h/gcms) or use [the workflow](https://usegalaxy.fr/u/yguitton/h/gcms) associated with this tutorial. 
