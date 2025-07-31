@@ -63,7 +63,7 @@ In this tutorial we use **XCMS** to detect chromatographic peaks within our samp
 {: .text-justify}
 
 <comment-title></comment-title>
-In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link](https://training.galaxyproject.org/training-material/topics/metabolomics/)
+In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link to Metabolomics GTN]({% link /topics/metabolomics/ %})
 {: .comment}
 
 > <agenda-title></agenda-title>
@@ -300,6 +300,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    > <tip-title>Export MSP file to external databases </tip-title>
 >    > >You can {% icon dataset-save %} download the MSP file and open it in your favorite spectra processing software or online database for further investigation!
 >    {: .tip}
+> 
 {: .hands_on}
 
 > <details-title> Definitions </details-title>
@@ -324,7 +325,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    >  71  60
 >    >  ```
 >    >  
->    >  For more details, you can view an [example MSP file here](https://zenodo.org/records/16538501/files/W4M0004_database_small.msp).
+>    >  For more details, you can view an [example MSP file](https://zenodo.org/records/16538501/files/W4M0004_database_small.msp).
 >    {: .details}
 {: .details}
 
@@ -385,7 +386,7 @@ Concerning EICs, it is possible to choose for which compound you want to draw an
 
 </div>
 
-<div class="Process-gc-ms-data-with-xcms-function" markdown="1">
+<div class="Process-GC-MS-data-with-XCMS-function" markdown="1">
   
 # Process GC-MS data with a full XCMS workflow (option 2)
 
@@ -476,7 +477,7 @@ Don't forget to always check your files format!
 
 > To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
 > 
-> {: .text-justify}
+{: .text-justify}
 
 > You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, we highly recommend you to rename it **with something short**, e.g. "xset", "XCMSSetObject", or anything not too long that you may find convenient.
 >
