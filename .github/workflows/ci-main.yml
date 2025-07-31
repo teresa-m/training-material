@@ -1,4 +1,4 @@
-name: "[CI] GTN Tutorial Linting"
+name: "GTN Tutorial Linting"
 
 concurrency:
   group: ci-tutsli-${{ github.head_ref }}
