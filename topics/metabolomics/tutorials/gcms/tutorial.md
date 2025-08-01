@@ -39,15 +39,15 @@ funding:
 --- 
 
 You may already know that there are different types of *-omic* sciences; out of these, metabolomics is most closely related to phenotypes. Metabolomics involves the study of different types of matrices, such as blood, urine, tissues, in various organisms including plants. It  focuses on studying the very small molecules which are called *metabolites*, to better understand matters linked to the metabolism. However, studying metabolites is not a piece of cake since it requires several critical steps which still have some major bottlenecks. Metabolomics is still quite a young science, and has many kinds of specific challenges.
-{: .text-justify}
+
 
 One of the three main technologies used to perform metabolomic analysis is **Gas-Chromatography Mass Spectrometry** (GC-MS). Data analysis for this technology requires a large variety of steps, ranging from extracting information from the raw data, to statistical analysis and annotation. Many packages in R/Python are available for the analysis of GC-MS or LC-MS data - for more details see the reviews by {% cite Stanstrup2019 %} and {% cite Misra2021 %}.
-{: .text-justify}
+
 This tutorial explains the main steps involved in untargeted **GC-MS** data processing, to do so we focus on some open-source solutions integrated within the Galaxy framework, namely **XCMS** and **metaMS**. The selected tools and functionalities only covers a small portion of available tools but allow to **perform a complete GC-MS analysis** in a single environment.
 In this tutorial, we will learn how to (1) extract features from the raw data using **XCMS** ({% cite Smith2006 %}), (2) deconvolute the detected features into spectra with **metaMS** ({% cite Wehrens2014 %}) and (3) annotate unknow spectra using spectral database comparison tools. 
-{: .text-justify}
+
 To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due to time constraints in processing the original dataset, a limited subset of samples was utilized to illustrate the workflow. This subset (see details below) demonstrates the key steps of metabolomics analysis, from pre-processing to annotation. Although the results derived from this reduced sample size may not be scientifically robust, they provide insight into essential methodological foundations of GC-MS data-processing workflow.
-{: .text-justify}
+
 
 > <details-title> Algae samples </details-title>
 >
@@ -61,7 +61,7 @@ To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due t
 
 To process the GC-MS data, we can use several tools. One of these is  **XCMS** ({% cite Smith2006 %}) it's a general R package for untargeted metabolomics profiling. It can be used for any type of mass spectrometry acquisition (centroid and profile) or resolution (from low to high resolution), including FT-MS data coupled with a different kind of chromatography (liquid or gas). Because of the generality of packages like **XCMS**, several other packages have been developed to use the functionality of **XCMS** for optimal performance in a particular context. The R package **metaMS** ({% cite Wehrens2014 %}) does so for the field of GC-MS untargeted metabolomics. One of the goals of **metaMS** was to set up a simple system with few user-settable parameters, capable of handling untargeted metabolomics experiments.
 In this tutorial we use **XCMS** to detect chromatographic peaks within our samples. Once we have detected them, they need to be deconvoluted into mass spectra representing chemical compounds. For that, we use **metaMS** functions. To normalize the retention time of deconvoluted spectra in our sample, we compute the retention index using Alkane references and a dedicated function of **metaMS**. Finally, we identify detected spectra by aligning them with a database of known compounds. This can be achieved using an in-house built database in the common MSP format (`.msp`) (used in the NIST MS search program for example), resulting in a table of annotated compounds.
-{: .text-justify}
+
 
 <comment-title></comment-title>
 In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link to Metabolomics GTN]({% link /topics/metabolomics/ %})
@@ -80,7 +80,7 @@ In Galaxy other GC-MS data processing workflows are available and may be of inte
 # Data preparation and prepocessing
 
 Before we can start with the actual analysis pipeline, we first need to download and prepare our dataset. Many of the preprocessing steps can be run in parallel on individual samples. Therefore, we recommend using the Dataset collections in Galaxy. This can be achieved by using the dataset collection option from the beginning of your analysis when uploading your data into Galaxy.
-{: .text-justify}
+
 
 ## Import the data into Galaxy
 
@@ -138,11 +138,11 @@ As a result of this step, you should have in our history a green Dataset collect
 ## Create the XCMS object
 
 The first part of data processing is using the **XCMS** tool to detect peaks in the MS signal. For that, we first need to take the `.mzML` files and create a format usable by the **XCMS** tool. {% tool [MSnbase readMSData](toolshed.g2.bx.psu.edu/repos/lecorguille/msnbase_readmsdata/msnbase_readmsdata/2.16.1+galaxy0) %} ({% cite gatto2012msnbase %}. {% cite gatto2020msnbase %}) takes as input our files and prepares `RData` files for the first **XCMS** step.
-{: .text-justify}
+
 
 > <comment-title></comment-title>
 > **MSnbase readMSData** {% icon tool %} function, prior to **XCMS**, is able to read files with open format as `mzXML`, `mzML`, `mzData` and `netCDF`, which are independent of the manufacturers' proprietary formats. Working with open MS data file format allows users to us tools developed outside of the MS instrument provider. This set of packages/functions gives modularity, and thus is particularly well adapted to define workflows, one of the key points of Galaxy.
-> {: .text-justify}
+> 
 {: .comment}
 
 > <hands-on-title> Create the XCMS object </hands-on-title>
@@ -163,7 +163,7 @@ As a result of this step, you should have in our history a new green dataset cal
 # Peak detection using XCMS
 
 The first step in the workflow is to detect the peaks in our data using **XCMS** functions. This part, however, is covered by a [separate tutorial]({{ site.baseurl }}/topics/metabolomics/tutorials/lcms-preprocessing/tutorial.html). Although the tutorial is dedicated to LC-MS data, it can also be followed for our GC-MS data. Therefore, in this section, we do not explain this part of the workflow in detail but rather refer the reader to the dedicated tutorial. Please also pay attention to the parameter values for individual Galaxy tools, as these can differ from the referred tutorial and are adjusted to our GC-MS dataset.
-{: .text-justify}
+
 
 > <details-title> Skip peak detection step </details-title>
 > 
@@ -197,7 +197,7 @@ The first step (*called peak picking*) is to extract peaks from each of your dat
  One Galaxy Training material already explains how to act with MS data. We encourage you to **follow this link and complete the corresponding tutorial**: [Mass spectrometry: LC-MS preprocessing with XCMS]({% link topics/metabolomics/tutorials/lcms-preprocessing/tutorial.md %}). 
 For GC-MS analysis you **don't really need to follow all of this previous tutorial** but for a better understanding of your data, it is recommended to try it with their test dataset.
 Concerning the current GC-MS tutorial, you **just have to compute the following steps and specific parameters** described in the hands-on part below (please follow the parameter values below to obtain the same results during the training).
-{: .text-justify}
+
 
 
 > <hands-on-title>Peak picking of GC-MS data with XCMS</hands-on-title>
@@ -268,12 +268,12 @@ The standard workflow of **metaMS** for GC-MS data is the following:
 ![Workflow diagram of metaMS for GC-MS data analysis](../../images/tuto_gcms_workflow_2options.png "Workflow of metaMS for GC datas")
 
 The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in Galaxy. It takes as inputs an {% icon param-collection %} *.RData* file after **XCMS** peak picking  and optionally for annotation purposes an alkane reference file (in `.csv` format) for RI calculation and/or a spectral database in `.msp` format.
-{: .text-justify}
+
 
 ## Deconvolution and Alignement with metaMS
 
 The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and Alignment steps with _runGC_ function.
-{: .text-justify}
+
 
 > <hands-on-title>metaMS.runGC</hands-on-title>
 > 
@@ -333,12 +333,12 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 ## Alignement
 
 Once **metaMS** have created the pseudo-spectra for each unknown compound in each files, we can start the annotation process. This is done by **comparing every pseudospectrum ** to each others in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index) then thay are aligned. This process will create the *dataMatrix* and *variableMetadata* outputs.
-{: .text-justify}
+
 
 ![Match spectra](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
 
 If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
-{: .text-justify}
+
 
 
 ## Unknowns research
@@ -346,42 +346,42 @@ If an MSP database have been added to the *runGC* function inputs then the funct
 An important aspect of untargeted metabolomics is the definition of unknowns—features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e., pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
 
 In defining unknowns we have so far used settings that are more strict than when compared to a database : since all samples are typically measured in one single run, expected retention time differences are rather small. In addition, one would expect reproducible spectra for a single compound. A true unknown, or at least an interesting one, is also present in a significant fraction of the samples. All these parameters are gathered in the betweenSamples element of the settingsobject .Since the matching is done using scaled patterns, we need to create a scaled version of the experimental pseudo-spectra first.
-{: .text-justify}
+
 
 For large numbers of samples, this process can take quite some time (it scales quadratically), especially if the allowed difference in retention time is large. The result now is a list of two elements : the first is the annotation table that we also saw after the comparison with the database, and the second is a list of pseudo-spectra corresponding to unknowns. 
-{: .text-justify}
+
 
 
 ## Outputs and results
 
 At this stage, all elements are complete : we have the list of pseudo-spectra with an annotation, either as a chemical standard from the database, or an unknown occurring in a sizeable fraction of the injections. The only things left to do is to calculate relative intensities for the pseudo-spectra, and to put the results in an easy-to-use table. This table consists of two parts. The first part is the information on the “features”, which here are the pseudo-spectra. The second part of the table contains the intensities of these features in the individual injections. 
-{: .text-justify}
+
 
 ![Match spectra](../../images/tuto_gcms_finale_table.png "Final table with unknowns and compounds found during **metaMS** processus")
 
 The first five lines are the standards, and the next ones are the unknowns that are identified by the pipeline.  In the manual interpretation of this kind of data, the intensities of one or two “highly specific” features are often used to achieve relative quantitation. In an automatic pipeline, this is a risky strategy: not only can the intensity of a peak vary quite dramatically (relative standard deviations of up to 30% are assumed acceptable in GC-MS, e.g. when SPME is applied), but these errors are all the more pronounced in high-intensity peaks (hence the common use of a relative standard deviation).
 
 In addition, one is ignoring the information in the other peaks of the pseudospectrum. In **metaMS**, pseudospectrum intensity is expressed as a multiple of the corresponding reference pattern (either a database pattern or an unknown), where the intensity ratio is determined using robust regression to avoid one deviating feature to influence the results too much ({% cite Wehrens2014 %}). First, we define an object containing all relevant pseudo-spectra, and next the intensities are generated.
-{: .text-justify}
+
 
 In both cases, the result is a list containing a set of patterns corresponding with the compounds that have been found, either annotated or unknown, the relative intensities of these patterns in the individual annotations, and possibly the xcmsSetobject for further inspection. In practice, the *runGC* function is all that users need to use.
-{: .text-justify}
+
 
 That file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search a [PDF tutorial is available](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
-{: .text-justify}
+
 
 # Take a look at your results after metaMS processing
 
 We choose to separate our first W4M Galaxy tool into 2 parts: the processing of GC-MS data (**metaMS.runGC {% icon tool %}**) and the plotting results of these data (**metaMS.plot {% icon tool %}**). So we now have the first part describes just before and the second part we will describe just after. This part allows users to see the TIC (Total Ion Chromatogram), BPC (Base Peak Chromatogram), and also all EICs (Extracted Ion Chromatogram) you want, from our previous result outputted from **metaMS.runGC {% icon tool %} tool**. 
-{: .text-justify}
+
 
 If you separated your samples into different classes, this tool can constructs TICs and BPCs one class against one class, in a `pdf` file (Figure 5) : 
-{: .text-justify}
+
 
 ![TIC](../../images/tuto_gcms_tic.png "TIC comparing 2 classes")
 
 Concerning EICs, it is possible to choose for which compound you want to draw an EIC when you run the W4M Galaxy tool. According to your choice, you will obtain EICs for one compound in each sample you enter in the previous **metaMS** part. 
-{: .text-justify}
+
 
 ![TIC](../../images/tuto_gcms_eic.png "Example of EIC of the 'Unknown 1' in sample 'alg2'")
 
@@ -417,7 +417,7 @@ The outputs of this strategy are similar to the ones described in the LC-MS tuto
 
 
 Before going to the next step of your GC-MS data processing, here are some questions to be able to verify if your files are ready and if you have the same results as us. Please check these questions : 
-{: .text-justify}
+
 
 > <question-title>before going to further GC-MS processing steps</question-title>
 > 
@@ -439,7 +439,7 @@ Before going to the next step of your GC-MS data processing, here are some quest
 > > <solution-title></solution-title>
 > > 
 > > During each step of XCMS pre-processing, the name of the file which is processing is completed by the name of the step you were doing. So, finally your file should be name `xset.merged.groupChromPeaks.fillChromPeaks.RData`. That because (as seen in previous answer) you ran a grouping and the integration after merged datas.
-> > {: .text-justify}
+> > 
 > > 
 > {: .solution}
 > <br>
@@ -447,7 +447,7 @@ Before going to the next step of your GC-MS data processing, here are some quest
 > > <solution-title></solution-title>
 > > 
 > > To be able to see the size of a file in your history, you just have to select it. It will deploy informations about it and you can see the size of yours. For our example, the size of the final file is **1.4 MB**.
-> > {: .text-justify}
+> > 
 > > 
 > {: .solution}
 {: .question}
@@ -460,11 +460,11 @@ Before going to the next step of your GC-MS data processing, here are some quest
 >When you have processed **all or only needed** steps described before, you can continue the processing of your data with statistics or annotation tools. 
 Don't forget to always check your files format! 
 >
-{: .text-justify}
+
 
 >The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make adjust peak picking parameters in the future in the same history and it will not be polluted by statistical analysis part of your process.
 >
-{: .text-justify}
+
 
 > > <tip-title>Copy dataset to a new history</tip-title>
 > >
@@ -478,7 +478,7 @@ Don't forget to always check your files format!
 
 > To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
 > 
-{: .text-justify}
+
 
 > You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, we highly recommend you to rename it **with something short**, e.g. "xset", "XCMSSetObject", or anything not too long that you may find convenient.
 >
