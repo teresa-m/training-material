@@ -466,13 +466,9 @@ Don't forget to always check your files format!
 >
 > {% snippet faqs/galaxy/datasets_rename.md %}
 >
-> <comment-title>Important : Be careful of the file format</comment-title>
->
-> During each step of pre-processing, your dataset has its format changed and can have also its name changed.
-> To be able to continue to GC-MS processing, you need to have a RData object which is **merged and grouped** (from **xcms findChromPeaks Merger** {% icon tool %} and **xcms groupChromPeaks (group)** {% icon tool %}) at least. 
-> It means that you should have a file named `xset.merged.groupChromPeaks.RData` (and maybe with some step more in it).
-> 
-{: .comment} 
+> > <comment-title>Important : Be careful of the file format</comment-title>
+> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to GC-MS processing, you need to have a RData object which is **merged and grouped** (from **xcms findChromPeaks Merger** {% icon tool %} and **xcms groupChromPeaks (group)** {% icon tool %}) at least. It means that you should have a file named `xset.merged.groupChromPeaks.RData` (and maybe with some step more in it).
+> {: .comment} 
 
 # Conclusion 
 {% icon trophy %} Well done, you’ve processed GC-MS data with [metaMS (option 1)](#processing-with-metams-option-1) or [all with XCMS (option 2)](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) ! You might want to explore other [Galaxy trainings for Metabolomics]({% link topics/metabolomics/ %})  
