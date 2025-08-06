@@ -133,7 +133,7 @@ The additional filter must be stored in a file called `tools_status.tsv` located
 
 Example of the `tools_status.tsv` file:
 ```
-	To keep	Deprecated
+Suite ID	To keep	Deprecated
 abacas	TRUE	FALSE
 abricate	TRUE	FALSE
 abritamr	TRUE	FALSE
