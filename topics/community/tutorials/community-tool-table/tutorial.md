@@ -160,7 +160,9 @@ To generate this file, we recommend you to use the `tools_filtered_by_ts_categor
 >
 {: .hands_on}
 
-On the sunday following the merge of the previous pull request, a `curated_tools.tsv` file will be generated in `communities/<your community>/resources/` folder reflecting the Galaxy tool landscape for your community. You can step-by-step review all tools in your community and update the `tools_status.tsv` file. You could also share this file with your community members and discuss weather the tool should be kept or not. Collaborative work could be established using google spreadsheet.
+On the Sunday following the merge of the previous pull request, a `curated_tools.tsv` and `tools_status.tsv` file will be generated in `communities/<your community>/resources/` folder reflecting the Galaxy tool landscape for your community. You or other community members can review tools in your community from this page to make step-by-step changes or updates to the `tools_status.tsv` file as needed.
+
+We recommend collaborative work be done with a cloud-based system such as a Google Sheets page.
 
 ![Flowchart illustrating the steps to generate the tool resources for your community.](./images/codex_tools_flowchart.png "Flowchart illustrating the steps to generate the tool resources for your community.")
 
