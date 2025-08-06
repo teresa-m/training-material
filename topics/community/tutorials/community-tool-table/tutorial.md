@@ -118,7 +118,9 @@ Once you have a list of the ToolShed categories that you wish to keep, you can s
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
-Once the Pull Request is merged, a table with all tool suites and a short description will be created in `communities/<your community>/resources/tools_filtered_by_ts_categories.tsv` on the following Sunday.
+On the Sunday following the merge of the previous pull request, two files will be generated :
+- A JSON file with all tool suites and a short description will be created in `communities/<your community>/resources/tools_filtered_by_ts_categories.json`.
+- A table with all tool suites and a short description will be created in `communities/<your community>/metadata/tool_status.tsv`.
 
 # Review the generated table to curate tools
 
@@ -126,7 +128,7 @@ The generated table will contain all the tools associated with the ToolShed cate
 
 Galaxy Codex allows for an additional optional filter for tools, that can be defined by the community curator (maybe that is you!).
 
-The additional filter must be stored in a file called `tools_status.tsv` located in `communities/<your community>/metadata`. The file must include at least 3 columns (with a header):
+The additional filter must be stored in the file called `tools_status.tsv` located in `communities/<your community>/metadata`. The file must include at least 3 columns (with a header):
 1. `Suite ID`
 2. `To keep` indicating whether the tool should be included in the final table (TRUE/FALSE).
 3. `Deprecated` indicating whether the tool is deprecated (TRUE/FALSE).
@@ -139,30 +141,37 @@ abricate	TRUE	FALSE
 abritamr	TRUE	FALSE
 ```
 
-To generate this file, we recommend you to use the `tools_filtered_by_ts_categories.tsv` file.
+To generate this file, we recommend you to use the generated file `tools_status.tsv` and to simply update the last two columns.
 
 > <hands-on-title>Review tools in your community table</hands-on-title>
 >
-> 1. Download the `tools.tsv` file in `results/<your community>`.
+> 1. Download the `tools.tsv` file.
 > 2. Open `tools.tsv` with a Spreadsheet Software.
 > 3. Review each line corresponding to a tool.
 >
->    You can also just review some tools. Those tools that are not reviewed will have be set to `FALSE` in the `Reviewed` column of the updated table.
->    1. Change the value in the `Reviewed` column from `FALSE` to `TRUE` (this will be done automatically if an entry of the tool in `tools_status.tsv` exists).
->    2. Add `TRUE` to the `To keep` column if the tool should be kept, and `FALSE` if not.
->    3. Add `TRUE` or `FALSE` also to the `Deprecated` column.
-> 4. Copy paste the `Galaxy wrapper id`, `To keep`, `Deprecated` columns in a new table (in that order).
->
->    This can also be done using the reference function of your Spreadsheet Software.
-> 5. Export the new table as TSV (without header).
-> 6. Submit the TSV as `tools_status.tsv` in your community folder.
-> 7. Wait for the Pull Request to be merged
+>    You can also just review some tools. 
+> 1. Add `TRUE` to the `To keep` column if the tool should be kept, and `FALSE` if not.
+> 2. Add `TRUE` or `FALSE` also to the `Deprecated` column.
+> 3. Export the new table as TSV.
+> 4. Submit the TSV as `tools_status.tsv` in your community folder.
+> 5. Wait for the Pull Request to be merged
 >
 {: .hands_on}
 
-On the Sunday following the merge of the previous pull request, a `curated_tools.tsv` and `tools_status.tsv` file will be generated in `communities/<your community>/resources/` folder reflecting the Galaxy tool landscape for your community. You or other community members can review tools in your community from this page to make step-by-step changes or updates to the `tools_status.tsv` file as needed.
+On the Sunday following the merge of the previous pull request, a `curated_tools.tsv` file will be generated in `communities/<your community>/resources/` folder reflecting the Galaxy tool landscape for your community. You or other community members can review tools in your community from this page to make step-by-step changes or updates to the `tools_status.tsv` file as needed.
 
 We recommend collaborative work be done with a cloud-based system such as a Google Sheets page.
+
+Here is an overview of the files (the top three files in the table are the most important):
+| Filename | Location | Generation | Function | Format | Example (microgalaxy) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| categories | communities/<your_community>/metadata/ | Manual | Name of the categories relevant to your community, with 1 ToolShed category per row | NA | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/categories) |
+| tool_status.tsv | communities/<your community>/metadata/ | Automatic (to update manually) | Table with all tool suites and a short description | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/tool_status.tsv) |
+| curated_tools.tsv | communities/<your_community>/metadata/ | Automatic | Curated table with all tool suites and a short description | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/curated_tools.tsv) |
+| curated_tools_w_biotools.tsv | communities/<your_community>/resources/ | Automatic | Curated table with all tool suites that have a biotools ID | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/curated_tools_w_biotools.tsv) |
+| curated_tools_wo_biotools.tsv | communities/<your_community>/resources/ | Automatic | Curated table with all tool suites without a biotools ID (You can add them on BioTools or link them!!) | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/curated_tools_wo_biotools.tsv) |
+| tools.html | communities/<your_community>/resources/ | Automatic | A list of the tools in html format to include in a website | HTML | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/tools.html) |
+| tools_wordcloud.png | communities/<your_community>/resources/ | Automatic | A wordcloud with the tools used the tool suites | PNG | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/tools_wordcloud.png) |
 
 ![Flowchart illustrating the steps to generate the tool resources for your community.](./images/codex_tools_flowchart.png "Flowchart illustrating the steps to generate the tool resources for your community.")
 
