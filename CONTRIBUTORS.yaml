@@ -1088,6 +1088,9 @@ guillaume-gricourt:
 hvelab:
     name: Helena Vela
     joined: 2024-09
+    contact_for_training: true
+    affiliations:
+      - biont
 
 hannahkimincompbio:
     name: Hannah Kim
@@ -1343,6 +1346,7 @@ jkreplak:
 
 jochenblom:
     name: Jochen Blom
+    elixir_node: de
     joined: 2025-04
 
 joelvdavies:
@@ -1596,15 +1600,17 @@ lgallegovillar:
 
 lldelisle:
     name: Lucille Delisle
-    email: lucille.delisle@epfl.ch
+    email: lucille.delisle@unige.ch
     orcid: 0000-0002-1964-4960
     joined: 2019-08
     elixir_node: ch
+    matrix: 'lldelisle:matrix.org'
     contact_for_training: true
+    maintainer_contact: matrix
     location:
       country: CH
-      lat: 46.52
-      lon: 6.56
+      lat: 46.19
+      lon: 6.15
     affiliations:
       - elixir-europe
 
@@ -1613,6 +1619,8 @@ lisanna:
     joined: 2023-09
     email: lisanna.paladin@gmail.com
     orcid: 0000-0003-0011-9397
+    elixir_node: de
+    contact_for_training: true
     affiliations:
       - elixir-europe
       - embl-ebi
@@ -1947,6 +1955,12 @@ mirelaminkova:
     joined: 2024-12
     affiliations:
       - surf
+
+mittler-works:
+    name: Nils Mittler
+    joined: 2025-06
+    affiliations:
+      - deKCD
 
 moffmade:
     name: Cory Maughmer
@@ -2529,6 +2543,12 @@ sanjaysrikakulam:
       - elixir-europe
       - eurosciencegateway
 
+santamccloud:
+    name: Santino Faack
+    joined: 2025-07
+    affiliations:
+      - uni-freiburg
+
 saramorsy:
     name: Sara Morsy
     joined: 2021-10
@@ -2621,6 +2641,9 @@ shiltemann:
 silviadg87:
     name: Silvia Di Giorgio
     joined: 2025-05
+    contact_for_training: true
+    affiliations:
+      - biont
 
 Shorla:
     name: Olushola Ogunkelu
@@ -2776,6 +2799,11 @@ sunyi000:
     name: Yi Sun
     email: yi.sun@embl.de
     joined: 2021-03
+
+maulakhan:
+    name: Arif ul Maula Khan
+    email: arif.khan@embl.de
+    joined: 2025-07
 
 Swathi266:
     name: Swathi Nataraj
