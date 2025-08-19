@@ -2,14 +2,22 @@
 layout: tutorial_hands_on
 
 title: Introduction to Digital Humanities in Galaxy
+level: Introductory
 zenodo_link: ''
 questions:
+  - How to get started in Galaxy for text-related tasks?  
 objectives:
+  - Learn to clean and compare two texts.
+  - Extract specific information from texts.
+  - Visualise your results in a word cloud.
 time_estimation: 1H
 key_points:
-- The take-home messages
-- They will appear at the end of the tutorial
-authorship:
+  - The *diff* tool allows comparing two similar texts automatically
+  - The word cloud shows redactions from the texts at a glance
+tags:
+- text mining
+contributions:
+  authorship:
     - Sch-Da
   funding:
     - deKCD
