@@ -37,8 +37,10 @@ It is composed of two parts:
 We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. 
 <todo: add information on licencing, etc.>
 
-From this dataset, we want to find out from which year most of the objects listed from the museum derive and what they are.
-
+With this dataset, we want to answer two questions:
+- From what year does the museum have the most objects?
+- What objects does the museum have from that year?
+  
 General introduction about the topic and then an introduction of the
 tutorial (the questions and the objectives). It is nice also to have a
 scheme to sum up the pipeline used during the tutorial. The idea is to
@@ -140,48 +142,17 @@ The idea is to keep the theory description before quite simple to focus more on 
 A big step can have several subsections or sub steps:
 
 
+
 ## Sub-step with **Cut**
+To determine which year most objects in the museum catalogue derive from, we must extract only those years with a precise creation date. 
+Therefore, we first cut the column containing all objects' "Production Date". In this case, column 6, or c6.
+
 
 > <hands-on-title> Task description </hands-on-title>
 >
 > 1. {% tool [Cut](Cut1) %} with the following parameters:
 >    - *"Cut columns"*: `c6`
 >    - {% icon param-file %} *"From"*: `output` (Input dataset)
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Select**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Select](Grep1) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `output` (Input dataset)
->    - *"the pattern"*: `[\t]1969[\t]`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -257,41 +228,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Cut**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Cut](Cut1) %} with the following parameters:
->    - *"Cut columns"*: `c2`
->    - {% icon param-file %} *"From"*: `out_file1` (output of **Select** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **Column Regex Find And Replace**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -304,47 +240,6 @@ A big step can have several subsections or sub steps:
 >            - *"Find Regex"*: `AD`
 >        - {% icon param-repeat %} *"Insert Check"*
 >            - *"Find Regex"*: `\d\d/\d\d/`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Generate a word cloud**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `out_file1` (output of **Cut** {% icon tool %})
->    - {% icon param-file %} *"Stopwords file"*: `output` (Input dataset)
->    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
->    - *"Color option"*: `Color`
->    - *"Ratio of times to try horizontal fitting as opposed to vertical"*: `0.3`
->    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
->    - *"Do not add collocations (bigrams) to word cloud"*: `Yes`
->    - *"Whether to remove trailing s from words"*: `Yes`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -597,6 +492,263 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
+## Sub-step with **Select first**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Select first](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to select"*: `outfile` (output of **Sort** {% icon tool %})
+>    - *"Number of lines"*: `1`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Cut**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Cut](Cut1) %} with the following parameters:
+>    - *"Cut columns"*: `c1`
+>    - {% icon param-file %} *"From"*: `outfile` (output of **Select first** {% icon tool %})
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Parse parameter value**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Parse parameter value](param_value_from_file) %} with the following parameters:
+>    - {% icon param-file %} *"Input file containing parameter to parse out of"*: `out_file1` (output of **Cut** {% icon tool %})
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Compose text parameter value**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Compose text parameter value](toolshed.g2.bx.psu.edu/repos/iuc/compose_text_param/compose_text_param/0.1.1) %} with the following parameters:
+>    - In *"components"*:
+>        - {% icon param-repeat %} *"Insert components"*
+>            - *"Choose the type of parameter for this field"*: `Text Parameter`
+>                - *"Enter text that should be part of the computed value"*: `\t`
+>        - {% icon param-repeat %} *"Insert components"*
+>            - *"Choose the type of parameter for this field"*: `Text Parameter`
+>                - *"Enter text that should be part of the computed value"*: `{'id': 13, 'output_name': 'text_param'}`
+>        - {% icon param-repeat %} *"Insert components"*
+>            - *"Choose the type of parameter for this field"*: `Text Parameter`
+>                - *"Enter text that should be part of the computed value"*: `\t`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Search in textfiles**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Select lines from"*: `output` (Input dataset)
+>    - *"Regular Expression"*: `{'id': 14, 'output_name': 'out1'}`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Cut**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Cut](Cut1) %} with the following parameters:
+>    - *"Cut columns"*: `c2`
+>    - {% icon param-file %} *"From"*: `output` (output of **Search in textfiles** {% icon tool %})
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Generate a word cloud**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `out_file1` (output of **Cut** {% icon tool %})
+>    - {% icon param-file %} *"Stopwords file"*: `output` (Input dataset)
+>    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
+>    - *"Color option"*: `Color`
+>    - *"Ratio of times to try horizontal fitting as opposed to vertical"*: `0.3`
+>    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
+>    - *"Do not add collocations (bigrams) to word cloud"*: `Yes`
+>    - *"Whether to remove trailing s from words"*: `Yes`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
 
 ## Re-arrange
 
