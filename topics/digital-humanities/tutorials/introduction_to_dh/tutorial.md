@@ -4,14 +4,14 @@ layout: tutorial_hands_on
 title: Introduction to Digital Humanities in Galaxy
 zenodo_link: ''
 questions:
-- How to get started in Galaxy for text-related tasks?
+  - How to get started in Galaxy for text-related tasks?
 objectives:
-- Learn how to log in to Galaxy
-- Learn how to upload a file
-- Learn how to use a tool
-- Learn how to clean your text
-- Learn how to compare two texts automatically
-- Learn how to make a visualisation
+  - Learn how to log in to Galaxy
+  - Learn how to upload a file
+  - Learn how to use a tool
+  - Learn how to clean your text
+  - Learn how to compare two texts automatically
+  - Learn how to make a visualisation
 time_estimation: 1H
 key_points:
 - The take-home messages
