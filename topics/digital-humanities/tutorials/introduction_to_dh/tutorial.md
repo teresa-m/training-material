@@ -1,26 +1,22 @@
 ---
 layout: tutorial_hands_on
-redirect_from:
-  - /topics/statistics/tutorials/text_mining_chinese/tutorial
 
-title: Text-Mining Differences in Chinese Newspaper Articles
-level: Introductory
-zenodo_link: https://doi.org/10.5281/zenodo.14899614
+title: Introduction to Digital Humanities in Galaxy
+zenodo_link: ''
 questions:
-  - How can I automatically compare two Chinese newspaper articles?
-  - What characters were censored in a Chinese newspaper published in Hong Kong in the 1930s?
+  - How to get started in Galaxy for text-related tasks?
 objectives:
-  - Learn to clean and compare two texts.
-  - Extract specific information from texts.
-  - Visualise your results in a word cloud.
+  - Learn how to log in to Galaxy
+  - Learn how to upload a file
+  - Learn how to use a tool
+  - Learn how to clean your text
+  - Learn how to compare two texts automatically
+  - Learn how to make a visualisation
 time_estimation: 1H
 key_points:
-  - The *diff* tool allows comparing two similar texts automatically
-  - The word cloud shows redactions from the texts at a glance
-tags:
-- text mining
-contributions:
-  authorship:
+- The take-home messages
+- They will appear at the end of the tutorial
+authorship:
     - Sch-Da
   funding:
     - deKCD
