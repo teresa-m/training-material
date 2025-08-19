@@ -5,13 +5,12 @@ title: OpenRefine Tutorial for researching cultural data
 zenodo_link: ''
 questions:
 - How to use OpenRefine in Galaxy to clean data?
-- How to use Galaxy to extract and visualise information from your data?
+- How to use a workflow in Galaxy to extract and visualise information from your data?
 objectives:
-- To be sharpened from the OR tutorial. Maybe something like:
 - Start OpenRefine as an Interactive Tool in Galaxy
-- Use OpenRefine's faceting functionalities for mass editing and managing duplicates
+- Use OpenRefine to clean your data (remove duplicates, separate multiple values from the same field, etc.)
 - Export your cleaned data from OpenRefine to Galaxy
-- Use a pre-existing workflow in Galaxy to extract specific data and visualise your findings
+- Use a pre-existing workflow in Galaxy to extract specific information and visualise your findings
 time_estimation: 2H
 key_points:
 - You can use OpenRefine online through Galaxy.
@@ -29,6 +28,16 @@ contributors:
 # Introduction
 
 <!-- This is a comment. -->
+
+This tutorial explains how to use OpenRefine in Galaxy to clean and visualise your data.
+It is composed of two parts: 
+- an introduction to OpenRefine based on {% raw %} `{% cite Hooland_2013 %}`{% endraw %}, adapted for Galaxy
+- an introduction to running a workflow in Galaxy to visualise the cleaned data and extract particular information
+
+We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. 
+<todo: add information on licencing, etc.>
+
+From this dataset, we want to find out from which year most of the objects listed from the museum derive and what they are.
 
 General introduction about the topic and then an introduction of the
 tutorial (the questions and the objectives). It is nice also to have a
@@ -49,6 +58,7 @@ This will be rendered like this: {% cite Batut2018 %}, and links to a
 tutorial.
 
 
+
 **Please follow our
 [tutorial to learn how to fill the Markdown]({{ site.baseurl }}/topics/contributing/tutorials/create-new-tutorial-content/tutorial.html)**
 
@@ -61,15 +71,12 @@ tutorial.
 >
 {: .agenda}
 
-# Title for your first section
-
+# What is OpenRefine
 Give some background about what the trainees will be doing in the section.
 Remember that many people reading your materials will likely be novices,
 so make sure to explain all the relevant concepts.
 
-## Title for a subsection
-Section and subsection titles will be displayed in the tutorial index on the left side of
-the page, so try to make them informative and concise!
+
 
 # Hands-on Sections
 Below are a series of hand-on boxes, one for each tool in your workflow file.
