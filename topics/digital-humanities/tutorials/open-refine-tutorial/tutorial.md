@@ -31,7 +31,7 @@ contributors:
 
 This tutorial explains how to use OpenRefine in Galaxy to clean and visualise your data.
 It is composed of two parts: 
-- an introduction to OpenRefine based on {% raw %} `{% cite Hooland_2013 %}`{% endraw %}, adapted for Galaxy
+- an introduction to OpenRefine based on {% cite Hooland_2013 %}, adapted for Galaxy
 - an introduction to running a workflow in Galaxy to visualise the cleaned data and extract particular information
 
 We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. 
