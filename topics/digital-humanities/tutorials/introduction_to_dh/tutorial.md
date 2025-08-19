@@ -30,6 +30,10 @@ contributions:
 
 <!-- This is a comment. -->
 
+Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
+
+<Add Yamba story and significance!>
+
 General introduction about the topic and then an introduction of the
 tutorial (the questions and the objectives). It is nice also to have a
 scheme to sum up the pipeline used during the tutorial. The idea is to
@@ -40,17 +44,6 @@ You may want to cite some publications; this can be done by adding citations to 
 bibliography file (`tutorial.bib` file next to your `tutorial.md` file). These citations
 must be in bibtex format. If you have the DOI for the paper you wish to cite, you can
 get the corresponding bibtex entry using [doi2bib.org](https://doi2bib.org).
-
-With the example you will find in the `tutorial.bib` file, you can add a citation to
-this article here in your tutorial like this:
-{% raw %} `{% cite Batut2018 %}`{% endraw %}.
-This will be rendered like this: {% cite Batut2018 %}, and links to a
-[bibliography section](#bibliography) which will automatically be created at the end of the
-tutorial.
-
-
-**Please follow our
-[tutorial to learn how to fill the Markdown]({{ site.baseurl }}/topics/contributing/tutorials/create-new-tutorial-content/tutorial.html)**
 
 > <agenda-title></agenda-title>
 >
@@ -72,6 +65,23 @@ Section and subsection titles will be displayed in the tutorial index on the lef
 the page, so try to make them informative and concise!
 
 # Hands-on Sections
+
+## Create an account on Galaxy
+To use Galaxy's full potential, you need to register and create an account. You can skip this step if you already have a Galaxy account.
+
+{% snippet faqs/galaxy/account_create.md %}
+
+Alternatively, you can log in using a single sign-on of your choice, for example, from [IAM4NFDI](https://iam.services.base4nfdi.de/faq_ENG/) on [Galaxy Europe](https://usegalaxy.eu/).
+
+<include IMAGE from my presentation>
+
+
+## Log in to Galaxy / adapt "what does Galaxy look like"
+
+
+## Name a History
+
+
 Below are a series of hand-on boxes, one for each tool in your workflow file.
 Often you may wish to combine several boxes into one or make other adjustments such
 as breaking the tutorial into sections, we encourage you to make such changes as you
@@ -693,3 +703,6 @@ Consider merging some hands-on boxes to have a meaningful flow of the analyses*
 
 Sum up the tutorial and the key takeaways here. We encourage adding an overview image of the
 pipeline used.
+
+
+[^1]: Thanks to Lilli Fortmeier for suggesting this use case!
