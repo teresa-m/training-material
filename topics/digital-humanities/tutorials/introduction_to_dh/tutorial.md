@@ -7,13 +7,15 @@ zenodo_link: ''
 questions:
   - How to get started in Galaxy for text-related tasks?  
 objectives:
-  - Learn to clean and compare two texts.
-  - Extract specific information from texts.
-  - Visualise your results in a word cloud.
+  - Learn how to log in to Galaxy
+  - Learn how to upload a file
+  - Learn how to use a tool
+  - Learn how to clean your text
+  - Learn how to compare two texts automatically
+  - Learn how to make a visualisation
 time_estimation: 1H
 key_points:
-  - The *diff* tool allows comparing two similar texts automatically
-  - The word cloud shows redactions from the texts at a glance
+  - Galaxy has many tools for text analysis you can adapt for your needs.
 tags:
 - text mining
 contributions:
