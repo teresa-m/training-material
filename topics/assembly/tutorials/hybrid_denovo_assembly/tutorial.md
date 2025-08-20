@@ -22,8 +22,8 @@ key_points:
 - One option is to assemble the long reads using `Flye` and then polish with the short reads using `Pilon`
 - Alternatively, `Unicycler` creates an assembly graph from the short reads and then untangles the graph with the long reads
 contributors:
-- tflowers15
 - gracehall
+- tflowers15
 funding:
 - unimelb
 - melbournebioinformatics
@@ -86,7 +86,7 @@ Note: Nanopore sequencing - there is usually no need to shear the genomic DNA **
 
 In this section, you will use `Flye` to create a draft genome assembly from Nanopore reads. We will perform assembly, then assess the quality of our assembly using two tools: `Quast` and `Busco`.
 
-![method1](./media/nanopore_illumina_hybrid_assembly.png)
+![method1](../../images/denovo_assembly/nanopore_illumina_hybrid_assembly.png)
 
 ## Upload data
 
@@ -157,7 +157,7 @@ In this tutorial, we know our organism is within the 'Bacillales' order.
 > 2. **View output**:
 >    - After the program has run, look at the `short summary` output. 
 >    - It may look something like this:
->      ![busco_output](media/busco_reference_assembly.png)
+>      ![busco_output](../../images/denovo_assembly/busco_reference_assembly.png)
 > 
 {: .hands_on}
 
@@ -220,14 +220,14 @@ We need to check if our assembly is good quality or not. It is paramount that ge
 > 2. View output:
 >    - After the program has run, look at the `short summary` output. 
 >    - It may look something like this:
->      ![busco_output](media/busco_draft_assembly.png)
+>      ![busco_output](../../images/denovo_assembly/busco_draft_assembly.png)
 > 
 {: .hands_on}
 
 
 The `full table` is also useful. It gives a detailed list of the genes we are searching for, and information about whether they were missing, fragmented, or complete in our assembly.
 
-![busco_table](media/busco_table_draft_assembly.png)
+![busco_table](../../images/denovo_assembly/busco_table_draft_assembly.png)
 
 > <question-title></question-title>
 > 
@@ -262,7 +262,7 @@ Search for the `Quast` tool in the tools panel.
 > 2. View output:
 >    - Quast will produce a HTML report summarising it's results.
 >    - Open the report. It may look something like this:
-![quast_report](media/quast_draft_assembly.png)
+![quast_report](../../images/denovo_assembly/quast_draft_assembly.png)
 >    - Note the:
 >      - Genome fraction (%)
 >      - \# mismatches per 100 kbp
@@ -346,7 +346,7 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 >
 > Run `Quast` as before with the new `Flye: Polished assembly` data
 > 
-> 1. Select the history item for our initial `Quast` job, then click the rerun ![rerun](media/galaxy_rerun.png) button. This will load the settings used for the previous `Quast` job.
+> 1. Select the history item for our initial `Quast` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Quast` job.
 > 
 > 2. Change the *"Type automatically determined by pilon"* input to `Flye: Polished assembly`.
 > 
@@ -362,7 +362,7 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 >
 > Run `Busco` as before with the new `Flye: Polished assembly` data
 > 
-> 1. Select the history item for our initial `Busco` job, then click the rerun ![rerun](media/galaxy_rerun.png) button. This will load the settings used for the previous `Busco` job.
+> 1. Select the history item for our initial `Busco` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Busco` job.
 > 
 > 2. Change the *"Sequences to analyse"* input to `Flye: Polished assembly`.
 > 
@@ -452,7 +452,7 @@ In this section, we will use a purpose-built tool called Unicycler to perform hy
 
 Unicycler uses our Nanopore and Illumina read sets together as input, and returns an assembly. Once we have created the assembly, we will assess its quality using Quast and BUSCO and compare with our previous polished assembly. We will also perform BUSCO analysis on the supplied reference genome itself, to record a baseline for our theoretical best BUSCO report.
 
-![method2](./media/unicycler_hybrid_assembly.png)
+![method2](../../images/denovo_assembly/unicycler_hybrid_assembly.png)
 
 ### Hybrid de novo assembly with Unicycler
 
@@ -497,7 +497,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 >
 > Run `Quast` as before with the new `Unicycler: Assembly` data
 > 
-> 1. Select the history item for our initial `Quast` job, then click the rerun ![rerun](media/galaxy_rerun.png) button. This will load the settings used for the previous `Quast` job.
+> 1. Select the history item for our initial `Quast` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Quast` job.
 > 
 > 2. Change the *"Type automatically determined by pilon"* input to `Unicycler: Assembly`.
 > 
@@ -505,7 +505,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 4. At time of writing, these were the `Quast` results:
 > 
-> ![quast_result](media/quast_unicycler_assembly.png)
+> ![quast_result](../../images/denovo_assembly/quast_unicycler_assembly.png)
 > 
 {: .hands_on}
 
@@ -513,7 +513,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 >
 > Run `Busco` as before with the new `Unicycler: Assembly` data
 > 
-> 1. Select the history item for our initial `Busco` job, then click the rerun ![rerun](media/galaxy_rerun.png) button. This will load the settings used for the previous `Busco` job.
+> 1. Select the history item for our initial `Busco` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Busco` job.
 > 
 > 2. Change the *"Sequences to analyse"* input to `Unicycler: Assembly`.
 > 
@@ -521,7 +521,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 4. At time of writing, these were the `Busco` results:
 > 
-> ![busco_result](media/busco_unicycler_assembly.png)
+> ![busco_result](../../images/denovo_assembly/busco_unicycler_assembly.png)
 > 
 {: .hands_on}
 
