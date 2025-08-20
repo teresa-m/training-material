@@ -15,7 +15,7 @@ objectives:
   - Learn how to make a visualisation
 time_estimation: 1H
 key_points:
-  - Galaxy has many tools for text analysis you can adapt for your needs.
+  - Galaxy has many tools for text analysis that you can adapt for your needs.
 tags:
 - text mining
 contributions:
@@ -31,7 +31,8 @@ contributions:
 <!-- This is a comment. -->
 
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
-
+The first couple of steps derive from <todo Add Bibliography>
+<Anna Syme, Nicola Soranzo, A short introduction to Galaxy (Galaxy Training Materials). https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html Online; accessed Wed Aug 20 2025>
 <Add Yamba story and significance!>
 
 General introduction about the topic and then an introduction of the
@@ -73,14 +74,125 @@ To use Galaxy's full potential, you need to register and create an account. You 
 
 Alternatively, you can log in using a single sign-on of your choice, for example, from [IAM4NFDI](https://iam.services.base4nfdi.de/faq_ENG/) on [Galaxy Europe](https://usegalaxy.eu/).
 
-<include IMAGE from my presentation>
+ ![Screenshot of Galaxy Europe register window with the IAM4NFDI login button highlighted](../../images/iam4nfdi.png)
+
+## Log in to Galaxy
+<to do adapt screenshot / upload / make suitable 4 Europe>
+> <hands-on-title>Log in to Galaxy</hands-on-title>
+> 1. Open your favourite browser (Chrome, Safari, Edge or Firefox as your browser, not Internet Explorer!)
+> 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
+> 3. Log in with your credentials
+>  
+> ![Screenshot of Galaxy Australia with the register or login button highlighted](../../images/galaxy-login.png)
+>
+>   > <comment-title>Different Galaxy servers</comment-title>
+>   >  This is an image of Galaxy Australia, located at [usegalaxy.org.au](https://usegalaxy.org.au/)
+>   >
+>   > The particular Galaxy server that you are using may look slightly different and have a different web address.
+>   >
+>   > You can also find more possible Galaxy servers at the top of this tutorial in **Available on these Galaxies**
+>   {: .comment}
+{: .hands_on}
+
+The Galaxy homepage is divided into four sections (panels):
+* The Activity Bar on the left: _This is where you will navigate to the resources in Galaxy (Tools, Workflows, Histories, etc.)_
+* Currently active "Activity Panel" on the left: _By default, the {% icon tool %} **Tools** activity will be active and its panel will be expanded_
+* Viewing panel in the middle: _The main area for context for your analysis_
+* History of analysis and files on the right: _Shows your "current" history; i.e.: Where any new files for your analysis will be stored_
+
+![Screenshot of the Galaxy interface with aforementioned structure](../../images/galaxy_interface.png)
+
+The first time you use Galaxy, your history panel is empty.
+
+# Key Galaxy actions
+
+## Name your current history
+
+Your "History" is in the panel at the right. It is a record of the actions you have taken.
+
+> <hands-on-title>Name history</hands-on-title>
+> 1. Go to the **History** panel (on the right)
+> 2. Click {% icon galaxy-pencil %} (**Edit**) next to the history name (which by default is "Unnamed history")
+>
+>    ![Screenshot of the galaxy interface with the history name being edited, it currently reads "Unnamed history", the default value. An input box is below it.]({% link shared/images/rename_history.png %}){:width="250px"}
+>
+>    > <comment-title></comment-title>
+>    >
+>    > In some previous versions of Galaxy, you will need to click the history name to rename it as shown here:
+>    > ![Screenshot of the galaxy interface with the history name being edited, it currently reads "Unnamed history", the default value.](../../../../shared/images/rename_history_old.png){:width="320px"}
+>    {: .comment}
+>
+> 3. Type in a new name, for example, "My Analysis"
+> 4. Click **Save**
+>
+> > <comment-title>Renaming not an option?</comment-title>
+> > If renaming does not work, it is possible you aren't logged in, so try logging in to Galaxy first. Anonymous users are only permitted to have one history, and they cannot rename it.
+> {: .comment}
+>
+{: .hands_on}
+
+## Upload a file
+
+The "Activity Bar" can be seen on the left-most part of the interface.
+
+> <hands-on-title>Upload a file from URL</hands-on-title>
+> 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
+>
+>    ![upload data button shown in the galaxy interface](../../images/upload-data.png)
+>
+>    This brings up a box:
+>
+>    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL](../../images/upload-box.png)
+>
+> 3. Click **Paste/Fetch data**
+> 4. Paste in the address of a file:
+>
+>    ```
+>    https://zenodo.org/record/582600/files/mutant_R1.fastq
+>    ```
+>
+> 5. Click **Start**
+> 6. Click **Close**
+>
+{: .hands_on}
+
+Your uploaded file is now in your current history.
+When the file has been uploaded to Galaxy, it will turn green.
+
+> <comment-title></comment-title>
+> After this, you will see your first history item (called a "dataset") in Galaxy's right panel. It will go through
+> the grey (preparing/queued) and yellow (running) states to become green (success).
+>
+{: .comment}
+
+> <details-title>Is this step taking a while?</details-title>
+>   Sometimes during courses, data upload gets a little slow. You can also import data through a history link.
+>
+> 1. Import history from: [example input history](https://humancellatlas.usegalaxy.eu/u/wendi.bacon.training/h/short-introduction-to-galaxy--input)
+>
+>    {% snippet faqs/galaxy/histories_import.md %}
+> 2. **Rename** {% icon galaxy-pencil %} the history to your name of choice.
+>
+{: .details}
+
+What is this file?
+
+> <hands-on-title>View the dataset content</hands-on-title>
+> 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
+>
+>    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
+{: .hands_on}
+
+The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
+
+What do my files contain:
 
 
-## Log in to Galaxy / adapt "what does Galaxy look like"
+
+
 
 
 ## Name a History
-
 
 Below are a series of hand-on boxes, one for each tool in your workflow file.
 Often you may wish to combine several boxes into one or make other adjustments such
