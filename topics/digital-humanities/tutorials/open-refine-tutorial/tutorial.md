@@ -142,6 +142,11 @@ The idea is to keep the theory description before quite simple to focus more on 
 A big step can have several subsections or sub steps:
 
 
+Here follows the steps described in the OpenRefine tutorial with pictures.
+
+
+<Björn suggested we just run and explain a workflow - maybe this passage explaining all the following steps becomes thereby obsolete>
+
 
 ## Sub-step with **Cut**
 To determine which year most objects in the museum catalogue derive from, we must extract only those years with a precise creation date. 
@@ -749,6 +754,9 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 > {: .solution}
 >
 {: .question}
+
+<End of Passage that we should maybe leave out >
+
 
 ## Re-arrange
 
