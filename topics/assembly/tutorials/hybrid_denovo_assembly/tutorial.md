@@ -144,7 +144,7 @@ We expect the reference genome to have all of these genes. When running `Busco`,
 Find and select the `Busco` tool in the tools panel using the search bar.
 In this tutorial, we know our organism is within the 'Bacillales' order.
 
-> <hands-on-title>Running `Busco`</hands-on-title>
+> <hands-on-title>Running Busco</hands-on-title>
 >
 > 1. {% tool [Busco](toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/5.8.0+galaxy1) %}:
 >    - *"Sequences to analyse"*: `reference_genome.fasta`
@@ -186,7 +186,7 @@ Making sure you are on the `Analyse Data` tab of Galaxy, look for the tool searc
 
 Search for `Flye` and select the tool.
 
-> <hands-on-title>Running `Flye`</hands-on-title>
+> <hands-on-title>Running Flye</hands-on-title>
 >
 > 1. {% tool [Flye](toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/2.9.6+galaxy0) %}:
 >    - *"Input reads"*: `nanopore_reads.fastq`
@@ -207,7 +207,7 @@ Search for `Flye` and select the tool.
 
 We need to check if our assembly is good quality or not. It is paramount that genome assemblies are high-quality for them to be useful.
 
-> <hands-on-title>Running `Busco`</hands-on-title>
+> <hands-on-title>Running Busco</hands-on-title>
 >
 > 1. {% tool [Busco](toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/5.8.0+galaxy1) %}:
 >    - *"Sequences to analyse"*: `Flye: Assembly`
@@ -250,7 +250,7 @@ Although the organism we sequenced may be different, we can use `Quast` to compa
 
 Search for the `Quast` tool in the tools panel.
 
-> <hands-on-title>Running `Quast`</hands-on-title>
+> <hands-on-title>Running Quast</hands-on-title>
 >
 > 1. {% tool [Quast](toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.3.0+galaxy0) %}:
 >    - *"Assembly mode"*: `Individual assembly`
@@ -296,8 +296,9 @@ Illumina reads have much higher per-base accuracy than Nanopore reads. We will m
 
 ### Map Illumina reads to draft assembly
 
-Search for `Map with BWA-MEM` in the tools panel and select
-> <hands-on-title>`Map with BWA-MEM`</hands-on-title>
+Search for `Map with BWA-MEM` in the tools panel.
+
+> <hands-on-title>Map with BWA-MEM</hands-on-title>
 >
 > 1. {% tool [Map with BWA-MEM](toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/0.7.19) %}:
 >    - *"Will you select a reference genome from your history or use a built-in index?"*: `Use a genome from history and build index`
@@ -318,9 +319,9 @@ Search for `Map with BWA-MEM` in the tools panel and select
 
 ### Polish assembly with Pilon
 
-Search for `Pilon` in the tools panel and select
+Search for `Pilon` in the tools panel.
 
-> <hands-on-title>Running `Pilon`</hands-on-title>
+> <hands-on-title>Running Pilon</hands-on-title>
 >
 > 1. {% tool [Pilon](toolshed.g2.bx.psu.edu/repos/iuc/pilon/pilon/1.20.1) %}:
 >    - *"Source for reference genome used for BAM alignments"*: `Use a genome from History`
@@ -342,7 +343,7 @@ Search for `Pilon` in the tools panel and select
 
 We are now interested to see how much `Pilon` improved our draft assembly.
 
-> <hands-on-title>Run `Quast`</hands-on-title>
+> <hands-on-title>Run Quast</hands-on-title>
 >
 > Run `Quast` as before with the new `Flye: Polished assembly` data
 > 
@@ -358,7 +359,7 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 > 
 {: .hands_on}
 
-> <hands-on-title>Run `Busco`</hands-on-title>
+> <hands-on-title>Run Busco</hands-on-title>
 >
 > Run `Busco` as before with the new `Flye: Polished assembly` data
 > 
@@ -366,7 +367,7 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 > 
 > 2. Change the *"Sequences to analyse"* input to `Flye: Polished assembly`.
 > 
-> 3. Click the "Run Tool" button to submit the job.
+> 3. Click the `Run Tool` button to submit the job.
 > 
 > 4. After `Busco` has finished, open the `short summary` output.
 > 
@@ -464,36 +465,36 @@ Find `Unicycler` in the tools panel. It is listed as `Create assemblies with Uni
 
 Run `Unicycler` using the Nanopore and Illumina read sets.
 
-> <hands-on-title>Running `Unicycler`</hands-on-title>
+> <hands-on-title>Running Unicycler</hands-on-title>
 >
 > 1. {% tool [Unicycler](toolshed.g2.bx.psu.edu/repos/iuc/unicycler/unicycler/0.5.1+galaxy0) %}:
 >    - *"Paired or Single end data?"*: `Paired `
 >    - *"Select first set of reads"*: `illumina_reads_1.fastq`
 >    - *"Select second set of reads"*: `illumina_reads_2.fastq`
->    - *"Select long reads. If there are no long reads, leave this empty"*: `Fnanopore_reads.fastq 
+>    - *"Select long reads. If there are no long reads, leave this empty"*: `nanopore_reads.fastq`
 > 
 > 2. `Unicycler` will output three files - the assembly, an assembly graph, and SPAges graphs. We are interested in the `Final Assembly` output, which is the assembly as a `fasta` file. 
 >    - ***Rename*** the `Final Assembly` output to `Unicycler: Assembly`.
 > 
 > > <comment-title></comment-title>
 > >
-> > If `nanopore_reads.fastq` does not appear in the dropdown, its datatype needs to be changed. 
+> > If `nanopore_reads.fastq` does not appear in the dropdown list, its datatype needs to be changed. 
 > >
-> > - Click the pencil icon next to `nanopore_reads.fastq` in the history panel.
+> > - Click the pencil {% icon galaxy-pencil %} icon next to `nanopore_reads.fastq` in the history panel.
 > > - Then select the `Datatypes` tab.
 > > - For the parameter `New Type`: `fastqsanger`
 > > - Leave all else default and execute the program.
 > > 
 > {: .comment}
 > 
-> {: .hands_on}
+{: .hands_on}
 
 
 ### Comparing `Unicycler` assembly to Nanopore + Illumina polished assembly
 
 `Busco` and `Quast` can be used again to assess our `Unicycler` assembly. As a purpose-built tool, it generally produces much better assemblies than our sequential approach. This is reflected as (`Quast`) a lower number of contigs, lower mismatches and indels per 100kb, and (`Busco`) greater number of BUSCO genes complete.
 
-> <hands-on-title>Run `Quast`</hands-on-title>
+> <hands-on-title>Run Quast</hands-on-title>
 >
 > Run `Quast` as before with the new `Unicycler: Assembly` data
 > 
@@ -501,7 +502,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 2. Change the *"Type automatically determined by pilon"* input to `Unicycler: Assembly`.
 > 
-> 3. Click the "Run Tool" button to submit the job.
+> 3. Click the `Run Tool` button to submit the job.
 > 
 > 4. At time of writing, these were the `Quast` results:
 > 
@@ -509,7 +510,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 {: .hands_on}
 
-> <hands-on-title>Run `Busco`</hands-on-title>
+> <hands-on-title>Run Busco</hands-on-title>
 >
 > Run `Busco` as before with the new `Unicycler: Assembly` data
 > 
@@ -517,7 +518,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 2. Change the *"Sequences to analyse"* input to `Unicycler: Assembly`.
 > 
-> 3. Click the "Run Tool" button to submit the job.
+> 3. Click the `Run Tool` button to submit the job.
 > 
 > 4. At time of writing, these were the `Busco` results:
 > 
