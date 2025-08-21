@@ -33,18 +33,12 @@ contributions:
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
 The first couple of steps derive from <todo Add Bibliography>
 <Anna Syme, Nicola Soranzo, A short introduction to Galaxy (Galaxy Training Materials). https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html Online; accessed Wed Aug 20 2025>
+
 <Add Yamba story and significance!>
 
-General introduction about the topic and then an introduction of the
-tutorial (the questions and the objectives). It is nice also to have a
-scheme to sum up the pipeline used during the tutorial. The idea is to
-give to trainees insight into the content of the tutorial and the (theoretical
-and technical) key concepts they will learn.
-
-You may want to cite some publications; this can be done by adding citations to the
-bibliography file (`tutorial.bib` file next to your `tutorial.md` file). These citations
-must be in bibtex format. If you have the DOI for the paper you wish to cite, you can
-get the corresponding bibtex entry using [doi2bib.org](https://doi2bib.org).
+While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
+From logging in, uploading the texts, to using the first tools, this tutorial covers the Galaxy basics.
+We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters and visualising both in a word cloud. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" is a dominant theme in the first poem, so we extract all lines including "death" for further in-depth analysis. This hekps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
 
 > <agenda-title></agenda-title>
 >
