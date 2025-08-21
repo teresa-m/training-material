@@ -532,90 +532,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-
-
-## Sub-step with **Replace**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
->    - In *"Find and Replace"*:
->        - {% icon param-repeat %} *"Insert Find and Replace"*
->            - *"Find pattern"*: `\.`
->            - *"Replace with"*: `\.\n`
->            - *"Find-Pattern is a regular expression"*: `Yes`
->            - *"Replace all occurences of the pattern"*: `Yes`
->            - *"Find and Replace text in"*: `entire line`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Replace**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
->    - In *"Find and Replace"*:
->        - {% icon param-repeat %} *"Insert Find and Replace"*
->            - *"Find pattern"*: `\.`
->            - *"Replace with"*: `\.\n`
->            - *"Find-Pattern is a regular expression"*: `Yes`
->            - *"Replace all occurences of the pattern"*: `Yes`
->            - *"Find and Replace text in"*: `entire line`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **Replace Text**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -654,41 +570,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Search in textfiles**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
->    - *"Regular Expression"*: `death`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **Replace Text**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -699,41 +580,6 @@ A big step can have several subsections or sub steps:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`
 >            - *"Replace with:"*: `\n`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Search in textfiles**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
->    - *"Regular Expression"*: `death`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -798,6 +644,160 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
+
+
+
+## Sub-step with **Replace**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - In *"Find and Replace"*:
+>        - {% icon param-repeat %} *"Insert Find and Replace"*
+>            - *"Find pattern"*: `\.`
+>            - *"Replace with"*: `\.\n`
+>            - *"Find-Pattern is a regular expression"*: `Yes`
+>            - *"Replace all occurences of the pattern"*: `Yes`
+>            - *"Find and Replace text in"*: `entire line`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Replace**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - In *"Find and Replace"*:
+>        - {% icon param-repeat %} *"Insert Find and Replace"*
+>            - *"Find pattern"*: `\.`
+>            - *"Replace with"*: `\.\n`
+>            - *"Find-Pattern is a regular expression"*: `Yes`
+>            - *"Replace all occurences of the pattern"*: `Yes`
+>            - *"Find and Replace text in"*: `entire line`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Search in textfiles**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+>    - *"Regular Expression"*: `death`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Search in textfiles**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+>    - *"Regular Expression"*: `death`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
 
 ## Re-arrange
 
