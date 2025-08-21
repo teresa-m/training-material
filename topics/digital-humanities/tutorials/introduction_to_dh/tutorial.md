@@ -26,9 +26,6 @@ contributions:
     - deKCD
 ---
 
-
-# Introduction
-
 <!-- This is a comment. -->
 
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
