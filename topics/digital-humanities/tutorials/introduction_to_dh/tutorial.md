@@ -3,6 +3,7 @@ layout: tutorial_hands_on
 
 title: Introduction to Digital Humanities in Galaxy
 level: Introductory
+draft: true
 zenodo_link: ''
 questions:
   - How to get started in Galaxy for text-related tasks?  
@@ -37,7 +38,8 @@ The first couple of steps in this tutorial derive from {% Syme2025GalaxyIntro %}
 
 While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
 From logging in, uploading the texts, to using the first tools, this tutorial covers the Galaxy basics.
-We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters and visualising both in a word cloud. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" is a dominant theme in the first poem, so we extract all lines including "death" for further in-depth analysis. This hekps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
+We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters and visualising both in a word cloud. 
+Then, we take a closer look. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" as a dominant theme in the first poem, we extract all lines including "death" for further in-depth analysis. This helps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
 
 > <agenda-title></agenda-title>
 >
