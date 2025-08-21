@@ -1,6 +1,5 @@
 ---
 layout: tutorial_hands_on
-
 title: OpenRefine Tutorial for researching cultural data
 zenodo_link: ''
 questions:
@@ -21,26 +20,33 @@ contributors:
 - dianichj
 - dadrasarmin
 - Sch-Da
-
+funding:
+- carpentries
+answer_histories:
+  - label: "UseGalaxy.eu"
+    history: https://usegalaxy.eu/u/armin.dadras/h/powerhouse-museum-data-analysis-via-openrefine
+    date: 2025-08-21 
 ---
-
-
-# Introduction
-
-<!-- This is a comment. -->
-
 This tutorial explains how to use OpenRefine in Galaxy to clean and visualise your data.
 It is composed of two parts: 
-- an introduction to OpenRefine based on {% cite Hooland_2013 %}, adapted for Galaxy
-- an introduction to running a workflow in Galaxy to visualise the cleaned data and extract particular information
+- an introduction to OpenRefine based on {% cite Hooland_2013 %}, adapted for Galaxy.
+- an introduction to running a workflow in Galaxy to visualise the cleaned data and extract particular information.
 
-We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. 
-<todo: add information on licencing, etc.>
+We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. The tabular data (36.4MB) contains basic metadata (14 columns) for 75,811 objects, released under a [Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/).
 
 With this dataset, we want to answer two questions:
 - From what year does the museum have the most objects?
 - What objects does the museum have from that year?
   
+> <tip-title>What is OpenRefine?</tip-title>
+>
+> OpenRefine is a free, open-source “data wrangler” that fits how scholars in digital humanities, social sciences, and history actually work: with messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM and official statistics (MARC, RDF serializations, PC-Axis), and it does this by copying—not altering—your source files; your projects are saved locally. Faceting and filtering let you audit categories, surface outliers, and triage inconsistencies without writing code. Its clustering tools reduce variant spellings and typographic noise using token-based “key collision” methods (such as fingerprint, n-gram, and phonetic) and edit-distance/nearest-neighbor methods (including Levenshtein and PPM), so you can standardize names and places at scale while keeping human oversight. When you need authoritative identifiers, OpenRefine speaks the Reconciliation API, letting you match local values to external authority files and knowledge bases (for example Wikidata or ROR) and optionally pull back rich metadata—no scripting required. Transformations are both powerful and transparent: point-and-click operations and formulas in the General Refine Expression Language (GREL) are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning workflows and easy peer review. Finally, OpenRefine runs as a local service in your browser and listens only on localhost by default, which means sensitive archival or survey data stay on your machine unless you choose to connect to external services or publish results; finished tables can be exported to CSV/TSV, ODS/XLS(X), SQL statements, or templated JSON, uploaded to Google Sheets, or prepared as QuickStatements for Wikidata. Taken together, these capabilities make OpenRefine a pragmatic bridge between ad-hoc spreadsheets and full programming environments: it is fast enough for sizeable tabular corpora, rigorous enough for auditability, and flexible enough to support the everyday cleaning, standardization, and enrichment tasks that underpin credible, shareable research in the humanities and social sciences.
+{: .tip}
+
+The tutorial uses the [Powerhouse Museum (Sydney)](https://powerhouse.com.au/) collection because it is a credible, openly published, and realistically messy dataset that lets us rehearse the exact problems scholars encounter at scale. [The Programming Historian lesson](https://programminghistorian.org/en/lessons/cleaning-data-with-openrefine) works from an archived TSV export, phm-collection.tsv released under a [Creative Commons Attribution–ShareAlike licence](http://creativecommons.org/licenses/by-nc/2.5/au/); the archive ensures reproducibility even as the live collection evolves. Pedagogically, the data is rich; records include persistent links back to object pages and a Categories field populated from the [Powerhouse Museum Object Names Thesaurus (PONT)](https://www.bmcc.nsw.gov.au/sites/default/files/docs/phm-thesaurus-sept09.pdf), a controlled vocabulary that reflects Australian usage; that makes it ideal for demonstrating how controlled terms look in the wild and why they drift through inconsistencies in capitalization, spelling, and pluralization. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character “\|,” including edge cases where “double pipes” (\|\|) inflate row counts, so we can practice systematic inspection before any analysis. After de-duplication the dataset drops to XXXX unique records; a facet reveals XXXX distinct categories and XXXX items with no category at all; without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation to authorities like Wikidata or library vocabularies. In short, we picked Powerhouse Museum dataset because it is authentic, documented, and large enough to contain real variance while remaining tractable. Starting any project by inspecting and cleaning and/or profiling distributions via facets, standardizing near-duplicates with clustering, validating record counts after each transformation, and keeping an undoable, exportable history—turns ad-hoc wrangling into a transparent, reproducible workflow.
+
+Galaxy Workflows are structured, stepwise pipelines that you build and run entirely in the browser, either by extracting them from a recorded analysis “history” or assembling them in the visual workflow editor; they can be annotated, shared, published, imported, and rerun. Making them ideal for teaching, collaboration, and rigorous, reproducible research. Once a workflow captures your analysis logic, exporting it is straightforward. Galaxy provides a downloadable JSON file (the “.ga” format) that describes the tools, parameters, and Input/Ooutput so the same workflow can be registered elsewhere or moved between Galaxy servers without hand-editing code. For provenance-rich sharing, Galaxy also supports exporting workflow executions as [Workflow Run RO-Crates](https://www.researchobject.org/workflow-run-crate/), a community standard bundle that packages the workflow definition together with inputs, outputs, and invocation metadata—improving transparency and interoperability across platforms. These features lower the barrier to entry (no local installs, a web UI with pre-installed tools and access to substantial compute) while preserving best practices for reproducibility (histories track tool versions and parameters; workflows are easily re-applied to new data). To make workflows findable, citable, and governed over time, the community uses [WorkflowHub](https://workflowhub.eu/), a curated registry that supports multiple workflow technologies—including Galaxy—and promotes FAIR principles (findable, accessible, interoperable, reusable). [WorkflowHub](https://workflowhub.eu/) enables proper credit and stewardship by organizing contributions into Spaces and Teams with controlled permissions, versioning, and the ability to mint DOIs via [DataCite](https://datacite.org/); metadata links to identifiers like [ORCID](https://orcid.org/), which helps workflows enter scholarly [knowledge graphs](https://en.wikipedia.org/wiki/Knowledge_graph) and ensures contributors are acknowledged. In practical terms, this means you can iterate on a Galaxy workflow in a familiar GUI, export the exact definition or a provenance-rich run package, and deposit it in a registry where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
+
 General introduction about the topic and then an introduction of the
 tutorial (the questions and the objectives). It is nice also to have a
 scheme to sum up the pipeline used during the tutorial. The idea is to
@@ -93,6 +99,8 @@ have fun!
 
 ## Get data
 
+We suggest to you to download the data from the Zenodo record as explained below. This help us with the reproducibility of the resutls.
+
 > <hands-on-title> Data Upload </hands-on-title>
 >
 > 1. Create a new history for this tutorial
@@ -121,6 +129,198 @@ have fun!
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
 {: .hands_on}
+
+# Use OpenRefine to explore and clean your dataset
+
+> <hands-on-title>Openning the dataset with OpenRefine</hands-on-title>
+>
+> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data
+>    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`
+> 2. Click on "Run Tool".
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name.
+> 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.
+> 5. Click on `Galaxy file`.
+> 6. You can see the data loaded for you.
+
+![OpenRefine tool interface in Galaxy](openrefine.png)
+
+![Open OpenRefine tool as an Interactive tool](interactive_tools.png)
+
+![Open OpenRefine interface](openrefine_interface.png)
+
+![Open OpenRefine Open Project as an input](openrefine_open_project.png)
+
+![Open OpenRefine GUI](openrefine_gui.png)
+
+> <question-title></question-title>
+>
+> 1. How many rows does this table have?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. 75809
+> >
+> {: .solution}
+{: .question}
+
+> <hands-on-title>Removing the blank rows</hands-on-title>
+>
+> 1. Click on the triangle on the left of `Record ID`.
+> 2. Click on `Sort...`.
+> 3. Select `numbers` and click on `OK`.
+> 4. Above the table, click on `Sort` and select `Reorder rows permanently`.
+> 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.
+> 6. Click on the triangle left of the `Record ID` column. Hover over `Facet` and move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.
+> 7. On the left, there is a new option under `Facet/Filter` with title `Record ID`. Click on `true`.
+> 8. Click on the triangle left to the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.
+> 9. Close the `Facet` by clicking on the cross (x) to see all rows.
+
+![Sort Record ID](sort.png)
+![Sort Record ID options](sort2.png)
+![Sort Record ID reorder permanently](sort3.png)
+![Blank down Record ID](sort4.png)
+![Facet by blank Record ID](sort5.png)
+![Facet by blank true Record ID](sort6.png)
+![Remove matching rows Record ID](deduplicate.png)
+
+> <question-title></question-title>
+>
+> 1. How many rows have been removed?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. 84
+> >
+> {: .solution}
+{: .question}
+
+> <hands-on-title>Find and replace typos using GREL</hands-on-title>
+>
+> To remove the occurance of double pipe \|\| from the file we can do the following:
+> 1. Click on the triangle on the left of `Categories` and select `Text filter`.
+> 2. On the left, using the `Facet/Filter` section, search for the occurance of \| and \|\|. There are 71061 rows with \| and 9 rows with \|\|. We want to remove these 9 lines as they are there by mistake.
+> 3. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
+> 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
+> 
+> We can also remove the double occurance of the same for different entries as follows:
+> 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
+> 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
+
+![Edit cells Categories](filter_grel.png)
+![Transform Categories](filter_grel2.png)
+![Custom text transform on column Categories](filter_grel3.png)
+
+> <question-title></question-title>
+>
+> 1. How many cells had duplicated categories?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. 1,668
+> >
+> {: .solution}
+{: .question}
+
+> <hands-on-title>Atomization</hands-on-title>
+>
+> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
+> 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Split multi-valued cells...`.
+> 2. Define the `Separator` as `\|` (pipe). Click on `OK`.
+
+![Atomization of Categories](split_multi_valued_cells.png)
+![Facet Blank of atomized Categories](facet_categories_blank.png)
+
+> <hands-on-title>Faceting the atomized Categories</hands-on-title>
+>
+> Are you ready for a little challenge? Let investigate the categories column of the museum items.
+>
+> > <question-title></question-title>
+>
+> 1. How many rows do you have after atomizing the categories column?
+> 2. How many entries do not have any category?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. 168,476
+> > 2. Click on the triangle on the left of `Categories` and hover over `facet` and move your mouse over `Customized facets` and click on `Facet by blank (null or empty string)`. The `true` value for blank entries is 447.
+> >
+> {: .solution}
+{: .question}
+> 
+> Now, let's use faceting based on text.
+> 1. Click on the triangle on the left of `Categories` and hover over `facet` and click on`Text facet`.
+> 2. On the left panel, it mentions the number of total choices. The default value of `count limit` is low for this dataset and we should increase it. Click on `Set choice count limit`.
+> 3. Enter `5000` as the new limit and click on `Ok`.
+> 4. Now, you see all categories. Click on `count` to see the categories sorted descendign.
+> > <question-title></question-title>
+>
+> 1. What are the top 3 categories? How many items are associated with each of them?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Numismatics (8011), Ceramics (7389), and Clothing and Dress (7279)
+> >
+> {: .solution}
+{: .question}
+
+![Text faceting of atomized Categories](text_facet.png)
+![Increasing the limit of text facetring](text_facet2.png)
+![Text faceting of atomized Categories sorted by count](text_facet3.png)
+
+> <hands-on-title>Clustering of similar categories</hands-on-title>
+>
+> The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
+> 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
+> 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerpring` and change the n-Gram size to `3`.
+> 3. Click on the `cluster` button in the middle window.
+> 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select all` and then clicking on `Merge selected and re-cluster`.
+> 5. Now, you can close the clustering window by clicking on `close`.
+> 
+> Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
+> 1. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
+> 2. Choose the pipe character (`\|`) as a separator and click on `OK`.
+> The rows now look like before, with a multi-valued Categories field.
+
+![Cluster and edit column Categories](cluster.png)
+![Clustered and merged similar Categories](cluster2.png)
+![Join multi-valued cells on Categories](join.png)
+
+> <hands-on-title>Exporting the results and history</hands-on-title>
+>
+> When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to you computer. To do so:
+> 1. Click on `Export` on top of the table.
+> 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you saw this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel.
+> 3. You can find a new dataset in your Galaxy History (with green background) that contains your cleaned dataset for further analysis.
+> 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
+
+![Export results of OpenRefine](export_results3.png)
+![Cleaned dataset](dataset_cleaned.png)
+
+> <hands-on-title>Exporting the results and history</hands-on-title>
+> Additionally, you can download the tasks you performed using OpenRefine in json format. This way, you can import it later and reproduce the exact same analysis. To do so:
+> 1. Click on `Undo/Redo` on the left panel.
+> 2. Click on `Extract...`.
+> 3. Click on the steps that you want to extract. Here, we selected everything.
+> 4. Click on `Export`. Give your file a name to save it on your computer.
+
+![Extract OpenRefine](extract_tasks.png)
+![Extract OpenRefine GUI](extract_tasks2.png)
+
+> <hands-on-title>Run a Galaxy workflow on your dataset</hands-on-title>
+>
+> There are different ways to import or create a workflow to Galaxy. Let's assume that you have imported a workflow to your Galaxy account.
+> 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
+> 2. Then, you can select and run different workflows (if you have any workflow in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided to you in this tutorial.
+> 3. Determine the inputs as follows:
+> 3.1. Input: `openrefine-Galaxy file.tsv`
+> 3.2. stop_words_english: `stop_words_english.txt` which is the file we provided to you in this tutorial.
+> 4. Click on the `Run Workflow` button on top.
+> 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and compelted. When everything is green, your workflow has ran fully and the results are ready.
+
+![Workflows button](workflows.png)
+![Select this workflow](select_workflow.png)
+![Determine the inputs of the workflow](workflow_inputs.png)
+![Overview of the workflow](workflow_overview.png)
 
 # Title of the section usually corresponding to a big step in the analysis
 
