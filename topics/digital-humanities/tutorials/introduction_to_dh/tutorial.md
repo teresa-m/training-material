@@ -31,8 +31,7 @@ contributions:
 <!-- This is a comment. -->
 
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
-The first couple of steps derive from <todo Add Bibliography>
-<Anna Syme, Nicola Soranzo, A short introduction to Galaxy (Galaxy Training Materials). https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html Online; accessed Wed Aug 20 2025>
+The first couple of steps in this tutorial derive from {% Syme2025GalaxyIntro %}.
 
 <Add Yamba story and significance!>
 
@@ -354,47 +353,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Replace**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
->    - In *"Find and Replace"*:
->        - {% icon param-repeat %} *"Insert Find and Replace"*
->            - *"Find pattern"*: `\.`
->            - *"Replace with"*: `\.\n`
->            - *"Find-Pattern is a regular expression"*: `Yes`
->            - *"Replace all occurences of the pattern"*: `Yes`
->            - *"Find and Replace text in"*: `entire line`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **Replace Text**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -432,19 +390,12 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Replace**
+## Sub-step with **Line/Word/Character count**
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
->    - In *"Find and Replace"*:
->        - {% icon param-repeat %} *"Insert Find and Replace"*
->            - *"Find pattern"*: `\.`
->            - *"Replace with"*: `\.\n`
->            - *"Find-Pattern is a regular expression"*: `Yes`
->            - *"Replace all occurences of the pattern"*: `Yes`
->            - *"Find and Replace text in"*: `entire line`
+> 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
+>    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -516,6 +467,127 @@ A big step can have several subsections or sub steps:
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Generate a word cloud**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+>    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
+>    - *"Color option"*: `Color`
+>    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+
+
+## Sub-step with **Replace**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - In *"Find and Replace"*:
+>        - {% icon param-repeat %} *"Insert Find and Replace"*
+>            - *"Find pattern"*: `\.`
+>            - *"Replace with"*: `\.\n`
+>            - *"Find-Pattern is a regular expression"*: `Yes`
+>            - *"Replace all occurences of the pattern"*: `Yes`
+>            - *"Find and Replace text in"*: `entire line`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Replace**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - In *"Find and Replace"*:
+>        - {% icon param-repeat %} *"Insert Find and Replace"*
+>            - *"Find pattern"*: `\.`
+>            - *"Replace with"*: `\.\n`
+>            - *"Find-Pattern is a regular expression"*: `Yes`
+>            - *"Replace all occurences of the pattern"*: `Yes`
+>            - *"Find and Replace text in"*: `entire line`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -589,77 +661,6 @@ A big step can have several subsections or sub steps:
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
 >    - *"Regular Expression"*: `death`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Line/Word/Character count**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Generate a word cloud**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
->    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
->    - *"Color option"*: `Color`
->    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
