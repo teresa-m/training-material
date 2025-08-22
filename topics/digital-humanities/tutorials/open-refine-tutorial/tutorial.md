@@ -3,7 +3,7 @@ layout: tutorial_hands_on
 title: OpenRefine Tutorial for researching cultural data
 zenodo_link: ''
 questions:
-- How to use OpenRefine in Galaxy to clean data?
+- How to use OpenRefine in Galaxy to clean data? 
 - How to use a workflow in Galaxy to extract and visualise information from your data?
 objectives:
 - Start OpenRefine as an Interactive Tool in Galaxy
@@ -27,48 +27,12 @@ answer_histories:
     history: https://usegalaxy.eu/u/armin.dadras/h/powerhouse-museum-data-analysis-via-openrefine
     date: 2025-08-21 
 ---
-This tutorial explains how to use OpenRefine in Galaxy to clean and visualise your data.
-It is composed of two parts: 
-- an introduction to OpenRefine based on {% cite Hooland_2013 %}, adapted for Galaxy.
-- an introduction to running a workflow in Galaxy to visualise the cleaned data and extract particular information.
+This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualise data from the **humanities and social sciences**. This tutorial has two parts: an introduction to OpenRefine based on {% cite Hooland_2013 %} adapted for Galaxy, and an introduction to running a **Galaxy workflow** to visualise the cleaned data and extract particular information.
 
-We will work with a dataset from the [Powerhouse Museum](https://powerhouse.com.au/), the largest museum group in Australia, containing metadata of its collection. The tabular data (36.4MB) contains basic metadata (14 columns) for 75,811 objects, released under a [Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/).
+**OpenRefine** is a free, open-source “data wrangler” built for messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM and official statistics (MARC, RDF serializations, PC-Axis). It is **non-destructive**—OpenRefine copies rather than alters your source files, saves projects locally, and by default runs only on **localhost**. Facets and filters let you audit categories, surface outliers, and triage inconsistencies without code. Its **clustering** tools consolidate near-duplicates using both key-collision methods (fingerprint, n-gram, phonetic) and edit-distance/nearest-neighbour methods (Levenshtein, PPM) so you can standardize names and places at scale while keeping human oversight. For enrichment, OpenRefine speaks the **Reconciliation API** to match local values to external authorities (e.g. **Wikidata**, **ROR**) and optionally pull back richer metadata. Transformations—both point-and-click and **GREL** formulas—are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning and easy peer review. Finished tables export cleanly to **CSV/TSV**, ODS/XLS(X), SQL statements, templated JSON, Google Sheets, or **QuickStatements** for Wikidata.
 
-With this dataset, we want to answer two questions:
-- From what year does the museum have the most objects?
-- What objects does the museum have from that year?
-  
-> <tip-title>What is OpenRefine?</tip-title>
->
-> OpenRefine is a free, open-source “data wrangler” that fits how scholars in digital humanities, social sciences, and history actually work: with messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM and official statistics (MARC, RDF serializations, PC-Axis), and it does this by copying—not altering—your source files; your projects are saved locally. Faceting and filtering let you audit categories, surface outliers, and triage inconsistencies without writing code. Its clustering tools reduce variant spellings and typographic noise using token-based “key collision” methods (such as fingerprint, n-gram, and phonetic) and edit-distance/nearest-neighbor methods (including Levenshtein and PPM), so you can standardize names and places at scale while keeping human oversight. When you need authoritative identifiers, OpenRefine speaks the Reconciliation API, letting you match local values to external authority files and knowledge bases (for example Wikidata or ROR) and optionally pull back rich metadata—no scripting required. Transformations are both powerful and transparent: point-and-click operations and formulas in the General Refine Expression Language (GREL) are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning workflows and easy peer review. Finally, OpenRefine runs as a local service in your browser and listens only on localhost by default, which means sensitive archival or survey data stay on your machine unless you choose to connect to external services or publish results; finished tables can be exported to CSV/TSV, ODS/XLS(X), SQL statements, or templated JSON, uploaded to Google Sheets, or prepared as QuickStatements for Wikidata. Taken together, these capabilities make OpenRefine a pragmatic bridge between ad-hoc spreadsheets and full programming environments: it is fast enough for sizeable tabular corpora, rigorous enough for auditability, and flexible enough to support the everyday cleaning, standardization, and enrichment tasks that underpin credible, shareable research in the humanities and social sciences.
-{: .tip}
+**Galaxy workflows.** Galaxy Workflows are structured, stepwise pipelines you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research. A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web UI with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data). For findability and credit, the community uses **[WorkflowHub](https://workflowhub.eu/)**—a curated registry that supports multiple workflow technologies (including Galaxy) and promotes **FAIR** principles; it offers Spaces/Teams, permissions, versioning, and **DOIs via DataCite**, with metadata linking to identifiers like **[ORCID](https://orcid.org/)** so contributions enter scholarly knowledge graphs and are properly acknowledged. In practice, you can iterate on a workflow in a familiar GUI, export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
 
-The tutorial uses the [Powerhouse Museum (Sydney)](https://powerhouse.com.au/) collection because it is a credible, openly published, and realistically messy dataset that lets us rehearse the exact problems scholars encounter at scale. [The Programming Historian lesson](https://programminghistorian.org/en/lessons/cleaning-data-with-openrefine) works from an archived TSV export, phm-collection.tsv released under a [Creative Commons Attribution–ShareAlike licence](http://creativecommons.org/licenses/by-nc/2.5/au/); the archive ensures reproducibility even as the live collection evolves. Pedagogically, the data is rich; records include persistent links back to object pages and a Categories field populated from the [Powerhouse Museum Object Names Thesaurus (PONT)](https://www.bmcc.nsw.gov.au/sites/default/files/docs/phm-thesaurus-sept09.pdf), a controlled vocabulary that reflects Australian usage; that makes it ideal for demonstrating how controlled terms look in the wild and why they drift through inconsistencies in capitalization, spelling, and pluralization. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character “\|,” including edge cases where “double pipes” (\|\|) inflate row counts, so we can practice systematic inspection before any analysis. After de-duplication the dataset drops to XXXX unique records; a facet reveals XXXX distinct categories and XXXX items with no category at all; without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation to authorities like Wikidata or library vocabularies. In short, we picked Powerhouse Museum dataset because it is authentic, documented, and large enough to contain real variance while remaining tractable. Starting any project by inspecting and cleaning and/or profiling distributions via facets, standardizing near-duplicates with clustering, validating record counts after each transformation, and keeping an undoable, exportable history—turns ad-hoc wrangling into a transparent, reproducible workflow.
-
-Galaxy Workflows are structured, stepwise pipelines that you build and run entirely in the browser, either by extracting them from a recorded analysis “history” or assembling them in the visual workflow editor; they can be annotated, shared, published, imported, and rerun. Making them ideal for teaching, collaboration, and rigorous, reproducible research. Once a workflow captures your analysis logic, exporting it is straightforward. Galaxy provides a downloadable JSON file (the “.ga” format) that describes the tools, parameters, and Input/Ooutput so the same workflow can be registered elsewhere or moved between Galaxy servers without hand-editing code. For provenance-rich sharing, Galaxy also supports exporting workflow executions as [Workflow Run RO-Crates](https://www.researchobject.org/workflow-run-crate/), a community standard bundle that packages the workflow definition together with inputs, outputs, and invocation metadata—improving transparency and interoperability across platforms. These features lower the barrier to entry (no local installs, a web UI with pre-installed tools and access to substantial compute) while preserving best practices for reproducibility (histories track tool versions and parameters; workflows are easily re-applied to new data). To make workflows findable, citable, and governed over time, the community uses [WorkflowHub](https://workflowhub.eu/), a curated registry that supports multiple workflow technologies—including Galaxy—and promotes FAIR principles (findable, accessible, interoperable, reusable). [WorkflowHub](https://workflowhub.eu/) enables proper credit and stewardship by organizing contributions into Spaces and Teams with controlled permissions, versioning, and the ability to mint DOIs via [DataCite](https://datacite.org/); metadata links to identifiers like [ORCID](https://orcid.org/), which helps workflows enter scholarly [knowledge graphs](https://en.wikipedia.org/wiki/Knowledge_graph) and ensures contributors are acknowledged. In practical terms, this means you can iterate on a Galaxy workflow in a familiar GUI, export the exact definition or a provenance-rich run package, and deposit it in a registry where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
-
-General introduction about the topic and then an introduction of the
-tutorial (the questions and the objectives). It is nice also to have a
-scheme to sum up the pipeline used during the tutorial. The idea is to
-give to trainees insight into the content of the tutorial and the (theoretical
-and technical) key concepts they will learn.
-
-You may want to cite some publications; this can be done by adding citations to the
-bibliography file (`tutorial.bib` file next to your `tutorial.md` file). These citations
-must be in bibtex format. If you have the DOI for the paper you wish to cite, you can
-get the corresponding bibtex entry using [doi2bib.org](https://doi2bib.org).
-
-With the example you will find in the `tutorial.bib` file, you can add a citation to
-this article here in your tutorial like this:
-{% raw %} `{% cite Batut2018 %}`{% endraw %}.
-This will be rendered like this: {% cite Batut2018 %}, and links to a
-[bibliography section](#bibliography) which will automatically be created at the end of the
-tutorial.
-
-
-
-**Please follow our
-[tutorial to learn how to fill the Markdown]({{ site.baseurl }}/topics/contributing/tutorials/create-new-tutorial-content/tutorial.html)**
 
 > <agenda-title></agenda-title>
 >
@@ -79,26 +43,11 @@ tutorial.
 >
 {: .agenda}
 
-# What is OpenRefine
-Give some background about what the trainees will be doing in the section.
-Remember that many people reading your materials will likely be novices,
-so make sure to explain all the relevant concepts.
+# Get the data
 
+We will work with a dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing collection metadata. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *from what year does the museum have the most objects?* and *what objects does the museum have from that year?*
 
-
-# Hands-on Sections
-Below are a series of hand-on boxes, one for each tool in your workflow file.
-Often you may wish to combine several boxes into one or make other adjustments such
-as breaking the tutorial into sections, we encourage you to make such changes as you
-see fit, this is just a starting point :)
-
-Anywhere you find the word "***TODO***", there is something that needs to be changed
-depending on the specifics of your tutorial.
-
-have fun!
-
-## Get data
-
+**Why this dataset.** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. The *Programming Historian* lesson works from an archived TSV export (*phm-collection.tsv*) released under a **[Creative Commons Attribution–ShareAlike licence](http://creativecommons.org/licenses/by-nc/2.5/au/)**, ensuring reproducibility even as the live collection evolves. Records include persistent links back to object pages and a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning you will compute sanity checks (after de-duplication the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 We suggest to you to download the data from the Zenodo record as explained below. This help us with the reproducibility of the resutls.
 
 > <hands-on-title> Data Upload </hands-on-title>
@@ -111,10 +60,7 @@ We suggest to you to download the data from the Zenodo record as explained below
 >    ```
 >    
 >    ```
->    ***TODO***: *Add the files by the ones on Zenodo here (if not added)*
->
->    ***TODO***: *Remove the useless files (if added)*
->
+>    
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
 >
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
@@ -716,8 +662,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
 > <question-title></question-title>
 >
 > 1. Question1?
@@ -751,8 +695,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
 > <question-title></question-title>
 >
 > 1. Question1?
@@ -785,8 +727,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
 > <question-title></question-title>
 >
 > 1. Question1?
@@ -817,18 +757,12 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >            - *"Choose the type of parameter for this field"*: `Text Parameter`
 >                - *"Enter text that should be part of the computed value"*: `\t`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
 >    > <comment-title> short description </comment-title>
 >    >
 >    > A comment about the tool or something else. This box can also be in the main text
 >    {: .comment}
 >
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -863,8 +797,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
 > <question-title></question-title>
 >
 > 1. Question1?
@@ -898,8 +830,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
 > <question-title></question-title>
 >
 > 1. Question1?
@@ -928,18 +858,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >    - *"Do not add collocations (bigrams) to word cloud"*: `Yes`
 >    - *"Whether to remove trailing s from words"*: `Yes`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -956,14 +875,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 {: .question}
 
 <End of Passage that we should maybe leave out >
-
-
-## Re-arrange
-
-To create the template, each step of the workflow had its own subsection.
-
-***TODO***: *Re-arrange the generated subsections into sections or other subsections.
-Consider merging some hands-on boxes to have a meaningful flow of the analyses*
 
 # Conclusion
 
