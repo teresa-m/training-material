@@ -152,7 +152,7 @@ In this tutorial, we know our organism is within the 'Bacillales' order.
 >      -  *"Lineage"*: `Bacillales`
 >    - *"Which outputs should be generated"*: Tick `Select all` to get full output list
 > 
-> 2. **View output**:
+> 2. View output:
 >    - After the program has run, look at the `short summary` output. 
 >    - It may look something like this:
 >      ![busco_output](../../images/denovo_assembly/busco_reference_assembly.png)
@@ -252,10 +252,11 @@ Search for the `Quast` tool in the tools panel.
 >    - *"Use customized names for the input files?"*: `No, use dataset names`
 >    - *"Contigs/scaffolds file"*: `Flye: Assembly`
 >    - *"Type of assembly?"*: `Genome`
->    - *"Use a reference genome?"*: `reference_genome.fasta`
+>    - *"Use a reference genome?"*: `Yes`
+>      - *"Reference genome"*: `reference_genome.fasta`
 > 
 > 2. View output:
->    - Quast will produce a HTML report summarising it's results.
+>    - `Quast` will produce a HTML report summarising it's results.
 >    - Open the report. It may look something like this:
 ![quast_report](../../images/denovo_assembly/quast_draft_assembly.png)
 >    - Note the:
@@ -343,7 +344,7 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 > 
 > 1. Select the history item for our initial `Quast` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Quast` job.
 > 
-> 2. Change the *"Type automatically determined by pilon"* input to `Flye: Polished assembly`.
+> 2. Change the *"Contigs/scaffolds file"* input to `Flye: Polished assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
 > 
@@ -484,7 +485,8 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 >       - An assembly graph 
 >       - SPAges graphs 
 >    - We are interested in the `Final Assembly` output, which is the assembly as a `fasta` file. 
->    - ***Rename*** the `Final Assembly` output to `Unicycler: Assembly`.
+> 
+> 3. ***Rename*** the `Final Assembly` output to `Unicycler: Assembly`.
 > 
 > > <comment-title></comment-title>
 > >
@@ -510,7 +512,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 1. Select the history item for our initial `Quast` job, then click the rerun {% icon dataset-rerun %} button. This will load the settings used for the previous `Quast` job.
 > 
-> 2. Change the *"Type automatically determined by pilon"* input to `Unicycler: Assembly`.
+> 2. Change the *"Contigs/scaffolds file"* input to `Unicycler: Assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
 > 
