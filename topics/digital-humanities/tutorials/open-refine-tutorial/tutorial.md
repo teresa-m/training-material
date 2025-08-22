@@ -73,25 +73,42 @@ We suggest to you to download the data from the Zenodo record as explained below
 
 Here maybe we should briefly explain what the user will be doing. 
 
-> <hands-on-title>Openning the dataset with OpenRefine</hands-on-title>
+> <hands-on-title>Opening the dataset with OpenRefine</hands-on-title>
 >
-> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data
->    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`
-> 2. Click on "Run Tool".
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name.
-> 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.
-> 5. Click on `Galaxy file`.
-> 6. You can see the data loaded for you.
-
-![OpenRefine tool interface in Galaxy](openrefine.png)
-
-![Open OpenRefine tool as an Interactive tool](interactive_tools.png)
-
-![Open OpenRefine interface](openrefine_interface.png)
-
-![Open OpenRefine Open Project as an input](openrefine_open_project.png)
-
-![Open OpenRefine GUI](openrefine_gui.png)
+> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data  
+>    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`  
+>
+> 2. Click on "Run Tool".  
+>
+>    <p align="center">
+>      <img src="openrefine.png" alt="OpenRefine tool interface in Galaxy">
+>    </p>
+>
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name.  
+>
+>    <p align="center">
+>      <img src="interactive_tools.png" alt="Open OpenRefine tool as an Interactive tool">
+>    </p>
+>
+> 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.  
+>
+>    <p align="center">
+>      <img src="openrefine_interface.png" alt="Open OpenRefine interface">
+>    </p>
+>
+> 5. Click on `Galaxy file`.  
+>
+>    <p align="center">
+>      <img src="openrefine_open_project.png" alt="Open OpenRefine Open Project as an input">
+>    </p>
+>
+> 6. You can see the data loaded for you.  
+>
+>    <p align="center">
+>      <img src="openrefine_gui.png" alt="Open OpenRefine GUI">
+>    </p>
+>
+{: .hands_on}
 
 > <question-title></question-title>
 >
@@ -106,23 +123,53 @@ Here maybe we should briefly explain what the user will be doing.
 
 > <hands-on-title>Removing the blank rows</hands-on-title>
 >
-> 1. Click on the triangle on the left of `Record ID`.
-> 2. Click on `Sort...`.
-> 3. Select `numbers` and click on `OK`.
-> 4. Above the table, click on `Sort` and select `Reorder rows permanently`.
-> 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.
-> 6. Click on the triangle left of the `Record ID` column. Hover over `Facet` and move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.
-> 7. On the left, there is a new option under `Facet/Filter` with title `Record ID`. Click on `true`.
-> 8. Click on the triangle left to the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.
-> 9. Close the `Facet` by clicking on the cross (x) to see all rows.
-
-![Sort Record ID](sort.png)
-![Sort Record ID options](sort2.png)
-![Sort Record ID reorder permanently](sort3.png)
-![Blank down Record ID](sort4.png)
-![Facet by blank Record ID](sort5.png)
-![Facet by blank true Record ID](sort6.png)
-![Remove matching rows Record ID](deduplicate.png)
+> 1. Click on the triangle on the left of `Record ID`.  
+>
+>    <p align="center">
+>      <img src="sort.png" alt="Sort Record ID">
+>    </p>
+>
+> 2. Click on `Sort...`.  
+>
+> 3. Select `numbers` and click on `OK`.  
+>
+>    <p align="center">
+>      <img src="sort2.png" alt="Sort Record ID options">
+>    </p>
+>
+> 4. Above the table, click on `Sort` and select `Reorder rows permanently`.  
+>
+>    <p align="center">
+>      <img src="sort3.png" alt="Sort Record ID reorder permanently">
+>    </p>
+>
+> 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.  
+>
+>    <p align="center">
+>      <img src="sort4.png" alt="Blank down Record ID">
+>    </p>
+>
+> 6. Click on the triangle left of the `Record ID` column. Hover over `Facet`, then move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.  
+>
+>    <p align="center">
+>      <img src="sort5.png" alt="Facet by blank Record ID">
+>    </p>
+>
+> 7. On the left, a new option appears under `Facet/Filter` with title `Record ID`. Click on `true`.  
+>
+>    <p align="center">
+>      <img src="sort6.png" alt="Facet by blank true Record ID">
+>    </p>
+>
+> 8. Click on the triangle left to the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.  
+>
+>    <p align="center">
+>      <img src="deduplicate.png" alt="Remove matching rows Record ID">
+>    </p>
+>
+> 9. Close the `Facet` by clicking on the cross (x) to see all rows.  
+>
+{: .hands_on}
 
 > <question-title></question-title>
 >
