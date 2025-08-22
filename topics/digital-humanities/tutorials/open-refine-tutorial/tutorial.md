@@ -33,7 +33,6 @@ This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualise d
 
 **Galaxy workflows.** Galaxy Workflows are structured, stepwise pipelines you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research. A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web UI with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data). For findability and credit, the community uses **[WorkflowHub](https://workflowhub.eu/)**—a curated registry that supports multiple workflow technologies (including Galaxy) and promotes **FAIR** principles; it offers Spaces/Teams, permissions, versioning, and **DOIs via DataCite**, with metadata linking to identifiers like **[ORCID](https://orcid.org/)** so contributions enter scholarly knowledge graphs and are properly acknowledged. In practice, you can iterate on a workflow in a familiar GUI, export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
 
-
 > <agenda-title></agenda-title>
 >
 > In this tutorial, we will cover:
@@ -50,33 +49,29 @@ We will work with a dataset from the **[Powerhouse Museum](https://powerhouse.co
 **Why this dataset.** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. The *Programming Historian* lesson works from an archived TSV export (*phm-collection.tsv*) released under a **[Creative Commons Attribution–ShareAlike licence](http://creativecommons.org/licenses/by-nc/2.5/au/)**, ensuring reproducibility even as the live collection evolves. Records include persistent links back to object pages and a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning you will compute sanity checks (after de-duplication the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 We suggest to you to download the data from the Zenodo record as explained below. This help us with the reproducibility of the resutls.
 
-> <hands-on-title> Data Upload </hands-on-title>
+> <hands-on-title>Upload your data</hands-on-title>
 >
-> 1. Create a new history for this tutorial
-> 2. Import the files from [Zenodo]({{ page.zenodo_link }}) or from
->    the shared data library (`GTN - Material` -> `{{ page.topic_name }}`
->     -> `{{ page.title }}`):
+> 1. Create a new history for this tutorial and name it "Powerhouse Museum — OpenRefine"
+> 2. Import the AnnData file from [Zenodo]({{page.zenodo_link}}):
 >
 >    ```
->    
+>    {{ page.zenodo_link }}/files/ncm_pdcs_subset.h5ad #example needs to be replaced
 >    ```
->    
+>
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
 >
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
-> 3. Rename the datasets
-> 4. Check that the datatype
+> 3. Rename the dataset: "**Powerhouse Museum metadata**."
+> 4. Ensure that the datatype is correct. Otherwise, use convert datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
->
-> 5. Add to each database a tag corresponding to ...
->
->    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
 {: .hands_on}
 
 # Use OpenRefine to explore and clean your dataset
+
+Here maybe we should briefly explain what the user will be doing. 
 
 > <hands-on-title>Openning the dataset with OpenRefine</hands-on-title>
 >
@@ -167,6 +162,9 @@ We suggest to you to download the data from the Zenodo record as explained below
 > {: .solution}
 {: .question}
 
+Mybe here we explain a bit -Perhaps what atomization is or so... and why is the enxt step. 
+
+
 > <hands-on-title>Atomization</hands-on-title>
 >
 > Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
@@ -176,9 +174,10 @@ We suggest to you to download the data from the Zenodo record as explained below
 ![Atomization of Categories](split_multi_valued_cells.png)
 ![Facet Blank of atomized Categories](facet_categories_blank.png)
 
-> <hands-on-title>Faceting the atomized Categories</hands-on-title>
->
-> Are you ready for a little challenge? Let investigate the categories column of the museum items.
+Are you ready for a little challenge? Let investigate the categories column of the museum items.
+
+#Why is there a hands-on below?
+> <hands-on-title>Faceting the atomized Categories</hands-on-title>  
 >
 > > <question-title></question-title>
 >
@@ -213,9 +212,10 @@ We suggest to you to download the data from the Zenodo record as explained below
 ![Increasing the limit of text facetring](text_facet2.png)
 ![Text faceting of atomized Categories sorted by count](text_facet3.png)
 
+The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
+
 > <hands-on-title>Clustering of similar categories</hands-on-title>
->
-> The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
+> 
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
 > 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerpring` and change the n-Gram size to `3`.
 > 3. Click on the `cluster` button in the middle window.
@@ -231,9 +231,10 @@ We suggest to you to download the data from the Zenodo record as explained below
 ![Clustered and merged similar Categories](cluster2.png)
 ![Join multi-valued cells on Categories](join.png)
 
+When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to you computer. Follow the next hands-on to do so:
+
 > <hands-on-title>Exporting the results and history</hands-on-title>
 >
-> When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to you computer. To do so:
 > 1. Click on `Export` on top of the table.
 > 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you saw this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel.
 > 3. You can find a new dataset in your Galaxy History (with green background) that contains your cleaned dataset for further analysis.
@@ -268,36 +269,14 @@ We suggest to you to download the data from the Zenodo record as explained below
 ![Determine the inputs of the workflow](workflow_inputs.png)
 ![Overview of the workflow](workflow_overview.png)
 
-# Title of the section usually corresponding to a big step in the analysis
+# Worflow here?
 
-It comes first a description of the step: some background and some theory.
-Some image can be added there to support the theory explanation:
-
-![Alternative text](../../images/image_name "Legend of the image")
-
-The idea is to keep the theory description before quite simple to focus more on the practical part.
-
-***TODO***: *Consider adding a detail box to expand the theory*
-
-> <details-title> More details about the theory </details-title>
->
-> But to describe more details, it is possible to use the detail boxes which are expandable
->
-{: .details}
-
-A big step can have several subsections or sub steps:
-
-
-Here follows the steps described in the OpenRefine tutorial with pictures.
-
-
-<Björn suggested we just run and explain a workflow - maybe this passage explaining all the following steps becomes thereby obsolete>
-
+Björn suggested we just run and explain a workflow - maybe this passage explaining all the following steps becomes thereby obsolete.
+We can add an image here too.
 
 ## Sub-step with **Cut**
 To determine which year most objects in the museum catalogue derive from, we must extract only those years with a precise creation date. 
 Therefore, we first cut the column containing all objects' "Production Date". In this case, column 6, or c6.
-
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -305,18 +284,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >    - *"Cut columns"*: `c6`
 >    - {% icon param-file %} *"From"*: `output` (Input dataset)
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -352,18 +320,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >                - *"regex pattern"*: `BC`
 >                - *"action for regex match"*: `exclude line if pattern found`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -403,7 +360,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+***TODO***: This is not always necessary in every step but if the questions would help, we can always have them! 
 
 > <question-title></question-title>
 >
@@ -430,18 +387,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >            - *"on column"*: `c1`
 >            - *"in"*: `Descending order`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -464,18 +410,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `outfile` (output of **Sort** {% icon tool %})
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -503,18 +438,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >        - {% icon param-repeat %} *"Insert Operation to perform on each group"*
 >            - *"On column"*: `c1`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -540,18 +464,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >        - {% icon param-repeat %} *"Insert Column selections"*
 >            - *"on column"*: `c1`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -578,18 +491,8 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >    - *"Numerical columns"*: `c['2']`
 >    - *"Plot title"*: `Amount of objects `
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
 >
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -616,18 +519,7 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >            - *"on column"*: `c2`
 >            - *"in"*: `Descending order`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -650,15 +542,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 > 1. {% tool [Select first](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to select"*: `outfile` (output of **Sort** {% icon tool %})
 >    - *"Number of lines"*: `1`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
 >
 {: .hands_on}
 
@@ -684,15 +567,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >    - *"Cut columns"*: `c1`
 >    - {% icon param-file %} *"From"*: `outfile` (output of **Select first** {% icon tool %})
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
 > <question-title></question-title>
@@ -715,15 +589,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >
 > 1. {% tool [Parse parameter value](param_value_from_file) %} with the following parameters:
 >    - {% icon param-file %} *"Input file containing parameter to parse out of"*: `out_file1` (output of **Cut** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
 >
 {: .hands_on}
 
@@ -757,10 +622,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >            - *"Choose the type of parameter for this field"*: `Text Parameter`
 >                - *"Enter text that should be part of the computed value"*: `\t`
 >
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
 >
 {: .hands_on}
 
@@ -786,15 +647,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >    - {% icon param-file %} *"Select lines from"*: `output` (Input dataset)
 >    - *"Regular Expression"*: `{'id': 14, 'output_name': 'out1'}`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
 > <question-title></question-title>
@@ -818,15 +670,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 > 1. {% tool [Cut](Cut1) %} with the following parameters:
 >    - *"Cut columns"*: `c2`
 >    - {% icon param-file %} *"From"*: `output` (output of **Search in textfiles** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
 >
 {: .hands_on}
 
@@ -873,8 +716,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 > {: .solution}
 >
 {: .question}
-
-<End of Passage that we should maybe leave out >
 
 # Conclusion
 
