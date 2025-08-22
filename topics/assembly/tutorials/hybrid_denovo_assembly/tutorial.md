@@ -52,6 +52,7 @@ Nanopore sequencing technology is rapidly improving, expect the cost difference 
 - **Pipeline:** Hybrid de novo genome assembly - Nanopore draft Illumina polishing
 - **Pipeline:** Hybrid de novo genome assembly - Unicycler
 
+This Galaxy tutorial based on material from the [Hybrid genome assembly - Nanopore and Illumina](https://www.melbournebioinformatics.org.au/tutorials/tutorials/hybrid_assembly/nanopore_assembly/) tutorial and workshop created by [Melbourne Bioinformatics](https://mdhs.unimelb.edu.au/melbournebioinformatics) at the University of Melbourne.
 
 
 > <agenda-title></agenda-title>
