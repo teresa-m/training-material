@@ -22,7 +22,7 @@ key_points:
 - One option is to assemble the long reads using `Flye` and then polish with the short reads using `Pilon`
 - Alternatively, `Unicycler` creates an assembly graph from the short reads and then untangles the graph with the long reads
 contributors:
-- gracehall
+- GraceAHall
 - tflowers15
 funding:
 - unimelb
