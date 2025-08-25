@@ -36,7 +36,7 @@ The first couple of steps in this tutorial derive from {% Syme2025GalaxyIntro %}
 While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
 From logging in, uploading the texts, to using the first tools, this tutorial covers the Galaxy basics.
 We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters and visualising both in a word cloud. 
-Then, we take a closer look. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" as a dominant theme in the first poem, we extract all lines including "death" for further in-depth analysis. This helps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
+Then, we take a closer look. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" is a dominant theme in the first poem, so we extract all lines including "death" for further in-depth analysis. This helps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
 
 > <agenda-title></agenda-title>
 >
@@ -46,16 +46,6 @@ Then, we take a closer look. For an easier comparison, we reformat both texts an
 > {:toc}
 >
 {: .agenda}
-
-# Title for your first section
-
-Give some background about what the trainees will be doing in the section.
-Remember that many people reading your materials will likely be novices,
-so make sure to explain all the relevant concepts.
-
-## Title for a subsection
-Section and subsection titles will be displayed in the tutorial index on the left side of
-the page, so try to make them informative and concise!
 
 # Hands-on Sections
 
@@ -123,11 +113,11 @@ Your "History" is in the panel at the right. It is a record of the actions you h
 >
 {: .hands_on}
 
-## Upload a file
+## Upload a file to Galaxy
 
 The "Activity Bar" can be seen on the left-most part of the interface.
 
-> <hands-on-title>Upload a file from URL</hands-on-title>
+> <hands-on-title>Upload a file</hands-on-title>
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 >
 >    ![upload data button shown in the galaxy interface](../../images/upload-data.png)
@@ -145,8 +135,17 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >
 > 5. Click **Start**
 > 6. Click **Close**
+
+> One usegalaxy.eu, you can alternatively access Zenodo directly from within Galaxy:
 >
+> 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
+> 2. Click on the bottom of the newly opened window on **Choose from repository**.
+> 3. Enter **Zenodo** in the search bar and click on the folder **Zenodo**.
+> 4. Enter **TODO UPLOAD DATA** in the search bar and select the items.
+> 5. Click **Start**
+> 6. Click **Close**
 {: .hands_on}
+
 
 Your uploaded file is now in your current history.
 When the file has been uploaded to Galaxy, it will turn green.
@@ -157,66 +156,30 @@ When the file has been uploaded to Galaxy, it will turn green.
 >
 {: .comment}
 
-> <details-title>Is this step taking a while?</details-title>
->   Sometimes during courses, data upload gets a little slow. You can also import data through a history link.
->
-> 1. Import history from: [example input history](https://humancellatlas.usegalaxy.eu/u/wendi.bacon.training/h/short-introduction-to-galaxy--input)
->
->    {% snippet faqs/galaxy/histories_import.md %}
-> 2. **Rename** {% icon galaxy-pencil %} the history to your name of choice.
->
-{: .details}
-
-What is this file?
+What are those files?
 
 > <hands-on-title>View the dataset content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 >
+> <Todo: update 2 current dataset>
 >    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
+>
+> 2. Check the datatype
+>
+>    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
+>
+> 3. Add to each database a tag corresponding to the file's origin.
+>
+>    {% snippet faqs/galaxy/datasets_add_tag.md %}
+>
 {: .hands_on}
+
 
 The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
 What do my files contain:
 
 
-
-
-
-
-## Name a History
-
-Below are a series of hand-on boxes, one for each tool in your workflow file.
-Often you may wish to combine several boxes into one or make other adjustments such
-as breaking the tutorial into sections, we encourage you to make such changes as you
-see fit, this is just a starting point :)
-
-Anywhere you find the word "***TODO***", there is something that needs to be changed
-depending on the specifics of your tutorial.
-
-have fun!
-
-## Get data
-
-> <hands-on-title> Data Upload </hands-on-title>
->
-> 1. Create a new history for this tutorial
-> 2. Import the files from [Zenodo]({{ page.zenodo_link }}) or from
->    the shared data library (`GTN - Material` -> `{{ page.topic_name }}`
->     -> `{{ page.title }}`):
->
->    ```
->    
->    ```
->    ***TODO***: *Add the files by the ones on Zenodo here (if not added)*
->
->    ***TODO***: *Remove the useless files (if added)*
->
->    {% snippet faqs/galaxy/datasets_import_via_link.md %}
->
->    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
->
-> 3. Rename the datasets
 > 4. Check that the datatype
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
@@ -227,29 +190,16 @@ have fun!
 >
 {: .hands_on}
 
-# Title of the section usually corresponding to a big step in the analysis
-
-It comes first a description of the step: some background and some theory.
-Some image can be added there to support the theory explanation:
-
-![Alternative text](../../images/image_name "Legend of the image")
-
-The idea is to keep the theory description before quite simple to focus more on the practical part.
-
-***TODO***: *Consider adding a detail box to expand the theory*
-
-> <details-title> More details about the theory </details-title>
->
-> But to describe more details, it is possible to use the detail boxes which are expandable
->
-{: .details}
-
-A big step can have several subsections or sub steps:
-
+Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
 ## Sub-step with **Remove beginning**
 
-> <hands-on-title> Task description </hands-on-title>
+When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
+As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
+
+<CONTINUE HERE>
+
+> <hands-on-title> Delete Hyperlink </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `output` (Input dataset)
