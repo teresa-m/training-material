@@ -21,7 +21,7 @@ contributors:
 - dadrasarmin
 - Sch-Da
 funding:
-- carpentries
+- NFDI4Culture
 answer_histories:
   - label: "UseGalaxy.eu"
     history: https://usegalaxy.eu/u/armin.dadras/h/powerhouse-museum-data-analysis-via-openrefine
