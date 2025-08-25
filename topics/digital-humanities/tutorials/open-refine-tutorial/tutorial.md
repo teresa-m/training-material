@@ -193,6 +193,8 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > We can also remove the double occurance of the same for different entries as follows:
 > 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
 > 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
+>
+{: .hands_on}
 
 ![Edit cells Categories](filter_grel.png)
 ![Transform Categories](filter_grel2.png)
@@ -231,6 +233,8 @@ Are you ready for a little challenge? Let investigate the categories column of t
 > 1. How many rows do you have after atomizing the categories column?
 > 2. How many entries do not have any category?
 >
+{: .hands_on}
+
 > > <solution-title></solution-title>
 > >
 > > 1. 168,476
@@ -273,6 +277,8 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 > 1. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
 > 2. Choose the pipe character (`\|`) as a separator and click on `OK`.
 > The rows now look like before, with a multi-valued Categories field.
+>
+{: .hands_on}
 
 ![Cluster and edit column Categories](cluster.png)
 ![Clustered and merged similar Categories](cluster2.png)
@@ -286,6 +292,8 @@ When you are happy with the results of your analysis, you can export the dataset
 > 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you saw this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel.
 > 3. You can find a new dataset in your Galaxy History (with green background) that contains your cleaned dataset for further analysis.
 > 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
+>
+{: .hands_on}
 
 ![Export results of OpenRefine](export_results3.png)
 ![Cleaned dataset](dataset_cleaned.png)
@@ -296,6 +304,8 @@ When you are happy with the results of your analysis, you can export the dataset
 > 2. Click on `Extract...`.
 > 3. Click on the steps that you want to extract. Here, we selected everything.
 > 4. Click on `Export`. Give your file a name to save it on your computer.
+>
+{: .hands_on}
 
 ![Extract OpenRefine](extract_tasks.png)
 ![Extract OpenRefine GUI](extract_tasks2.png)
@@ -310,6 +320,8 @@ When you are happy with the results of your analysis, you can export the dataset
 > 3.2. stop_words_english: `stop_words_english.txt` which is the file we provided to you in this tutorial.
 > 4. Click on the `Run Workflow` button on top.
 > 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and compelted. When everything is green, your workflow has ran fully and the results are ready.
+>
+{: .hands_on}
 
 ![Workflows button](workflows.png)
 ![Select this workflow](select_workflow.png)
@@ -668,7 +680,6 @@ Therefore, we first cut the column containing all objects' "Production Date". In
 >        - {% icon param-repeat %} *"Insert components"*
 >            - *"Choose the type of parameter for this field"*: `Text Parameter`
 >                - *"Enter text that should be part of the computed value"*: `\t`
->
 >
 {: .hands_on}
 
