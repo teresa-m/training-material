@@ -63,7 +63,7 @@ We suggest to you to download the data from the Zenodo record as explained below
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
 > 3. Rename the dataset: "**Powerhouse Museum metadata**."
-> 4. Ensure that the datatype is correct. Otherwise, use convert datatype.
+> 4. Ensure that the datatype is "tsv". Otherwise, use convert datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
