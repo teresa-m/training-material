@@ -71,7 +71,7 @@ We suggest to you to download the data from the Zenodo record as explained below
 
 # Use OpenRefine to explore and clean your dataset
 
-Here maybe we should briefly explain what the user will be doing. 
+The users will familiarize themselves with the museum's metadata. In the next step, they will clean the metadata using various steps to enhance its quality and accessibility.
 
 > <hands-on-title>Opening the dataset with OpenRefine</hands-on-title>
 >
