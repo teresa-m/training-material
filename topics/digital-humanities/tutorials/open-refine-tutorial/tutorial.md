@@ -84,7 +84,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >      <img src="openrefine.png" alt="OpenRefine tool interface in Galaxy">
 >    </p>
 >
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name.  
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow pointing outside the box that allows you to start OpenRefine in a new tab.  
 >
 >    <p align="center">
 >      <img src="interactive_tools.png" alt="Open OpenRefine tool as an Interactive tool">
@@ -96,7 +96,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >      <img src="openrefine_interface.png" alt="Open OpenRefine interface">
 >    </p>
 >
-> 5. Click on `Galaxy file`.  
+> 5. Click on `Galaxy file`. If the file does not appear, you may have started OpenRefine before it was fully loaded. Retry step 3 and 4 and the file should be visible.
 >
 >    <p align="center">
 >      <img src="openrefine_open_project.png" alt="Open OpenRefine Open Project as an input">
