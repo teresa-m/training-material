@@ -47,6 +47,7 @@ This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualise d
 We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing collection metadata. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and put it on Zenodo for long-term reusability. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* and *what objects does the museum have from that year?*
 
 **Why this dataset.** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
+
 We suggest to you to download the data from the Zenodo record as explained below. This help us with the reproducibility of the resutls.
 
 > <hands-on-title>Upload your data</hands-on-title>
@@ -84,7 +85,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >      <img src="openrefine.png" alt="OpenRefine tool interface in Galaxy">
 >    </p>
 >
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow pointing outside the box that allows you to start OpenRefine in a new tab.  
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box that allows you to start OpenRefine in a new tab.  
 >
 >    <p align="center">
 >      <img src="interactive_tools.png" alt="Open OpenRefine tool as an Interactive tool">
@@ -189,16 +190,25 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > 2. On the left, using the `Facet/Filter` section, search for the occurance of \| and \|\|. There are 71061 rows with \| and 9 rows with \|\|. We want to remove these 9 lines as they are there by mistake.
 > 3. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
-> 
+>
+>    <p align="center">
+>      <img src="filter_grel3.png" alt="Custom text transform on column Categories">
+>    </p>
+>
 > We can also remove the double occurance of the same for different entries as follows:
 > 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
+>
+>    <p align="center">
+>      <img src="filter_grel.png" alt="Edit cells Categories">
+>    </p>
+>
+>    <p align="center">
+>      <img src="filter_grel2.png" alt="Transform Categories">
+>    </p>
+>
 > 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
 >
-{: .hands_on}
-
-![Edit cells Categories](filter_grel.png)
-![Transform Categories](filter_grel2.png)
-![Custom text transform on column Categories](filter_grel3.png)
+>{: .hands_on}
 
 > <question-title></question-title>
 >
@@ -216,25 +226,28 @@ Mybe here we explain a bit -Perhaps what atomization is or so... and why is the 
 
 > <hands-on-title>Atomization</hands-on-title>
 >
-> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
+> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more > than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
 > 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Split multi-valued cells...`.
+>
+>    <p align="center">
+>      <img src="split_multi_valued_cells.png" alt="Atomization of Categories">
+>    </p>
+>
 > 2. Define the `Separator` as `\|` (pipe). Click on `OK`.
-
-![Atomization of Categories](split_multi_valued_cells.png)
-![Facet Blank of atomized Categories](facet_categories_blank.png)
-
-Are you ready for a little challenge? Let investigate the categories column of the museum items.
-
-#Why is there a hands-on below?
-> <hands-on-title>Faceting the atomized Categories</hands-on-title>  
 >
-> > <question-title></question-title>
->
-> 1. How many rows do you have after atomizing the categories column?
-> 2. How many entries do not have any category?
+>    <p align="center">
+>      <img src="facet_categories_blank.png" alt="Facet Blank of atomized Categories">
+>    </p>
 >
 {: .hands_on}
 
+Are you ready for a little challenge? Let investigate the categories column of the museum items.
+
+> <question-title></question-title>
+>
+> 1. How many rows do you have after atomizing the categories column?
+> 2. How many entries do not have any category?
+> 
 > > <solution-title></solution-title>
 > >
 > > 1. 168,476
@@ -242,12 +255,28 @@ Are you ready for a little challenge? Let investigate the categories column of t
 > >
 > {: .solution}
 {: .question}
-> 
-> Now, let's use faceting based on text.
+
+Now, let's use faceting based on text
+
 > 1. Click on the triangle on the left of `Categories` and hover over `facet` and click on`Text facet`.
 > 2. On the left panel, it mentions the number of total choices. The default value of `count limit` is low for this dataset and we should increase it. Click on `Set choice count limit`.
+>
+>    <p align="center">
+>      <img src="text_facet.png" alt="Text faceting of atomized Categories">
+>    </p>
+>
 > 3. Enter `5000` as the new limit and click on `Ok`.
+>
+>    <p align="center">
+>      <img src="text_facet2.png" alt="Increasing the limit of text facetring">
+>    </p>
+>
 > 4. Now, you see all categories. Click on `count` to see the categories sorted descendign.
+>
+>    <p align="center">
+>      <img src="text_facet3.png" alt="Text faceting of atomized Categories sorted by count">
+>    </p>
+>
 > > <question-title></question-title>
 >
 > 1. What are the top 3 categories? How many items are associated with each of them?
@@ -259,18 +288,29 @@ Are you ready for a little challenge? Let investigate the categories column of t
 > {: .solution}
 {: .question}
 
-![Text faceting of atomized Categories](text_facet.png)
-![Increasing the limit of text facetring](text_facet2.png)
-![Text faceting of atomized Categories sorted by count](text_facet3.png)
-
 The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
 
 > <hands-on-title>Clustering of similar categories</hands-on-title>
 > 
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
 > 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerpring` and change the n-Gram size to `3`.
+>
+>    <p align="center">
+>      <img src="cluster.png" alt="Cluster and edit column Categories">
+>    </p>
+>
 > 3. Click on the `cluster` button in the middle window.
-> 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select all` and then clicking on `Merge selected and re-cluster`.
+>
+>    <p align="center">
+>      <img src="cluster2.png" alt="Clustered and merged similar Categories">
+>    </p>
+>
+> 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select > all` and then clicking on `Merge selected and re-cluster`.
+>
+>    <p align="center">
+>      <img src="join.png" alt="Join multi-valued cells on Categories">
+>    </p>
+>
 > 5. Now, you can close the clustering window by clicking on `close`.
 > 
 > Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
@@ -280,56 +320,77 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 >
 {: .hands_on}
 
-![Cluster and edit column Categories](cluster.png)
-![Clustered and merged similar Categories](cluster2.png)
-![Join multi-valued cells on Categories](join.png)
-
-When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to your computer. Follow the next hands-on to do so:
+When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer. Then continue with the next hands-on step:
 
 > <hands-on-title>Exporting the results and history</hands-on-title>
 >
 > 1. Click on `Export` at the top of the table.
 > 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel. You can also close the extra tab that contains OpenRefine and click on the orange item `OpenRefine on data [and a number]`. You do not need it for your next steps
-
+>
+>    <p align="center">
+>      <img src="export_results3.png" alt="Export results of OpenRefine">
+>    </p>
+>
 > 3. You can find a new dataset in your Galaxy History (with a green background) that contains your cleaned dataset for further analysis.
 > 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
 >
+>    <p align="center">
+>      <img src="dataset_cleaned.png" alt="Cleaned dataset">
+>    </p>
+>
 {: .hands_on}
-
-![Export results of OpenRefine](export_results3.png)
-![Cleaned dataset](dataset_cleaned.png)
 
 > <hands-on-title>Exporting the results and history</hands-on-title>
 > Additionally, you can download the tasks you performed using OpenRefine in json format. This way, you can import it later and reproduce the exact same analysis. To do so:
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
+>
+>    <p align="center">
+>      <img src="extract_tasks.png" alt="Extract OpenRefine">
+>    </p>
+>
 > 3. Click on the steps that you want to extract. Here, we selected everything.
 > 4. Click on `Export`. Give your file a name to save it on your computer.
 >
+>    <p align="center">
+>      <img src="extract_tasks2.png" alt="Extract OpenRefine GUI">
+>    </p>
+>
 {: .hands_on}
-
-![Extract OpenRefine](extract_tasks.png)
-![Extract OpenRefine GUI](extract_tasks2.png)
 
 > <hands-on-title>Run a Galaxy workflow on your dataset</hands-on-title>
 >
 > There are different ways to import or create a workflow to Galaxy. Let's assume that you have imported a workflow to your Galaxy account.
 > 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
-> 2. Then, you can select and run different workflows (if you have any workflow in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided to you in this tutorial.
+>
+>    <p align="center">
+>      <img src="workflows.png" alt="Workflows button">
+>    </p>
+>
+> 2. Then, you can select and run different workflows (if you have any workflow in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided > to you in this tutorial.
+>
+>    <p align="center">
+>      <img src="select_workflow.png" alt="Select this workflow">
+>    </p>
+>
 > 3. Determine the inputs as follows:
 > 3.1. Input: `openrefine-Galaxy file.tsv`
 > 3.2. stop_words_english: `stop_words_english.txt` which is the file we provided to you in this tutorial.
+>
+>    <p align="center">
+>      <img src="workflow_inputs.png" alt="Determine the inputs of the workflow">
+>    </p>
+>
 > 4. Click on the `Run Workflow` button on top.
 > 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and compelted. When everything is green, your workflow has ran fully and the results are ready.
 >
+>    <p align="center">
+>      <img src="workflow_overview.png" alt="Overview of the workflow">
+>    </p>
+>
 {: .hands_on}
 
-![Workflows button](workflows.png)
-![Select this workflow](select_workflow.png)
-![Determine the inputs of the workflow](workflow_inputs.png)
-![Overview of the workflow](workflow_overview.png)
-
-# Worflow here?
+# Worflow here image here =)
 
 Björn suggested we just run and explain a workflow - maybe this passage explaining all the following steps becomes thereby obsolete.
 We can add an image here too.
