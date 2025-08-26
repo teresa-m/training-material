@@ -284,13 +284,14 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 ![Clustered and merged similar Categories](cluster2.png)
 ![Join multi-valued cells on Categories](join.png)
 
-When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to you computer. Follow the next hands-on to do so:
+When you are happy with the results of your analysis, you can export the dataset to your Galaxy or download it to your computer. Follow the next hands-on to do so:
 
 > <hands-on-title>Exporting the results and history</hands-on-title>
 >
-> 1. Click on `Export` on top of the table.
-> 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you saw this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel.
-> 3. You can find a new dataset in your Galaxy History (with green background) that contains your cleaned dataset for further analysis.
+> 1. Click on `Export` at the top of the table.
+> 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel. You can also close the extra tab that contains OpenRefine and click on the orange item `OpenRefine on data [and a number]`. You do not need it for your next steps
+
+> 3. You can find a new dataset in your Galaxy History (with a green background) that contains your cleaned dataset for further analysis.
 > 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
 >
 {: .hands_on}
