@@ -230,7 +230,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >
 > 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
 >
->{: .hands_on}
+{: .hands_on}
 
 > <question-title></question-title>
 >
@@ -243,8 +243,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > {: .solution}
 {: .question}
 
-Mybe here we explain a bit -Perhaps what atomization is or so... and why is the enxt step. 
-
+Maybe here we explain a bit -Perhaps what atomization is or so... and why is the enxt step. 
 
 > <hands-on-title>Atomization</hands-on-title>
 >
@@ -280,6 +279,8 @@ Are you ready for a little challenge? Let investigate the categories column of t
 
 Now, let's use faceting based on text
 
+> <hands-on-title>Atomization</hands-on-title>
+>
 > 1. Click on the triangle on the left of `Categories` and hover over `facet` and click on`Text facet`.
 > 2. On the left panel, it mentions the number of total choices. The default value of `count limit` is low for this dataset and we should increase it. Click on `Set choice count limit`.
 >
@@ -299,7 +300,9 @@ Now, let's use faceting based on text
 >      <img src="text_facet3.png" alt="Text faceting of atomized Categories sorted by count">
 >    </p>
 >
-> > <question-title></question-title>
+{: .hands_on}
+
+> <question-title></question-title>
 >
 > 1. What are the top 3 categories? How many items are associated with each of them?
 >
