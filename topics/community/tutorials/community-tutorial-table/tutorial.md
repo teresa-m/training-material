@@ -23,6 +23,7 @@ contributions:
     - bebatut
     - paulzierep
     - scorreard
+    - BirdmanRidesAgain
 
 ---
 
@@ -30,7 +31,7 @@ Similarly to the numerous tools available on Galaxy, the [Galaxy Training Networ
 
 The pipeline creates a table with all the tutorials. This table can be **filtered to only include tutorials that are relevant to a specific research community**.
 
-The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain.
+The generated community-specific table can be used as is (e.g. downloadable tsv file) and/or embedded (e.g. into a Galaxy Hub page or Galaxy subdomain). 
 
 The pipeline is **fully automated** and executes on a **weekly** basis. Any research community can apply the pipeline to create a table specific to their community.
 
@@ -87,6 +88,7 @@ You will then be able to remove tutorials that are not relevant to your communit
 > <hands-on-title>Add the relevant tags to the tutorial_tags file</hands-on-title>
 > 1. Open or create a file named `tutorial_tags` in your comunity metadata folder (`communities/<your community>/metadata/tutorial_tags`)
 > 2. Add the name of the tags relevant to your community in the `tutorial_tags` file, with 1 tag per row
+> (See above for how to identify the appropriate tags)
 >
 >    For example:
 >    ```
@@ -108,6 +110,14 @@ Once you have a list of the tags that you wish to keep, you can submit this to G
 The Pull Request will be reviewed. Make sure to respond to any feedback.
 
 On the sunday following the Pull Request merge, a table with all tutorial will be created in `communities/<your community>/resources/tutorials.tsv`
+
+Here is an overview of the files :
+
+| Filename | Location | Generation | Function | Format | Example (microgalaxy) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| tutorial_tags | communities/<your_community>/metadata/ | Manual | Name of the tags relevant to your community, with 1 tag per row | NA | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/tutorial_tags) |
+| tutorials.tsv | communities/<your community>/resources/ | Automatic | Table with all the tutorials relevant to your community | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/tutorials.tsv) |
+| tutorials.html | communities/<your_community>/resources/ | Automatic | A list of the tutorials in html format to include in a website | HTML | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/tutorials.html) |
 
 ![Flowchart illustrating the steps to generate the tutorials resources for your community.](./images/codex_tuto_flowchart.png "Flowchart illustrating the steps to generate the tutorials resources for your community.")
 

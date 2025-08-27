@@ -15,7 +15,7 @@ time_estimation: 1H
 key_points:
 - The Galaxy Codex extracts all Galaxy tools to create tables and other resources (yml)
 - The tool tables can be filtered by ToolShed categories and community-reviewed lists of tools to keep or exclude
-- The generated community Galaxy tools table can be embed into any website
+- The generated community Galaxy tools table can be embedded into any website
 tags:
 - Community
 - SIG
@@ -43,7 +43,7 @@ The pipeline creates a [table with all tools and their metadata](https://galaxyp
 
 <iframe id="edam" src="https://galaxyproject.github.io/galaxy_codex/microgalaxy/" frameBorder="0" width="100%" height="600px"> ![Interactive table for microgalaxy tools](./images/microgalaxy_tools.png) </iframe>
 
-The generated community-specific table can be used as it and/or embedded, e.g. into the respective Galaxy Hub page or Galaxy subdomain. This table allows further filtering and searching for fine-grained tool selection.
+The generated community-specific table can be used as is (e.g. downloadable tsv file) and/or embedded (e.g. into a Galaxy Hub page or Galaxy subdomain). This table allows further filtering and searching for fine-grained tool selection.
 
 The pipeline is **fully automated** and executes on a **weekly** basis. Any research community can apply the pipeline to create a table specific to their community.
 
@@ -164,6 +164,7 @@ On the Sunday following the merge of the previous pull request, a `curated_tools
 We recommend collaborative work be done with a cloud-based system such as a Google Sheets page.
 
 Here is an overview of the files (the top three files in the table are the most important):
+
 | Filename | Location | Generation | Function | Format | Example (microgalaxy) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | categories | communities/<your_community>/metadata/ | Manual | Name of the categories relevant to your community, with 1 ToolShed category per row | NA | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/categories) |

@@ -23,6 +23,7 @@ contributions:
     - bebatut
     - paulzierep
     - scorreard
+    - BirdmanRidesAgain
 
 ---
 
@@ -160,6 +161,18 @@ On the sunday following merging of the pull request, the following files, reflec
 - `communities/<your community>/resources/tag_filtered_workflows.json`
 
 You can step-by-step review all workflows in your community and update the `workflow_status.tsv` file. You could also share this file with your community members and discuss weather the workflow should be kept or not. Collaborative work could be established using google spreadsheet.
+
+
+Here is an overview of the files (the top three files in the table are the most important):
+
+| Filename | Location | Generation | Function | Format | Example (microgalaxy) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| workflow_tags | communities/<your_community>/metadata/ | Manual | Name of the tags relevant to your community | NA | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/workflow_tags) |
+| workflow_status.tsv | communities/<your community>/metadata/ | Automatic (To update manually) |  Table with all the workflows extracted with the tags mentioned above | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/metadata/tool_status.tsv) |
+| curated_workflows.tsv | communities/<your_community>/resources/ | Automatic | Table containing only the curated workflows| TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/curated_workflows.tsv) |
+| curated_workflows.json | communities/<your_community>/resources/ | Automatic | File containing only the curated workflows| JSON | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/curated_workflows.json) |
+| tag_filtered_workflows.tsv | communities/<your_community>/resources/ | Automatic | Table with all the workflows extracted with the tags mentioned above | TSV | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/tag_filtered_workflows.tsv) |
+| tag_filtered_workflows.json | communities/<your_community>/resources/ | Automatic | JSON file with all the workflows extracted with the tags mentioned above | JSON | [Example](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/microgalaxy/resources/tag_filtered_workflows.json) |
 
 ![Flowchart illustrating the steps to generate the workflow resources for your community.](./images/codex_workflows_flowchart.png "Flowchart illustrating the steps to generate the workflow resources for your community.")
 
