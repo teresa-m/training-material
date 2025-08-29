@@ -55,7 +55,6 @@ For your information, execution time for running tools depends on the number of 
 # Prerequisites
 
 ## Galaxy 
-
 > <details-title>Galaxy account</details-title>
 > Create or login to your [Galaxy Europe account](https://earth-system.usegalaxy.eu/login/start).
 {: .details}
@@ -576,6 +575,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
