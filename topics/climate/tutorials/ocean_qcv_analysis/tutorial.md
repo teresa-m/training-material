@@ -88,7 +88,7 @@ For your information, execution time for running tools depends on the number of 
 >   Free space by clicking the database icon in the history panel and “Review and clear” GB.  
 >   (Note: deleting a dataset in the history does not free quota until you purge it.)
 >
-> ![Galaxy quota info](../../images/bgc_calib/galaxy_storage_handling.jpg)
+> ![Galaxy quota info](../../images/bgc_calib/galaxy_storage_handling.png)
 >
 > - **Time limit for interactive tools**: 24h. After that, ODV closes automatically.  
 > - **Avoid weekends**: upgrades are performed and can stop tools/workflows.  
@@ -575,6 +575,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
