@@ -42,7 +42,6 @@ For your information, execution time for running tools depends on the number of 
 {% include _includes/cyoa-choices.html option1="Tools" option2="Workflow" default="Tools" disambiguation="tutorialstyle"
        text='Do you want to run a workflow "human in the loop" or to discover the tools one by one ?' %}
 
-
 > <agenda-title></agenda-title>
 >
 > In this tutorial, we will cover:
@@ -85,11 +84,11 @@ For your information, execution time for running tools depends on the number of 
 
 > <details-title>Galaxy execution constraints</details-title>
 > - **Quota per user account**: check [your quota](https://galaxyproject.org/support/account-quotas/).  
->   Free space by clicking the database icon in the history panel and “Review and clear” GB.  
->   (Note: deleting a dataset in the history does not free quota until you purge it.)
->
+> Free space by clicking the database icon in the history panel and “Review and clear” GB.  
+> (Note: deleting a dataset in the history does not free quota until you purge it.)
+> 
 > ![Galaxy quota info](../../images/bgc_calib/galaxy_storage_handling.png)
->
+> 
 > - **Time limit for interactive tools**: 24h. After that, ODV closes automatically.  
 > - **Avoid weekends**: upgrades are performed and can stop tools/workflows.  
 > - **Max interactive tools simultaneously**: 2.
@@ -575,11 +574,3 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
-
-
-
-
-
-
-
-
