@@ -346,7 +346,7 @@ The visualization tools for the qualification, the validation and the extraction
 > - Search **ODV** interactive tool
 > - Select the tool. Its configuration page opens
 >
-{% tool [Ocean Data View](interactive_tool_odv) %} with the following parameters:
+> {% tool [Ocean Data View](interactive_tool_odv) %} with the following parameters:
 > - Ensure the tool version is **v5.8_1** (change via the 3 cubes on the left if needed)
 > - Set parameters:
 >   - *Load data automatically*: **Yes**
@@ -576,6 +576,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
