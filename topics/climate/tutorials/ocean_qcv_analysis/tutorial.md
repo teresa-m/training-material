@@ -154,7 +154,7 @@ For your information, execution time for running tools depends on the number of 
 > Once the collection is created, all files turn green. You can limit visible files using the eye icons in the history panel.
 >
 > ![Create collection - empty history](../../images/bgc_calib/collection_emptyhist.png)
-> ![Collection build interface](../../embedded-ressources/build_collection.png)
+> ![Collection build interface](../../images/bgc_calib/build_collection.png)
 {: .hands_on}
 
 > <hands-on-title>Create a dataset collection (from non-empty history)</hands-on-title>
@@ -168,7 +168,7 @@ For your information, execution time for running tools depends on the number of 
 >   - Click on **Build**
 >
 > ![Create collection - non-empty history](../../images/bgc_calib/collection_hist.png)
-> ![Collection build interface](../../embedded-ressources/build_collection.png)
+> ![Collection build interface](../../images/bgc_calib/build_collection.png)
 {: .hands_on}
 
 
@@ -195,7 +195,7 @@ For your information, execution time for running tools depends on the number of 
 > - To run it directly: click **Run** (top-right)  
 > - **Recommended**: click **Import** (left of Run) to make your own local copy under *Workflows / My Workflows*  
 > - When you click **Run**, a panel asks you for the input files:  
->   - Select the Argo files and climatology uploaded during the [data management phase](#my-chapterG2)  
+>   - Select the Argo files and climatology uploaded during the [data management phase](#manage-your-data)  
 >   - Once filled in, click **Run** again  
 >
 > ![Select workflow](../../images/bgc_calib/bgc_workflow.png)
@@ -206,15 +206,15 @@ For your information, execution time for running tools depends on the number of 
 Now that your workflow is running, remember it contains both non-interactive and interactive steps. For the interactive tools (ODV), user action is required.
 
 - When the workflow arrives at the **ODV interactive step for qualification**:  
-  - Open ODV ([see how](#interactivetool))  
-  - Apply QC following [ODV instructions](#my-chapterODV)  
-  - Export history ([see Step 4](#my-section24))  
+  - Open ODV  
+  - Apply QC following
+  - Export history 
 
 - Once the qualification step is finished and the history exported, close ODV. The workflow will then continue automatically.
 
 - When the workflow arrives at the **ODV interactive step for validation**:  
   - Open ODV again  
-  - Follow the validation phase as described in [Validate your data](#my-chapter5)
+  - Follow the validation phase as described in
 
 > <tip-title>Copy pasting between computer and ODV</tip-title>
 > Expand the ODV left panel (3 vertical dots) to access the clipboard. Paste text into ODV forms via this clipboard. Click outside the panel to collapse it.
@@ -576,6 +576,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
