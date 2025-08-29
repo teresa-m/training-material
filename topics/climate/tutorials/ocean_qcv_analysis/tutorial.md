@@ -228,7 +228,7 @@ Now that your workflow is running, remember it contains both non-interactive and
 
 > <warning-title>ODV execution limit</warning-title>
 > ODV has a 24h time limit. If you launch a workflow and wait longer than 1 day before opening ODV, the workflow will continue automatically without your qualification step.
->{: .warning}
+{: .warning}
 
 ## Available public workflows
 
@@ -576,6 +576,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
