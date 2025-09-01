@@ -128,7 +128,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >
 > 3. Click **Paste/Fetch data**
 > 4. Paste in the address of a file:
->
+> <Adapt to DH link>
 >    ```
 >    https://zenodo.org/record/582600/files/mutant_R1.fastq
 >    ```
@@ -136,7 +136,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 5. Click **Start**
 > 6. Click **Close**
 > 
-> One usegalaxy.eu you can alternatively access Zenodo directly from within Galaxy:
+> One usegalaxy.eu, you can alternatively access Zenodo directly from within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
@@ -158,7 +158,7 @@ When the file has been uploaded to Galaxy, it will turn green.
 
 What are those files?
 
-> <hands-on-title>View the dataset content</hands-on-title>
+> <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 >
 > <Todo: update 2 current dataset>
@@ -177,11 +177,9 @@ What are those files?
 
 The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
-What do my files contain:
-
-
-
-Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
+You can see two text files, both starting with "Text adapted from:" and two different links. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
+Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
+It is obvious the texts have similarities but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
 ## Sub-step with **Remove beginning**
 
