@@ -31,7 +31,7 @@ contributions:
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
 The first couple of steps in this tutorial derive from {% Syme2025GalaxyIntro %}.
 
-<Add Yamba story and significance!>
+"The Sorrows of Yamba" was published in 1795 and was among the most popular antislavery poems at the time. However, the version published by Hannah More in the Cheap Repository Tracts series was not the only version of the poem that circulated. Also, Moore's authorship on the topic is not uncontested. {% cite Richardson2003 %} But while we leave this debate to the experts, the different versions of the poem offer a great opportunity to delve into how digital tools can help us compare texts more quickly. And this, we will do in the following tutorial.
 
 While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
 From logging in, uploading the texts, to using the first tools, this tutorial covers the Galaxy basics.
