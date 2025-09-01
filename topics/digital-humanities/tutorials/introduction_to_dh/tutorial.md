@@ -174,85 +174,71 @@ What are those files?
 >
 {: .hands_on}
 
-
 The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
 You can see two text files, both starting with "Text adapted from:" and two different links. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
 Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
-It is obvious the texts have similarities but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
+It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
 ## Sub-step with **Remove beginning**
 
 When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
 As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
 
-<CONTINUE HERE>
 
-> <hands-on-title> Delete Hyperlink </hands-on-title>
+> <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `output` (Input dataset)
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> What does this tool do? </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > Remove beginning deletes a selected number of lines from your file. In this case, removing the first line is enough.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+When the job is finished and appears green in your history, click on its name. 
 
 > <question-title></question-title>
 >
-> 1. Question1?
-> 2. Question2?
+> 1. Check how many lines the file now contains?
+> 2. How does this differ from the original file you uploaded?
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Answer for question1
-> > 2. Answer for question2
+> > 1. The file now contains only one line. 
+> > 2. The originally uploaded text contained two lines. You removed one with this step.
 > >
 > {: .solution}
 >
 {: .question}
+
+As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
 
 ## Sub-step with **Remove beginning**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `output` (Input dataset)
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Redoing steps in Galaxy </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+> > If you are repeating a step in Galaxy or need to re-run it with different input or parameters, check out the redo button.
+>    > <ADD image and check faq here to explain how>
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+Click on the finished dataset that just appeared in your history. Check that it now also starts only with the poem text and that the hyperlink is removed.
+To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
+The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
+<todo add tags>
 
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+Depending on how detailed you want to compare your texts, you need to unify them even further. In the next step, we therefore remove all the punctuation with one command. 
+
+<Contine here>
 
 ## Sub-step with **Replace Text**
 
@@ -264,18 +250,12 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Regular Expressions </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > <Todo: add regular expressions>
 >    {: .comment}
 >
 {: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
@@ -290,6 +270,8 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 > {: .solution}
 >
 {: .question}
+
+And we repeat the same for the second text. Remember to use the redo button if you want to save some time.
 
 ## Sub-step with **Replace Text**
 
