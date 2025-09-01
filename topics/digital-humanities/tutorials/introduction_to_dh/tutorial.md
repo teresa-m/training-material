@@ -135,8 +135,8 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >
 > 5. Click **Start**
 > 6. Click **Close**
-
-> One usegalaxy.eu, you can alternatively access Zenodo directly from within Galaxy:
+> 
+> One usegalaxy.eu you can alternatively access Zenodo directly from within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
@@ -180,15 +180,6 @@ The contents of the file will be displayed in the central Galaxy panel. If the d
 What do my files contain:
 
 
-> 4. Check that the datatype
->
->    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
->
-> 5. Add to each database a tag corresponding to ...
->
->    {% snippet faqs/galaxy/datasets_add_tag.md %}
->
-{: .hands_on}
 
 Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
