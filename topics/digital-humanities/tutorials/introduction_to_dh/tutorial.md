@@ -29,7 +29,7 @@ contributions:
 <!-- This is a comment. -->
 
 Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
-The first couple of steps in this tutorial derive from {% Syme2025GalaxyIntro %}.
+The first couple of steps in this tutorial derive from [A short introduction to Galaxy({% link topics/introduction/tutorials/galaxy-intro-short/tutorial.html %}).
 
 "The Sorrows of Yamba" was published in 1795 and was among the most popular antislavery poems at the time. However, the version published by Hannah More in the Cheap Repository Tracts series was not the only version of the poem that circulated. Also, Moore's authorship on the topic is not uncontested. {% cite Richardson2003 %} But while we leave this debate to the experts, the different versions of the poem offer a great opportunity to delve into how digital tools can help us compare texts more quickly. And this, we will do in the following tutorial.
 
