@@ -278,48 +278,24 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 
 ## Sub-step with **Line/Word/Character count**
 
-> <hands-on-title> Task description </hands-on-title>
+The tool `Line/Word/Character count` allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
+
+> <hands-on-title> Count the Characters of Poem One </hands-on-title>
 >
 > 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
 >    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+If you click on the eye symbol, once the dataset has finished running and appears green, you can see how many lines, words and characters the text consists of.
+And again, we run the tool on the second poem.
 
 ## Sub-step with **Line/Word/Character count**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Count the Characters of Poem Two </hands-on-title>
 >
 > 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
 >    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
 >
 >    > <comment-title> short description </comment-title>
 >    >
@@ -328,23 +304,25 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
+> <question-title>How do the texts compare</question-title>
 >
-> 1. Question1?
-> 2. Question2?
+> 1. How many lines do the poems have?
+> 2. Which of the two texts contains more words, and how many?
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Answer for question1
-> > 2. Answer for question2
+> > 1. Both texts consist of only two lines. 
+> > 2. The poem version from the cheap repository is longer, containing 1139 words, more than double the amount of the second poem.
 > >
 > {: .solution}
 >
 {: .question}
 
+The differences between the two texts are quantifiable, but do these also affect the content? 
+
 ## Sub-step with **Generate a word cloud**
+
+A picture says more than 1000 words! Accordingly, we want to get closer to the actual content of both texts. Particularly for larger corpora, a word cloud can be a nice way to get a first idea, what a text is about.
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -354,32 +332,17 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Scaling </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > The word cloud has many different features. You can upload a stop word list that should be excluded from the visualisation, or play around with other parameters like the text size.
+>    > If you want to show words proportionally to their frequency in the text, play around with the parameter. Try rerunning the tool and use `0` instead of `0.8` for scaling to see what happens.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+We also rerun the word cloud with the second poem.
 
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+<Continue here!>
 
 ## Sub-step with **Generate a word cloud**
 
