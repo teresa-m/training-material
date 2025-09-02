@@ -40,7 +40,7 @@ For your information, execution time for running tools depends on the number of 
 
 
 {% include _includes/cyoa-choices.html option1="Tools" option2="Workflow" default="Tools" disambiguation="tutorialstyle"
-       text='Do you want to run a workflow "human in the loop" or to discover the tools one by one ?' %}
+       text="Do you want to run a workflow 'human in the loop' or to discover the tools one by one?" %}
 
 > <agenda-title></agenda-title>
 >
