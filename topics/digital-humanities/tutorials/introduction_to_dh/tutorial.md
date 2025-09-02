@@ -236,11 +236,12 @@ To be able to quickly see which version of the poems we have, we rename both dat
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
 <todo add tags>
 
-Depending on how detailed you want to compare your texts, you need to unify them even further. In the next step, we therefore remove all the punctuation with one command. 
+Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
 
-<Contine here>
 
 ## Sub-step with **Replace Text**
+
+Regular Expressions (RegEx) allow you to search for particular patterns in your text. They can be a huge help if you want to extract or remove them with minimal work. In our two poems, the punctuation is not unified, and therefore, we want to remove it from both using RegEx. If comparing the punctuation of texts is also relevant to you, you can skip this step.
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -252,28 +253,16 @@ Depending on how detailed you want to compare your texts, you need to unify them
 >
 >    > <comment-title> Regular Expressions </comment-title>
 >    >
->    > <Todo: add regular expressions>
+>    > <Todo: add regular expressions FAQ>
 >    {: .comment}
 >
 {: .hands_on}
 
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 And we repeat the same for the second text. Remember to use the redo button if you want to save some time.
 
 ## Sub-step with **Replace Text**
+
+Also here, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be delet
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -283,32 +272,9 @@ And we repeat the same for the second text. Remember to use the redo button if y
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+To get an idea, how the two cleaned texts compare to each other, we check out their metadata.
 
 ## Sub-step with **Line/Word/Character count**
 
