@@ -15,7 +15,7 @@ contributors: [shiltemann, hexylena, pavanvidem, Marie59]
 * Enter a name for your collection {% if include.name %} to {{ include.name }} {% endif %}
 * Turn off **Remove file extension**
 
-  ![Put a name and remove extension]({% link topics/climate/images/bgc_calib/collection_hist.png.png %}){:width="15%"}
+  ![Put a name and remove extension]({% link topics/climate/images/bgc_calib/collection_hist.png %}){:width="15%"}
 
 * Click **Build** to build your collection
 * Click on the checkmark icon at the top of your history again
