@@ -27,7 +27,6 @@ contributions:
     - eurosciencegateway
 draft: true
 ---
-# How to run Easy Q.C.V BGC on Galaxy
 
 The next sections explain how to qualify and calibrate the nitrate sensor mounted on the Argo float **4903881** either tool by tool or by running a pre-defined Galaxy workflow.  
 This requires two preliminary steps to prepare the environment.
