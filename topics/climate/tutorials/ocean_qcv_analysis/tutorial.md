@@ -178,7 +178,6 @@ For your information, execution time for running tools depends on the number of 
 > 
 > {% snippet faqs/galaxy/datasets_change_datatype.md datatype="NetCDF" %}
 > 
-
 >
 > ![Change extension](../../images/bgc_calib/change_ext.png)
 {: .hands_on}
@@ -578,3 +577,4 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
