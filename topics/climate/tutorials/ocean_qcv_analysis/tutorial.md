@@ -170,10 +170,12 @@ For your information, execution time for running tools depends on the number of 
 
 
 > <hands-on-title>Change file extension (for WOA file)</hands-on-title>
-> - In the history panel, click on the **pencil icon** of the WOA NetCDF file
-> - In the central panel, go to the **Datatype** tab
-> - Set the **New type** to `NetCDF`
-> - Click on **Save**
+>
+> 1. Change the datatype of the WOA file to `NetCDF`
+> 
+> {% snippet faqs/galaxy/datasets_change_datatype.md datatype="NetCDF" %}
+> 
+
 >
 > ![Change extension](../../images/bgc_calib/change_ext.png)
 {: .hands_on}
