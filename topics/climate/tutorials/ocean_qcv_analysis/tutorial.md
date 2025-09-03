@@ -107,7 +107,7 @@ For your information, execution time for running tools depends on the number of 
 
 # Manage your data
 
-## Step 1: Get your data 
+## Get your data 
 
 > <hands-on-title>Get your data from the S3 server</hands-on-title>
 > - Click on **Upload** in the vertical panel on the left
@@ -126,22 +126,24 @@ For your information, execution time for running tools depends on the number of 
 > ![S3 upload interface](../../images/bgc_calib/s3_upload.png)
 {: .hands_on}
 
-> <hands-on-title>Get your data from your computer</hands-on-title>
-> - Click on **Upload** in the vertical panel on the left
-> - In the pop-up, click on **Choose local file**
-> - Select the files on your system (Argo float or WOA)
-> - Click on **Open** then **Start**
-> - Wait until all files are stored in your history (green color)
->
-> ![Local upload interface](../../images/bgc_calib/local_upload.png)
-{: .hands_on}
+> <tip-title>Do it your way</tip-title>
+> > <hands-on-title>Get your data from your computer</hands-on-title>
+> > - Click on **Upload** in the vertical panel on the left
+> > - In the pop-up, click on **Choose local file**
+> > - Select the files on your system (Argo float or WOA)
+> > - Click on **Open** then **Start**
+> > - Wait until all files are stored in your history (green color)
+> >
+> > ![Local upload interface](../../images/bgc_calib/local_upload.png)
+> {: .hands_on}
+{: .tip}
 
-## Step 2: Organize your data
+## Organize your data
 
-> <hands-on-title>Create a dataset collection (from empty history)</hands-on-title>
+> <hands-on-title>Create a dataset collection</hands-on-title>
 > - Click on **Select item** at the top of the history panel
-> - Click on **Select all** (now visible at the top right)
-> - Click on **All ## selected**
+> - Click on **Select all** (now visible at the top right) OR manually tick only the N files of interest
+> - Click on **All N selected** OR **n of N selected**
 > - Choose **Auto build list**
 > - In the pop-up window:
 >   - Set the name: `4903881`
@@ -154,20 +156,21 @@ For your information, execution time for running tools depends on the number of 
 > ![Collection build interface](../../images/bgc_calib/build_collection.png)
 {: .hands_on}
 
-> <hands-on-title>Create a dataset collection (from non-empty history)</hands-on-title>
-> - Click on **Select item**
-> - Manually tick only the files of interest
-> - Click on **## of ## selected**
-> - Choose **Auto build list**
-> - In the pop-up window:
->   - Set the name: `4903881`
->   - Turn off **Remove file extension**
->   - Click on **Build**
->
-> ![Create collection - non-empty history](../../images/bgc_calib/collection_hist.png)
-> ![Collection build interface](../../images/bgc_calib/build_collection.png)
-{: .hands_on}
-
+> <tip-title>You have other data inyour history</tip-title>
+> > <hands-on-title>Create a dataset collection (from non-empty history)</hands-on-title>
+> > - Click on **Select item**
+> > - Manually tick only the files of interest
+> > - Click on **## of ## selected**
+> > - Choose **Auto build list**
+> > - In the pop-up window:
+> >   - Set the name: `4903881`
+> >   - Turn off **Remove file extension**
+> >   - Click on **Build**
+> >
+> > ![Create collection - non-empty history](../../images/bgc_calib/collection_hist.png)
+> > ![Collection build interface](../../images/bgc_calib/build_collection.png)
+> {: .hands_on}
+{: .tip}
 
 > <hands-on-title>Change file extension (for WOA file)</hands-on-title>
 >
@@ -286,7 +289,7 @@ The original files must be pre-processed in order to use the same tools regardle
 
 ## Qualify your data
 
-### Step 1: Create the ODV collection
+### Create the ODV collection
 
 The visualization tools for the qualification, the validation and the extraction or reporting of the user actions include **ODV software**, the **ODV collection manager** and the **ODV history manager**.  
 
@@ -332,7 +335,7 @@ The visualization tools for the qualification, the validation and the extraction
 > ![ODV collection manager](../../images/bgc_calib/odv_coll.png)
 {: .hands_on}
 
-### Step 2: Launch ODV automatically
+### Launch ODV automatically
 
 > <details-title>ODV</details-title>
 >
@@ -374,11 +377,11 @@ The visualization tools for the qualification, the validation and the extraction
 > ![Clipboard in ODV](../../images/coastal_water_dyn/clipboard.png)
 {: .tip}
 
-### Step 3: Qualify the dataset with ODV
+### Qualify the dataset with ODV
 
 Use ODV features to apply QC flags and edits as needed. Refer to the [ODV guide](https://odv.awi.de/fileadmin/user_upload/odv/docs/ODV_guide.pdf).
 
-### Step 4: Export history
+### Export history
 
 > <hands-on-title>Export history</hands-on-title>
 > - In ODV: **Export** > **History**
@@ -391,7 +394,7 @@ Use ODV features to apply QC flags and edits as needed. Refer to the [ODV guide]
 > - File *ODV history extracted*  
 {: .hands_on}
 
-### Step 5: (optional) Report QC & Data changes
+### (optional) Report QC & Data changes
 
 Run **ODV history manager** to report QC flags and/or data changes into the harmonized dataset before calibrating the nitrate sensor.
 
@@ -426,7 +429,7 @@ Run **ODV history manager** to report QC flags and/or data changes into the harm
 >
 > **Case 1: using ODV collection manager output**
 > - *Input NetCDF data*: harmonized file(s) `###_harm.nc` created by QCV harmonizer  
-> - *Input history text file*: `ODV history extracted` (txt file exported from ODV after changes in Step 4)  
+> - *Input history text file*: `ODV history extracted` (txt file exported from ODV after changes in **Export history**)  
 > - *Input ODV file*: `ODV collection manager output` (the ODV spreadsheet collection created by ODV collection manager)
 >
 > **Case 2: using odv_collection.txt**
@@ -456,7 +459,7 @@ Run **ODV history manager** to report QC flags and/or data changes into the harm
 > - **ODV history manager log files** (with `YYYY-MM-DDTHHMM_galaxy_odv-history-manager_history.log`)  
 >
 > Always check the log file (click the {% icon galaxy-eye %} icon) to ensure that changes were correctly reported.  
-> If issues persist, make sure filenames match Step 4 conventions.
+> If issues persist, make sure filenames match the step **Export history** conventions.
 {: .warning}
 
 All these outputs will appear in your **History** (green status). They are now ready for the next step: **Biogeochemical Calibration**.
@@ -467,7 +470,7 @@ All these outputs will appear in your **History** (green status). They are now r
 
 > <hands-on-title>(optional) Choose Reference dataset</hands-on-title>
 > - Upload WOA nitrate climatology (NetCDF) from your computer  
-> - Harmonize it with QCV harmonizer as in step 4  
+> - Harmonize it with QCV harmonizer as in the step **Export history**  
 {: .hands_on}
 
 Currently, the tool **Biogeochemical calibration** is operational for **nitrate**.
@@ -544,7 +547,7 @@ Currently, the tool **Biogeochemical calibration** is operational for **nitrate*
 Compare adjusted values with ODV:
 
 > <hands-on-title>Validation with ODV</hands-on-title>
-> - Re-run **ODV collection manager** including all calibrated NetCDFs from Step 5  
+> - Re-run **ODV collection manager** including all calibrated NetCDFs from th step **(optional) Report QC & Data changes**
 > - Launch **ODV interactive tool** again for visualization  
 > - Inspect calibrated vs. raw/reference values  
 {: .hands_on}
