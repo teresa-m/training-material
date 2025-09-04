@@ -324,7 +324,7 @@ The differences between the two texts are quantifiable, but do these also affect
 
 A picture says more than 1000 words! Accordingly, we want to get closer to the actual content of both texts. Particularly for larger corpora, a word cloud can be a nice way to get a first idea, what a text is about.
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Visualise the Content of Poem One </hands-on-title>
 >
 > 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
@@ -332,21 +332,21 @@ A picture says more than 1000 words! Accordingly, we want to get closer to the a
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
 >
->    > <comment-title> Scaling </comment-title>
+>    > <comment-title> Adapting the Word Cloud </comment-title>
 >    >
->    > The word cloud has many different features. You can upload a stop word list that should be excluded from the visualisation, or play around with other parameters like the text size.
->    > If you want to show words proportionally to their frequency in the text, play around with the parameter. Try rerunning the tool and use `0` instead of `0.8` for scaling to see what happens.
+>    > The word cloud has many different features. You can upload a stop word list that should be excluded from the visualisation, or play around with other parameters like the text size. Rerun the tool with some changed parameters and see what happens.
 >    {: .comment}
 >
 {: .hands_on}
 
 We also rerun the word cloud with the second poem.
 
-<Continue here!>
 
 ## Sub-step with **Generate a word cloud**
 
-> <hands-on-title> Task description </hands-on-title>
+The word cloud for the second text is created the same way. For better comparability, we suggest rerunning the tool with the second text but the same parameters you used for creating the first word cloud image. That makes both comparable.
+
+> <hands-on-title> Visualise the Content of Poem Two </hands-on-title>
 >
 > 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
@@ -354,36 +354,47 @@ We also rerun the word cloud with the second poem.
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Uniqueness of the Word Cloud </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > The word cloud from this tool looks a little different each time you run it. The layout might therefore vary even when you are redoing it with the exact same texts and inputs.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+Comparing items from your history is easiest when enabling the window manager and seeing both images side by side.
+<to do: check if FAQ for enabling window manager exists>
 
 > <question-title></question-title>
 >
-> 1. Question1?
-> 2. Question2?
+> 1. What is the most prominent word in each of the clouds?
+> 2. How do the Word Clouds for Poem One and Poem Two compare?
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Answer for question1
-> > 2. Answer for question2
+> > 1. The most prominent word in the word cloud created from the cheap repository is "yamba", while the one from the universal text is "death".
+> > 2. The word cloud from the cheap repository has four different words that appear most prominent and are much bigger - and therefore more frequent in the text. They are "yamba", "now", "death" and "ye". The most prominent words in the universal text are "death", "yamba" and "africs". They appear a bit smaller than the words from the cheap repository, suggesting a lower frequency.
 > >
+> > ![Word Cloud of Cheap Repository Version](../../images/wc_cheap.png "Word Cloud of Cheap Repository Version")
+> > ![Word Cloud of Universal Text Version](../../images/wc_universal.png "Word Cloud of Universal Text Version")
 > {: .solution}
 >
 {: .question}
 
+The visualisation suggests that not only the text's metrics, which we checked with the line and character count, but also their messages differ. The cheap repository text addresses the reader with multiple mentions of "ye", you, which is rare in the second poem. In the universal poem, death is more central than yamba, which is the other way around in the cheap repository text.
+
+With this text's length and just two poems, this is, of course, something you can find out by reading both texts. But particularly with bigger corpora, this distant reading approach can give you important preliminary insights to guide your close reading.
+
+Of course, the word cloud insights are just a first glance and do not allow a proper analysis; for that, we need to properly compare both texts. But what is a good way to do this? We suggest comparing them side by side and line by line. For that, we adapt the layout once more.
+
 ## Sub-step with **Replace Text**
 
-> <hands-on-title> Task description </hands-on-title>
+We used the tool to replace text before. Now, we are not deleting something, as we did with the punctuation, but we are replacing some characters. To get a convenient layout that shows one word per line, we replace the spaces (\s) with line breaks (\n). That way, each word gets shown in a different line, which prepares the detailed comparison in the next step.
+
+Regular Expressions help again changing all spaces with line breaks with just one command.
+
+<Continue HERE>
+
+> <hands-on-title> Changing Layout of Poem One </hands-on-title>
 >
 > 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
@@ -392,13 +403,11 @@ We also rerun the word cloud with the second poem.
 >            - *"Find pattern"*: `\s`
 >            - *"Replace with:"*: `\n`
 >
->    ***TODO***: *Check parameter descriptions*
 >
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> How do I know what the RegEx commands are? </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > Don't worry, if you have never used any regular expressions. There are several websites to help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). But you can find out more, here
+>    > <to do ADD Regex help>
 >    {: .comment}
 >
 {: .hands_on}
@@ -421,7 +430,7 @@ We also rerun the word cloud with the second poem.
 
 ## Sub-step with **Replace Text**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Changing Layout of Poem One </hands-on-title>
 >
 > 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
