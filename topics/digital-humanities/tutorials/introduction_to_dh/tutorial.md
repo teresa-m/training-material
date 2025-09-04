@@ -503,7 +503,7 @@ We return to Regular Expressions a third time, but this time to use a different 
 >
 {: .hands_on}
 
-When you have finished this step, remember to redo it one last time also for the second poem.
+When you have finished this step, remember to redo it for the second poem.
 
 ## Sub-step with **Replace**
 
@@ -525,80 +525,41 @@ As a result, you get two files, each split at full stops. And how can you now ex
 
 ## Sub-step with **Search in textfiles**
 
-> <hands-on-title> Extract </hands-on-title>
+Use the `Search in textfiles` tool to select all lines containing the word "death".
+
+> <hands-on-title> Extract particular sentences </hands-on-title>
 >
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
 >    - *"Regular Expression"*: `death`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Further Functionalities </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > You can see that the tool has many parameters you can tweak. The ones which are not mentioned here are kept at the default input, like `Match` and `Perl`, the kind of RegEx applied. But you could also choose to select all lines that do not contain death by selecting `Do not match` or extract also lines before or after the line containing the content you chose.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+And for the last time, we redo this step also for the second poem.
 
 ## Sub-step with **Search in textfiles**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Extract particular sentences from Poem Two </hands-on-title>
 >
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
 >    - *"Regular Expression"*: `death`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+When you enable the window manager at the top bar, you can click on the eye symbols of your last two outputs and visualise them side by side in two different windows. Six and seven lines from the poem contain the term, respectively. You could analyse them in detail now to see where they differ. While the first lines are nearly identical, the last ones are completely different in both versions of the poem. An intriguing insight for further analysis. No wonder the poems and their many editions have sparked the interest of many researchers.
 
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+If you only analyse those two poems, you might find it easier to just do those steps manually. But particularly, if you create a workflow out of this, you will be able to reproduce this process with only a couple of clicks, and it will save you a huge amount of work. 
 
-## Re-arrange
+Learn how to [extract a workflow from the above analysis]({% link topics/galaxy-interface/tutorials/history-to-workflow/tutorial.html %}). 
 
-To create the template, each step of the workflow had its own subsection.
-
-***TODO***: *Re-arrange the generated subsections into sections or other subsections.
-Consider merging some hands-on boxes to have a meaningful flow of the analyses*
+Alternatively, you can make your analysis more complex and extract further differences between the poems automatically to adapt the above analysis. For inspiration, check out 
+the [advanced tutorial on Text-Mining]({% link topics/digital-humanities/tutorials/text_mining_chinese/tutorial.html %}).
 
 # Conclusion
 
