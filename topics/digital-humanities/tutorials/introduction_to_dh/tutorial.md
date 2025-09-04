@@ -127,7 +127,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL](../../images/upload-box.png)
 >
 > 3. Click **Paste/Fetch data**
-> 4. Paste in the address of a file:
+> 4. Paste in the address of both files in the Zenodo folder:
 > <Adapt to DH link>
 >    ```
 >    https://zenodo.org/record/582600/files/mutant_R1.fastq
@@ -141,7 +141,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
 > 3. Enter **Zenodo** in the search bar and click on the folder **Zenodo**.
-> 4. Enter **TODO UPLOAD DATA** in the search bar and select the items.
+> 4. Enter **Training material for Galaxy tutorial "Introduction to Digital Humanities in Galaxy"** in the search bar and select the items.
 > 5. Click **Start**
 > 6. Click **Close**
 {: .hands_on}
