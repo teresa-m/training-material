@@ -128,9 +128,9 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >
 > 3. Click **Paste/Fetch data**
 > 4. Paste in the address of both files in the Zenodo folder:
-> <!-- Adapt to DH link -->
 >    ```
->    https://zenodo.org/record/582600/files/mutant_R1.fastq
+>    https://zenodo.org/records/17053220/files/SoY_Cheap_Repo_Source.txt
+>    https://zenodo.org/records/17053220/files/SoY_Univ_Mag_Source.txt
 >    ```
 >
 > 5. Click **Start**
@@ -142,8 +142,11 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
 > 3. Enter **Zenodo** in the search bar and click on the folder **Zenodo**.
 > 4. Enter **Training material for Galaxy tutorial "Introduction to Digital Humanities in Galaxy"** in the search bar and select the items.
-> 5. Click **Start**
-> 6. Click **Close**
+> 5. Click on the folder with the same name
+> 6. Click the box next to "Label" to select both items
+> 7. Click **Select**
+> 8. Click **Start**
+> 9. Click **Close**
 {: .hands_on}
 
 
