@@ -380,6 +380,8 @@ Comparing items from your history is easiest when enabling the window manager an
 >
 {: .question}
 
+You can disable the window manager again by clicking on the item, then you will see your datasets again in your middle panel, once you click on its eye symbol.
+
 The visualisation suggests that not only the text's metrics, which we checked with the line and character count, but also their messages differ. The cheap repository text addresses the reader with multiple mentions of "ye", you, which is rare in the second poem. In the universal poem, death is more central than yamba, which is the other way around in the cheap repository text.
 
 With this text's length and just two poems, this is, of course, something you can find out by reading both texts. But particularly with bigger corpora, this distant reading approach can give you important preliminary insights to guide your close reading.
@@ -392,7 +394,6 @@ We used the tool to replace text before. Now, we are not deleting something, as 
 
 Regular Expressions help again changing all spaces with line breaks with just one command.
 
-<Continue HERE>
 
 > <hands-on-title> Changing Layout of Poem One </hands-on-title>
 >
@@ -412,25 +413,11 @@ Regular Expressions help again changing all spaces with line breaks with just on
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+When you click on the eye icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also on the second poem. 
 
 ## Sub-step with **Replace Text**
 
-> <hands-on-title> Changing Layout of Poem One </hands-on-title>
+> <hands-on-title> Changing Layout of Poem Two </hands-on-title>
 >
 > 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
@@ -439,75 +426,65 @@ Regular Expressions help again changing all spaces with line breaks with just on
 >            - *"Find pattern"*: `\s`
 >            - *"Replace with:"*: `\n`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
 
 > <question-title></question-title>
 >
-> 1. Question1?
-> 2. Question2?
+> 1. How many lines long are the poems now?
 >
-> > <solution-title></solution-title>
+> > <solution-title>  </solution-title>
 > >
-> > 1. Answer for question1
-> > 2. Answer for question2
+> > 1. When you click on the two name of the two new datasets that you just worked on, you see, that one is now 539, the other 1139 lines long. The amount of lines now matches the word number we detected with the tool `ine/Word/Character count`.
 > >
 > {: .solution}
 >
 {: .question}
 
+Now both poems show one word per line, the perfect setup to compare them side by side. Use use a tool called `diff` to visualise this.
+
 ## Sub-step with **diff**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Compare the Poems </hands-on-title>
 >
 > 1. {% tool [diff](toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1) %} with the following parameters:
 >    - {% icon param-file %} *"First input file"*: `outfile` (output of **Replace Text** {% icon tool %})
 >    - {% icon param-file %} *"Second input file"*: `outfile` (output of **Replace Text** {% icon tool %})
 >    - *"Choose a report format"*: `Generates an HTML report to visualize the differences`
+>    - *"Choose report output format"*: `Side by side`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> Different Report Formats </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > The `diff` tool allows you to create different outputs, depending on what you want to achieve. In this case, the HTML report contains colours to highlight the changes between both texts, which makes it really useful for to quickly identify for researchers. If you want to extract information automatically, the option `text file, side by side` could also be helpful.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+We get two new files as a result. The HTML report and a text report it is based on, the raw output, in txt format.
 
 > <question-title></question-title>
 >
-> 1. Question1?
-> 2. Question2?
+> 1. What is the first difference between both texts visualised in the HTML report?
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Answer for question1
-> > 2. Answer for question2
+> > 1. Lines 6-40 of one poem are marked in red. They are not part of the second poem. The couple of lines before and after are identical.
 > >
 > {: .solution}
 >
 {: .question}
 
+In the HTML report, you can quickly identify deletions (in red) and additions (in green) between both texts.
+You can also see smaller details, which you might quickly miss manually. Lines 63/64 and 28/29 respectively show that also changes within one word (prisoner / prisner) are detected. You can furthermore see, how the perspective was changed between the poems. While line 359-361 in the cheap repository text states "they sell us", the other text states "they sell them" (l. 298-300), suggesting the reader is (no longer) among the group which is sold. You can go through it and detect further changes in language and length.
 
-
+Seeing this, you might want to go into detail with the respective themes once more. As "death" was central in both texts, we will extract sentences containing this word so you can analyse them more closely. For this, the cleaned texts without punctuation and one word per line are not the most easiest form. Instead, we use an earlier version from our history.
 
 ## Sub-step with **Replace**
 
-> <hands-on-title> Task description </hands-on-title>
+We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line but also has further functionalities. We use it to divide the text in more lines, to make it easier to extract those containing the word "death." Here punctuation is a helpful stop point. We use full stops to indiacte a sentence, which will not be perfectly accurate but sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
+
+<to add adapt what the remove beginning file is called>
+> <hands-on-title> Rearrange Poem One </hands-on-title>
 >
 > 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
@@ -519,36 +496,18 @@ Regular Expressions help again changing all spaces with line breaks with just on
 >            - *"Replace all occurences of the pattern"*: `Yes`
 >            - *"Find and Replace text in"*: `entire line`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
+>    > <comment-title> What do those inputs mean? </comment-title>
 >    >
->    > A comment about the tool or something else. This box can also be in the main text
+>    > A full stop (.) has its own meaning in regular expressions. It stands for all elements. To show, we do not mean all characters but actually a full stop, we need to escape it in RegEx by putting `\.` instead of `.` if we mean a full stop. We want to add a line break, afterwords, which we already learned, is indicated as `\n`. The replacement pattern therefore is `\.\n`.
 >    {: .comment}
 >
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+When you have finished this step, remember to redo it one last time also for the second poem.
 
 ## Sub-step with **Replace**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Rearrange Poem Two </hands-on-title>
 >
 > 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
@@ -560,36 +519,13 @@ Regular Expressions help again changing all spaces with line breaks with just on
 >            - *"Replace all occurences of the pattern"*: `Yes`
 >            - *"Find and Replace text in"*: `entire line`
 >
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
 {: .hands_on}
 
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
+As a result, you get two files, each split at full stops. And how can you now extract the sentences relevant to you?
 
 ## Sub-step with **Search in textfiles**
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Extract </hands-on-title>
 >
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
