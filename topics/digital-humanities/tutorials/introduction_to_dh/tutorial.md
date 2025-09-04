@@ -4,7 +4,7 @@ layout: tutorial_hands_on
 title: Introduction to Digital Humanities in Galaxy
 level: Introductory
 draft: true
-zenodo_link: ''
+zenodo_link: 'https://doi.org/10.5281/zenodo.17053220'
 questions:
   - How to get started in Galaxy for text-related tasks?  
 objectives:
@@ -262,7 +262,7 @@ And we repeat the same for the second text. Remember to use the redo button if y
 
 ## Sub-step with **Replace Text**
 
-Also here, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be delet
+Also here, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be deleted.
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -392,7 +392,7 @@ Of course, the word cloud insights are just a first glance and do not allow a pr
 
 We used the tool to replace text before. Now, we are not deleting something, as we did with the punctuation, but we are replacing some characters. To get a convenient layout that shows one word per line, we replace the spaces (\s) with line breaks (\n). That way, each word gets shown in a different line, which prepares the detailed comparison in the next step.
 
-Regular Expressions help again changing all spaces with line breaks with just one command.
+Regular Expressions help again by changing all spaces with line breaks with just one command.
 
 
 > <hands-on-title> Changing Layout of Poem One </hands-on-title>
@@ -407,7 +407,7 @@ Regular Expressions help again changing all spaces with line breaks with just on
 >
 >    > <comment-title> How do I know what the RegEx commands are? </comment-title>
 >    >
->    > Don't worry, if you have never used any regular expressions. There are several websites to help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). But you can find out more, here
+>    > Don't worry, if you have never used any regular expressions. There are several websites to help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). But you can find out more here:
 >    > <to do ADD Regex help>
 >    {: .comment}
 >
@@ -435,13 +435,13 @@ When you click on the eye icon of the data set in the history now, when the data
 >
 > > <solution-title>  </solution-title>
 > >
-> > 1. When you click on the two name of the two new datasets that you just worked on, you see, that one is now 539, the other 1139 lines long. The amount of lines now matches the word number we detected with the tool `ine/Word/Character count`.
+> > 1. When you click on the two names of the two new datasets that you just worked on, you see that one is now 539, the other 1139 lines long. The number of lines now matches the word number we detected with the tool `Line/Word/Character count`.
 > >
 > {: .solution}
 >
 {: .question}
 
-Now both poems show one word per line, the perfect setup to compare them side by side. Use use a tool called `diff` to visualise this.
+Now, both poems show one word per line, the perfect setup to compare them side by side. Use a tool called `diff` to visualise this.
 
 ## Sub-step with **diff**
 
@@ -455,16 +455,16 @@ Now both poems show one word per line, the perfect setup to compare them side by
 >
 >    > <comment-title> Different Report Formats </comment-title>
 >    >
->    > The `diff` tool allows you to create different outputs, depending on what you want to achieve. In this case, the HTML report contains colours to highlight the changes between both texts, which makes it really useful for to quickly identify for researchers. If you want to extract information automatically, the option `text file, side by side` could also be helpful.
+>    > The `diff` tool allows you to create different outputs, depending on what you want to achieve. In this case, the HTML report contains colours to highlight the changes between both texts, which makes it really useful for researchers to quickly identify. If you want to extract information automatically, the option `text file, side by side` could also be helpful.
 >    {: .comment}
 >
 {: .hands_on}
 
-We get two new files as a result. The HTML report and a text report it is based on, the raw output, in txt format.
+We get two new files as a result. The HTML report and the text report it is based on the raw output in txt format.
 
 > <question-title></question-title>
 >
-> 1. What is the first difference between both texts visualised in the HTML report?
+> 1. What is the first difference between the two texts visualised in the HTML report?
 >
 > > <solution-title></solution-title>
 > >
@@ -475,13 +475,13 @@ We get two new files as a result. The HTML report and a text report it is based 
 {: .question}
 
 In the HTML report, you can quickly identify deletions (in red) and additions (in green) between both texts.
-You can also see smaller details, which you might quickly miss manually. Lines 63/64 and 28/29 respectively show that also changes within one word (prisoner / prisner) are detected. You can furthermore see, how the perspective was changed between the poems. While line 359-361 in the cheap repository text states "they sell us", the other text states "they sell them" (l. 298-300), suggesting the reader is (no longer) among the group which is sold. You can go through it and detect further changes in language and length.
+You can also see smaller details, which you might quickly miss manually. Lines 63/64 and 28/29, respectively, show that also changes within one word (prisoner / prisner) are detected. You can furthermore see how the perspective was changed between the poems. While line 359-361 in the cheap repository text states "they sell us", the other text states "they sell them" (l. 298-300), suggesting the reader is (no longer) among the group which is sold. You can go through it and detect further changes in language and length.
 
-Seeing this, you might want to go into detail with the respective themes once more. As "death" was central in both texts, we will extract sentences containing this word so you can analyse them more closely. For this, the cleaned texts without punctuation and one word per line are not the most easiest form. Instead, we use an earlier version from our history.
+Seeing this, you might want to go into detail with the respective themes once more. As "death" was central in both texts, we will extract sentences containing this word so you can analyse them more closely. For this, the cleaned texts without punctuation and one word per line are not the easiest form. Instead, we use an earlier version from our history.
 
 ## Sub-step with **Replace**
 
-We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line but also has further functionalities. We use it to divide the text in more lines, to make it easier to extract those containing the word "death." Here punctuation is a helpful stop point. We use full stops to indiacte a sentence, which will not be perfectly accurate but sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
+We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line, but also has further functionalities. We use it to divide the text into more lines, to make it easier to extract those containing the word "death." Here, punctuation is a helpful stop point. We use full stops to indicate a sentence, which will not be perfectly accurate but will be sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
 
 <to add adapt what the remove beginning file is called>
 > <hands-on-title> Rearrange Poem One </hands-on-title>
@@ -498,7 +498,7 @@ We return to Regular Expressions a third time, but this time to use a different 
 >
 >    > <comment-title> What do those inputs mean? </comment-title>
 >    >
->    > A full stop (.) has its own meaning in regular expressions. It stands for all elements. To show, we do not mean all characters but actually a full stop, we need to escape it in RegEx by putting `\.` instead of `.` if we mean a full stop. We want to add a line break, afterwords, which we already learned, is indicated as `\n`. The replacement pattern therefore is `\.\n`.
+>    > A full stop (.) has its own meaning in regular expressions. It stands for all elements. To show, we do not mean all characters but actually a full stop, we need to escape it in RegEx by putting `\.` instead of `.` if we mean a full stop. We want to add a line break afterwards, which we already learned is indicated as `\n`. The replacement pattern, therefore, is `\.\n`.
 >    {: .comment}
 >
 {: .hands_on}
@@ -563,8 +563,11 @@ the [advanced tutorial on Text-Mining]({% link topics/digital-humanities/tutoria
 
 # Conclusion
 
-Sum up the tutorial and the key takeaways here. We encourage adding an overview image of the
-pipeline used.
+Congratulations! You just finished your first analysis with Galaxy, well done! In the tutorial, we covered the basic setup of Galaxy, how you can register, log in and upload your material. You are now familiar with particular terms in Galaxy, like history, dataset, tool and so on. We used several tools, learned to rerun them and how we can see the outputs in different ways. We used various versions of Regular Expressions to rearrange and clean your text. We also reshaped the text to compare it with the `diff` tool. In the end, we extracted notable sentences for further close reading. 
+The workflow created from this history would look as follows:
 
+ ![Screenshot of Workflow extracted from the Tutorial Introduction to DH](../../images/WF_Intro_to_DH.png)
+
+With all this knowledge in mind, you can now continue with one of our other tutorials or start to experiment with your own input. Enjoy!
 
 [^1]: Thanks to Lilli Fortmeier for suggesting this use case!
