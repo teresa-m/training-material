@@ -47,7 +47,7 @@ Then, we take a closer look. For an easier comparison, we reformat both texts an
 >
 {: .agenda}
 
-# Hands-on Sections
+# Get started in Galaxy
 
 ## Create an account on Galaxy
 To use Galaxy's full potential, you need to register and create an account. You can skip this step if you already have a Galaxy account.
@@ -87,8 +87,6 @@ The Galaxy homepage is divided into four sections (panels):
 ![Screenshot of the Galaxy interface with aforementioned structure](../../images/galaxy_interface.png)
 
 The first time you use Galaxy, your history panel is empty.
-
-# Key Galaxy actions
 
 ## Name your current history
 
@@ -187,6 +185,8 @@ You can see two text files; they are two versions of the poem "The Sorrows of Ya
 Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
 It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
+# Clean your Texts
+
 ## Sub-step with **Remove beginning**
 
 When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
@@ -223,9 +223,8 @@ When the job is finished and appears green in your history, click on its name.
 
 As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
 
-## Sub-step with **Remove beginning**
 
-> <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
+> <hands-on-title> Delete Hyperlink in Text Weo </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `output` (Input dataset)
@@ -270,9 +269,7 @@ Regular Expressions (RegEx) allow you to search for particular patterns in your 
 
 And we repeat the same for the second text. Remember to use the redo button if you want to save some time.
 
-## Sub-step with **Replace Text**
-
-Also here, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be deleted.
+Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be deleted.
 
 > <hands-on-title> Task description </hands-on-title>
 >
@@ -285,6 +282,8 @@ Also here, we search for the pattern `[[:punct:]]` and omit a replacement, meani
 {: .hands_on}
 
 To get an idea, how the two cleaned texts compare to each other, we check out their metadata.
+
+# Different ways to compare the texts
 
 ## Sub-step with **Line/Word/Character count**
 
@@ -299,8 +298,6 @@ The tool `Line/Word/Character count` allows us to get a quick overview of a text
 
 If you click on the eye symbol, once the dataset has finished running and appears green, you can see how many lines, words and characters the text consists of.
 And again, we run the tool on the second poem.
-
-## Sub-step with **Line/Word/Character count**
 
 > <hands-on-title> Count the Characters of Poem Two </hands-on-title>
 >
@@ -350,9 +347,6 @@ A picture says more than 1000 words! Accordingly, we want to get closer to the a
 {: .hands_on}
 
 We also rerun the word cloud with the second poem.
-
-
-## Sub-step with **Generate a word cloud**
 
 The word cloud for the second text is created the same way. For better comparability, we suggest rerunning the tool with the second text but the same parameters you used for creating the first word cloud image. That makes both comparable.
 
@@ -426,7 +420,6 @@ Regular Expressions help again by changing all spaces with line breaks with just
 
 When you click on the eye icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also on the second poem. 
 
-## Sub-step with **Replace Text**
 
 > <hands-on-title> Changing Layout of Poem Two </hands-on-title>
 >
@@ -471,7 +464,7 @@ Now, both poems show one word per line, the perfect setup to compare them side b
 >
 {: .hands_on}
 
-We get two new files as a result. The HTML report and the text report it is based on the raw output in txt format.
+We get two new files as a result. The HTML report and the raw output it is based on in txt format.
 
 > <question-title></question-title>
 >
@@ -490,11 +483,14 @@ You can also see smaller details, which you might quickly miss manually. Lines 6
 
 Seeing this, you might want to go into detail with the respective themes once more. As "death" was central in both texts, we will extract sentences containing this word so you can analyse them more closely. For this, the cleaned texts without punctuation and one word per line are not the easiest form. Instead, we use an earlier version from our history.
 
+# Extract Specific Sentences
+
 ## Sub-step with **Replace**
 
 We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line, but also has further functionalities. We use it to divide the text into more lines, to make it easier to extract those containing the word "death." Here, punctuation is a helpful stop point. We use full stops to indicate a sentence, which will not be perfectly accurate but will be sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
 
-<to add adapt what the remove beginning file is called>
+<!--to add adapt what the remove beginning file is called -->
+
 > <hands-on-title> Rearrange Poem One </hands-on-title>
 >
 > 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
@@ -515,8 +511,6 @@ We return to Regular Expressions a third time, but this time to use a different 
 {: .hands_on}
 
 When you have finished this step, remember to redo it for the second poem.
-
-## Sub-step with **Replace**
 
 > <hands-on-title> Rearrange Poem Two </hands-on-title>
 >
@@ -552,8 +546,6 @@ Use the `Search in textfiles` tool to select all lines containing the word "deat
 {: .hands_on}
 
 And for the last time, we redo this step also for the second poem.
-
-## Sub-step with **Search in textfiles**
 
 > <hands-on-title> Extract particular sentences from Poem Two </hands-on-title>
 >
