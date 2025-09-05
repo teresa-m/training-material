@@ -131,7 +131,7 @@ To start annotating your audio file, you will need to start the session.
 > Use the **play button** below the sonogram to listen to the audio recording.  
 > You can pause, stop, or replay as needed. And, adjust playback speed if necessary.
 >
-> > <warning-title>Warning</warning-title>
+> > <warning-title></warning-title>
 > >
 > > As you can see, regardless of the total duration of your file, NEAL lets you listen to the audio in **15-second segments**.
 > >
