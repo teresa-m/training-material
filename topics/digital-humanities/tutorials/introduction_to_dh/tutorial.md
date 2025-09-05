@@ -164,7 +164,7 @@ What are those files?
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 > 
->    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.]({% link topics/introduction/images/eye-icon.png %}){:width="320px"}
+>    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="520px"}
 >
 > 2. Check the datatype
 >
