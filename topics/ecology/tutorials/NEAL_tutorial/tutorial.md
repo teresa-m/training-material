@@ -250,7 +250,7 @@ Back on Galaxy, you can now Shutdown the NEAL interactive tool to free resources
 >
 >  ![Shutdown example 2](./images/manage_IT.png "Shutdown example 2")
 >
-> > <warning-title>Warning</warning-title>
+> > <warning-title></warning-title>
 > >
 > > Don't worry if the NEAL tool appears in red in your history after shutting it down.
 > > This is due to how Galaxy handles the termination of interactive tools and won't impact your work.  
