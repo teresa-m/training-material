@@ -142,8 +142,6 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
 > 3. Enter **Zenodo** in the search bar and click on the folder **Zenodo**.
 > 4. Enter **Training material for Galaxy tutorial "Introduction to Digital Humanities in Galaxy"** in the search bar and select the items.
-> 5. Click on the folder with the same name
-> 6. Click the box next to "Label" to select both items
 > 7. Click **Select**
 > 8. Click **Start**
 > 9. Click **Close**
