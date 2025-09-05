@@ -273,7 +273,7 @@ If you need to continue your work on this audio file later you can restart the N
 
 You can now continue your work from where you left off.  
 
-> <warning-title>Warning</warning-title>
+> <warning-title></warning-title>
 >
 > NEAL does not automatically save labels in its **Class List**.  
 > Labels are stored only inside the sonogram annotations.  
