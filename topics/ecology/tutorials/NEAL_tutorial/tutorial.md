@@ -25,7 +25,7 @@ The data we will work with in this tutorial is a 0:43min recording of a common b
 
 In this tutorial, you will learn how to import an audio file into Galaxy, run the NEAL interactive tool, annotate the sound data, and export the resulting annotation file.  
 
-Many of you may be new to Galaxy or to audio annotation, so we will go step by step. If you're new to Galaxy, feel free to check out other tutorials like [A short introduction to Galaxy](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html) or [Galaxy Basics for everyone](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-101-everyone/tutorial.html).
+Many of you may be new to Galaxy or to audio annotation, so we will go step by step. If you're new to Galaxy, feel free to check out other tutorials like [A short introduction to Galaxy]({% link topics/introduction/tutorials/galaxy-intro-short/tutorial.md %}) or [Galaxy Basics for everyone](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-101-everyone/tutorial.html).
 
 > <agenda-title></agenda-title>
 >
