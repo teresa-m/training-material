@@ -159,8 +159,6 @@ When the file has been uploaded to Galaxy, it will turn green.
 
 What are those files?
 
-<!-- Todo: update Screenshot to my texts instead -->
-
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 > 
@@ -185,7 +183,7 @@ It is obvious that the texts have similarities, but they are not identical. Now 
 
 # Clean your Texts
 
-## Sub-step with **Remove beginning**
+## Remove beginning
 
 When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
 As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
@@ -193,8 +191,10 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 
 > <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
 >
-> 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `output` (Input dataset)
+> 1. Click on **Tools** in the left panel
+> 2. Search for {% tool [Remove beginning](Remove beginning1) %} and pass the following parameters:
+>    - {% icon param-file %} *"from"*: `SoY_Cheap_Repo_Source.txt`
+> 3. Click on **Run Tool**
 >
 >    > <comment-title> What does this tool do? </comment-title>
 >    >
@@ -222,19 +222,14 @@ When the job is finished and appears green in your history, click on its name.
 As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
 
 
-> <hands-on-title> Delete Hyperlink in Text Weo </hands-on-title>
+> <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `output` (Input dataset)
+>    - {% icon param-file %} *"from"*: `SoY_Univ_Mag_Source.txt`
+> 2. Click on **Run Tool**
 >
->    > <comment-title> Redoing steps in Galaxy </comment-title>
->    >
-> > If you are repeating a step in Galaxy or need to re-run it with different input or parameters, check out the redo button.
->    {: .comment}
->
+> {% snippet faqs/galaxy/tools_rerun.md %}
 {: .hands_on}
-
-<!-- to do: ADD image and check faq here to explain how -->
 
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
@@ -246,14 +241,14 @@ The hashtag propagates the tags, so all further outputs from this dataset contai
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
 
-## Sub-step with **Replace Text**
+## Replace Text
 
 Regular Expressions (RegEx) allow you to search for particular patterns in your text. They can be a huge help if you want to extract or remove them with minimal work. In our two poems, the punctuation is not unified, and therefore, we want to remove it from both using RegEx. If comparing the punctuation of texts is also relevant to you, you can skip this step.
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `Remove beginning on data 1`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
@@ -271,8 +266,8 @@ Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `Remove beginning on data 2`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
