@@ -8,12 +8,12 @@ zenodo_link: 'https://doi.org/10.5281/zenodo.17053220'
 questions:
   - How to get started in Galaxy for text-related tasks?  
 objectives:
-  - Learn how to log in to Galaxy
-  - Learn how to upload a file
-  - Learn how to use a tool
-  - Learn how to clean your text
-  - Learn how to compare two texts automatically
-  - Learn how to make a visualisation
+  - Log in to Galaxy
+  - Upload files to the platform
+  - Use tools within Galaxy
+  - Clean and prepare text data
+  - Compare two texts
+  - Visualize your results
 time_estimation: 1H
 key_points:
   - Galaxy has many tools for text analysis that you can adapt for your needs.
@@ -67,7 +67,7 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 > 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
 > 3. Log in with your credentials
 >  
-> ![Screenshot of Galaxy Australia with the register or login button highlighted](../../images/galaxy-login.png)
+> ![Screenshot of Galaxy Australia with the register or login button highlighted]({% link topics/introduction/images/galaxy-login.png %})
 >
 >   > <comment-title>Different Galaxy servers</comment-title>
 >   >  This is an image of Galaxy Australia, located at [usegalaxy.org.au](https://usegalaxy.org.au/)
@@ -84,7 +84,7 @@ The Galaxy homepage is divided into four sections (panels):
 * Viewing panel in the middle: _The main area for context for your analysis_
 * History of analysis and files on the right: _Shows your "current" history; i.e.: Where any new files for your analysis will be stored_
 
-![Screenshot of the Galaxy interface with aforementioned structure](../../images/galaxy_interface.png)
+![Screenshot of the Galaxy interface with aforementioned structure]({% link topics/introduction/images/galaxy_interface.png %})
 
 The first time you use Galaxy, your history panel is empty.
 
@@ -120,11 +120,11 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > <hands-on-title>Upload a file</hands-on-title>
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 >
->    ![upload data button shown in the galaxy interface](../../images/upload-data.png)
+>    ![upload data button shown in the galaxy interface]({% link topics/introduction/images/upload-data.png %})
 >
 >    This brings up a box:
 >
->    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL](../../images/upload-box.png)
+>    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL]({% link topics/introduction/images/upload-box.png %})
 >
 > 3. Click **Paste/Fetch data**
 > 4. Paste in the address of both files in the Zenodo folder:
@@ -166,7 +166,7 @@ What are those files?
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 > 
->    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
+>    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.]({% link topics/introduction/images/eye-icon.png %}){:width="320px"}
 >
 > 2. Check the datatype
 >
