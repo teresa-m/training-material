@@ -80,7 +80,7 @@ All the work will be done inside the NEAL interactive tool, so let's run it.
 
 > <hands-on-title> Run NEAL interactive tool</hands-on-title>
 >
-> 1. {% tool [NEAL]() %} with the following parameters:
+> 1. {% tool NEAL %} with the following parameters:
 >    - {% icon param-file %} *"Input sound data file(s) in wav format"*: 1008421.wav
 >    - {% icon param-file %} *"Do you already have a labels file?"*: Start with a fresh labels file
 >
@@ -264,7 +264,7 @@ If you need to continue your work on this audio file later you can restart the N
 
 > <hands-on-title> Rerun NEAL interactive tool </hands-on-title>
 >
-> 1. {% tool [NEAL]() %} with the following parameters:
+> 1. {% tool NEAL %} with the following parameters:
 >    - {% icon param-file %} *"Input sound data file(s) in wav format"*: 1008421.wav
 >    - {% icon param-file %} *"Do you already have a labels file?"*: Load a previous labels file
 >    - {% icon param-file %} *"Input sound data labels file in csv format"*: my_labels_file.csv
