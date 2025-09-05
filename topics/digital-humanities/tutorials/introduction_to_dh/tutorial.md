@@ -59,7 +59,9 @@ Alternatively, you can log in using a single sign-on of your choice, for example
  ![Screenshot of Galaxy Europe register window with the IAM4NFDI login button highlighted](../../images/iam4nfdi.png)
 
 ## Log in to Galaxy
+
 <!-- to do adapt screenshot / upload / make suitable 4 Europe -->
+
 > <hands-on-title>Log in to Galaxy</hands-on-title>
 > 1. Open your favourite browser (Chrome, Safari, Edge or Firefox as your browser, not Internet Explorer!)
 > 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
@@ -161,10 +163,11 @@ When the file has been uploaded to Galaxy, it will turn green.
 
 What are those files?
 
+<!-- Todo: update Screenshot to my texts instead -->
+
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
->
-> <!-- Todo: update 2 current dataset -->
+> 
 >    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
 >
 > 2. Check the datatype
@@ -172,6 +175,7 @@ What are those files?
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
 > 3. Add to each database a tag corresponding to the file's origin.
+>    One saying "#cheap" for the file from the cheap repository and the other one "#universal" with the hashtag but without the quotation marks. 
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
@@ -179,7 +183,7 @@ What are those files?
 
 The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
-You can see two text files, both starting with "Text adapted from:" and two different links. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
+You can see two text files; they are two versions of the poem "The Sorrows of Yamba". Both files start with "Text adapted from:" and two different links. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
 Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
 It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
@@ -229,15 +233,19 @@ As a result, only the text of the poem remains, while the source was removed for
 >    > <comment-title> Redoing steps in Galaxy </comment-title>
 >    >
 > > If you are repeating a step in Galaxy or need to re-run it with different input or parameters, check out the redo button.
->    > <ADD image and check faq here to explain how>
 >    {: .comment}
 >
 {: .hands_on}
 
-Click on the finished dataset that just appeared in your history. Check that it now also starts only with the poem text and that the hyperlink is removed.
+<!-- to do: ADD image and check faq here to explain how -->
+
+Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
+
 <!-- to do add tags -->
+<!-- to do explain how to rename the datasets -->
+
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
 
@@ -410,10 +418,11 @@ Regular Expressions help again by changing all spaces with line breaks with just
 >    > <comment-title> How do I know what the RegEx commands are? </comment-title>
 >    >
 >    > Don't worry, if you have never used any regular expressions. There are several websites to help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). But you can find out more here:
->    > <!-- to do ADD Regex help -->
 >    {: .comment}
 >
 {: .hands_on}
+
+<!-- to do Add Regex help -->
 
 When you click on the eye icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also on the second poem. 
 
