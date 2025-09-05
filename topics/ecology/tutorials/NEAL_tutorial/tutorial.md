@@ -19,7 +19,7 @@ contributors:
 
 This tutorial is designed to guide you through the annotation of audio data via the NEAL interactive tool. 
 
-NEAL (Nature+Energy Audio Labeller) is an open-source interactive audio data annotation tool. Built using R and the associated Shiny framework, the tool provides a reactive environment where users can quickly annotate audio files and adjust settings which automatically change the corresponding elements of the user interface. The app has been designed with the goal of having both expert birders and citizen scientists contribute to acoustic annotation projects {% cite githubsurvey2022 %}.
+NEAL (Nature+Energy Audio Labeller) {% cite Gibbons2023 %} is an open-source interactive audio data annotation tool. Built using R and the associated R Shiny framework, the tool provides a reactive environment where users can quickly annotate audio files and adjust settings which automatically change the corresponding elements of the user interface. The app has been designed with the goal of having both expert birders and citizen scientists contribute to acoustic annotation projects {% cite githubsurvey2022 %}.
 
 The data we will work with in this tutorial is a 0:43min recording of a common blackbird (Turdus merula) recorded in Armenia above Alaverdi town. For more information, you can see metadata on the [xeno-canto site](https://xeno-canto.org/explore?query=nr:1008421).   
 
