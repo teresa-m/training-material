@@ -8,12 +8,12 @@ zenodo_link: 'https://doi.org/10.5281/zenodo.17053220'
 questions:
   - How to get started in Galaxy for text-related tasks?  
 objectives:
-  - Learn how to log in to Galaxy
-  - Learn how to upload a file
-  - Learn how to use a tool
-  - Learn how to clean your text
-  - Learn how to compare two texts automatically
-  - Learn how to make a visualisation
+  - Log in to Galaxy
+  - Upload files to the platform
+  - Use tools within Galaxy
+  - Clean and prepare text data
+  - Compare two texts
+  - Visualize your results
 time_estimation: 1H
 key_points:
   - Galaxy has many tools for text analysis that you can adapt for your needs.
@@ -22,6 +22,7 @@ tags:
 contributions:
   authorship:
     - Sch-Da
+    - RZ9082
   funding:
     - deKCD
 ---
@@ -67,7 +68,7 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 > 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
 > 3. Log in with your credentials
 >  
-> ![Screenshot of Galaxy Australia with the register or login button highlighted](../../images/galaxy-login.png)
+> ![Screenshot of Galaxy Australia with the register or login button highlighted]({% link topics/introduction/images/galaxy-login.png %})
 >
 >   > <comment-title>Different Galaxy servers</comment-title>
 >   >  This is an image of Galaxy Australia, located at [usegalaxy.org.au](https://usegalaxy.org.au/)
@@ -79,12 +80,12 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 {: .hands_on}
 
 The Galaxy homepage is divided into four sections (panels):
-* The Activity Bar on the left: _This is where you will navigate to the resources in Galaxy (Tools, Workflows, Histories, etc.)_
+* The Activity Bar on the left: _This is where you will navigate to the resources in Galaxy (Tools {% icon tool %}, Workflows {% icon galaxy-workflows-activity %}, Histories {% icon galaxy-history-storage-choice %}, etc.)_
 * Currently active "Activity Panel" on the left: _By default, the {% icon tool %} **Tools** activity will be active and its panel will be expanded_
 * Viewing panel in the middle: _The main area for context for your analysis_
 * History of analysis and files on the right: _Shows your "current" history; i.e.: Where any new files for your analysis will be stored_
 
-![Screenshot of the Galaxy interface with aforementioned structure](../../images/galaxy_interface.png)
+![Screenshot of the Galaxy interface with aforementioned structure]({% link topics/introduction/images/galaxy_interface.png %})
 
 The first time you use Galaxy, your history panel is empty.
 
@@ -120,11 +121,11 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > <hands-on-title>Upload a file</hands-on-title>
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 >
->    ![upload data button shown in the galaxy interface](../../images/upload-data.png)
+>    ![upload data button shown in the galaxy interface]({% link topics/introduction/images/upload-data.png %})
 >
 >    This brings up a box:
 >
->    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL](../../images/upload-box.png)
+>    ![the complicated galaxy upload dialogue, the 'regular' tab is active with a large textarea to paste subsequent URL]({% link topics/introduction/images/upload-box.png %})
 >
 > 3. Click **Paste/Fetch data**
 > 4. Paste in the address of both files in the Zenodo folder:
@@ -143,8 +144,6 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
 > 3. Enter **"Zenodo"** in the search bar and click on the folder **"Zenodo"**.
 > 4. Enter **Training material for Galaxy tutorial "Introduction to Digital Humanities in Galaxy"** in the search bar and select the items.
-> 5. Click on the folder with the same name
-> 6. Click the box next to "Label" to select both items
 > 7. Click **Select**
 > 8. Click **Start**
 > 9. Click **Close**
@@ -162,12 +161,10 @@ When the file has been uploaded to Galaxy, it will turn green.
 
 The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
-<!-- Todo: update Screenshot to my texts instead -->
-
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 > 
->    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
+>    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="520px"}
 >
 > 2. Check the datatype - is it **txt**? Then you are all set. Otherwise, adapt the datatype.
 >
@@ -196,14 +193,17 @@ It is obvious that the texts have similarities, but they are not identical. Now 
 
 ## Delete the Hyperlink
 
+
 When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
 As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
 
 
 > <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
 >
-> 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `SoY_Cheap_Repo_Source.txt` (Input dataset)
+> 1. Click on **Tools** {% icon tool %} in the left panel
+> 2. Search for {% tool [Remove beginning](Remove beginning1) %} and pass the following parameters:
+>    - {% icon param-file %} *"from"*: `1: SoY_Cheap_Repo_Source.txt`
+> 3. Click on **Run Tool** {% icon workflow-run %}
 >
 >    > <comment-title> What does this tool do? </comment-title>
 >    >
@@ -240,19 +240,14 @@ We also use this tool on the second file.
 
 > <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
 >
-> 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `SoY_Univ_Mag_Source.txt` (Second input dataset)
+> 1. Run {% icon workflow-run %} {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
+>    - {% icon param-file %} *"from"*: `2: SoY_Univ_Mag_Source.txt`
 >
->    > <comment-title> Redoing steps in Galaxy </comment-title>
->    >
-> > If you are repeating a step in Galaxy or need to re-run it with different input or parameters, check out the redo button.
->    {: .comment}
->
+> {% snippet faqs/galaxy/tools_rerun.md %}
 {: .hands_on}
 
-<!-- to do: ADD image and [ADD FAQ](https://training.galaxyproject.org/training-material/faqs/galaxy/tools_rerun.html)-->
-
 Once it is finished, rename this file to `SoY_Univ_Mag.txt`. 
+
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
@@ -260,14 +255,15 @@ The hashtag propagates the tags, so all further outputs from this dataset contai
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
 
-## Use Regular Expressions for Cleaning
+
+## Remove punctuation
 
 Regular Expressions (RegEx) allow you to search for particular patterns in your text. They can be a huge help if you want to extract or remove them with minimal work. In our two poems, the punctuation is not unified, and therefore, we want to remove it from both using RegEx. If comparing the punctuation of texts is also relevant to you, you can skip this step.
 
 > <hands-on-title> Remove Punctuation in Poem One </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
@@ -285,8 +281,8 @@ Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement
 
 > <hands-on-title> Remove Punctuation in Poem Two </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `4: Remove beginning on data 2`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
@@ -299,27 +295,22 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 
 ## Compare Quantitatively
 
-The tool `Line/Word/Character count` allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
+The tool {% tool [Line/Word/Character count](wc_gnu) %} allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
 
 > <hands-on-title> Count the Characters of Poem One </hands-on-title>
 >
-> 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
+>    - {% icon param-file %} *"Text file"*: `5: Replace Text on data 3`
 >
 {: .hands_on}
 
-If you click on the eye symbol, once the dataset has finished running and appears green, you can see how many lines, words and characters the text consists of.
-And again, we run the tool on the second poem.
+If you click on the eye {% icon galaxy-eye %} symbol, once the dataset has finished running and appears green, you can see how many lines, words and characters the text consists of.
+And again, we run {% icon workflow-run %} the tool on the second poem.
 
 > <hands-on-title> Count the Characters of Poem Two </hands-on-title>
 >
-> 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
+> 1. Run {% icon workflow-run %} {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
+>    - {% icon param-file %} *"Text file"*: `6: Replace Text on data 4`
 >
 {: .hands_on}
 
@@ -345,27 +336,27 @@ A picture says more than 1000 words! Accordingly, we want to get closer to the a
 
 > <hands-on-title> Visualise the Content of Poem One </hands-on-title>
 >
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `5: Replace Text on data 3` (output of **Replace Text** {% icon tool %})
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
 >
 >    > <comment-title> Adapting the Word Cloud </comment-title>
 >    >
->    > The word cloud has many different features. You can upload a stop word list that should be excluded from the visualisation, or play around with other parameters like the text size. Rerun the tool with some changed parameters and see what happens.
+>    > The word cloud has many different features. You can upload a stop word list that should be excluded from the visualisation, or play around with other parameters like the text size. Rerun {%icon dataset-rerun %} the tool with some changed parameters and see what happens.
 >    {: .comment}
 >
 {: .hands_on}
 
-We also rerun the word cloud with the second poem.
+We also rerun {%icon dataset-rerun %} the word cloud with the second poem.
 
 The word cloud for the second text is created the same way. For better comparability, we suggest rerunning the tool with the second text but the same parameters you used for creating the first word cloud image. That makes both comparable.
 
 > <hands-on-title> Visualise the Content of Poem Two </hands-on-title>
 >
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `6: Replace Text on data 4` (output of **Replace Text** {% icon tool %})
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
@@ -396,7 +387,7 @@ Comparing items from your history is easiest when enabling the window manager an
 >
 {: .question}
 
-You can disable the window manager again by clicking on the item, then you will see your datasets again in your middle panel, once you click on its eye symbol.
+You can disable the window manager again by clicking on the item, then you will see your datasets again in your middle panel, once you click on its eye {% icon galaxy-eye %} symbol.
 
 The visualisation suggests that not only the text's metrics, which we checked with the line and character count, but also their messages differ. The cheap repository text addresses the reader with multiple mentions of "ye", you, which is rare in the second poem. In the universal poem, death is more central than yamba, which is the other way around in the cheap repository text.
 
@@ -404,7 +395,8 @@ With this text's length and just two poems, this is, of course, something you ca
 
 Of course, the word cloud insights are just a first glance and do not allow a proper analysis; for that, we need to properly compare both texts. But what is a good way to do this? We suggest comparing them side by side and line by line. For that, we adapt the layout once more.
 
-## Rearrange to prepare side-by-side comparison
+
+## Replace spaces with line breaks to prepare side-by-side comparison
 
 We used the tool to replace text before. Now, we are not deleting something, as we did with the punctuation, but we are replacing some characters. To get a convenient layout that shows one word per line, we replace the spaces (\s) with line breaks (\n). That way, each word gets shown in a different line, which prepares the detailed comparison in the next step.
 
@@ -413,8 +405,8 @@ Regular Expressions help again by changing all spaces with line breaks with just
 
 > <hands-on-title> Changing Layout of Poem One </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `5: Replace Text on data 3`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`
@@ -430,13 +422,13 @@ Regular Expressions help again by changing all spaces with line breaks with just
 
 <!-- to do Add Regex help -->
 
-When you click on the eye icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also on the second poem. 
+When you click on the eye {% icon galaxy-eye %} icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also on the second poem. 
 
 
 > <hands-on-title> Changing Layout of Poem Two </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `6: Replace Text on data 4`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`
@@ -459,13 +451,14 @@ When you click on the eye icon of the data set in the history now, when the data
 
 Now, both poems show one word per line, the perfect setup to compare them side by side. Use a tool called `diff` to visualise this.
 
+
 ## Compare side-by-side with **diff**
 
 > <hands-on-title> Compare the Poems </hands-on-title>
 >
-> 1. {% tool [diff](toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1) %} with the following parameters:
->    - {% icon param-file %} *"First input file"*: `outfile` (output of **Replace Text** {% icon tool %})
->    - {% icon param-file %} *"Second input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [diff](toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1) %} with the following parameters:
+>    - {% icon param-file %} *"First input file"*: `11: Replace Text on data 5`
+>    - {% icon param-file %} *"Second input file"*: `12: Replace Text on data 6`
 >    - *"Choose a report format"*: `Generates an HTML report to visualize the differences`
 >    - *"Choose report output format"*: `Side by side`
 >
@@ -497,7 +490,7 @@ Seeing this, you might want to go into detail with the respective themes once mo
 
 # Extract Specific Sentences
 
-## Reformat to one sentence per line
+## Breaking text into sentences
 
 We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line, but also has further functionalities. We use it to divide the text into more lines, to make it easier to extract those containing the word "death." Here, punctuation is a helpful stop point. We use full stops to indicate a sentence, which will not be perfectly accurate but will be sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
 
@@ -505,8 +498,8 @@ We return to Regular Expressions a third time, but this time to use a different 
 
 > <hands-on-title> Rearrange Poem One </hands-on-title>
 >
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
 >    - In *"Find and Replace"*:
 >        - {% icon param-repeat %} *"Insert Find and Replace"*
 >            - *"Find pattern"*: `\.`
@@ -526,8 +519,8 @@ When you have finished this step, remember to redo it for the second poem.
 
 > <hands-on-title> Rearrange Poem Two </hands-on-title>
 >
-> 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `4: Remove beginning on data 2`
 >    - In *"Find and Replace"*:
 >        - {% icon param-repeat %} *"Insert Find and Replace"*
 >            - *"Find pattern"*: `\.`
@@ -540,14 +533,15 @@ When you have finished this step, remember to redo it for the second poem.
 
 As a result, you get two files, each split at full stops. And how can you now extract the sentences relevant to you?
 
-## Extract particular sentences from your text
 
-Use the `Search in textfiles` tool to select all lines containing the word "death".
+## Extract sentences containing 'death'
+
+Use {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} to select all lines containing the word "death".
 
 > <hands-on-title> Extract particular sentences </hands-on-title>
 >
-> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Select lines from"*: `15: Replace on data 3`
 >    - *"Regular Expression"*: `death`
 >
 >    > <comment-title> Further Functionalities </comment-title>
@@ -561,13 +555,13 @@ And for the last time, we redo this step also for the second poem.
 
 > <hands-on-title> Extract particular sentences from Poem Two </hands-on-title>
 >
-> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+> 1. Run {% icon workflow-run %} {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Select lines from"*: `16: Replace on data 4`
 >    - *"Regular Expression"*: `death`
 >
 {: .hands_on}
 
-When you enable the window manager at the top bar, you can click on the eye symbols of your last two outputs and visualise them side by side in two different windows. Six and seven lines from the poem contain the term, respectively. You could analyse them in detail now to see where they differ. While the first lines are nearly identical, the last ones are completely different in both versions of the poem. An intriguing insight for further analysis. No wonder the poems and their many editions have sparked the interest of many researchers.
+When you enable the window manager at the top bar, you can click on the eye {% icon galaxy-eye %} symbols of your last two outputs and visualise them side by side in two different windows. Six and seven lines from the poem contain the term, respectively. You could analyse them in detail now to see where they differ. While the first lines are nearly identical, the last ones are completely different in both versions of the poem. An intriguing insight for further analysis. No wonder the poems and their many editions have sparked the interest of many researchers.
 
 If you only analyse those two poems, you might find it easier to just do those steps manually. But particularly, if you create a workflow out of this, you will be able to reproduce this process with only a couple of clicks, and it will save you a huge amount of work. 
 
