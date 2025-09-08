@@ -140,37 +140,7 @@ For your information, execution time for running tools depends on the number of 
 
 ## Organize your data
 
-> <hands-on-title>Create a dataset collection</hands-on-title>
-> - Click on **Select item** at the top of the history panel
-> - Click on **Select all** (now visible at the top right) OR manually tick only the N files of interest
-> - Click on **All N selected** OR **n of N selected**
-> - Choose **Auto build list**
-> - In the pop-up window:
->   - Set the name: `4903881`
->   - Turn off **Remove file extension**
->   - Click on **Build**
->
-> Once the collection is created, all files turn green. You can limit visible files using the eye icons in the history panel.
->
-> ![Create collection - empty history](../../images/bgc_calib/collection_emptyhist.png)
-> ![Collection build interface](../../images/bgc_calib/build_collection.png)
-{: .hands_on}
-
-> <tip-title>You have other data inyour history</tip-title>
-> > <hands-on-title>Create a dataset collection (from non-empty history)</hands-on-title>
-> > - Click on **Select item**
-> > - Manually tick only the files of interest
-> > - Click on **## of ## selected**
-> > - Choose **Auto build list**
-> > - In the pop-up window:
-> >   - Set the name: `4903881`
-> >   - Turn off **Remove file extension**
-> >   - Click on **Build**
-> >
-> > ![Create collection - non-empty history](../../images/bgc_calib/collection_hist.png)
-> > ![Collection build interface](../../images/bgc_calib/build_collection.png)
-> {: .hands_on}
-{: .tip}
+{% snippet faqs/galaxy/collections_autobuild_list.md box_type="hands-on" datasets_description="n files of interest" name="4903881" %}
 
 > <hands-on-title>Change file extension (for WOA file)</hands-on-title>
 >
@@ -577,4 +547,5 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
