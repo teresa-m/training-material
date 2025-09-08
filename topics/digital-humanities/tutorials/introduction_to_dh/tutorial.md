@@ -169,12 +169,12 @@ The contents of the file will be displayed in the central Galaxy panel. If the d
 > 
 >    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="320px"}
 >
-> 2. Check the datatype
+> 2. Check the datatype - is it **txt**? Then you are all set. Otherwise, adapt the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
 > 3. Add to each database a tag corresponding to the file's origin.
->    One saying "#cheap" for the file from the cheap repository and the other one "#universal" with the hashtag but without the quotation marks. 
+>    One saying "#cheap" for the file from the cheap repository (SoY_Cheap_Repo_Source.txt) and the other one "#universal" for the second one ( SoY_Univ_Mag_Source.txt) with the hashtag but without the quotation marks. 
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
@@ -183,8 +183,13 @@ The contents of the file will be displayed in the central Galaxy panel. If the d
 
 What are those files?
 
-You can see two text files; they are two versions of the poem "The Sorrows of Yamba". Both files start with "Text adapted from:" and two different hyperlinks. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
+You can see two text files; they are two versions of the poem "The Sorrows of Yamba". 
+The file "SoY_Cheap_Repo_Source.txt" is a poem version of Sorrows of Yamba, which was published in the [Cheap Repository](https://archive.org/details/McGillLibrary-PN970_C52_no_42a-1732).
+The file "SoY_Univ_Mag_Source.txt" is another version of the poem, first published in the Universal Magazine in 1797. 
+
+Both files start with "Text adapted from:" and two different hyperlinks. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.  
 Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
+
 It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
 # Clean your Texts
@@ -198,7 +203,7 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 > <hands-on-title> Delete Hyperlink in Text One </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `output` (Input dataset)
+>    - {% icon param-file %} *"from"*: `SoY_Cheap_Repo_Source.txt` (Input dataset)
 >
 >    > <comment-title> What does this tool do? </comment-title>
 >    >
@@ -226,10 +231,10 @@ When the job is finished and appears green in your history, click on its name.
 As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
 
 
-> <hands-on-title> Delete Hyperlink in Text Weo </hands-on-title>
+> <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
 >
 > 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `output` (Input dataset)
+>    - {% icon param-file %} *"from"*: `SoY_Univ_Mag_Source.txt` (Second input dataset)
 >
 >    > <comment-title> Redoing steps in Galaxy </comment-title>
 >    >
@@ -238,7 +243,7 @@ As a result, only the text of the poem remains, while the source was removed for
 >
 {: .hands_on}
 
-<!-- to do: ADD image and check faq here to explain how -->
+<!-- to do: ADD image and [ADD FAQ](https://training.galaxyproject.org/training-material/faqs/galaxy/tools_rerun.html)-->
 
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
