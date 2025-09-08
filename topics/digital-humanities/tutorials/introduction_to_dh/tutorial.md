@@ -22,6 +22,7 @@ tags:
 contributions:
   authorship:
     - Sch-Da
+    - RZ9082
   funding:
     - deKCD
 ---
@@ -193,7 +194,7 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 >
 > 1. Click on **Tools** in the left panel
 > 2. Search for {% tool [Remove beginning](Remove beginning1) %} and pass the following parameters:
->    - {% icon param-file %} *"from"*: `SoY_Cheap_Repo_Source.txt`
+>    - {% icon param-file %} *"from"*: `1: SoY_Cheap_Repo_Source.txt`
 > 3. Click on **Run Tool**
 >
 >    > <comment-title> What does this tool do? </comment-title>
@@ -224,9 +225,8 @@ As a result, only the text of the poem remains, while the source was removed for
 
 > <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
 >
-> 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `SoY_Univ_Mag_Source.txt`
-> 2. Click on **Run Tool**
+> 1. Run {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
+>    - {% icon param-file %} *"from"*: `2: SoY_Univ_Mag_Source.txt`
 >
 > {% snippet faqs/galaxy/tools_rerun.md %}
 {: .hands_on}
@@ -241,14 +241,14 @@ The hashtag propagates the tags, so all further outputs from this dataset contai
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
 
-## Replace Text
+## Remove punctuation
 
 Regular Expressions (RegEx) allow you to search for particular patterns in your text. They can be a huge help if you want to extract or remove them with minimal work. In our two poems, the punctuation is not unified, and therefore, we want to remove it from both using RegEx. If comparing the punctuation of texts is also relevant to you, you can skip this step.
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `Remove beginning on data 1`
+> 1. Run {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
@@ -267,7 +267,7 @@ Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement
 > <hands-on-title> Task description </hands-on-title>
 >
 > 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `Remove beginning on data 2`
+>    - {% icon param-file %} *"File to process"*: `4: Remove beginning on data 2`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
@@ -278,14 +278,14 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 
 # Different ways to compare the texts
 
-## Sub-step with **Line/Word/Character count**
+## Count lines, words, or characters
 
-The tool `Line/Word/Character count` allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
+The tool {% tool [Line/Word/Character count](wc_gnu) %} allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
 
 > <hands-on-title> Count the Characters of Poem One </hands-on-title>
 >
-> 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
+>    - {% icon param-file %} *"Text file"*: `5: Replace Text on data 3`
 >
 {: .hands_on}
 
@@ -295,12 +295,7 @@ And again, we run the tool on the second poem.
 > <hands-on-title> Count the Characters of Poem Two </hands-on-title>
 >
 > 1. {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `outfile` (output of **Replace Text** {% icon tool %})
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
+>    - {% icon param-file %} *"Text file"*: `6: Replace Text on data 4`
 >
 {: .hands_on}
 
@@ -320,14 +315,14 @@ And again, we run the tool on the second poem.
 
 The differences between the two texts are quantifiable, but do these also affect the content? 
 
-## Sub-step with **Generate a word cloud**
+## Generate a word cloud
 
 A picture says more than 1000 words! Accordingly, we want to get closer to the actual content of both texts. Particularly for larger corpora, a word cloud can be a nice way to get a first idea, what a text is about.
 
 > <hands-on-title> Visualise the Content of Poem One </hands-on-title>
 >
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `5: Replace Text on data 3` (output of **Replace Text** {% icon tool %})
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
@@ -345,8 +340,8 @@ The word cloud for the second text is created the same way. For better comparabi
 
 > <hands-on-title> Visualise the Content of Poem Two </hands-on-title>
 >
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Input file"*: `6: Replace Text on data 4` (output of **Replace Text** {% icon tool %})
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
@@ -385,7 +380,7 @@ With this text's length and just two poems, this is, of course, something you ca
 
 Of course, the word cloud insights are just a first glance and do not allow a proper analysis; for that, we need to properly compare both texts. But what is a good way to do this? We suggest comparing them side by side and line by line. For that, we adapt the layout once more.
 
-## Sub-step with **Replace Text**
+## Replace spaces with line breaks
 
 We used the tool to replace text before. Now, we are not deleting something, as we did with the punctuation, but we are replacing some characters. To get a convenient layout that shows one word per line, we replace the spaces (\s) with line breaks (\n). That way, each word gets shown in a different line, which prepares the detailed comparison in the next step.
 
@@ -394,8 +389,8 @@ Regular Expressions help again by changing all spaces with line breaks with just
 
 > <hands-on-title> Changing Layout of Poem One </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `5: Replace Text on data 3`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`
@@ -416,8 +411,8 @@ When you click on the eye icon of the data set in the history now, when the data
 
 > <hands-on-title> Changing Layout of Poem Two </hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `outfile` (output of **Replace Text** {% icon tool %})
+> 1. Run {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
+>    - {% icon param-file %} *"File to process"*: `6: Replace Text on data 4`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`
@@ -440,13 +435,13 @@ When you click on the eye icon of the data set in the history now, when the data
 
 Now, both poems show one word per line, the perfect setup to compare them side by side. Use a tool called `diff` to visualise this.
 
-## Sub-step with **diff**
+## Analyze the poems for differences
 
 > <hands-on-title> Compare the Poems </hands-on-title>
 >
 > 1. {% tool [diff](toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1) %} with the following parameters:
->    - {% icon param-file %} *"First input file"*: `outfile` (output of **Replace Text** {% icon tool %})
->    - {% icon param-file %} *"Second input file"*: `outfile` (output of **Replace Text** {% icon tool %})
+>    - {% icon param-file %} *"First input file"*: `11: Replace Text on data 5`
+>    - {% icon param-file %} *"Second input file"*: `12: Replace Text on data 6`
 >    - *"Choose a report format"*: `Generates an HTML report to visualize the differences`
 >    - *"Choose report output format"*: `Side by side`
 >
@@ -478,7 +473,7 @@ Seeing this, you might want to go into detail with the respective themes once mo
 
 # Extract Specific Sentences
 
-## Sub-step with **Replace**
+## Breaking text into sentences
 
 We return to Regular Expressions a third time, but this time to use a different tool. This one does not go through the text line by line, but also has further functionalities. We use it to divide the text into more lines, to make it easier to extract those containing the word "death." Here, punctuation is a helpful stop point. We use full stops to indicate a sentence, which will not be perfectly accurate but will be sufficient for this case. We then add a line break after the full stops to get full sentences. Of course, you could spend more time on this and make it neater.
 
@@ -487,7 +482,7 @@ We return to Regular Expressions a third time, but this time to use a different 
 > <hands-on-title> Rearrange Poem One </hands-on-title>
 >
 > 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
 >    - In *"Find and Replace"*:
 >        - {% icon param-repeat %} *"Insert Find and Replace"*
 >            - *"Find pattern"*: `\.`
@@ -508,7 +503,7 @@ When you have finished this step, remember to redo it for the second poem.
 > <hands-on-title> Rearrange Poem Two </hands-on-title>
 >
 > 1. {% tool [Replace](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `out_file1` (output of **Remove beginning** {% icon tool %})
+>    - {% icon param-file %} *"File to process"*: `4: Remove beginning on data 2`
 >    - In *"Find and Replace"*:
 >        - {% icon param-repeat %} *"Insert Find and Replace"*
 >            - *"Find pattern"*: `\.`
@@ -521,14 +516,14 @@ When you have finished this step, remember to redo it for the second poem.
 
 As a result, you get two files, each split at full stops. And how can you now extract the sentences relevant to you?
 
-## Sub-step with **Search in textfiles**
+## Extract sentences containing 'death'
 
 Use the `Search in textfiles` tool to select all lines containing the word "death".
 
 > <hands-on-title> Extract particular sentences </hands-on-title>
 >
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+>    - {% icon param-file %} *"Select lines from"*: `15: Replace on data 3`
 >    - *"Regular Expression"*: `death`
 >
 >    > <comment-title> Further Functionalities </comment-title>
@@ -543,7 +538,7 @@ And for the last time, we redo this step also for the second poem.
 > <hands-on-title> Extract particular sentences from Poem Two </hands-on-title>
 >
 > 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `outfile` (output of **Replace** {% icon tool %})
+>    - {% icon param-file %} *"Select lines from"*: `16: Replace on data 4`
 >    - *"Regular Expression"*: `death`
 >
 {: .hands_on}
