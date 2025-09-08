@@ -3,7 +3,7 @@ title: Creating a dataset collection with autobuild
 area: collections
 box_type: tip
 layout: faq
-contributors: [shiltemann, hexylena, pavanvidem, Marie59]
+contributors: [Marie59]
 ---
 
 * Click on {% icon galaxy-selector %} **Select Items** at the top of the history panel ![Select Items button]({% link topics/climate/images/bgc_calib/collection_emptyhist.png %})
