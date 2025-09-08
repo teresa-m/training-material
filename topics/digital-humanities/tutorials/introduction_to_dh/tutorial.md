@@ -228,7 +228,14 @@ When the job is finished and appears green in your history, click on its name.
 >
 {: .question}
 
-As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
+As a result, only the text of the poem remains, while the source was removed for text one.
+Galaxy names the files after the task used to create that step. While this can be helpful, we change the name to a clearer filename.
+
+{% snippet faqs/galaxy/datasets_rename.md %}
+
+Change the name of the output of this tool, which removed the beginning of `SoY_Cheap_Repo_Source.txt` to `SoY_Cheap_Repo.txt`
+
+We also use this tool on the second file.
 
 
 > <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
@@ -245,11 +252,10 @@ As a result, only the text of the poem remains, while the source was removed for
 
 <!-- to do: ADD image and [ADD FAQ](https://training.galaxyproject.org/training-material/faqs/galaxy/tools_rerun.html)-->
 
+Once it is finished, rename this file to `SoY_Univ_Mag.txt`. 
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
-
-<!-- to do explain how to rename the datasets -->
 
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
