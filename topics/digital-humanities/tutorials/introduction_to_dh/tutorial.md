@@ -29,7 +29,7 @@ contributions:
 
 <!-- This is a comment. -->
 
-Loosely building on {% cite Richardson2003 %},[^1] this tutorial compares two editions of the poem "The Sorrows of Yamba".
+Loosely building on {% cite Richardson2003 %}, this tutorial compares two editions of the poem "The Sorrows of Yamba".[^1]
 The first couple of steps in this tutorial derive from [A short introduction to Galaxy]({% link topics/introduction/tutorials/galaxy-intro-short/tutorial.html %}).
 
 "The Sorrows of Yamba" was published in 1795 and was among the most popular antislavery poems at the time. However, the version published by Hannah More in the Cheap Repository Tracts series was not the only version of the poem that circulated. Also, Moore's authorship on the topic is not uncontested. {% cite Richardson2003 %} But while we leave this debate to the experts, the different versions of the poem offer a great opportunity to delve into how digital tools can help us compare texts more quickly. And this, we will do in the following tutorial.
@@ -136,12 +136,13 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 >
 > 5. Click **Start**
 > 6. Click **Close**
+>
 > 
 > One usegalaxy.eu, you can alternatively access Zenodo directly from within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
-> 3. Enter **Zenodo** in the search bar and click on the folder **Zenodo**.
+> 3. Enter **"Zenodo"** in the search bar and click on the folder **"Zenodo"**.
 > 4. Enter **Training material for Galaxy tutorial "Introduction to Digital Humanities in Galaxy"** in the search bar and select the items.
 > 7. Click **Select**
 > 8. Click **Start**
@@ -158,33 +159,40 @@ When the file has been uploaded to Galaxy, it will turn green.
 >
 {: .comment}
 
-What are those files?
+The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
 > 
 >    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="520px"}
 >
-> 2. Check the datatype
+> 2. Check the datatype - is it **txt**? Then you are all set. Otherwise, adapt the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
 > 3. Add to each database a tag corresponding to the file's origin.
->    One saying "#cheap" for the file from the cheap repository and the other one "#universal" with the hashtag but without the quotation marks. 
+>    One saying "#cheap" for the file from the cheap repository (SoY_Cheap_Repo_Source.txt) and the other one "#universal" for the second one ( SoY_Univ_Mag_Source.txt) with the hashtag but without the quotation marks. 
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
 {: .hands_on}
 
-The contents of the file will be displayed in the central Galaxy panel. If the dataset is large, you will see a warning message which explains that only the first megabyte is shown.
 
-You can see two text files; they are two versions of the poem "The Sorrows of Yamba". Both files start with "Text adapted from:" and two different links. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.
+What are those files?
+
+You can see two text files; they are two versions of the poem "The Sorrows of Yamba". 
+The file "SoY_Cheap_Repo_Source.txt" is a poem version of Sorrows of Yamba, which was published in the [Cheap Repository](https://archive.org/details/McGillLibrary-PN970_C52_no_42a-1732).
+The file "SoY_Univ_Mag_Source.txt" is another version of the poem, first published in the Universal Magazine in 1797. 
+
+Both files start with "Text adapted from:" and two different hyperlinks. The second paragraph for both texts starts with "the sorrows of yamba" - but the files continue differently. While one gives the year, the other is immediately followed by more text.  
 Both texts are already pre-cleaned and are completely in lower case, but still contain punctuation.
+
 It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
 
 # Clean your Texts
 
-## Remove beginning
+## Delete the Hyperlink
+
 
 When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
 As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
@@ -220,7 +228,14 @@ When the job is finished and appears green in your history, click on its name.
 >
 {: .question}
 
-As a result, only the text of the poem remains, while the source was removed for text one. We repeat this step also with the second file.
+As a result, only the text of the poem remains, while the source was removed for text one.
+Galaxy names the files after the task used to create that step. While this can be helpful, we change the name to a clearer filename.
+
+{% snippet faqs/galaxy/datasets_rename.md %}
+
+Change the name of the output of this tool, which removed the beginning of `SoY_Cheap_Repo_Source.txt` to `SoY_Cheap_Repo.txt`
+
+We also use this tool on the second file.
 
 
 > <hands-on-title> Delete Hyperlink in Text Two </hands-on-title>
@@ -231,21 +246,21 @@ As a result, only the text of the poem remains, while the source was removed for
 > {% snippet faqs/galaxy/tools_rerun.md %}
 {: .hands_on}
 
+Once it is finished, rename this file to `SoY_Univ_Mag.txt`. 
+
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To be able to quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
 
-<!-- to do add tags -->
-<!-- to do explain how to rename the datasets -->
-
 
 Depending on how detailed you want to compare your texts, we suggest unifying them even further. In the next step, we therefore remove all the punctuation with one command. 
+
 
 ## Remove punctuation
 
 Regular Expressions (RegEx) allow you to search for particular patterns in your text. They can be a huge help if you want to extract or remove them with minimal work. In our two poems, the punctuation is not unified, and therefore, we want to remove it from both using RegEx. If comparing the punctuation of texts is also relevant to you, you can skip this step.
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Remove Punctuation in Poem One </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
@@ -264,7 +279,7 @@ And we repeat the same for the second text. Remember to use the redo button if y
 
 Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement, meaning that all punctuation marks will be deleted.
 
-> <hands-on-title> Task description </hands-on-title>
+> <hands-on-title> Remove Punctuation in Poem Two </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `4: Remove beginning on data 2`
@@ -278,7 +293,7 @@ To get an idea, how the two cleaned texts compare to each other, we check out th
 
 # Different ways to compare the texts
 
-## Count lines, words, or characters
+## Compare Quantitatively
 
 The tool {% tool [Line/Word/Character count](wc_gnu) %} allows us to get a quick overview of a text. We want to see if the cleaned versions are really that different from each other.
 
@@ -315,7 +330,7 @@ And again, we run {% icon workflow-run %} the tool on the second poem.
 
 The differences between the two texts are quantifiable, but do these also affect the content? 
 
-## Generate a word cloud
+## Compare Visually
 
 A picture says more than 1000 words! Accordingly, we want to get closer to the actual content of both texts. Particularly for larger corpora, a word cloud can be a nice way to get a first idea, what a text is about.
 
@@ -380,7 +395,8 @@ With this text's length and just two poems, this is, of course, something you ca
 
 Of course, the word cloud insights are just a first glance and do not allow a proper analysis; for that, we need to properly compare both texts. But what is a good way to do this? We suggest comparing them side by side and line by line. For that, we adapt the layout once more.
 
-## Replace spaces with line breaks
+
+## Replace spaces with line breaks to prepare side-by-side comparison
 
 We used the tool to replace text before. Now, we are not deleting something, as we did with the punctuation, but we are replacing some characters. To get a convenient layout that shows one word per line, we replace the spaces (\s) with line breaks (\n). That way, each word gets shown in a different line, which prepares the detailed comparison in the next step.
 
@@ -435,7 +451,8 @@ When you click on the eye {% icon galaxy-eye %} icon of the data set in the hist
 
 Now, both poems show one word per line, the perfect setup to compare them side by side. Use a tool called `diff` to visualise this.
 
-## Analyze the poems for differences
+
+## Compare side-by-side with **diff**
 
 > <hands-on-title> Compare the Poems </hands-on-title>
 >
@@ -452,7 +469,7 @@ Now, both poems show one word per line, the perfect setup to compare them side b
 >
 {: .hands_on}
 
-We get two new files as a result. The HTML report and the raw output it is based on in txt format.
+We get two new files as a result. The HTML report and the raw output it is based on, in txt format.
 
 > <question-title></question-title>
 >
@@ -516,6 +533,7 @@ When you have finished this step, remember to redo it for the second poem.
 
 As a result, you get two files, each split at full stops. And how can you now extract the sentences relevant to you?
 
+
 ## Extract sentences containing 'death'
 
 Use {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} to select all lines containing the word "death".
@@ -560,5 +578,6 @@ The workflow created from this history would look as follows:
  ![Screenshot of Workflow extracted from the Tutorial Introduction to DH](../../images/WF_Intro_to_DH.png)
 
 With all this knowledge in mind, you can now continue with one of our other tutorials or start to experiment with your own input. Enjoy!
+
 
 [^1]: Thanks to Lilli Fortmeier for suggesting this use case!
