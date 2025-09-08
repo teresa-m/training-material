@@ -159,12 +159,8 @@ For your information, execution time for running tools depends on the number of 
 
 > <hands-on-title>Run a public workflow</hands-on-title>
 >
-> - Click on **Workflows** on the vertical panel on the left of the **Galaxy action list**  
-> - Click on **Public Workflows**  
-> - Search for **Argo-Glider Nitrate QCV** (or others) in the top search bar  
-> - Click on the workflow name: a pop-up window opens with a preview of the workflow  
-> - To run it directly: click **Run** (top-right)  
-> - **Recommended**: click **Import** (left of Run) to make your own local copy under *Workflows / My Workflows*  
+> {% snippet faqs/galaxy/workflows_run.md box_type="hands-on" workflows_run="Public Workflows" name="Argo-Glider Nitrate QCV" %}
+> 
 > - When you click **Run**, a panel asks you for the input files:  
 >   - Select the Argo files and climatology uploaded during the [data management phase](#manage-your-data)  
 >   - Once filled in, click **Run** again  
@@ -547,5 +543,6 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
