@@ -36,7 +36,7 @@ The first couple of steps derive from [A short introduction to Galaxy]({% link t
 
 While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
 This tutorial covers the Galaxy basics, from logging in and uploading the texts to using the first tools. 
-We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters and visualizing both in a word cloud. 
+We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters, and visualizing both in a word cloud. 
 Then, we take a closer look. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" is a dominant theme in the first poem, so we extract all lines including "death" for further in-depth analysis. This helps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
 
 > <agenda-title></agenda-title>
@@ -61,14 +61,12 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 
 ## Log in to Galaxy
 
-<!-- to do adapt screenshot / upload / make suitable 4 Europe -->
-
 > <hands-on-title>Log in to Galaxy</hands-on-title>
 > 1. Open your favourite browser (Chrome, Safari, Edge or Firefox as your browser, not Internet Explorer!)
 > 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
 > 3. Log in with your credentials
 >  
-> ![Screenshot of Galaxy Australia with the register or login button highlighted]({% link topics/introduction/images/galaxy-login.png %})
+> ![Screenshot of Galaxy Europe with the register or login button highlighted](../../images/Galaxyeulogin.png)
 >
 >   > <comment-title>Different Galaxy servers</comment-title>
 >   >  This is an image of Galaxy Australia, located at [usegalaxy.org.au](https://usegalaxy.org.au/)
