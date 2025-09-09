@@ -477,7 +477,7 @@ We get two new files as a result. The HTML report and the raw output it is based
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Lines 6-40 of one poem are marked in red. They are not part of the second poem. The couple of lines before and after are identical.
+> > 1. Lines 6-40 of the cheap poem are marked in green. They are not part of the universal poem. The couple of lines before and after are identical.
 > >
 > {: .solution}
 >
