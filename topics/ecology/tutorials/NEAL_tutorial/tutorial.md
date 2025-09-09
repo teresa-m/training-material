@@ -11,9 +11,9 @@ key_points:
 - Get audio data from an external source
 - Start, use and stop an interactive tool
 - Annotate audio files
-contributors:
-  autorship:
-    - PaulineSGN   
+contributions:
+  authorship:
+    - PaulineSGN  
 
 ---
 
