@@ -363,7 +363,9 @@ The word cloud for the second text is created in the same way. We suggest rerunn
 {: .hands_on}
 
 Comparing items from your history is easiest when enabling the window manager and seeing both images side by side.
-<!-- to do: check if FAQ for enabling window manager exists-->
+
+{% snippet faqs/galaxy/features_scratchbook.md %}
+
 
 > <question-title></question-title>
 >
