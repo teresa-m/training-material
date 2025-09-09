@@ -268,11 +268,7 @@ Regular Expressions (RegEx) allow you to search for particular patterns in your 
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
 >
->    > <comment-title> Regular Expressions </comment-title>
->    >
->    > <!-- Todo: add regular expressions FAQ -->
->    {: .comment}
->
+>    {% snippet faqs/galaxy/analysis_regular_expressions.md %}
 {: .hands_on}
 
 And we repeat the same for the second text. Remember to use the redo button if you want to save some time.
@@ -415,7 +411,7 @@ Regular Expressions help again by changing all spaces with line breaks with just
 >
 >    > <comment-title> How do I understand the RegEx commands? </comment-title>
 >    >
->    > Don't worry, if you have never used regular expressions. Several websites help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). But you can find out more here:
+>    > Don't worry, if you have never used regular expressions. Several websites help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). 
 >    {: .comment}
 >
 {: .hands_on}
