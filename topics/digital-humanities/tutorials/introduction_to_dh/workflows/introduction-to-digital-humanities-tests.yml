@@ -10,11 +10,15 @@
       filetype: txt
   outputs:
     WordCloud01:
-      path: test-data/WordCloud01.png
+      asserts:
+        - that: has_size
+          size: 75166
     output01:
       path: test-data/output01.txt
     WordCloud02:
-      path: test-data/WordCloud02.png
+      asserts:
+        - that: has_size
+          size: 63087
     output02:
       path: test-data/output02.txt
     html_file:
