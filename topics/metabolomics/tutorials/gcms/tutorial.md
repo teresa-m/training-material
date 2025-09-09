@@ -40,14 +40,12 @@ contributions:
 
 You may already know that there are different types of *-omic* sciences; out of these, metabolomics is most closely related to phenotypes. Metabolomics involves the study of different types of matrices, such as blood, urine, tissues, in various organisms including plants. It  focuses on studying the very small molecules which are called *metabolites*, to better understand matters linked to the metabolism. However, studying metabolites is not a piece of cake since it requires several critical steps which still have some major bottlenecks. Metabolomics is still quite a young science, and has many kinds of specific challenges.
 
-
 One of the three main technologies used to perform metabolomic analysis is **Gas-Chromatography Mass Spectrometry** (GC-MS). Data analysis for this technology requires a large variety of steps, ranging from extracting information from the raw data, to statistical analysis and annotation. Many packages in R/Python are available for the analysis of GC-MS or LC-MS data - for more details see the reviews by {% cite Stanstrup2019 %} and {% cite Misra2021 %}.
 
 This tutorial explains the main steps involved in untargeted **GC-MS** data processing, to do so we focus on some open-source solutions integrated within the Galaxy framework, namely **XCMS** and **metaMS**. The selected tools and functionalities only covers a small portion of available tools but allow to **perform a complete GC-MS analysis** in a single environment.
-In this tutorial, we will learn how to (1) extract features from the raw data using **XCMS** ({% cite Smith2006 %}), (2) deconvolute the detected features into spectra with **metaMS** ({% cite Wehrens2014 %}) and (3) annotate unknow spectra using spectral database comparison tools. 
+In this tutorial, we will learn how to (1) extract features from the raw data using **XCMS** ({% cite Smith2006 %}), (2) deconvolute the detected features into spectra with **metaMS** ({% cite Wehrens2014 %}) and (3) annotate unknow spectra using spectral database comparison tools.
 
 To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due to time constraints in processing the original dataset, a limited subset of samples was utilized to illustrate the workflow. This subset (see details below) demonstrates the key steps of metabolomics analysis, from pre-processing to annotation. Although the results derived from this reduced sample size may not be scientifically robust, they provide insight into essential methodological foundations of GC-MS data-processing workflow.
-
 
 > <details-title> Algae samples </details-title>
 >
