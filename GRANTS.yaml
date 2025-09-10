@@ -207,9 +207,9 @@ nfdi4culture:
     name: "NFDI4Culture – Consortium for Research Data on Material and Immaterial Cultural Heritage"
     short_name: "NFDI4Culture"
     joined: 2025-08
-    avatar: "https://de.wikipedia.org/wiki/NFDI4Culture#/media/Datei:NFDI4Culture_Logo.png"
+    avatar: "https://upload.wikimedia.org/wikipedia/commons/5/5d/NFDI4Culture_Logo.png"
     github: false
-    url: "https://nfdi4culture.de/"
+    url: https://nfdi4culture.de/
     funder_name: DFG
     funding_id: "441958017"
     funding_database: dfg

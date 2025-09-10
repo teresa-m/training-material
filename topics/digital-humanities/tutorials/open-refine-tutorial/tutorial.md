@@ -17,12 +17,13 @@ key_points:
 - OpenRefine allows you to work interactively with messy data.
 - Galaxy allows you to run workflows with your data.
 - With Galaxy, you can visualise your data in various ways.
-contributors:
-- dianichj
-- dadrasarmin
-- Sch-Da
-funding:
-- NFDI4Culture
+contributions:
+  authorship:
+    - dianichj
+    - dadrasarmin
+    - Sch-Da
+  funding:
+    - nfdi4culture
 answer_histories:
   - label: "UseGalaxy.eu"
     history: https://usegalaxy.eu/u/armin.dadras/h/powerhouse-museum-data-analysis-via-openrefine
