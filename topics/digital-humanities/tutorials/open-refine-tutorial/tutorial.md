@@ -1,7 +1,8 @@
 ---
 layout: tutorial_hands_on
 title: OpenRefine Tutorial for researching cultural data
-zenodo_link: ''
+level: Introductory
+zenodo_link: 'https://doi.org/10.5281/zenodo.17047254'
 questions:
 - How to use OpenRefine in Galaxy to clean your data? 
 - How to use a workflow in Galaxy to extract and visualise information from your data?
@@ -27,10 +28,12 @@ answer_histories:
     history: https://usegalaxy.eu/u/armin.dadras/h/powerhouse-museum-data-analysis-via-openrefine
     date: 2025-08-21 
 ---
+# Background
 
 This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualize data from the **humanities and social sciences**. It has two parts:
 - **Introduction to OpenRefine**, based on {% cite Hooland_2013 %} and adapted for Galaxy.  
 - **Introduction to running Galaxy workflows** to visualize cleaned data and extract specific information.  
+
 
 ## What is OpenRefine?  
 
@@ -64,13 +67,13 @@ In practice, you can iterate on a workflow in a familiar GUI, export the exact d
 >
 {: .agenda}
 
-# Get the data
+# Hands on: Get the data
 
-We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing collection metadata. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and put it on Zenodo for long-term reusability. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* and *what objects does the museum have from that year?*
+We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing collection metadata. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and put it on Zenodo for long-term reusability. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* And *what objects does the museum have from that year?*
 
-**Why this dataset.** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
+**Why this dataset?** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 
-We suggest to you to download the data from the Zenodo record as explained below. This help us with the reproducibility of the resutls.
+We suggest that you download the data from the Zenodo record as explained below. This helps us with the reproducibility of the results.
 
 > <hands-on-title>Upload your data</hands-on-title>
 >
@@ -96,6 +99,8 @@ We suggest to you to download the data from the Zenodo record as explained below
 
 The users will familiarize themselves with the museum's metadata. In the next step, they will clean the metadata using various steps to enhance its quality and accessibility.
 
+## Start OpenRefine
+
 > <hands-on-title>Opening the dataset with OpenRefine</hands-on-title>
 >
 > 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data  
@@ -119,7 +124,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >      <img src="openrefine_interface.png" alt="Open OpenRefine interface">
 >    </p>
 >
-> 5. Click on `Galaxy file`. If the file does not appear, you may have started OpenRefine before it was fully loaded. Retry step 3 and 4 and the file should be visible.
+> 5. Click on `Galaxy file`. If the file does not appear, you may have started OpenRefine before it was fully loaded. Retry steps 3 and 4, and the file should be visible.
 >
 >    <p align="center">
 >      <img src="openrefine_open_project.png" alt="Open OpenRefine Open Project as an input">
@@ -143,6 +148,10 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > >
 > {: .solution}
 {: .question}
+
+Great, now that the dataset is in OpenRefine, we can start cleaning it.
+
+## Remove blank rows
 
 > <hands-on-title>Removing the blank rows</hands-on-title>
 >
@@ -178,13 +187,13 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >      <img src="sort5.png" alt="Facet by blank Record ID">
 >    </p>
 >
-> 7. On the left, a new option appears under `Facet/Filter` with title `Record ID`. Click on `true`.  
+> 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.  
 >
 >    <p align="center">
 >      <img src="sort6.png" alt="Facet by blank true Record ID">
 >    </p>
 >
-> 8. Click on the triangle left to the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.  
+> 8. Click on the triangle to the left of the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.  
 >
 >    <p align="center">
 >      <img src="deduplicate.png" alt="Remove matching rows Record ID">
@@ -205,20 +214,24 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > {: .solution}
 {: .question}
 
+The dataset does not contain any more blank rows now. But we need to do more cleaning to impreove the dataset.
+
+## Use GREL
+
 > <hands-on-title>Find and replace typos using GREL</hands-on-title>
 >
 > To remove the occurance of double pipe \|\| from the file we can do the following:
 > 1. Click on the triangle on the left of `Categories` and select `Text filter`.
-> 2. On the left, using the `Facet/Filter` section, search for the occurance of \| and \|\|. There are 71061 rows with \| and 9 rows with \|\|. We want to remove these 9 lines as they are there by mistake.
-> 3. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
+> 2. On the left, using the `Facet/Filter` section, search for the occurrence of \| and \|\|. There are 71061 rows with \| and 9 rows with \|\|. We want to remove these 9 lines as they are there by mistake.
+> 3. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
 >
 >    <p align="center">
 >      <img src="filter_grel3.png" alt="Custom text transform on column Categories">
 >    </p>
 >
-> We can also remove the double occurance of the same for different entries as follows:
-> 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Transform...`.
+> We can also remove the double occurrence of the same for different entries as follows:
+> 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 >
 >    <p align="center">
 >      <img src="filter_grel.png" alt="Edit cells Categories">
@@ -243,12 +256,13 @@ The users will familiarize themselves with the museum's metadata. In the next st
 > {: .solution}
 {: .question}
 
-Maybe here we explain a bit -Perhaps what atomization is or so... and why is the enxt step. 
+## Atomization
 
 > <hands-on-title>Atomization</hands-on-title>
 >
-> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more > than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
-> 1. Click on the triangle on the left of `Categories` and hover over `edit cells` and click on `Split multi-valued cells...`.
+> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more
+> than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
+> 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Split multi-valued cells...`.
 >
 >    <p align="center">
 >      <img src="split_multi_valued_cells.png" alt="Atomization of Categories">
@@ -262,7 +276,7 @@ Maybe here we explain a bit -Perhaps what atomization is or so... and why is the
 >
 {: .hands_on}
 
-Are you ready for a little challenge? Let investigate the categories column of the museum items.
+Are you ready for a little challenge? Let's investigate the categories column of the museum items.
 
 > <question-title></question-title>
 >
@@ -272,17 +286,19 @@ Are you ready for a little challenge? Let investigate the categories column of t
 > > <solution-title></solution-title>
 > >
 > > 1. 168,476
-> > 2. Click on the triangle on the left of `Categories` and hover over `facet` and move your mouse over `Customized facets` and click on `Facet by blank (null or empty string)`. The `true` value for blank entries is 447.
+> > 2. Click on the triangle on the left of `Categories` and hover over `facet` and move your mouse over `Customized facets`, and click on `Facet by blank (null or empty string)`. The `true` value for blank entries is 447.
 > >
 > {: .solution}
 {: .question}
 
-Now, let's use faceting based on text
+Now, let's use faceting based on text.
+
+## Faceting
 
 > <hands-on-title>Atomization</hands-on-title>
 >
-> 1. Click on the triangle on the left of `Categories` and hover over `facet` and click on`Text facet`.
-> 2. On the left panel, it mentions the number of total choices. The default value of `count limit` is low for this dataset and we should increase it. Click on `Set choice count limit`.
+> 1. Click on the triangle on the left of `Categories`, hover over `facet`, and click on`Text facet`.
+> 2. On the left panel, it mentions the total number of choices. The default value of `count limit` is low for this dataset, and we should increase it. Click on `Set choice count limit`.
 >
 >    <p align="center">
 >      <img src="text_facet.png" alt="Text faceting of atomized Categories">
@@ -294,7 +310,7 @@ Now, let's use faceting based on text
 >      <img src="text_facet2.png" alt="Increasing the limit of text facetring">
 >    </p>
 >
-> 4. Now, you see all categories. Click on `count` to see the categories sorted descendign.
+> 4. Now, you see all categories. Click on `count` to see the categories sorted in descending order.
 >
 >    <p align="center">
 >      <img src="text_facet3.png" alt="Text faceting of atomized Categories sorted by count">
@@ -313,12 +329,15 @@ Now, let's use faceting based on text
 > {: .solution}
 {: .question}
 
+
+## Clustering
+
 The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
 
 > <hands-on-title>Clustering of similar categories</hands-on-title>
 > 
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
-> 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerpring` and change the n-Gram size to `3`.
+> 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerprint` and change the n-Gram size to `3`.
 >
 >    <p align="center">
 >      <img src="cluster.png" alt="Cluster and edit column Categories">
@@ -345,7 +364,9 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 >
 {: .hands_on}
 
-When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer. Then continue with the next hands-on step:
+When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer. 
+
+## Exporting your data back to Galaxy
 
 > <hands-on-title>Exporting the results and history</hands-on-title>
 >
@@ -366,7 +387,7 @@ When you’re happy with your analysis results, choose whether to export the dat
 {: .hands_on}
 
 > <hands-on-title>Exporting the results and history</hands-on-title>
-> Additionally, you can download the tasks you performed using OpenRefine in json format. This way, you can import it later and reproduce the exact same analysis. To do so:
+> Additionally, you can download the tasks you performed using OpenRefine in JSON format. This way, you can import it later and reproduce the exact same analysis. To do so:
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
 >
@@ -383,6 +404,18 @@ When you’re happy with your analysis results, choose whether to export the dat
 >
 {: .hands_on}
 
+# Run a Galaxy Workflow on your cleaned data
+
+Congratulations, you have successfully cleaned your data and improved its quality! 
+But what can you do with it now?
+This depends on your aims as a researcher. For us, it is interesting to extract further information from the data. 
+To make it easy for you, we created a so-called workflow, which links all the tools needed to do this analysis. 
+We wanted to know, from what year the museum had the most objects and what they were. 
+You can follow along and answer those questions with us, or explore the Galaxy tools on your own, to adapt the analysis to your needs. 
+In this case, be sure to check out our other tutorials, particularly the introductory ones.
+
+## How to find and run existing workflows
+
 > <hands-on-title>Run a Galaxy workflow on your dataset</hands-on-title>
 >
 > There are different ways to import or create a workflow to Galaxy. Let's assume that you have imported a workflow to your Galaxy account.
@@ -392,7 +425,7 @@ When you’re happy with your analysis results, choose whether to export the dat
 >      <img src="workflows.png" alt="Workflows button">
 >    </p>
 >
-> 2. Then, you can select and run different workflows (if you have any workflow in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided > to you in this tutorial.
+> 2. Then, you can select and run different workflows (if you have any workflows in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided > to you in this tutorial.
 >
 >    <p align="center">
 >      <img src="select_workflow.png" alt="Select this workflow">
@@ -400,14 +433,14 @@ When you’re happy with your analysis results, choose whether to export the dat
 >
 > 3. Determine the inputs as follows:
 > 3.1. Input: `openrefine-Galaxy file.tsv`
-> 3.2. stop_words_english: `stop_words_english.txt` which is the file we provided to you in this tutorial.
+> 3.2. stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
 >
 >    <p align="center">
 >      <img src="workflow_inputs.png" alt="Determine the inputs of the workflow">
 >    </p>
 >
-> 4. Click on the `Run Workflow` button on top.
-> 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and compelted. When everything is green, your workflow has ran fully and the results are ready.
+> 4. Click on the `Run Workflow` button at the top.
+> 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
 >
 >    <p align="center">
 >      <img src="workflow_overview.png" alt="Overview of the workflow">
@@ -415,454 +448,7 @@ When you’re happy with your analysis results, choose whether to export the dat
 >
 {: .hands_on}
 
-# Worflow here image here =)
-
-Björn suggested we just run and explain a workflow - maybe this passage explaining all the following steps becomes thereby obsolete.
-We can add an image here too.
-
-## Sub-step with **Cut**
-To determine which year most objects in the museum catalogue derive from, we must extract only those years with a precise creation date. 
-Therefore, we first cut the column containing all objects' "Production Date". In this case, column 6, or c6.
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Cut](Cut1) %} with the following parameters:
->    - *"Cut columns"*: `c6`
->    - {% icon param-file %} *"From"*: `output` (Input dataset)
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Filter Tabular**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Filter Tabular](toolshed.g2.bx.psu.edu/repos/iuc/filter_tabular/filter_tabular/3.3.1) %} with the following parameters:
->    - {% icon param-file %} *"Tabular Dataset to filter"*: `out_file1` (output of **Cut** {% icon tool %})
->    - In *"Filter Tabular Input Lines"*:
->        - {% icon param-repeat %} *"Insert Filter Tabular Input Lines"*
->            - *"Filter By"*: `by regex expression matching`
->                - *"regex pattern"*: `-`
->                - *"action for regex match"*: `exclude line if pattern found`
->        - {% icon param-repeat %} *"Insert Filter Tabular Input Lines"*
->            - *"Filter By"*: `by regex expression matching`
->                - *"regex pattern"*: `\d`
->                - *"action for regex match"*: `include line if pattern found`
->        - {% icon param-repeat %} *"Insert Filter Tabular Input Lines"*
->            - *"Filter By"*: `by regex expression matching`
->                - *"regex pattern"*: `BC`
->                - *"action for regex match"*: `exclude line if pattern found`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Column Regex Find And Replace**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Column Regex Find And Replace](toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.3) %} with the following parameters:
->    - {% icon param-file %} *"Select cells from"*: `output` (output of **Filter Tabular** {% icon tool %})
->    - *"using column"*: `c1`
->    - In *"Check"*:
->        - {% icon param-repeat %} *"Insert Check"*
->            - *"Find Regex"*: `AD`
->        - {% icon param-repeat %} *"Insert Check"*
->            - *"Find Regex"*: `\d\d/\d\d/`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: This is not always necessary in every step but if the questions would help, we can always have them! 
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Sort**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Sort Query"*: `out_file1` (output of **Column Regex Find And Replace** {% icon tool %})
->    - In *"Column selections"*:
->        - {% icon param-repeat %} *"Insert Column selections"*
->            - *"on column"*: `c1`
->            - *"in"*: `Descending order`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Remove beginning**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
->    - {% icon param-file %} *"from"*: `outfile` (output of **Sort** {% icon tool %})
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Datamash**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Datamash](toolshed.g2.bx.psu.edu/repos/iuc/datamash_ops/datamash_ops/1.9+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"Input tabular dataset"*: `out_file1` (output of **Remove beginning** {% icon tool %})
->    - *"Group by fields"*: `1`
->    - *"Sort input"*: `Yes`
->    - In *"Operation to perform on each group"*:
->        - {% icon param-repeat %} *"Insert Operation to perform on each group"*
->            - *"On column"*: `c1`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Sort**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Sort Query"*: `out_file` (output of **Datamash** {% icon tool %})
->    - In *"Column selections"*:
->        - {% icon param-repeat %} *"Insert Column selections"*
->            - *"on column"*: `c1`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Bar chart**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Bar chart](barchart_gnuplot) %} with the following parameters:
->    - {% icon param-file %} *"Dataset"*: `outfile` (output of **Sort** {% icon tool %})
->    - *"Use X Tick labels?"*: `Yes`
->        - *"Use this column for X Tick labels"*: `c1`
->    - *"Numerical columns"*: `c['2']`
->    - *"Plot title"*: `Amount of objects `
->
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Sort**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Sort Query"*: `outfile` (output of **Sort** {% icon tool %})
->    - In *"Column selections"*:
->        - {% icon param-repeat %} *"Insert Column selections"*
->            - *"on column"*: `c2`
->            - *"in"*: `Descending order`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Select first**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Select first](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"File to select"*: `outfile` (output of **Sort** {% icon tool %})
->    - *"Number of lines"*: `1`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Cut**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Cut](Cut1) %} with the following parameters:
->    - *"Cut columns"*: `c1`
->    - {% icon param-file %} *"From"*: `outfile` (output of **Select first** {% icon tool %})
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Parse parameter value**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Parse parameter value](param_value_from_file) %} with the following parameters:
->    - {% icon param-file %} *"Input file containing parameter to parse out of"*: `out_file1` (output of **Cut** {% icon tool %})
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Compose text parameter value**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Compose text parameter value](toolshed.g2.bx.psu.edu/repos/iuc/compose_text_param/compose_text_param/0.1.1) %} with the following parameters:
->    - In *"components"*:
->        - {% icon param-repeat %} *"Insert components"*
->            - *"Choose the type of parameter for this field"*: `Text Parameter`
->                - *"Enter text that should be part of the computed value"*: `\t`
->        - {% icon param-repeat %} *"Insert components"*
->            - *"Choose the type of parameter for this field"*: `Text Parameter`
->                - *"Enter text that should be part of the computed value"*: `{'id': 13, 'output_name': 'text_param'}`
->        - {% icon param-repeat %} *"Insert components"*
->            - *"Choose the type of parameter for this field"*: `Text Parameter`
->                - *"Enter text that should be part of the computed value"*: `\t`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Search in textfiles**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Select lines from"*: `output` (Input dataset)
->    - *"Regular Expression"*: `{'id': 14, 'output_name': 'out1'}`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Cut**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Cut](Cut1) %} with the following parameters:
->    - *"Cut columns"*: `c2`
->    - {% icon param-file %} *"From"*: `output` (output of **Search in textfiles** {% icon tool %})
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Generate a word cloud**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `out_file1` (output of **Cut** {% icon tool %})
->    - {% icon param-file %} *"Stopwords file"*: `output` (Input dataset)
->    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
->    - *"Color option"*: `Color`
->    - *"Ratio of times to try horizontal fitting as opposed to vertical"*: `0.3`
->    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
->    - *"Do not add collocations (bigrams) to word cloud"*: `Yes`
->    - *"Whether to remove trailing s from words"*: `Yes`
->
-{: .hands_on}
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
 
 # Conclusion
 
-Sum up the tutorial and the key takeaways here. We encourage adding an overview image of the
-pipeline used.
+Congratulations! You used OpenRefine to clean your data and ran a workflow from Galaxy with your results! You now know how to do basic steps in Galaxy, run OpenRefine as an interactive tool and get your data from Galaxy to OpenRefine and back. On the way, you have learned basic data cleaning, like facetting, to enhance the quality of your data. To extract further information from the cleaned data, running a pre-designed workflow showed you a glimpse into Galaxy. Of course, you can always do your own analysis with the tools most useful for you, instead.
