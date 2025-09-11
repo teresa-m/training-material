@@ -133,7 +133,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 6. Click **Close**
 >
 > 
-> One usegalaxy.eu, you can alternatively access Zenodo directly from within Galaxy:
+> **Option 2:** On usegalaxy.eu, you can alternatively import the Zenodo files directly from a *data library* within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
