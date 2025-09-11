@@ -258,7 +258,7 @@ Regular Expressions (RegEx) allow you to search for particular patterns in your 
 
 > <hands-on-title> Remove Punctuation in Poem One </hands-on-title>
 >
-> 1. Run {% icon workflow-run %} {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
+> 1. Run {% icon workflow-run %} {% tool [Replace Text - in entire line](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `3: Remove beginning on data 1`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
