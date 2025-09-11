@@ -200,6 +200,7 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 >
 > 1. Click on **Tools** {% icon tool %} in the left panel
 > 2. Search for {% tool [Remove beginning](Remove beginning1) %} and pass the following parameters:
+>    - *"Remove first"*: `1` (lines)
 >    - {% icon param-file %} *"from"*: `1: SoY_Cheap_Repo_Source.txt`
 > 3. Click on **Run Tool** {% icon workflow-run %}
 >
