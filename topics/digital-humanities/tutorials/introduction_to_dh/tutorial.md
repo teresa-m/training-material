@@ -5,7 +5,7 @@ title: Introduction to Digital Humanities in Galaxy
 level: Introductory
 zenodo_link: 'https://doi.org/10.5281/zenodo.17053220'
 questions:
-  - How to get started in Galaxy for text-related tasks?  
+  - How to get started in Galaxy for text-related tasks?
 objectives:
   - Log in to Galaxy
   - Upload files to the platform
@@ -32,8 +32,8 @@ The first couple of steps derive from [A short introduction to Galaxy]({% link t
 "The Sorrows of Yamba" was published in 1795 and was among the most popular antislavery poems. However, the version published by Hannah More in the Cheap Repository Tracts series was not the only version of the poem that circulated. Also, Moore's authorship on the topic is contested ({% cite Richardson2003 %}). But while we leave this debate to the experts, the different versions of the poem offer a great opportunity to delve into how digital tools can help us compare texts more quickly. We will do this in the following tutorial.
 
 While Richardson compared the poems by hand, we use his example to introduce how Galaxy can help you with your text analysis.
-This tutorial covers the Galaxy basics, from logging in and uploading the texts to using the first tools. 
-We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters, and visualizing both in a word cloud. 
+This tutorial covers the Galaxy basics, from logging in and uploading the texts to using the first tools.
+We will clean the two poem versions and check the texts from a distance by comparing their number of lines and characters, and visualizing both in a word cloud.
 Then, we take a closer look. For an easier comparison, we reformat both texts and compare them line by line and side by side. As the word cloud shows, "death" is a dominant theme in the first poem, so we extract all lines including "death" for further in-depth analysis. This helps us get a better idea of where those articles differ and is applicable to many other texts you might want to compare.
 
 > <agenda-title></agenda-title>
@@ -62,7 +62,7 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 > 1. Open your favourite browser (Chrome, Safari, Edge or Firefox as your browser, not Internet Explorer!)
 > 2. Browse to your Galaxy instance, for example [Galaxy Europe](https://usegalaxy.eu/)
 > 3. Log in with your credentials
->  
+>
 > ![Screenshot of Galaxy Europe with the register or login button highlighted](../../images/Galaxyeulogin.png)
 >
 >   > <comment-title>Different Galaxy servers</comment-title>
@@ -132,7 +132,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 5. Click **Start**
 > 6. Click **Close**
 >
-> 
+>
 > **Option 2:** On usegalaxy.eu, you can alternatively import the Zenodo files directly from a *data library* within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
@@ -158,15 +158,17 @@ The contents of the file will be displayed in the central Galaxy panel. If the d
 
 > <hands-on-title>View the text files content</hands-on-title>
 > 1. Click the {% icon galaxy-eye %} (eye) icon next to the dataset name, to look at the file content
-> 
+>
 >    ![galaxy history view showing a single dataset mutant_r1.fastq. Display link is being hovered.](../../images/eye-icon.png){:width="520px"}
 >
 > 2. Check the datatype - is it **txt**? Then you are all set. Otherwise, adapt the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
-> 3. Add to each database a tag corresponding to the file's origin.
->    One saying "#cheap" for the file from the cheap repository (SoY_Cheap_Repo_Source.txt) and the other one "#universal" for the second one ( SoY_Univ_Mag_Source.txt) with the hashtag but without the quotation marks. 
+> 3. **Add a tag** to each database a corresponding to the file's origin.
+>    - One saying `#cheap` for the file from the cheap repository (SoY_Cheap_Repo_Source.txt)
+>    - The other one `#universal` for the second one (SoY_Univ_Mag_Source.txt)
+>    - Don't forget the hashtags
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
@@ -175,11 +177,11 @@ The contents of the file will be displayed in the central Galaxy panel. If the d
 
 What are those files?
 
-You can see two text files; they are two versions of the poem "The Sorrows of Yamba". 
+You can see two text files; they are two versions of the poem "The Sorrows of Yamba".
 The file "SoY_Cheap_Repo_Source.txt" is a poem version of Sorrows of Yamba, which was published in the [Cheap Repository](https://archive.org/details/McGillLibrary-PN970_C52_no_42a-1732).
-The file "SoY_Univ_Mag_Source.txt" is another version of the poem, first published in the Universal Magazine in 1797. 
+The file "SoY_Univ_Mag_Source.txt" is another version of the poem, first published in the Universal Magazine in 1797.
 
-Both files start with "Text adapted from:" and a different hyperlink. The second paragraph for both texts begins with "the sorrows of yamba," but the files continue differently. While one gives the year, the other is immediately followed by more text.  
+Both files start with "Text adapted from:" and a different hyperlink. The second paragraph for both texts begins with "the sorrows of yamba," but the files continue differently. While one gives the year, the other is immediately followed by more text.
 Both texts are already pre-cleaned and are entirely in lower case, but still contain punctuation.
 
 It is obvious that the texts have similarities, but they are not identical. Now comes the fun part: Using Galaxy to compare your files. To do that, we first need to clean both files.
@@ -189,7 +191,7 @@ It is obvious that the texts have similarities, but they are not identical. Now 
 ## Delete the hyperlink
 
 
-When looking at the two datasets, you will notice they still contain the hyperlink from their source. 
+When looking at the two datasets, you will notice they still contain the hyperlink from their source.
 As this is metadata and not the text we want to compare, we delete it at the beginning of both files.
 
 
@@ -208,7 +210,7 @@ As this is metadata and not the text we want to compare, we delete it at the beg
 >
 {: .hands_on}
 
-When the job is finished and appears green in your history, click on its name. 
+When the job is finished and appears green in your history, click on its name.
 
 > <question-title></question-title>
 >
@@ -217,7 +219,7 @@ When the job is finished and appears green in your history, click on its name.
 >
 > > <solution-title></solution-title>
 > >
-> > 1. The file now contains only one line. 
+> > 1. The file now contains only one line.
 > > 2. The originally uploaded text contained two lines. You removed one with this step.
 > >
 > {: .solution}
@@ -227,9 +229,15 @@ When the job is finished and appears green in your history, click on its name.
 As a result, only the poem's text remains, while the source was removed for text one.
 Galaxy names the files after the task used to create that step. While this can be helpful, we change the name to a clearer filename.
 
-{% snippet faqs/galaxy/datasets_rename.md %}
+> <hands-on-title> Rename the output</hands-on-title>
+>
+> 1. **Change the name** {% icon galaxy-pencil %} of the output of this tool, which removed the beginning of `SoY_Cheap_Repo_Source.txt`
+>    - Rename it to `SoY_Cheap_Repo.txt`
+>
+>    {% snippet faqs/galaxy/datasets_rename.md %}
+>
+{: .hands_on}
 
-Change the name of the output of this tool, which removed the beginning of `SoY_Cheap_Repo_Source.txt` to `SoY_Cheap_Repo.txt`
 
 We also use this tool on the second file.
 
@@ -239,17 +247,18 @@ We also use this tool on the second file.
 > 1. Run {% icon workflow-run %} {% tool [Remove beginning](Remove beginning1) %} with the following parameters:
 >    - {% icon param-file %} *"from"*: `2: SoY_Univ_Mag_Source.txt`
 >
-> {% snippet faqs/galaxy/tools_rerun.md %}
+>    {% snippet faqs/galaxy/tools_rerun.md %}
+>
 {: .hands_on}
 
-Once it is finished, rename this file to `SoY_Univ_Mag.txt`. 
+Once it is finished, rename this file to `SoY_Univ_Mag.txt`.
 
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
 The hashtag propagates the tags, so all further outputs from this dataset contain the same hashtag, making it much easier to identify what text we are currently working with.
 
 
-Depending on how detailed you want to compare your texts, we suggest further unifying them. In the next step, we remove all the punctuation with one command.  
+Depending on how detailed you want to compare your texts, we suggest further unifying them. In the next step, we remove all the punctuation with one command.
 
 
 ## Remove punctuation
@@ -266,9 +275,14 @@ Regular Expressions (RegEx) allow you to search for particular patterns in your 
 >            - *"Replace with"*: (leave this empty)
 >
 >    {% snippet faqs/galaxy/analysis_regular_expressions.md %}
+>
+> 2. Rename your output file (once it is green) to `SoY_Cheap_Repo_cleaned.txt`
+>
+>    {% snippet faqs/galaxy/datasets_rename.md %}
+>
 {: .hands_on}
 
-Rename your output file (once it is green) to `SoY_Cheap_Repo_cleaned.txt`
+
 
 And we repeat the same for the second text. Remember to use the redo button if you want to save some time.
 
@@ -282,9 +296,10 @@ Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
 >
+> 2. **Rename** {% icon galaxy-pencil %} the output file to `SoY_Univ_Mag.txt_cleaned.txt`
+>
+>
 {: .hands_on}
-
-Once it turns green, rename your output file to `SoY_Univ_Mag.txt_cleaned.txt`
 
 To get an idea of how the two cleaned texts compare, we check out their metadata.
 
@@ -292,16 +307,18 @@ To get an idea of how the two cleaned texts compare, we check out their metadata
 
 ## Compare quantitatively
 
-The tool {% tool [Line/Word/Character count](wc_gnu) %} allows us to get a quick overview of a text. We want to see if the cleaned versions are different from each other. 
+The tool {% tool [Line/Word/Character count](wc_gnu) %} allows us to get a quick overview of a text. We want to see if the cleaned versions are different from each other.
 
 > <hands-on-title> Count the Characters of Poem One </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
 >    - {% icon param-file %} *"Text file"*: `SoY_Cheap_Repo_cleaned.txt`
 >
+> 2. **Rename** {% icon galaxy-pencil %} the output of this step to `Line/Word/Character count Cheap Repo`.
+>
 {: .hands_on}
 
-Rename the output of this step `Line/Word/Character count Cheap Repo`.
+
 
 Once the dataset has finished running and appears green, click on the eye {% icon galaxy-eye %} symbol. You can see how many lines, words and characters the text consists of.
 And again, we run {% icon workflow-run %} the tool on the second poem.
@@ -311,9 +328,10 @@ And again, we run {% icon workflow-run %} the tool on the second poem.
 > 1. Run {% icon workflow-run %} {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
 >    - {% icon param-file %} *"Text file"*: `SoY_Univ_Mag.txt_cleaned.txt`
 >
+> 2. **Rename** {% icon galaxy-pencil%} this output to `Line/Word/Character count Universal` for easier distinction.
+>
 {: .hands_on}
 
-Rename this output `Line/Word/Character count Universal` for easier distinction.
 
 > <question-title>How do the texts compare</question-title>
 >
@@ -322,14 +340,14 @@ Rename this output `Line/Word/Character count Universal` for easier distinction.
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Both texts consist of only two lines. 
+> > 1. Both texts consist of only two lines.
 > > 2. The poem version from the cheap repository is longer, containing 1139 words, more than double the amount of the second poem.
 > >
 > {: .solution}
 >
 {: .question}
 
-The differences between the two texts are quantifiable, but do these also affect the content? 
+The differences between the two texts are quantifiable, but do these also affect the content?
 
 ## Compare visually
 
@@ -418,14 +436,16 @@ Regular Expressions help again by changing all spaces with line breaks with just
 >
 >    > <comment-title> How do I understand the RegEx commands? </comment-title>
 >    >
->    > Don't worry, if you have never used regular expressions. Several websites help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n). 
+>    > Don't worry, if you have never used regular expressions. Several websites help you find out what patterns to detect and how to catch the passages you need. For now, you can just add the symbols that stand for the space (\s) and the line break (\n).
 >    {: .comment}
+>
+> 2. **Rename** {% icon galaxy-pencil %} this text `SoY_Cheap_Repo_word_per_line.txt`.
 >
 {: .hands_on}
 
-Rename this text `SoY_Cheap_Repo_word_per_line.txt`.
 
-When you click on the eye {% icon galaxy-eye %} icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also for the second poem. 
+
+When you click on the eye {% icon galaxy-eye %} icon of the data set in the history now, when the dataset turns green, you can see that it now contains one word per line. To match this, we repeat the step with the same parameters also for the second poem.
 
 
 > <hands-on-title> Changing Layout of Poem Two </hands-on-title>
@@ -437,9 +457,11 @@ When you click on the eye {% icon galaxy-eye %} icon of the data set in the hist
 >            - *"Find pattern"*: `\s`
 >            - *"Replace with:"*: `\n`
 >
+> 2. **Rename** {% icon galaxy-pencil %} this text `SoY_Univ_Mag_word_per_line.txt`.
+>
 {: .hands_on}
 
-Rename this text `SoY_Univ_Mag_word_per_line.txt`.
+
 
 > <question-title></question-title>
 >
@@ -514,9 +536,11 @@ We return to Regular Expressions a third time, but this time we use a different 
 >    > A full stop (.) has its own meaning in regular expressions. It stands for all elements. To show that we do not mean all characters but actually a full stop, we need to escape it in RegEx by putting `\.` instead of `.` if we mean a full stop. We want to add a line break afterwards, which we already learned is indicated as `\n`. The replacement pattern, therefore, is `\.\n`.
 >    {: .comment}
 >
+> 2. **Rename** {% icon galaxy-pencil %} your resulting file to `SoY_Cheap_Repo_sent_per_line.txt`.
+>
 {: .hands_on}
 
-Rename your resulting file to `SoY_Cheap_Repo_sent_per_line.txt`.
+
 
 Remember to redo this step for the second poem when you have finished this step.
 
@@ -532,9 +556,9 @@ Remember to redo this step for the second poem when you have finished this step.
 >            - *"Replace all occurences of the pattern"*: `Yes`
 >            - *"Find and Replace text in"*: `entire line`
 >
+> 2. **Rename** {% icon galaxy-pencil %} your resulting file to `SoY_Univ_Mag_sent_per_line.txt` for easier distinction.
+>
 {: .hands_on}
-
-For easier distinction, rename the output text to Rename your resulting file to `SoY_Univ_Mag_sent_per_line.txt`.
 
 As a result, you get two files, each split at full stops. How can you now extract the sentences that are relevant to you?
 
@@ -554,9 +578,11 @@ Use {% tool [Search in textfiles](toolshed.g2.bx.psu.edu/repos/bgruening/text_pr
 >    > You can see that the tool has many parameters you can tweak.  The ones not mentioned here are kept at the default input, like `Match` and `Perl,` which is the kind of RegEx applied. But you could also select all lines that do not contain death by selecting `Do not match` or extracting lines before or after the line containing the content you chose.
 >    {: .comment}
 >
+> 2. **Rename** {% icon galaxy-pencil %} your output `SoY_Cheap_Repo_death.txt`
+>
 {: .hands_on}
 
-Rename your output `SoY_Cheap_Repo_death.txt`
+
 
 And for the last time, we redo this step for the second poem.
 
@@ -566,22 +592,23 @@ And for the last time, we redo this step for the second poem.
 >    - {% icon param-file %} *"Select lines from"*: `SoY_Univ_Mag_sent_per_line.txt`
 >    - *"Regular Expression"*: `death`
 >
+> 2. **Rename** {% icon galaxy-pencil %} your output `SoY_Univ_Mag_death.txt`.
+>
 {: .hands_on}
 
-Rename your output `SoY_Univ_Mag_death.txt`.
 
 When you enable the window manager at the top bar, you can click on the eye {% icon galaxy-eye %} symbols of your last two outputs and visualize them side by side in two different windows. Six and seven lines from the poem contain the term, respectively. You could analyze them in detail now to see where they differ. While the first lines are nearly identical, the last ones are completely different in both versions of the poem. An intriguing insight for further analysis. No wonder the poems and their many editions have sparked the interest of many researchers.
 
-If you only analyze those two poems, you might find it easier to do those steps manually. But particularly, if you create a workflow out of this, you can reproduce this process with only a few clicks, saving you considerable work. 
+If you only analyze those two poems, you might find it easier to do those steps manually. But particularly, if you create a workflow out of this, you can reproduce this process with only a few clicks, saving you considerable work.
 
-Learn how to [extract a workflow from the above analysis]({% link topics/galaxy-interface/tutorials/history-to-workflow/tutorial.html %}). 
+Learn how to [extract a workflow from the above analysis]({% link topics/galaxy-interface/tutorials/history-to-workflow/tutorial.html %}).
 
-Alternatively, you can make your analysis more complex and extract further differences between the poems automatically to adapt the above analysis. For inspiration, check out 
+Alternatively, you can make your analysis more complex and extract further differences between the poems automatically to adapt the above analysis. For inspiration, check out
 the [advanced tutorial on Text-Mining]({% link topics/digital-humanities/tutorials/text_mining_chinese/tutorial.html %}).
 
 # Conclusion
 
-Congratulations! You just finished your first analysis with Galaxy, well done! The tutorial covered the basic setup of Galaxy and how you can register, log in and upload your material. You are now familiar with terms in Galaxy, like history, dataset, tool, etc. We used several tools, learned to rerun them and how we can see the outputs in different ways. We used various versions of Regular Expressions to rearrange and clean your text. We also reshaped the text to compare it with the `diff` tool. In the end, we extracted notable sentences for further close reading. 
+Congratulations! You just finished your first analysis with Galaxy, well done! The tutorial covered the basic setup of Galaxy and how you can register, log in and upload your material. You are now familiar with terms in Galaxy, like history, dataset, tool, etc. We used several tools, learned to rerun them and how we can see the outputs in different ways. We used various versions of Regular Expressions to rearrange and clean your text. We also reshaped the text to compare it with the `diff` tool. In the end, we extracted notable sentences for further close reading.
 The workflow created from this history would look as follows:
 
  ![Screenshot of Workflow extracted from the Tutorial Introduction to DH](../../images/WF_Intro_to_DH.png)
