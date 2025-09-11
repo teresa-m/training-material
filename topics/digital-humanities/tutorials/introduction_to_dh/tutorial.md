@@ -26,8 +26,6 @@ contributions:
     - deKCD
 ---
 
-<!-- This is a comment. -->
-
 Loosely building on {% cite Richardson2003 %}, this tutorial compares two editions of the poem "The Sorrows of Yamba".[^1]
 The first couple of steps derive from [A short introduction to Galaxy]({% link topics/introduction/tutorials/galaxy-intro-short/tutorial.html %}).
 
