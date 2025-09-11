@@ -263,6 +263,7 @@ Regular Expressions (RegEx) allow you to search for particular patterns in your 
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
+>            - *"Replace with"*: (leave this empty)
 >
 >    {% snippet faqs/galaxy/analysis_regular_expressions.md %}
 {: .hands_on}
