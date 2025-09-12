@@ -66,7 +66,7 @@ Alternatively, you can log in using a single sign-on of your choice, for example
 > ![Screenshot of Galaxy Europe with the register or login button highlighted](../../images/Galaxyeulogin.png)
 >
 >   > <comment-title>Different Galaxy servers</comment-title>
->   >  This is an image of Galaxy Australia, located at [usegalaxy.org.au](https://usegalaxy.org.au/)
+>   >  This is an image of Galaxy Europe, located at [usegalaxy.eu](https://usegalaxy.eu)
 >   >
 >   > The particular Galaxy server you are using may look slightly different and have a different web address.
 >   >
@@ -133,7 +133,7 @@ The "Activity Bar" can be seen on the left-most part of the interface.
 > 6. Click **Close**
 >
 >
-> **Option 2:** On usegalaxy.eu, you can alternatively import the Zenodo files directly from a *data library* within Galaxy:
+> **Option 2:** On [usegalaxy.eu](https://usegalaxy.eu), you can alternatively import the Zenodo files directly from a *data library* within Galaxy:
 >
 > 1. At the top of the **Activity Bar**, click the {% icon galaxy-upload %} **Upload** activity
 > 2. Click on the bottom of the newly opened window on **Choose from repository**.
@@ -248,10 +248,12 @@ We also use this tool on the second file.
 >    - {% icon param-file %} *"from"*: `2: SoY_Univ_Mag_Source.txt`
 >
 >    {% snippet faqs/galaxy/tools_rerun.md %}
+> 
+> 2. Once it is finished, rename this file to `SoY_Univ_Mag.txt`.
 >
 {: .hands_on}
 
-Once it is finished, rename this file to `SoY_Univ_Mag.txt`.
+
 
 Click on the finished dataset that just appeared in your history. Check that it starts with the poem text and that the hyperlink is removed.
 To quickly see which version of the poems we have, we rename both datasets with clearer names and add tags based on the text origin.
