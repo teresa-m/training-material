@@ -79,7 +79,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 > <hands-on-title>Upload your data</hands-on-title>
 >
 > 1. Create a new history for this tutorial and name it "Powerhouse Museum — OpenRefine"
-> 2. Import the AnnData file from [Zenodo]({{page.zenodo_link}}):
+> 2. Import the file from [Zenodo]({{page.zenodo_link}}):
 >
 >    ```
 >    {{ page.zenodo_link }}/files/ncm_pdcs_subset.h5ad #example needs to be replaced
@@ -215,7 +215,7 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 > {: .solution}
 {: .question}
 
-The dataset does not contain any more blank rows now. But we need to do more cleaning to impreove the dataset.
+The dataset does not contain any more blank rows now. But we need to do more cleaning to improve the dataset.
 
 ## Use GREL
 
@@ -426,22 +426,22 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >      <img src="workflows.png" alt="Workflows button">
 >    </p>
 >
-> 2. Then, you can select and run different workflows (if you have any workflows in your account). Here, let's click on the Run button (({% icon workflow-run %})) of the workflow we provided > to you in this tutorial.
+> 2. Then, you can select and run different workflows (if you have any workflows in your account). Here, let's click on the Run button ({% icon workflow-run %}) of the workflow we provided to you in this tutorial.
 >
 >    <p align="center">
 >      <img src="select_workflow.png" alt="Select this workflow">
 >    </p>
 >
 > 3. Determine the inputs as follows:
-> 3.1. Input: `openrefine-Galaxy file.tsv`
-> 3.2. stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
+>    Input: `openrefine-Galaxy file.tsv`
+>    stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
 >
 >    <p align="center">
 >      <img src="workflow_inputs.png" alt="Determine the inputs of the workflow">
 >    </p>
 >
-> 4. Click on the `Run Workflow` button at the top.
-> 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
+> 5. Click on the `Run Workflow` button at the top.
+> 6. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
 >
 >    <p align="center">
 >      <img src="workflow_overview.png" alt="Overview of the workflow">
@@ -449,6 +449,8 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >
 {: .hands_on}
 
+What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of what year most elements in the museum derive from, we first cut the column of production time from the table and filter only dates from the table that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset that is supposed to be created in 2041 is part of the table. We remove it. Datamash allows for summing up how many elements came to the museum in what year.  The ascending order, we visualise in a bar chart. To find out from what year most objects derive, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
+As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.   
 
 # Conclusion
 
