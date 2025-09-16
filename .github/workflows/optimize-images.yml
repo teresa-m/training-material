@@ -49,3 +49,4 @@ jobs:
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           body: ${{ steps.calibre.outputs.markdown }}
+          draft: always-true
