@@ -344,7 +344,7 @@ An important aspect of untargeted metabolomics is the definition of unknowns—f
 
 One strenght of **metaMS** is its ability to use pseudo-spectre (1) for alignement of unknows between samples and (2) to compare unknown experimental pseudo-spectra to previously created in-house spectra databse (in MSP format). By doing so **metaMS** *runGC* function can serve as an annotation tool. You just have to set  - *"Use Personnal DataBase option"* : `show` and add you in-house database file as input.
 
-The *runGC* process will always create an MSP file as output (either with only unknown spectra or with a mix of annotatetd ones and unknowns). That MSP file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search a [PDF tutorial is available](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
+The *runGC* process will always create an MSP file as output (either with only unknown spectra or with a mix of annotated ones and unknowns). That MSP file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search (as shown in the following [PDF tutorial](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
 
 For large numbers of samples, this process can take quite some time (it scales quadratically), especially if the allowed difference in retention time is large. The result now is a list of two elements: the first is the annotation table that we also saw after the comparison with the database, and the second is a list of pseudo-spectra corresponding to unknowns. 
 
