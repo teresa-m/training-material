@@ -25,7 +25,6 @@ contributions:
   funding:
     - fairease
     - eurosciencegateway
-draft: true
 ---
 
 The next sections explain how to qualify and calibrate the nitrate sensor mounted on the Argo float **4903881** either tool by tool or by running a pre-defined Galaxy workflow.  
@@ -543,6 +542,7 @@ You may validate in two ways:
 # Extra information
 
 Coming up soon even more tutorials on and other Earth-System related trainings. Keep an {% icon galaxy-eye %} open if you are interested!
+
 
 
 
