@@ -9,7 +9,7 @@ questions:
 - What are the main steps for gas chromatography-mass spectrometry (GC-MS) data processing for untargeted metabolomic analysis?
 - How to conduct metabolomic GC-MS data analysis from preprocessing to annotation using Galaxy?
 objectives: 
-- To be sure you have already comprehend the diversity of MS pre-processing analysis. 
+- To confirm you have already comprehend the diversity of MS pre-processing analysis. 
 - To learn the principal functions of metaMS package for GC-MS data processing through Galaxy.
 - To evaluate the potential of two workflow approaches and available Galaxy tools when dealing with GC-MS metabolomic analysis. 
 time_estimation: 2H 
