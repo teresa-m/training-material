@@ -2,7 +2,7 @@
 layout: tutorial_hands_on
 draft: false
 
-title: 'Mass spectrometry : GC-MS analysis with metaMS package'
+title: 'Mass spectrometry: GC-MS analysis with the metaMS package'
 level: Introductory
 zenodo_link: 'https://zenodo.org/records/16538501' 
 questions: 
