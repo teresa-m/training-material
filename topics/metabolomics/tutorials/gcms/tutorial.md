@@ -10,7 +10,7 @@ questions:
 - How to conduct metabolomic GC-MS data analysis from preprocessing to annotation using Galaxy?
 objectives: 
 - To confirm you have already comprehend the diversity of MS pre-processing analysis. 
-- To learn the principal functions of metaMS package for GC-MS data processing through Galaxy.
+- To discover the principal functions of the metaMS package for GC-MS data processing available in Galaxy.
 - To evaluate the potential of two Galaxy-based workflow approaches when dealing with GC-MS metabolomic analysis. 
 time_estimation: 2H 
 key_points: 
