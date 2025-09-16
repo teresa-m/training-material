@@ -11,7 +11,7 @@ questions:
 objectives: 
 - To confirm you have already comprehend the diversity of MS pre-processing analysis. 
 - To learn the principal functions of metaMS package for GC-MS data processing through Galaxy.
-- To evaluate the potential of two workflow approaches and available Galaxy tools when dealing with GC-MS metabolomic analysis. 
+- To evaluate the potential of two Galaxy-based workflow approaches when dealing with GC-MS metabolomic analysis. 
 time_estimation: 2H 
 key_points: 
 - To process untargeted GC-MS metabolomic data preprocessing, you need a large variety of steps and tools.
