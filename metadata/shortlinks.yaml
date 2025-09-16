@@ -697,6 +697,7 @@ name:
   statistics/flexynesis_classification: "/topics/statistics/tutorials/flexynesis_classification/tutorial.html"
   statistics/flexynesis_survival: "/topics/statistics/tutorials/flexynesis_survival/tutorial.html"
   statistics/flexynesis_unsupervised: "/topics/statistics/tutorials/flexynesis_unsupervised/tutorial.html"
+  digital-humanities/introduction_to_dh: "/topics/digital-humanities/tutorials/introduction_to_dh/tutorial.html"
 id:
   T00000: "/topics/admin/tutorials/ansible/tutorial.html"
   T00001: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
@@ -2406,6 +2407,8 @@ id:
   W00359: "/topics/statistics/tutorials/flexynesis_survival/workflows/main_workflow.html"
   W00360: "/topics/statistics/tutorials/flexynesis_unsupervised/workflows/main_workflow.html"
   E00035: "/events/2025-11-24-gat-brno.html"
+  T00557: "/topics/digital-humanities/tutorials/introduction_to_dh/tutorial.html"
+  W00361: "/topics/digital-humanities/tutorials/introduction_to_dh/workflows/introduction-to-digital-humanities.html"
 misc:
   ansible-galaxy: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
   feeds: "/feeds/index.html"
