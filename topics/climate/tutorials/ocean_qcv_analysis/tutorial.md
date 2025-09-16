@@ -160,7 +160,8 @@ For your information, execution time for running tools depends on the number of 
 
 > <hands-on-title>Run a public workflow</hands-on-title>
 >
-> {% snippet faqs/galaxy/workflows_run.md box_type="hands-on" workflows_run="Public Workflows" name="Argo-Glider Nitrate QCV" %}
+> {% snippet faqs/galaxy/workflows_run.md box_type="none" workflows_run="Public Workflows" name="Argo-Glider Nitrate QCV" %}
+
 >
 > - When you click **Run**, a panel asks you for the input files:
 >   - Select the Argo files and climatology uploaded during the [data management phase](#manage-your-data)
