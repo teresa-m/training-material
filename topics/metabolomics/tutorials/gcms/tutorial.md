@@ -407,7 +407,7 @@ This option follows the standard **XCMS** workflow with GC-MS data at start to o
 The outputs of this strategy are similar to the ones described in the LC-MS tutotial mentioned previously. 
 
 
-Before going to the next step of your GC-MS data processing, here are some questions to be able to verify if your files are ready and if you have the same results as us. Please check these questions : 
+To recap your 'option 2' journey, here are some questions to check the outcomes of your hands-on: 
 
 
 > <question-title>getting an overview of your GC-MS processing steps</question-title>
