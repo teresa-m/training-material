@@ -31,7 +31,6 @@ editorial_board:
 - shiltemann
 - bebatut
 - BirdmanRidesAgain
-- BirdmanRidesAgain
 
 pathway:
   - section: "Module 1: Create a Galaxy CoDex for your community"
