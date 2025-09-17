@@ -62,7 +62,7 @@ In this tutorial we use **XCMS** to detect chromatographic peaks within our samp
 
 
 > <comment-title></comment-title>
-> In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users [Link to Metabolomics GTN]({% link /topics/metabolomics/ %})
+> In Galaxy other GC-MS data processing workflows are available and may be of interest for more advanced Galaxy users (see the [Metabolomics section]({% link /topics/metabolomics/ %})).
 {: .comment}
 
 > <agenda-title></agenda-title>
