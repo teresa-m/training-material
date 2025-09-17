@@ -53,7 +53,7 @@ To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due t
 > 
 > The study utilized a **freshwater strain** of Ectocarpus and a **marine strain** for comparative analysis. The algae were cultured in media with varying salinities, prepared by diluting natural seawater or adding NaCl. The algae were acclimated to these conditions before extraction.
 > 
-> The six samples used in this training were analyzed by GC-MS (low resolution instrument). A marine strain raised in sea water media (2 replicates) and freshwater strains raised in either 5% or 100% sea water media (2 replicates each). [Dataset available on Zenodo](https://zenodo.org/records/16538501)
+> The six samples used in this training were analyzed by GC-MS (low resolution instrument). A marine strain raised in sea water media (2 replicates) and freshwater strains raised in either 5% or 100% sea water media (2 replicates each). The training dataset is [available on Zenodo](https://zenodo.org/records/16538501)
 >
 {: .details}
 
