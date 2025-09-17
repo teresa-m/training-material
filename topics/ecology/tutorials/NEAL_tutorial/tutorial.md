@@ -44,25 +44,31 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 > 1. Create a new history for this tutorial and give it a name, e.g., "NEAL tutorial" for you to find it again later if needed.
 >
+>     {% snippet faqs/galaxy/histories_create_new.md %}
+>
+>     {% snippet faqs/galaxy/histories_rename.md %}
+> 
 > 2. Import the example audio file from [xeno-canto](https://xeno-canto.org/1008421/download)
 >    
 >    Audio file :
+>    
 >    ```
 >    https://xeno-canto.org/1008421/download
 >    ```
+>    
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
 >
 >    {% snippet faqs/galaxy/datasets_import_from_remote_files.md %}
 >
-> 3. Rename the dataset (default name: *Downloaded*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier.
+> 4. Rename the dataset (default name: *Downloaded*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier.
 >
 >    {% snippet faqs/galaxy/datasets_rename.md %}
 >
-> 4. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
+> 5. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md %}
 >
-> 5. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
+> 6. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
