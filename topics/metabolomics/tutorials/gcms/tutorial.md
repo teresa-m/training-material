@@ -366,7 +366,7 @@ This method provides a more reliable estimate that is less affected by random fl
 In practical terms, rather than relying on just one or two ions to quantify a compound (which could be unreliable if those specific ions have problems), metaMS considers the entire ion pattern of the pseudospectrum. It calculates an overall "area" using this regression factor.
 This approach minimizes the impact of noisy or problematic peaks while making use of all available information - giving you a more robust and trustworthy measurement for each compound in your GC-MS analysis.
 
-In both cases, the result is a list containing a set of patterns corresponding with the compounds that have been found, either annotated or unknown, the relative intensities of these patterns in the individual annotations, and possibly the xcmsSetobject for further inspection. In practice, the *runGC* function is all that users need to use.
+In both cases, the result is a list containing a set of patterns corresponding with the compounds that have been found (either annotated or unknown), the relative intensities of these patterns in the individual annotations, and possibly the xcmsSet object for further inspection. In practice, the *runGC* function is all that users need to use.
 
 # Take a look at your results after metaMS processing
 
