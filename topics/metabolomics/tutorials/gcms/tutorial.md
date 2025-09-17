@@ -464,7 +464,7 @@ Don't forget to always check your files format!
 > >
 > {: .tip}
 >
-> To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history (the option is hidden behind the notched wheel at the top right of the history).
+> To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history.
 > 
 >
 > You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, when begining further processing steps (as statistics), we highly recommend you (in particular if you have used the option 2) to first rename your datasets **with something short**, e.g. "dataMatrix", "variableMetadata", or anything not too long that you may find convenient.
