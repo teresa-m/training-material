@@ -297,8 +297,9 @@ Also in text two, we search for the pattern `[[:punct:]]` and omit a replacement
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `[[:punct:]]`
+>            - *"Replace with"*: (leave this empty)
 >
-> 2. **Rename** {% icon galaxy-pencil %} the output file to `SoY_Univ_Mag.txt_cleaned.txt`
+> 2. **Rename** {% icon galaxy-pencil %} the output file to `SoY_Univ_Mag_cleaned.txt`
 >
 >
 {: .hands_on}
@@ -328,7 +329,7 @@ And again, we run {% icon workflow-run %} the tool on the second poem.
 > <hands-on-title> Count the Characters of Poem Two </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Line/Word/Character count](wc_gnu) %} with the following parameters:
->    - {% icon param-file %} *"Text file"*: `SoY_Univ_Mag.txt_cleaned.txt`
+>    - {% icon param-file %} *"Text file"*: `SoY_Univ_Mag_cleaned.txt`
 >
 > 2. **Rename** {% icon galaxy-pencil%} this output to `Line/Word/Character count Universal` for easier distinction.
 >
@@ -377,7 +378,7 @@ The word cloud for the second text is created in the same way. We suggest rerunn
 > <hands-on-title> Visualize the Content of Poem Two </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Generate a word cloud](toolshed.g2.bx.psu.edu/repos/bgruening/wordcloud/wordcloud/1.9.4+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Input file"*: `SoY_Univ_Mag.txt_cleaned.txt` (output of **Replace Text** {% icon tool %})
+>    - {% icon param-file %} *"Input file"*: `SoY_Univ_Mag_cleaned.txt` (output of **Replace Text** {% icon tool %})
 >    - *"Do you want to select a special font?"*: `Use the default DroidSansMono font`
 >    - *"Color option"*: `Color`
 >    - *"Scaling of words by frequency (0 - 1)"*: `0.8`
@@ -453,7 +454,7 @@ When you click on the eye {% icon galaxy-eye %} icon of the data set in the hist
 > <hands-on-title> Changing Layout of Poem Two </hands-on-title>
 >
 > 1. Run {% icon workflow-run %} {% tool [Replace Text - in entire line](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"File to process"*: `SoY_Univ_Mag.txt_cleaned.txt`
+>    - {% icon param-file %} *"File to process"*: `SoY_Univ_Mag_cleaned.txt`
 >    - In *"Replacement"*:
 >        - {% icon param-repeat %} *"Insert Replacement"*
 >            - *"Find pattern"*: `\s`

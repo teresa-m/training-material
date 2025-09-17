@@ -434,6 +434,9 @@ bfranicevic:
     affiliations:
       - elixir-europe
 
+BirdmanRidesAgain :
+    name : Keiler Collier
+    joined: 2025-08
 
 breakthewall:
     name: Joan Hérisson
@@ -2370,6 +2373,13 @@ polkhe:
     affiliations:
       - uni-freiburg
 
+pokapok-vracape:
+    name: Virginie Racape
+    joined: 2025-08
+    email: virginie.racape@pokapok.org
+    affiliations:
+      - fairease
+      
 ppalagi:
     name: Patricia Palagi
     joined: 2022-09
