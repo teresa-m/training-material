@@ -410,7 +410,7 @@ The outputs of this strategy are similar to the ones described in the LC-MS tuto
 Before going to the next step of your GC-MS data processing, here are some questions to be able to verify if your files are ready and if you have the same results as us. Please check these questions : 
 
 
-> <question-title>before going to further GC-MS processing steps</question-title>
+> <question-title>getting an overview of your GC-MS processing steps</question-title>
 > 
 >  **1** - What are the steps of XCMS you made before your final file ?
 > > <solution-title></solution-title>
