@@ -24,6 +24,7 @@ contributions:
     - paulzierep
     - scorreard
     - BirdmanRidesAgain
+    - BirdmanRidesAgain
 
 ---
 
