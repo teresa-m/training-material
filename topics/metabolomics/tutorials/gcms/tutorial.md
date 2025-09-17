@@ -47,7 +47,7 @@ In this tutorial, we will learn how to (1) extract features from the raw data us
 
 To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due to time constraints in processing the original dataset, a limited subset of samples was used to illustrate the workflow. This subset (see details below) demonstrates the key steps of metabolomics analysis, from pre-processing to annotation. Although the results derived from this reduced sample size may not be scientifically robust, they provide insight into essential methodological foundations of GC-MS data-processing workflow.
 
-> <details-title> Algae samples </details-title>
+> <details-title> About the data - Algae samples </details-title>
 >
 > The objective of this study was to investigate the adaptation mechanisms of the brown algae *Ectocarpus* to low-salinity environments. The research focused on examining physiological tolerance and metabolic changes in freshwater and marine strains of *Ectocarpus*. Using transcriptomic (gene expression profiling) and metabolic analyses, the authors identified significant, reversible changes occurring in the freshwater strain when exposed to seawater. Both strains exhibited similarities in gene expression under identical conditions; however, substantial differences were observed in metabolite profiles.
 > 
