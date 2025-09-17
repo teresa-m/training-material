@@ -65,7 +65,7 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 > 4. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
 >
->    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
+>    {% snippet faqs/galaxy/datasets_change_datatype.md %}
 >
 > 5. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
 >
