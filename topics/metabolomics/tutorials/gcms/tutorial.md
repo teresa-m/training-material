@@ -356,7 +356,7 @@ At this stage, all elements are complete: we have the list of pseudo-spectra wit
 ![Match spectra](../../images/tuto_gcms_finale_table.png "Final table with unknowns and compounds found during **metaMS** processus")
 
 The first five lines are the standards, and the next ones are the unknowns that are identified by the pipeline. For each sample, "relative intensities" calculated by **metaMS** are given.
-In the manual interpretation of this kind of data, the intensities of one or two “highly specific” features (called quantifiers) are often used to achieve relative quantitation. In **metaMS** the reported intensities are calculated differentlty.
+In the manual interpretation of this kind of data, the intensities of one or two “highly specific” features (called quantifiers) are often used to achieve relative quantitation. In **metaMS** the reported intensities are calculated differently.
 
 In metaMS, the main measurement for each compound (pseudospectrum) works differently than you might expect. Instead of simply adding up the intensities of different ions belonging to on compound, the package compares what it observes to a "reference model" - think of this as a known fingerprint from a database or a standard sample.
 This comparison uses a statistical method called robust linear regression. Here's what this means in simple terms: the software looks for the best scaling factor that makes the observed spectrum match the reference model as closely as possible, while automatically reducing the influence of any unusual or problematic peaks that don't fit the pattern.
