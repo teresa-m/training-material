@@ -49,7 +49,7 @@ To illustrate this approach, we will use data from {% cite Dittami2012 %}. Due t
 
 > <details-title> About the data - Algae samples </details-title>
 >
-> The objective of this study was to investigate the adaptation mechanisms of the brown algae *Ectocarpus* to low-salinity environments. The research focused on examining physiological tolerance and metabolic changes in freshwater and marine strains of *Ectocarpus*. Using transcriptomic (gene expression profiling) and metabolic analyses, the authors identified significant, reversible changes occurring in the freshwater strain when exposed to seawater. Both strains exhibited similarities in gene expression under identical conditions; however, substantial differences were observed in metabolite profiles.
+> The objective of the study conducted by Dittami *et al.* was to investigate the adaptation mechanisms of the brown algae *Ectocarpus* to low-salinity environments. The research focused on examining physiological tolerance and metabolic changes in freshwater and marine strains of *Ectocarpus*. Using transcriptomic (gene expression profiling) and metabolic analyses, the authors identified significant, reversible changes occurring in the freshwater strain when exposed to seawater. Both strains exhibited similarities in gene expression under identical conditions; however, substantial differences were observed in metabolite profiles.
 > 
 > The study utilized a **freshwater strain** of Ectocarpus and a **marine strain** for comparative analysis. The algae were cultured in media with varying salinities, prepared by diluting natural seawater or adding NaCl. The algae were acclimated to these conditions before extraction.
 > 
