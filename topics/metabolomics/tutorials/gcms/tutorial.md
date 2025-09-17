@@ -449,7 +449,7 @@ To recap your 'option 2' journey, here are some questions to check the outcomes 
 ># Verify your data after the pre-processing and clean datasets
 >
 >When you have processed **all or only needed** steps described before, you can continue the processing of your data with statistics or annotation tools. 
-Don't forget to always check your files format! 
+Don't forget to always check your files' format for compatibility with further analysis! 
 >
 >The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. We highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. You should also be able to make adjust peak picking parameters in the future in the same history and it will not be polluted by statistical analysis part of your process.
 >
