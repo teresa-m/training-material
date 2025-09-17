@@ -372,7 +372,7 @@ In both cases, the result is a list containing a set of patterns corresponding w
 
  The [xcm plot chromatogram]{% tool toolshed.g2.bx.psu.edu/repos/lecorguille/xcms_plot_chromatogram/xcms_plot_chromatogram/3.12.0+galaxy3 %} part allows users to see the TIC (Total Ion Chromatogram), BPC (Base Peak Chromatogram). 
 
-If you separated your samples into different classes, this tool can constructs TICs and BPCs one class against one class, in a `pdf` file (Figure 5) : 
+If you separated your samples into different classes, this tool can constructs TICs and BPCs one class against one class, in a `pdf` file (see bellow). 
 
 ![TIC](../../images/tuto_gcms_tic.png "TIC comparing 2 classes")
 
