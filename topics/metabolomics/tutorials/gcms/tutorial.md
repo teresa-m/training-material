@@ -412,12 +412,12 @@ To recap your 'option 2' journey, here are some questions to check the outcomes 
 
 > <question-title>getting an overview of your GC-MS processing steps</question-title>
 > 
->  **1** - What are the steps of XCMS you made before your final file ?
+>  **1** - What are the XCMS steps you made in order to obtain your final file RData file?
 > > <solution-title></solution-title>
 > > 
-> > Here are the different steps made for our example : 
-> >  - **(Not with XCMS)** import your datas into Galaxy instance
-> >  - **MSNbase readMSData** {% icon tool %} to read our MS datas
+> > Here are the different steps made through this tutorial: 
+> >  - **(Not with XCMS)** import of the data into the Galaxy instance
+> >  - **MSNbase readMSData** {% icon tool %} to read and prepare the MS data for the extraction step
 > >  - XCMS peak picking with **xcms findChromPeaks (xcmsSet)** {% icon tool %} tool
 > >  - (Not with XCMS but necessary) merge my datas into one file with **xcms findChromPeaks Merger** {% icon tool %} tool
 > >  - XCMS grouping with **xcms groupChromPeaks (group)** {% icon tool %} tool
