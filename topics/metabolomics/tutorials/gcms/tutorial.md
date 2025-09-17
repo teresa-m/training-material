@@ -400,7 +400,7 @@ This option follows the standard **XCMS** workflow with GC-MS data at start to o
 >        - *"Reported intensity values"*: `maxo`
 >
 > > <comment-title></comment-title>
-> > After **XCMS** extraction of MSP formated spectra can be done with **RAMclustR**{% icon tool %} tool (See this [GTN on GC-MS data processing]({% link topics/metabolomics/tutorials/gc_ms_with_xcms/tutorial.md %})).
+> > After the **XCMS** processing, the extraction of the MSP-formated spectra can be done using **RAMclustR**{% icon tool %} tool (See this [GTN on GC-MS data processing with XCMS, RAMClustR, RIAssigner, and matchms]({% link topics/metabolomics/tutorials/gc_ms_with_xcms/tutorial.md %})).
 > {: .comment}
 {: .hands_on}
 
