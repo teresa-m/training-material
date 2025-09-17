@@ -374,7 +374,7 @@ In both cases, the result is a list containing a set of patterns corresponding w
 
 If you separated your samples into different classes, this tool can constructs TICs and BPCs one class against one class, in a `pdf` file (see bellow). 
 
-![TIC](../../images/tuto_gcms_tic.png "TIC comparing 2 classes")
+![The image is a capture of an example of result picture of a TIC one can obtain when comparing two groups.](../../images/tuto_gcms_tic.png "Example of a TIC comparing 2 classes")
 
 </div>
 
