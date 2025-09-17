@@ -429,7 +429,7 @@ To recap your 'option 2' journey, here are some questions to check the outcomes 
 >  **2** - Concerning what we said before and the previous answer, what is the complete name of your final RData file ?
 > > <solution-title></solution-title>
 > > 
-> > During each step of XCMS pre-processing, the name of the file which is processing is completed by the name of the step you were doing. So, finally your file should be name `xset.merged.groupChromPeaks.fillChromPeaks.RData`. That because (as seen in previous answer) you ran a grouping and the integration after merged datas.
+> > During each step of the XCMS pre-processing, the name of the file which is processed is completed by the name of the step you used. So, finally your file should be named `xset.merged.groupChromPeaks.fillChromPeaks.RData`. That means (as seen in the previous question) you have run the findChromPeaks (xcmsSet) step, then a merge, a grouping and finally the filling of missing data.
 > > 
 > > 
 > {: .solution}
