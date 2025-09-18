@@ -82,7 +82,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 > 2. Import the file from [Zenodo]({{page.zenodo_link}}):
 >
 >    ```
->    {{ page.zenodo_link }}/files/ncm_pdcs_subset.h5ad #example needs to be replaced
+>    https://zenodo.org/records/17047254
 >    ```
 >
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
@@ -419,7 +419,19 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 
 > <hands-on-title>Run a Galaxy workflow on your dataset</hands-on-title>
 >
-> There are different ways to import or create a workflow to Galaxy. Let's assume that you have imported a workflow to your Galaxy account.
+> There are different ways to import or create a workflow to Galaxy. For example, you can import a workflow from the registered workflows on [WorkflowHub](https://workflowhub.eu/) which is a registry for describing, sharing, and publishing scientific computational workflows. To do that, you have to navigate to the [WorkflowHub](https://workflowhub.eu/) and find the workflow of interest. In this tutorial, we are working [with this workflow](https://workflowhub.eu/workflows/1884?version=1). When you open the link to this workflow on WorkflowHub, you see the following page:
+>
+>    <p align="center">
+>      <img src="workflowhub.png" alt="Workflowhub page">
+>    </p>
+>
+> Please click on the `Run on Galaxy` button on top right. After doing this, you will be redirected to your Galaxy account and see the workflow automatically in your middle panel as follows:
+>
+>    <p align="center">
+>      <img src="workflow.png" alt="Workflow imported to Galaxz">
+>    </p>
+>
+> Let's assume that you have imported a workflow to your Galaxy account.
 > 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
 >
 >    <p align="center">
@@ -451,6 +463,10 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 
 What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of what year most elements in the museum derive from, we first cut the column of production time from the table and filter only dates from the table that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset that is supposed to be created in 2041 is part of the table. We remove it. Datamash allows for summing up how many elements came to the museum in what year.  The ascending order, we visualise in a bar chart. To find out from what year most objects derive, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
 As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.   
+
+<p align="center">
+<img src="display_1969.png" alt="Word cloud of objects' descriptions">
+</p>
 
 # Conclusion
 
