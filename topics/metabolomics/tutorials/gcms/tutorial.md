@@ -157,7 +157,7 @@ The first part of data processing is using the **XCMS** tool to detect peaks in 
 >    
 {: .hands_on}
 
-As a result of this step, you should have in our history a new green dataset called `input.raw.RData` that will serve as input for next processing step: **peak picking**.
+As a result of this step, you should have in your history a new green dataset collection called `input.raw.RData` that will serve as input for the next processing step: **peak picking**.
 
 # Peak detection using XCMS
 
