@@ -21,7 +21,8 @@ requirements:
 - type: "internal"
   topic_name: metabolomics
   tutorials:
-    - gcms
+    - lcms
+    - gc_ms_with_xcms
 contributions:
   authorship: 
     - jsaintvanne
