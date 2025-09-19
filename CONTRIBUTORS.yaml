@@ -434,6 +434,9 @@ bfranicevic:
     affiliations:
       - elixir-europe
 
+BirdmanRidesAgain :
+    name : Keiler Collier
+    joined: 2025-08
 
 breakthewall:
     name: Joan Hérisson
@@ -2021,6 +2024,10 @@ mwolfien:
     name: Markus Wolfien
     joined: 2017-09
 
+martindemko:
+    name: Martin Demko
+    joined: 2025-09
+
 martinwolst:
     name: Martin Wolstencroft
     joined: 2024-01
@@ -2367,6 +2374,13 @@ polkhe:
     affiliations:
       - uni-freiburg
 
+pokapok-vracape:
+    name: Virginie Racape
+    joined: 2025-08
+    email: virginie.racape@pokapok.org
+    affiliations:
+      - fairease
+      
 ppalagi:
     name: Patricia Palagi
     joined: 2022-09
