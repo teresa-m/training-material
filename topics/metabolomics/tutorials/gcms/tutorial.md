@@ -247,7 +247,7 @@ There are two available options:
 
 The two options are illustrated in this tutorial.
 
-{% include _includes/cyoa-choices.html option1="Deconvolution and annotation using metaMS" option2="Process GC-MS data with XCMS function" default="Deconvolution and annotation using metaMS" text="Choose below if you just want to follow the pipeline using **metaMS** or **XCMS** for GC-MS deconvolution and annotation" disambiguation="gcms_metams_vs_xcms" %}
+{% include _includes/cyoa-choices.html option1="Deconvolution and annotation using metaMS" option2="Process GC-MS data with XCMS functions directly" default="Deconvolution and annotation using metaMS" text="Choose below if you just want to follow the pipeline using **metaMS** or **XCMS** for GC-MS deconvolution and annotation" disambiguation="gcms_metams_vs_xcms" %}
 
 <div class="Deconvolution-and-annotation-using-metaMS" markdown="1">
 
