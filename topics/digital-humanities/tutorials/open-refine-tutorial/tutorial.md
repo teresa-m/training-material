@@ -24,13 +24,16 @@ contributions:
     - Sch-Da
   funding:
     - nfdi4culture
+requirements:
+  - type: internal
+    topic_name: digital-humanities
+    tutorials:
+      - introduction_to_dh
 answer_histories:
   - label: "UseGalaxy.eu"
     history: https://usegalaxy.eu/u/armin.dadras/h/visualise-amount-of-objects-in-museum-collection
     date: 2025-09-19
 ---
-# Background
-
 This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualize data from the **humanities and social sciences**. It has two parts:
 - **Introduction to OpenRefine**, based on {% cite Hooland_2013 %} and adapted for Galaxy.  
 - **Introduction to running Galaxy workflows** to visualize cleaned data and extract specific information.  
@@ -89,7 +92,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 >
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
-> 3. Rename the dataset: "**Powerhouse Museum metadata**."
+> 3. **Rename** {% icon galaxy-pencil %} the dataset: "**Powerhouse Museum metadata**."
 > 4. Ensure that the datatype is "tsv". Otherwise, use convert datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
@@ -109,33 +112,23 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >
 > 2. Click on "Run Tool".  
 >
->    <p align="center">
->      <img src="openrefine.png" alt="OpenRefine tool interface in Galaxy">
->    </p>
+> ![OpenRefine tool interface in Galaxy](images/openrefine.png)
 >
 > 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box that allows you to start OpenRefine in a new tab.  
 >
->    <p align="center">
->      <img src="interactive_tools.png" alt="Open OpenRefine tool as an Interactive tool">
->    </p>
+> ![Open OpenRefine tool as an Interactive tool](images/interactive_tools.png)
 >
 > 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.  
 >
->    <p align="center">
->      <img src="openrefine_interface.png" alt="Open OpenRefine interface">
->    </p>
+> ![Open OpenRefine interface](images/openrefine_interface.png)
 >
 > 5. Click on `Galaxy file`. If the file does not appear, you may have started OpenRefine before it was fully loaded. Retry steps 3 and 4, and the file should be visible.
 >
->    <p align="center">
->      <img src="openrefine_open_project.png" alt="Open OpenRefine Open Project as an input">
->    </p>
+> ![Open OpenRefine Open Project as an input](images/openrefine_open_project.png)
 >
 > 6. You can see the data loaded for you.  
 >
->    <p align="center">
->      <img src="openrefine_gui.png" alt="Open OpenRefine GUI">
->    </p>
+> ![Open OpenRefine GUI](images/openrefine_gui.png)
 >
 {: .hands_on}
 
@@ -158,47 +151,33 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 >
 > 1. Click on the triangle on the left of `Record ID`.  
 >
->    <p align="center">
->      <img src="sort.png" alt="Sort Record ID">
->    </p>
+> ![Sort Record ID](images/sort.png)
 >
 > 2. Click on `Sort...`.  
 >
 > 3. Select `numbers` and click on `OK`.  
 >
->    <p align="center">
->      <img src="sort2.png" alt="Sort Record ID options">
->    </p>
+> ![Sort Record ID options](images/sort2.png)
 >
 > 4. Above the table, click on `Sort` and select `Reorder rows permanently`.  
 >
->    <p align="center">
->      <img src="sort3.png" alt="Sort Record ID reorder permanently">
->    </p>
+> ![Sort Record ID reorder permanently](images/sort3.png)
 >
 > 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.  
 >
->    <p align="center">
->      <img src="sort4.png" alt="Blank down Record ID">
->    </p>
+> ![Blank down Record ID](images/sort4.png)
 >
 > 6. Click on the triangle left of the `Record ID` column. Hover over `Facet`, then move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.  
 >
->    <p align="center">
->      <img src="sort5.png" alt="Facet by blank Record ID">
->    </p>
+> ![Facet by blank Record ID](images/sort5.png)
 >
 > 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.  
 >
->    <p align="center">
->      <img src="sort6.png" alt="Facet by blank true Record ID">
->    </p>
+> ![Facet by blank true Record ID](images/sort6.png)
 >
 > 8. Click on the triangle to the left of the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.  
 >
->    <p align="center">
->      <img src="deduplicate.png" alt="Remove matching rows Record ID">
->    </p>
+> ![Remove matching rows Record ID](images/deduplicate.png)
 >
 > 9. Close the `Facet` by clicking on the cross (x) to see all rows.  
 >
@@ -227,20 +206,14 @@ The dataset does not contain any more blank rows now. But we need to do more cle
 > 3. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
 >
->    <p align="center">
->      <img src="filter_grel3.png" alt="Custom text transform on column Categories">
->    </p>
+> ![Custom text transform on column Categories](images/filter_grel3.png)
 >
-> We can also remove the double occurrence of the same for different entries as follows:
-> 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
+>   We can also remove the double occurrence of the same for different entries as follows:
+> 5. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 >
->    <p align="center">
->      <img src="filter_grel.png" alt="Edit cells Categories">
->    </p>
+> ![Edit cells Categories](images/filter_grel.png)
 >
->    <p align="center">
->      <img src="filter_grel2.png" alt="Transform Categories">
->    </p>
+> ![Transform Categories](images/filter_grel2.png)
 >
 > 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
 >
@@ -265,15 +238,11 @@ The dataset does not contain any more blank rows now. But we need to do more cle
 > than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
 > 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Split multi-valued cells...`.
 >
->    <p align="center">
->      <img src="split_multi_valued_cells.png" alt="Atomization of Categories">
->    </p>
+> ![Atomization of Categories](images/split_multi_valued_cells.png)
 >
 > 2. Define the `Separator` as `\|` (pipe). Click on `OK`.
 >
->    <p align="center">
->      <img src="facet_categories_blank.png" alt="Facet Blank of atomized Categories">
->    </p>
+> ![Facet Blank of atomized Categories](images/facet_categories_blank.png)
 >
 {: .hands_on}
 
@@ -301,21 +270,15 @@ Now, let's use faceting based on text.
 > 1. Click on the triangle on the left of `Categories`, hover over `facet`, and click on`Text facet`.
 > 2. On the left panel, it mentions the total number of choices. The default value of `count limit` is low for this dataset, and we should increase it. Click on `Set choice count limit`.
 >
->    <p align="center">
->      <img src="text_facet.png" alt="Text faceting of atomized Categories">
->    </p>
+> ![Text faceting of atomized Categories](images/text_facet.png)
 >
 > 3. Enter `5000` as the new limit and click on `Ok`.
 >
->    <p align="center">
->      <img src="text_facet2.png" alt="Increasing the limit of text facetring">
->    </p>
+> ![Increasing the limit of text facetring](images/text_facet2.png)
 >
 > 4. Now, you see all categories. Click on `count` to see the categories sorted in descending order.
 >
->    <p align="center">
->      <img src="text_facet3.png" alt="Text faceting of atomized Categories sorted by count">
->    </p>
+> ![Text faceting of atomized Categories sorted by count](images/text_facet3.png)
 >
 {: .hands_on}
 
@@ -340,21 +303,15 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
 > 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerprint` and change the n-Gram size to `3`.
 >
->    <p align="center">
->      <img src="cluster.png" alt="Cluster and edit column Categories">
->    </p>
+> ![Cluster and edit column Categories](images/cluster.png)
 >
 > 3. Click on the `cluster` button in the middle window.
 >
->    <p align="center">
->      <img src="cluster2.png" alt="Clustered and merged similar Categories">
->    </p>
+> ![Clustered and merged similar Categories](images/cluster2.png)
 >
 > 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select > all` and then clicking on `Merge selected and re-cluster`.
 >
->    <p align="center">
->      <img src="join.png" alt="Join multi-valued cells on Categories">
->    </p>
+> ![Join multi-valued cells on Categories](images/join.png)
 >
 > 5. Now, you can close the clustering window by clicking on `close`.
 > 
@@ -374,16 +331,12 @@ When you’re happy with your analysis results, choose whether to export the dat
 > 1. Click on `Export` at the top of the table.
 > 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel. You can also close the extra tab that contains OpenRefine and click on the orange item `OpenRefine on data [and a number]`. You do not need it for your next steps
 >
->    <p align="center">
->      <img src="export_results3.png" alt="Export results of OpenRefine">
->    </p>
+> ![Export results of OpenRefine](images/export_results3.png)
 >
 > 3. You can find a new dataset in your Galaxy History (with a green background) that contains your cleaned dataset for further analysis.
 > 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
 >
->    <p align="center">
->      <img src="dataset_cleaned.png" alt="Cleaned dataset">
->    </p>
+> ![Cleaned dataset](images/dataset_cleaned.png)
 >
 {: .hands_on}
 
@@ -392,16 +345,12 @@ When you’re happy with your analysis results, choose whether to export the dat
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
 >
->    <p align="center">
->      <img src="extract_tasks.png" alt="Extract OpenRefine">
->    </p>
+> ![Extract OpenRefine](images/dataset_extract_taskscleaned.png)
 >
 > 3. Click on the steps that you want to extract. Here, we selected everything.
 > 4. Click on `Export`. Give your file a name to save it on your computer.
 >
->    <p align="center">
->      <img src="extract_tasks2.png" alt="Extract OpenRefine GUI">
->    </p>
+> ![Extract OpenRefine GUI](images/extract_tasks2.png)
 >
 {: .hands_on}
 
@@ -421,52 +370,38 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >
 > There are different ways to import or create a workflow to Galaxy. For example, you can import a workflow from the registered workflows on [WorkflowHub](https://workflowhub.eu/) which is a registry for describing, sharing, and publishing scientific computational workflows. To do that, you have to navigate to the [WorkflowHub](https://workflowhub.eu/) and find the workflow of interest. In this tutorial, we are working [with this workflow](https://workflowhub.eu/workflows/1884?version=1). When you open the link to this workflow on WorkflowHub, you see the following page:
 >
->    <p align="center">
->      <img src="workflowhub.png" alt="Workflowhub page">
->    </p>
+> ![Workflowhub page](images/workflowhub.png)
 >
 > Please click on the `Run on Galaxy` button on top right. After doing this, you will be redirected to your Galaxy account and see the workflow automatically in your middle panel as follows:
 >
->    <p align="center">
->      <img src="workflow.png" alt="Workflow imported to Galaxz">
->    </p>
+> ![Workflow imported to Galaxy](images/workflow.png)
 >
 > Let's assume that you have imported a workflow to your Galaxy account.
 > 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
 >
->    <p align="center">
->      <img src="workflows.png" alt="Workflows button">
->    </p>
+> ![Workflows button](images/workflows.png)
 >
 > 2. Then, you can select and run different workflows (if you have any workflows in your account). Here, let's click on the Run button ({% icon workflow-run %}) of the workflow we provided to you in this tutorial.
 >
->    <p align="center">
->      <img src="select_workflow.png" alt="Select this workflow">
->    </p>
+> ![Select this workflow](images/select_workflow.png)
 >
 > 3. Determine the inputs as follows:
 >    Input: `openrefine-Galaxy file.tsv`
 >    stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
 >
->    <p align="center">
->      <img src="workflow_inputs.png" alt="Determine the inputs of the workflow">
->    </p>
+> ![Determine the inputs of the workflow](images/workflow_inputs.png)
 >
 > 5. Click on the `Run Workflow` button at the top.
 > 6. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
 >
->    <p align="center">
->      <img src="workflow_overview.png" alt="Overview of the workflow">
->    </p>
+> ![Overview of the workflow](images/workflow_overview.png)
 >
 {: .hands_on}
 
 What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of what year most elements in the museum derive from, we first cut the column of production time from the table and filter only dates from the table that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset that is supposed to be created in 2041 is part of the table. We remove it. Datamash allows for summing up how many elements came to the museum in what year.  The ascending order, we visualise in a bar chart. To find out from what year most objects derive, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
 As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.   
 
-<p align="center">
-<img src="display_1969.png" alt="Word cloud of objects' descriptions">
-</p>
+![Word cloud of objects' descriptions](images/display_1969.png)
 
 # Conclusion
 
