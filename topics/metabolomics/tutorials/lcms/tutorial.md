@@ -859,7 +859,7 @@ to get rid of it.
 
 > <hands-on-title>Data normalisation</hands-on-title>
 >
-> 1. {% tool [Batch_correction](toolshed.g2.bx.psu.edu/repos/melpetera/batchcorrection/Batch_correction/3.0.0) %} with the following parameters:
+> 1. {% tool [Batch_correction](toolshed.g2.bx.psu.edu/repos/melpetera/batchcorrection/Batch_correction/2.1.2) %} with the following parameters:
 >   - *"Data matrix file"*: `dataMatrix.tsv`
 >   - *"Sample metadata file"*: `sampleMetadata_completed.tsv`
 >   - *"Variable metadata file"*: `variableMetadata.tsv`
