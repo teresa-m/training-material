@@ -293,7 +293,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >
 >    > <comment-title></comment-title>
 >    >
->    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"* : `hide` and *"Use RI option* : `hide`
+>    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"*: `hide` and *"Use RI option*: `hide`
 >    {: .comment}
 > 
 >    > <tip-title>Export MSP file to external databases </tip-title>
