@@ -308,7 +308,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    > 
 >    > ![TIC](../../images/tuto_gcms_eic.png "Example of cluster of ions EIC's (left) and the associated pseudospectra (right)")
 >    > 
->    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC** : peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/)
+>    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC**: peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/)
 >    {: .details}
 >
 >    > <details-title>MSP files </details-title>
