@@ -335,7 +335,7 @@ Once **metaMS** have created the pseudo-spectra for each unknown compound in eac
 
 ![Match spectra](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
 
-If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
+If an MSP database has been added to the *runGC* function inputs, then the function returns a table where all patterns that have a match with a DB entry are shown with their name. The other non-matching pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 
 
 
