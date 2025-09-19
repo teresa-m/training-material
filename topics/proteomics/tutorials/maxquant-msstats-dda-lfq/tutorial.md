@@ -445,7 +445,7 @@ For each condition we select only the significant proteins, which are proteins w
 >    - *"Scale data on the plot (after clustering)"*: `Scale my data by row`
 >    - *"Enable data clustering"*: `No`
 >    - *"Output format "*: `PNG`
-> 9. {% tool [heatmap2](ttoolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/3.2.0+galaxy1) %} with the following parameters:
+> 9. {% tool [heatmap2](toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/3.2.0+galaxy1) %} with the following parameters:
 >    - {% icon param-file %} *"Input should have column headers - these will be the columns that are plotted"*: `rdeb join` (output of **Join** {% icon tool %})
 >    - *"Plot title"*: `Upregulated proteins in RDEB cSCC`
 >    - *"Scale data on the plot (after clustering)"*: `Scale my data by row`
