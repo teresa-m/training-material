@@ -15,6 +15,13 @@ key_points:
 - To process untargeted LC-MS metabolomic data, you need a large variety of steps and tools.
 - Although main steps are standard, various ways to combined tools exist, depending on your data.
 - Resources are available in Galaxy, but do not forget that you need appropriate knowledge to perform a relevant analysis.
+answer_histories:
+- label: UseGalaxy.eu - Part 1
+  history: https://usegalaxy.eu/u/nilchia/h/mass-spectrometry-lc-ms-analysis-part-1
+  date: 2025-09-19
+- label: UseGalaxy.eu - Part 2
+  history: https://usegalaxy.eu/u/nilchia/h/mass-spectrometry-lc-ms-analysis-part-2
+  date: 2025-09-19
 
 contributions:
   authorship:
