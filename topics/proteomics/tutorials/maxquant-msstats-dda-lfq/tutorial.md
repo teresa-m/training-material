@@ -158,9 +158,9 @@ Because the MaxQuant run takes really long, we recommend to download the MaxQuan
 >
 > > <solution-title></solution-title>
 > >
-> > 1. 2622 protein groups and ~240000 features were found in total (number of lines of protein group and evidence files)
-> > 2. They are in column 118 (protein groups) and 54 (evidence)
-> > 3. Up to 60% of the samples intensities derive from potential contaminants (PTXQC plots page 7)
+> > 1. 2512 protein groups and ~240000 features were found in total (number of lines of protein group and evidence files)
+> > 2. They are in column 138 (protein groups) and 50 (evidence)
+> > 3. Up to ~60% of the samples intensities derive from potential contaminants (PTXQC plots page 6)
 > >
 > {: .solution}
 >
@@ -186,13 +186,13 @@ We use the modified MaxQuant protein groups and evidence files as input in MSsta
 > 3. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `select protein groups` (output of **Select** {% icon tool %})
 >    - In *"Replacement"*:
->            - *"in column"*: `Column: 118`
+>            - *"in column"*: `Column: 138`
 >            - *"Find pattern"*: `+`
 >    - Once finished, rename the file into `protein groups input for MSstats`
 > 4. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `select evidence` (output of **Select** {% icon tool %})
 >    - In *"Replacement"*:
->            - *"in column"*: `Column: 54`
+>            - *"in column"*: `Column: 50`
 >            - *"Find pattern"*: `+`
 >    - Once finished, rename the file into `evidence input for MSstats`
 > 5. {% tool [MSstats](toolshed.g2.bx.psu.edu/repos/galaxyp/msstats/msstats/4.0.0+galaxy1) %}  with the following parameters:
@@ -230,8 +230,8 @@ We use the modified MaxQuant protein groups and evidence files as input in MSsta
 >
 > > <solution-title></solution-title>
 > >
-> > 1. 28 (2622 lines in protein group file minus 2594 lines after select)
-> > 2. 1764 (MSstats log)
+> > 1. 27 (2512 lines in protein group file minus 2485 lines after select)
+> > 2. 2221 (MSstats log)
 > >
 > {: .solution}
 >
@@ -300,7 +300,7 @@ We’ll count and visualize the number of features per run and calculate the dis
 > 1. {% tool [Summary Statistics](Summary_Statistics1) %} with the following parameters:
 >    - {% icon param-file %} *"Summary statistics on"*: `ProteinLevelData` (output of **MSstats** {% icon tool %})
 >    - *"Column or expression"*: `c8`
-> 2. {% tool [Datamash](toolshed.g2.bx.psu.edu/repos/iuc/datamash_ops/datamash_ops/datamash_ops/1.8+galaxy0) %} with the following parameters:
+> 2. {% tool [Datamash](toolshed.g2.bx.psu.edu/repos/iuc/datamash_ops/datamash_ops/datamash_ops/1.9+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} *"Input tabular dataset"*: `ProteinLevelData` (output of **MSstats** {% icon tool %})
 >    - *"Group by fields"*: `4`
 >    - *"Sort input"*: `Yes`
@@ -386,7 +386,7 @@ In order to make its IDs compatible with the ones from the comparison result at 
 > > <solution-title></solution-title>
 > >
 > > 1. Adjusted p-values control for the multiplicity of testing. Since we fit a separate model, and conduct a separate comparison for each protein, the number of tests equals the number of comparisons. A 0.05 cutoff of an adjusted p-value controls the False Discovery Rate in the collection of tests over all the proteins at 5%. Since they account for the multiplicity, adjusted p-values are more conservative (i.e. it is more difficult to detect a change).
-> > 2. 148 in total (first filtering step); 133 are upregulated in metastasized cSCC (metastasized filtered) and 13 are upregulated in RDEB cSCC (rdeb filtered).
+> > 2. 305 in total (first filtering step); 289 are upregulated in metastasized cSCC (metastasized filtered) and 14 are upregulated in RDEB cSCC (rdeb filtered).
 > >
 > {: .solution}
 >
@@ -425,14 +425,14 @@ For each condition we select only the significant proteins, which are proteins w
 >        - *"in column"*: `Column: 1`
 >        - *"Find pattern"*: `\|.*`
 >    - Rename the file into `replaced sample quantification matrix`
-> 6. {% tool [Join two files](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/9.5+galaxy0) %} with the following parameters:
+> 6. {% tool [Join two files](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"1st file"*: `replaced sample quantification matrix` (output of **Replace text** {% icon tool %})
 >    - *"Column to use from 1st file"*: `Column: 1`
 >    - {% icon param-file %} *"2nd File"*: `metastasized cut` (output of **Cut** {% icon tool %})
 >    - *"Column to use from 2nd file"*: `Column: 1`
 >    - *"First line is a header line"*: `Yes`
 >    - Rename the file into `metastasized join`
-> 7. {% tool [Join two files](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/9.5+galaxy0) %} with the following parameters:
+> 7. {% tool [Join two files](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"1st file"*: `replaced sample quantification matrix` (output of **Replace Text** {% icon tool %})
 >    - *"Column to use from 1st file"*: `Column: 1`
 >    - {% icon param-file %} *"2nd File"*: `rdeb cut` (output of **Cut** {% icon tool %})
@@ -460,7 +460,7 @@ For each condition we select only the significant proteins, which are proteins w
 >
 > > <solution-title></solution-title>
 > >
-> > 1. 85 are upregulated in metastasized cSCC and 12 are upregulated in RDEB cSCC (number of lines minus 1 in the first filtering step per condition).
+> > 1. 128 are upregulated in metastasized cSCC and 10 are upregulated in RDEB cSCC (number of lines minus 1 in the first filtering step per condition).
 > >
 > {: .solution}
 >
@@ -472,12 +472,12 @@ In addition we retrieve for each Uniprot ID the corresponding protein names from
 
 > <hands-on-title>MSstats visualizations</hands-on-title>
 >
-> 1. {% tool [UniProt ID mapping and retrieval](toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/0.5) %} (Do not use 0.6, you may need to change the version on some instances) with the following parameters:
+> 1. {% tool [UniProt ID mapping and retrieval](toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/0.7) %} (Do not use 0.6, you may need to change the version on some instances) with the following parameters:
 >    - {% icon param-file %} *"Input file with IDs"*: `metastasized join` (output of **Join** {% icon tool %})
 >    - *"ID column"*: `Column: 1`
 >    - *"Do you want to map IDs or retrieve data from UniProt"*: `Retrieve: request entries by uniprot accession using batch retrieval`
 >    - Rename the file into `metastasized uniprot`
-> 2. {% tool [UniProt ID mapping and retrieval](toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/0.5) %} (Do not use 0.6, you may need to change the version on some instances) with the following parameters:
+> 2. {% tool [UniProt ID mapping and retrieval](toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/0.7) %} (Do not use 0.6, you may need to change the version on some instances) with the following parameters:
 >    - {% icon param-file %} *"Input file with IDs"*: `rdeb join` (output of **Join** {% icon tool %})
 >    - *"ID column"*: `Column: 1`
 >    - *"Do you want to map IDs or retrieve data from UniProt"*: `Retrieve: request entries by uniprot accession using batch retrieval`
