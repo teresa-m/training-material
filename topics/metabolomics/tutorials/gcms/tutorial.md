@@ -341,7 +341,7 @@ If an MSP database has been added to the *runGC* function inputs, then the funct
 
 ## Unknowns research
 
-An important aspect of untargeted metabolomics is the definition of unknowns—features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e., pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
+An important aspect of untargeted metabolomics is the definition of unknowns — features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e. pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
 
 One strenght of **metaMS** is its ability to use pseudo-spectra (1) for alignement of unknows between samples and (2) to compare unknown experimental pseudo-spectra to previously created in-house spectra databse (in MSP format). By doing so **metaMS** *runGC* function can serve as an annotation tool. You just have to set  - *"Use Personnal DataBase option"* : `show` and add you in-house database file as input.
 
