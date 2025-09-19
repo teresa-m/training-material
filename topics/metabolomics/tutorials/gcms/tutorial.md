@@ -253,7 +253,7 @@ The two options are illustrated in this tutorial.
 
 # Processing with metaMS (option 1)
 
-**metaMS** is an R package for MS-based metabolomics data. It was made to ease GC-MS data deconvolution and alignement steps using functions from **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format.
+**metaMS** is an R package for MS-based metabolomics data. It was made to ease GC-MS data deconvolution and alignement steps using functions from the **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format.
 The biggest difference between **XCMS**-only workflow (option 2) or **XCMS + metaMS** GC-MS data processing (option 1) is that rather than a feature-based analysis with individual peaks, as in the option 2 case, **metaMS** performs a pseudospectrum-based analysis and use it to align compound between samples. One other advantage is that **metaMS** allows creation of MSP (`.msp`) spectra export files ready for annotation.
 
 > <comment-title></comment-title>
