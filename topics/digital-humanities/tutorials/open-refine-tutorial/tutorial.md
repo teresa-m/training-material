@@ -345,7 +345,7 @@ When you’re happy with your analysis results, choose whether to export the dat
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
 >
-> ![Extract OpenRefine](images/dataset_extract_taskscleaned.png)
+> ![Extract OpenRefine](images/extract_tasks.png)
 >
 > 3. Click on the steps that you want to extract. Here, we selected everything.
 > 4. Click on `Export`. Give your file a name to save it on your computer.
