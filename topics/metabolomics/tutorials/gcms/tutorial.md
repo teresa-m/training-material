@@ -264,7 +264,7 @@ When run in R, the **metaMS** package offers a lot of possibilities. For more in
 During this part of the tutorial we are interested in GC-MS analysis with **metaMS**, so we will use the *runGC* function of **metaMS** and describe it in detail to understand all the capabilities of that function.
 The standard workflow of **metaMS** for GC-MS data is the following: 
 
-![Workflow diagram of metaMS for GC-MS data analysis](../../images/tuto_gcms_workflow_2options.png "Workflow of metaMS for GC datas")
+![Workflow diagram of metaMS for GC-MS data analysis](../../images/tuto_gcms_workflow_2options.png "Workflow of metaMS for GC-MS data")
 
 The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in Galaxy. It takes as inputs an {% icon param-collection %} *.RData* file after **XCMS** peak picking  and optionally for annotation purposes an alkane reference file (in `.csv` format) for RI calculation and/or a spectral database in `.msp` format.
 
