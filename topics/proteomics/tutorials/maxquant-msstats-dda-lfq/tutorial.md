@@ -106,7 +106,7 @@ The annotation file, group comparison file and FASTA file for this training is d
 >    3. Upload Type `Collections`
 >    4. Click on `Build`
 >    5. We need our datasets to be named 'metast_cSCC1.raw', 'metast_cSCC2.raw', etc.. The naming for the raw files have to be exactly this way to later match the file names provided in the MSstats annotation file.
->    6. Select `+ Column`, `using a Regular Expression`, then "Create columns matching expression groups". Use the expression `Experiment[0-9]+_(.+).raw`. This will extract the file names from the url.
+>    6. Select `+ Column`, `using a Regular Expression`, then "Create columns matching expression groups". Use the expression `Experiment[0-9]+_(.+)`. This will extract the file names from the url.
 >    7. Add column with the fixed value `thermo.raw` to specify the format of the files
 >    8. Add column with the fixed value `raw_files`. This will be the collection name.
 >    9. We will now  add columns definitions: Select `+ Rules`, then `Add/Modify Column definitions`. Select `+ Add Defenitions` and Set the URL as column `A`, List Identifiers as column `B`, Collection Name as column `D`, and Type as column `C`. Then `Apply`.
