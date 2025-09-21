@@ -24,6 +24,10 @@ requirements:
       - maxquant-label-free
 subtopic: id-quant
 tags: [label-free]
+answer_histories:
+- label: UseGalaxy.eu - MaxQuant and MSstats
+  history: https://usegalaxy.eu/u/nilchia/h/maxquant-and-msstats-for-the-analysis-of-label-free-data-1
+  date: 2025-09-21
 
 recordings:
 - captioners:
@@ -129,7 +133,7 @@ The run time of **MaxQuant** {% icon tool %} depends on the number and size of t
 >    - *"Match between runs"*: `yes`
 >    - In *"Parameter Group"*:
 >        - {% icon param-collection %} *"Infiles"*: `raw_files`
->    - *"Generate PTXQC (proteomics quality control pipeline) report?"*: `True`
+>    - *"Generate PTXQC (proteomics quality control pipeline) report? (experimental setting)"*: `True`
 >    - In *"Output Options"*:
 >        - *"Select the desired outputs."*: `Protein Groups` `Evidence`
 >
@@ -184,13 +188,13 @@ We use the modified MaxQuant protein groups and evidence files as input in MSsta
 >    - {% icon param-file %} *"Select lines from"*: `Evidence` (output of **MaxQuant** {% icon tool %})
 >    - *"the pattern"*: `(HUMAN)|(Sequence)`
 >    - Once finished, rename the output `select evidence`
-> 3. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy0) %} with the following parameters:
+> 3. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `select protein groups` (output of **Select** {% icon tool %})
 >    - In *"Replacement"*:
 >            - *"in column"*: `Column: 138`
 >            - *"Find pattern"*: `+`
 >    - Once finished, rename the file into `protein groups input for MSstats`
-> 4. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy0) %} with the following parameters:
+> 4. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `select evidence` (output of **Select** {% icon tool %})
 >    - In *"Replacement"*:
 >            - *"in column"*: `Column: 50`
@@ -218,8 +222,8 @@ We use the modified MaxQuant protein groups and evidence files as input in MSsta
 >            - *"Select visualization outputs"*: `MSstats VolcanoPlot`
 >    	     - In *"Advanced visualization parameters"*:
 >                - *"Involve fold change cutoff or not for volcano plot or heatmap"*: `1.5`
->                - *"Display protein names in Volcano Plot"*: `No`
 >                - *"For volcano plot or heatmap, logarithm transformation of adjusted p-valuewith base 2 or 10"*: `2`
+>                - *"Display protein names in Volcano Plot"*: `No`
 >
 {: .hands_on}
 
@@ -231,8 +235,8 @@ We use the modified MaxQuant protein groups and evidence files as input in MSsta
 >
 > > <solution-title></solution-title>
 > >
-> > 1. 27 (2512 lines in protein group file minus 2485 lines after select)
-> > 2. 2221 (MSstats log)
+> > 1. 27 (2518 lines in protein group file minus 2491 lines after select)
+> > 2. 1693 (MSstats log)
 > >
 > {: .solution}
 >
@@ -311,12 +315,11 @@ We’ll count and visualize the number of features per run and calculate the dis
 >        - *"Type"* : `count`
 >        - *"On column"*: `Column: 1`
 > 3. Click on {% icon galaxy-barchart %} “Visualize this data” on the **Datamash** {% icon tool %} result.
->   - Select `Bar diagram (NVD3)`
->   - Click  `Show` {% icon galaxy-vis-config %} at the top right of the chart.
+>   - Select `Bar, Line and Scatter`
+>   - Click  `Expand` {% icon galaxy-vis-config %} at the top right of the chart.
 >   - *"Provide a title"*: `Number of features per sample`
->   - Click `Select data` {% icon galaxy-chart-select-data %}
->   - *"Data point labels"*: `Column: 1`
->   - Save {% icon galaxy-save %} (file is saved under "User" --> "Visualizations")
+>   - *"Column of x-axis values"*: `Column: 1`
+>   - Save {% icon galaxy-save %} (file is saved under "Visualization" --> "Saved Visualizations")
 >
 {: .hands_on}
 
@@ -348,7 +351,7 @@ In order to make its IDs compatible with the ones from the comparison result at 
 
 > <hands-on-title>Filtering MSstats results</hands-on-title>
 >
-> 1. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy0) %} with the following parameters:
+> 1. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `Comparison Result` (output of **MSstats** {% icon tool %})
 >    - In *"Replacement"*:
 >        - *"in column"*: `Column: 1`
@@ -387,7 +390,7 @@ In order to make its IDs compatible with the ones from the comparison result at 
 > > <solution-title></solution-title>
 > >
 > > 1. Adjusted p-values control for the multiplicity of testing. Since we fit a separate model, and conduct a separate comparison for each protein, the number of tests equals the number of comparisons. A 0.05 cutoff of an adjusted p-value controls the False Discovery Rate in the collection of tests over all the proteins at 5%. Since they account for the multiplicity, adjusted p-values are more conservative (i.e. it is more difficult to detect a change).
-> > 2. 305 in total (first filtering step); 289 are upregulated in metastasized cSCC (metastasized filtered) and 14 are upregulated in RDEB cSCC (rdeb filtered).
+> > 2. 198 in total (first filtering step); 178 are upregulated in metastasized cSCC (metastasized filtered) and 15 are upregulated in RDEB cSCC (rdeb filtered).
 > >
 > {: .solution}
 >
@@ -417,7 +420,7 @@ For each condition we select only the significant proteins, which are proteins w
 >    - *"Cut columns"*: `c1`
 >    - {% icon param-file %} *"From"*: `significant rdeb` (output of last **Filter** {% icon tool %})
 >    - Rename the file into `rdeb cut`
-> 5. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/1.1.3) %} with the following parameters:
+> 5. {% tool [Replace Text in a specific column](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"File to process"*: `Sample Quantification Matrix` (output of **MSstats** {% icon tool %})
 >    - In *"Replacement"*:
 >        - *"in column"*: `Column: 1`
@@ -461,7 +464,7 @@ For each condition we select only the significant proteins, which are proteins w
 >
 > > <solution-title></solution-title>
 > >
-> > 1. 128 are upregulated in metastasized cSCC and 10 are upregulated in RDEB cSCC (number of lines minus 1 in the first filtering step per condition).
+> > 1. 125 are upregulated in metastasized cSCC and 14 are upregulated in RDEB cSCC (number of lines minus 1 in the first filtering step per condition).
 > >
 > {: .solution}
 >
