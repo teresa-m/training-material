@@ -175,7 +175,7 @@ Let's start with a fresh history.
 >
 >    ![The database/build version can be selected from a dropdown menu. Users can start typing the database name to filter the list](../../images/Search-for-mm9.PNG)
 >
-> 5. Click on **Save** on the top
+> 5. Click on **Save** at the bottom
 > 6. Add a tag called `#peaks` to the dataset to make it easier to track in the history
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
@@ -212,7 +212,7 @@ we also need a list of genes in mice, which we can obtain from UCSC.
 >     - *"Output format"*: `BED - browser extensible data`
 >     - *"Send output to"*: `Galaxy` (only)
 >
-> 4. Click on the **get Output** button
+> 4. Click on the **Get output** button
 >
 >    You will see the next screen:
 >
@@ -291,7 +291,7 @@ As we can see, the peak file lacks `chr` before any chromosome number. But what 
 
 > <hands-on-title>View end of file</hands-on-title>
 >
-> 1. Search for {% tool [Select last lines from a dataset (tail)](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/9.3+galaxy1) %} tool and run with the following settings:
+> 1. Search for {% tool [Select last lines from a dataset (tail)](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/9.5+galaxy2) %} tool and run with the following settings:
 >     - *"Text file"*: our peak file `GSE37268_mof3.out.hpeak.txt.gz`
 >     - *"Operation"*: `Keep last lines`
 >     - *"Number of lines"*: Choose a value, e.g. `100`
@@ -318,9 +318,9 @@ In order to convert the chromosome names we have therefore two things to do:
 
 > <hands-on-title>Adjust chromosome names</hands-on-title>
 >
-> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/1.1.3) %} in a specific column with the following settings:
+> 1. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %} in a specific column with the following settings:
 >     - *"File to process"*: our peak file `GSE37268_mof3.out.hpeak.txt.gz`
->     - *"in column"*: `1`
+>     - *"in column"*: `Column: 1`
 >     - *"Find pattern"*: `[0-9]+`
 >
 >         This will look for numerical digits
@@ -331,9 +331,9 @@ In order to convert the chromosome names we have therefore two things to do:
 >
 > 2. Rename your output file `chr prefix added`.
 >
-> 3. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/1.1.3) %}  : Let's rerun the tool with two more replacements
+> 3. {% tool [Replace Text](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy2) %}  : Let's rerun the tool with two more replacements
 >    - *"File to process"*: the output from the last run, `chr prefix added`
->    - *"in column"*: `1`
+>    - *"in column"*: `Column: 1`
 >    - {% icon param-repeat %} Replacement
 >      - *"Find pattern"*: `chr20`
 >      - *"Replace with"*: `chrX`
@@ -440,10 +440,10 @@ We will group the table by chromosome and count the number of genes with peaks o
 >
 > 1. {% tool [Group](Grouping1) %} data by a column and perform aggregate operation on other columns, with the following settings:
 >     - *"Select data"* to the result of the intersection
->     - *"Group by column"*:`Column 1`
+>     - *"Group by column"*:`Column: 1`
 >     - Press **Insert Operation** and choose:
 >         - *"Type"*: `Count`
->         - *"On column"*: `Column 1`
+>         - *"On column"*: `Column: 1`
 >         - *"Round result to nearest integer?"*: `No`
 >
 >    > <question-title></question-title>
@@ -472,10 +472,10 @@ We can fix this by running a dedicated tool for sorting on our data.
 
 > <hands-on-title>Fix sort order of gene counts table</hands-on-title>
 >
-> 1. {% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/1.1.1) %} data in ascending or descending order, with the following settings:
+> 1. {% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy2) %} data in ascending or descending order, with the following settings:
 >     - *"Sort Query"*: result of running the Group tool
 >     - in {% icon param-repeat %} *"Column selections"*
->       - *"on column"*: `Column 1`
+>       - *"on column"*: `Column: 1`
 >       - *"in"*: `Ascending order`
 >       - *"Flavor"*: `Natural/Version sort (-V)`
 >
@@ -597,7 +597,7 @@ We need to generate a new BED file from the original peak file that contains the
 
 > <hands-on-title>Create peak summit file</hands-on-title>
 >
-> 1. {% tool [Compute on rows](toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0) %} with the following parameters:
+> 1. {% tool [Compute on rows](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1) %} with the following parameters:
 >   - *"Input file"*: our peak file `Peak regions` (the interval format file)
 >   - *"Input has a header line with column names?": `No`
 >   - In *"Expressions"*:
@@ -701,7 +701,7 @@ Congratulations! You should have a file with all the unique gene names and a cou
 > The list of unique genes is not sorted or you workflow included a sorting step but for the gene names. Try to sort it on your own!
 >
 > > <solution-title></solution-title>
-> > You can use the tool "Sort data in ascending or descending order" or rerun to sort tool of your workflow. Sort on column 2 and "fast numeric sort".
+> > You can use the tool "{% tool [Sort](toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy2) %} data in ascending or descending order" or rerun to sort tool of your workflow. Sort on column 2 and "fast numeric sort".
 > {: .solution }
 {: .question}
 
