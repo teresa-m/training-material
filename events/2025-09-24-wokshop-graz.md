@@ -57,7 +57,7 @@ program:
       - name: galaxy-intro-peaks2genes
         topic: introduction
       - type: custom
-        name: "[RNA-seq Graz 2025](https://docs.google.com/presentation/d/12A8oLXh0dPqdiXVYzqAZCmmBNGoWfmWLS3g4SDSzTXs/edit?slide=id.p#slide=id.p)"
+        name: "[RNA-seq introduction](https://docs.google.com/presentation/d/12A8oLXh0dPqdiXVYzqAZCmmBNGoWfmWLS3g4SDSzTXs/edit?slide=id.p#slide=id.p)"
         description: |
           [Lecture Slides](https://docs.google.com/presentation/d/12A8oLXh0dPqdiXVYzqAZCmmBNGoWfmWLS3g4SDSzTXs/edit?slide=id.p#slide=id.p)
       - type: custom
