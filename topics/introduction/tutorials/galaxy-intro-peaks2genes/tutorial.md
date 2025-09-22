@@ -597,7 +597,7 @@ We need to generate a new BED file from the original peak file that contains the
 
 > <hands-on-title>Create peak summit file</hands-on-title>
 >
-> 1. {% tool [Compute on rows](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1) %} with the following parameters:
+> 1. {% tool [Compute on rows](toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1) %} with the following parameters:
 >   - *"Input file"*: our peak file `Peak regions` (the interval format file)
 >   - *"Input has a header line with column names?": `No`
 >   - In *"Expressions"*:
