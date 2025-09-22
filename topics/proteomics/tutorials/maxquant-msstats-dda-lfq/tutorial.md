@@ -146,9 +146,9 @@ Because the MaxQuant run takes really long, we recommend to download the MaxQuan
 > 1. Import the files from [Zenodo](https://zenodo.org/records/17177151)
 >
 >    ```
->    https://zenodo.org/records/17177151/files/MaxQuant_Evidence.tabular
->    https://zenodo.org/records/17177151/files/MaxQuant_proteingroups.tabular
->    https://zenodo.org/records/17177151/files/PTXQC_report.pdf
+>    https://zenodo.org/records/17177151/files/MaxQuant%20Evidence.tabular
+>    https://zenodo.org/records/17177151/files/MaxQuant%20Protein%20Groups.tabular
+>    https://zenodo.org/records/17177151/files/PTXQC%20report.pdf
 >    ```
 > 2. Rename the files `Evidence`, `Protein Groups`, and `PTXQC report` respectively.
 >
