@@ -61,7 +61,7 @@ The training dataset consists of a skin cancer cohort of 19 patients, which is a
 # Get data
 
 
-The annotation file, group comparison file and FASTA file for this training is deposited at [Zenodo](https://zenodo.org/record/4896554). It is of course possible to use another FASTA file with human proteome sequences, but to ensure that the results are compatible we recommend to use the provided FASTA file. MaxQuant not only adds known contaminants to the FASTA file, but also generates the “decoy” hits for false discovery rate estimation itself, therefore the FASTA file is not allowed to have decoy entries. To learn more about FASTA files, have a look at [Protein FASTA Database Handling tutorial]({{site.baseurl}}/topics/proteomics/tutorials/database-handling/tutorial.html). The raw data is available via the [PRIDE repository](https://www.ebi.ac.uk/pride/archive/projects/PXD006914). As this is a real life study, the raw data sizes are large and computation time in MaxQuant is long. To save time and storage capacity, you can skip downloading the raw data and the MaxQuant run and instead continue with the MaxQuant outputs which we provide later on. In this case skip the data upload steps 5-8 which are only necessary for the MaxQuant run.
+The annotation file, group comparison file and FASTA file for this training is deposited at [Zenodo](https://zenodo.org/records/17177151). It is of course possible to use another FASTA file with human proteome sequences, but to ensure that the results are compatible we recommend to use the provided FASTA file. MaxQuant not only adds known contaminants to the FASTA file, but also generates the “decoy” hits for false discovery rate estimation itself, therefore the FASTA file is not allowed to have decoy entries. To learn more about FASTA files, have a look at [Protein FASTA Database Handling tutorial]({{site.baseurl}}/topics/proteomics/tutorials/database-handling/tutorial.html). The raw data is available via the [PRIDE repository](https://www.ebi.ac.uk/pride/archive/projects/PXD006914). As this is a real life study, the raw data sizes are large and computation time in MaxQuant is long. To save time and storage capacity, you can skip downloading the raw data and the MaxQuant run and instead continue with the MaxQuant outputs which we provide later on. In this case skip the data upload steps 5-8 which are only necessary for the MaxQuant run.
 
 
 > <hands-on-title>Data upload</hands-on-title>
@@ -70,12 +70,12 @@ The annotation file, group comparison file and FASTA file for this training is d
 >
 >    {% snippet faqs/galaxy/histories_create_new.md %}
 >
-> 2. Import the FASTA database, annotation file and comparison matrix from [Zenodo](https://zenodo.org/record/4896554)
+> 2. Import the FASTA database, annotation file and comparison matrix from [Zenodo](https://zenodo.org/records/17177151)
 >
 >    ```
->    https://zenodo.org/record/4896554/files/input_protein_database.fasta
->    https://zenodo.org/record/4896554/files/input_annotation_file.tabular
->    https://zenodo.org/record/4896554/files/input_comparison_matrix.tabular
+>    https://zenodo.org/records/17177151/files/input_protein_database.fasta
+>    https://zenodo.org/records/17177151/files/input_annotation_file.tabular
+>    https://zenodo.org/records/17177151/files/input_comparison_matrix.tabular
 >    ```
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
 >
@@ -143,12 +143,12 @@ Because the MaxQuant run takes really long, we recommend to download the MaxQuan
 
 > <hands-on-title>Load MaxQuant results from Zenodo</hands-on-title>
 >
-> 1. Import the files from [Zenodo](https://zenodo.org/record/4896554)
+> 1. Import the files from [Zenodo](https://zenodo.org/records/17177151)
 >
 >    ```
->    https://zenodo.org/record/4896554/files/MaxQuant_Evidence.tabular
->    https://zenodo.org/record/4896554/files/MaxQuant_proteingroups.tabular
->    https://zenodo.org/record/4896554/files/PTXQC_report.pdf
+>    https://zenodo.org/records/17177151/files/MaxQuant%20Evidence.tabular
+>    https://zenodo.org/records/17177151/files/MaxQuant%20Protein%20Groups.tabular
+>    https://zenodo.org/records/17177151/files/PTXQC%20report.pdf
 >    ```
 > 2. Rename the files `Evidence`, `Protein Groups`, and `PTXQC report` respectively.
 >
