@@ -1,3 +1,42 @@
+GTN_GTN:1758459883
+
+A	topics/proteomics/images/maxquant-msstats-lfq/upload.png
+GTN_GTN:1758103823
+
+A	learning-pathways/references.bib
+A	learning-pathways/sig-and-codex-creation.md
+A	topics/community/faqs/create_codex.md
+A	topics/community/tutorials/community-tool-table/images/codex_tools_flowchart.png
+A	topics/community/tutorials/community-tutorial-table/images/codex_tuto_flowchart.png
+A	topics/community/tutorials/community-tutorial-table/tutorial.md
+A	topics/community/tutorials/community-workflow-table/images/codex_workflows_flowchart.png
+A	topics/community/tutorials/community-workflow-table/tutorial.md
+GTN_GTN:1758018583
+
+A	faqs/galaxy/collections_autobuild_list.md
+A	topics/climate/images/bgc_calib/bgc_calibration.png
+A	topics/climate/images/bgc_calib/build_collection.png
+A	topics/climate/images/bgc_calib/change_ext.png
+A	topics/climate/images/bgc_calib/collection_emptyhist.png
+A	topics/climate/images/bgc_calib/collection_hist.png
+A	topics/climate/images/bgc_calib/galaxy_storage_handling.png
+A	topics/climate/images/bgc_calib/interface_1.png
+A	topics/climate/images/bgc_calib/interface_2.png
+A	topics/climate/images/bgc_calib/local_upload.png
+A	topics/climate/images/bgc_calib/odv_coll.png
+A	topics/climate/images/bgc_calib/odv_history.png
+A	topics/climate/images/bgc_calib/odv_launch.png
+A	topics/climate/images/bgc_calib/odv_launch_2.png
+A	topics/climate/images/bgc_calib/qcv_harmonizer.png
+A	topics/climate/images/bgc_calib/s3_upload.png
+A	topics/climate/tutorials/ocean_qcv_analysis/workflows/Galaxy-Workflow-Argo-Glider_Nitrate_QCV.ga
+GTN_GTN:1758015793
+
+A	news/_posts/2025-09-12-gta-orga-2026.md
+GTN_GTN:1757934913
+
+R091	metadata/git-mod-20d343332faf97ad2e6dc794b6b2fb2545c5f81a.txt	metadata/git-mod-be9559b359c19fb43137ad22addfd4e6c74a6fbe.txt
+R099	metadata/git-pub-20d343332faf97ad2e6dc794b6b2fb2545c5f81a.txt	metadata/git-pub-be9559b359c19fb43137ad22addfd4e6c74a6fbe.txt
 GTN_GTN:1757585134
 
 A	topics/digital-humanities/images/Galaxyeulogin.png
