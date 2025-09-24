@@ -151,33 +151,33 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 >
 > 1. Click on the triangle on the left of `Record ID`.
 >
-> ![Sort Record ID](images/sort.png)
+>    ![Sort Record ID](images/sort.png)
 >
 > 2. Click on `Sort...`.
 >
 > 3. Select `numbers` and click on `OK`.
 >
-> ![Sort Record ID options](images/sort2.png)
+>    ![Sort Record ID options](images/sort2.png)
 >
 > 4. Above the table, click on `Sort` and select `Reorder rows permanently`.
 >
-> ![Sort Record ID reorder permanently](images/sort3.png)
+>    ![Sort Record ID reorder permanently](images/sort3.png)
 >
 > 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.
 >
-> ![Blank down Record ID](images/sort4.png)
+>    ![Blank down Record ID](images/sort4.png)
 >
 > 6. Click on the triangle left of the `Record ID` column. Hover over `Facet`, then move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.
 >
-> ![Facet by blank Record ID](images/sort5.png)
+>    ![Facet by blank Record ID](images/sort5.png)
 >
 > 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.
 >
-> ![Facet by blank true Record ID](images/sort6.png)
+>    ![Facet by blank true Record ID](images/sort6.png)
 >
 > 8. Click on the triangle to the left of the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.
 >
-> ![Remove matching rows Record ID](images/deduplicate.png)
+>    ![Remove matching rows Record ID](images/deduplicate.png)
 >
 > 9. Close the `Facet` by clicking on the cross (x) to see all rows.
 >
@@ -206,16 +206,17 @@ The dataset does not contain any more blank rows now. But we need to do more cle
 > 3. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
 >
-> ![Custom text transform on column Categories](images/filter_grel3.png)
+>    ![Custom text transform on column Categories](images/filter_grel3.png)
 >
->   We can also remove the double occurrence of the same for different entries as follows:
+>    We can also remove the double occurrence of the same for different entries as follows:
+>
 > 5. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 >
-> ![Edit cells Categories](images/filter_grel.png)
+>    ![Edit cells Categories](images/filter_grel.png)
 >
-> ![Transform Categories](images/filter_grel2.png)
+>    ![Transform Categories](images/filter_grel2.png)
 >
-> 2. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
+> 6. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
 >
 {: .hands_on}
 
@@ -238,11 +239,11 @@ The dataset does not contain any more blank rows now. But we need to do more cle
 > than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
 > 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Split multi-valued cells...`.
 >
-> ![Atomization of Categories](images/split_multi_valued_cells.png)
+>    ![Atomization of Categories](images/split_multi_valued_cells.png)
 >
 > 2. Define the `Separator` as `\|` (pipe). Click on `OK`.
 >
-> ![Facet Blank of atomized Categories](images/facet_categories_blank.png)
+>    ![Facet Blank of atomized Categories](images/facet_categories_blank.png)
 >
 {: .hands_on}
 
@@ -270,15 +271,15 @@ Now, let's use faceting based on text.
 > 1. Click on the triangle on the left of `Categories`, hover over `facet`, and click on`Text facet`.
 > 2. On the left panel, it mentions the total number of choices. The default value of `count limit` is low for this dataset, and we should increase it. Click on `Set choice count limit`.
 >
-> ![Text faceting of atomized Categories](images/text_facet.png)
+>    ![Text faceting of atomized Categories](images/text_facet.png)
 >
 > 3. Enter `5000` as the new limit and click on `Ok`.
 >
-> ![Increasing the limit of text facetring](images/text_facet2.png)
+>    ![Increasing the limit of text facetring](images/text_facet2.png)
 >
 > 4. Now, you see all categories. Click on `count` to see the categories sorted in descending order.
 >
-> ![Text faceting of atomized Categories sorted by count](images/text_facet3.png)
+>    ![Text faceting of atomized Categories sorted by count](images/text_facet3.png)
 >
 {: .hands_on}
 
@@ -303,21 +304,21 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
 > 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerprint` and change the n-Gram size to `3`.
 >
-> ![Cluster and edit column Categories](images/cluster.png)
+>    ![Cluster and edit column Categories](images/cluster.png)
 >
 > 3. Click on the `cluster` button in the middle window.
 >
-> ![Clustered and merged similar Categories](images/cluster2.png)
+>    ![Clustered and merged similar Categories](images/cluster2.png)
 >
 > 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select > all` and then clicking on `Merge selected and re-cluster`.
 >
-> ![Join multi-valued cells on Categories](images/join.png)
+>    ![Join multi-valued cells on Categories](images/join.png)
 >
 > 5. Now, you can close the clustering window by clicking on `close`.
 >
-> Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
-> 1. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
-> 2. Choose the pipe character (`\|`) as a separator and click on `OK`.
+>    Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
+> 6. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
+> 7. Choose the pipe character (`\|`) as a separator and click on `OK`.
 > The rows now look like before, with a multi-valued Categories field.
 >
 {: .hands_on}
@@ -331,12 +332,12 @@ When you’re happy with your analysis results, choose whether to export the dat
 > 1. Click on `Export` at the top of the table.
 > 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel. You can also close the extra tab that contains OpenRefine and click on the orange item `OpenRefine on data [and a number]`. You do not need it for your next steps
 >
-> ![Export results of OpenRefine](images/export_results3.png)
+>    ![Export results of OpenRefine](images/export_results3.png)
 >
 > 3. You can find a new dataset in your Galaxy History (with a green background) that contains your cleaned dataset for further analysis.
 > 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
 >
-> ![Cleaned dataset](images/dataset_cleaned.png)
+>    ![Cleaned dataset](images/dataset_cleaned.png)
 >
 {: .hands_on}
 
@@ -345,7 +346,7 @@ When you’re happy with your analysis results, choose whether to export the dat
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
 >
-> ![Extract OpenRefine](images/extract_tasks.png)
+>    ![Extract OpenRefine](images/extract_tasks.png)
 >
 > 3. Click on the steps that you want to extract. Here, we selected everything.
 > 4. Click on `Export`. Give your file a name to save it on your computer.
@@ -379,22 +380,22 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 > Let's assume that you have imported a workflow to your Galaxy account.
 > 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
 >
-> ![Workflows button](images/workflows.png)
+>    ![Workflows button](images/workflows.png)
 >
 > 2. Then, you can select and run different workflows (if you have any workflows in your account). Here, let's click on the Run button ({% icon workflow-run %}) of the workflow we provided to you in this tutorial.
 >
-> ![Select this workflow](images/select_workflow.png)
+>    ![Select this workflow](images/select_workflow.png)
 >
 > 3. Determine the inputs as follows:
 >    Input: `openrefine-Galaxy file.tsv`
 >    stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
 >
-> ![Determine the inputs of the workflow](images/workflow_inputs.png)
+>    ![Determine the inputs of the workflow](images/workflow_inputs.png)
 >
 > 5. Click on the `Run Workflow` button at the top.
 > 6. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
 >
-> ![Overview of the workflow](images/workflow_overview.png)
+>    ![Overview of the workflow](images/workflow_overview.png)
 >
 {: .hands_on}
 
