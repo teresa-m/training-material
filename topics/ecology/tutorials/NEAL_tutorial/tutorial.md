@@ -13,7 +13,9 @@ key_points:
 - Annotate audio files
 contributions:
   authorship:
-    - PaulineSGN  
+    - PaulineSGN
+    - haswane
+    - yvanlebras  
 ---
 
 This tutorial is designed to guide you through the annotation of audio data via the NEAL interactive tool. 
