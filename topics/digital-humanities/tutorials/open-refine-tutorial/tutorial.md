@@ -4,7 +4,7 @@ title: OpenRefine Tutorial for researching cultural data
 level: Introductory
 zenodo_link: 'https://doi.org/10.5281/zenodo.17047254'
 questions:
-- How to use OpenRefine in Galaxy to clean your data? 
+- How to use OpenRefine in Galaxy to clean your data?
 - How to use a workflow in Galaxy to extract and visualise information from your data?
 objectives:
 - Start OpenRefine as an Interactive Tool in Galaxy
@@ -35,31 +35,31 @@ answer_histories:
     date: 2025-09-19
 ---
 This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualize data from the **humanities and social sciences**. It has two parts:
-- **Introduction to OpenRefine**, based on {% cite Hooland_2013 %} and adapted for Galaxy.  
-- **Introduction to running Galaxy workflows** to visualize cleaned data and extract specific information.  
+- **Introduction to OpenRefine**, based on {% cite Hooland_2013 %} and adapted for Galaxy.
+- **Introduction to running Galaxy workflows** to visualize cleaned data and extract specific information.
 
 
-## What is OpenRefine?  
+## What is OpenRefine?
 
-**OpenRefine** is a free, open-source “data wrangler” built for messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM (Galleries, Libraries, Archives and Museums) and official statistics (MARC, RDF serializations, PC-Axis).  
+**OpenRefine** is a free, open-source “data wrangler” built for messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM (Galleries, Libraries, Archives and Museums) and official statistics (MARC, RDF serializations, PC-Axis).
 
-It is **non-destructive** — OpenRefine does not alter your source files, but works on copies and saves projects locally. Facets and filters let you audit categories, surface outliers, and triage inconsistencies without code. Its **clustering** tools consolidate near-duplicates using both key-collision methods (fingerprint, n-gram, phonetic) and edit-distance/nearest-neighbour methods (Levenshtein, PPM) so you can standardize names and places at scale while keeping human oversight.  
+It is **non-destructive** — OpenRefine does not alter your source files, but works on copies and saves projects locally. Facets and filters let you audit categories, surface outliers, and triage inconsistencies without code. Its **clustering** tools consolidate near-duplicates using both key-collision methods (fingerprint, n-gram, phonetic) and edit-distance/nearest-neighbour methods (Levenshtein, PPM) so you can standardize names and places at scale while keeping human oversight.
 
-For enrichment, OpenRefine speaks the **Reconciliation API** to match local values to external authorities (e.g. **Wikidata**, **ROR**) and optionally pull back richer metadata. Transformations—both point-and-click and **GREL** formulas—are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning and easy peer review. Finished tables export cleanly to **CSV/TSV**, ODS/XLS(X), SQL statements, templated JSON, Google Sheets, or can be exported back to Galaxy.  
+For enrichment, OpenRefine speaks the **Reconciliation API** to match local values to external authorities (e.g. **Wikidata**, **ROR**) and optionally pull back richer metadata. Transformations—both point-and-click and **GREL** formulas—are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning and easy peer review. Finished tables export cleanly to **CSV/TSV**, ODS/XLS(X), SQL statements, templated JSON, Google Sheets, or can be exported back to Galaxy.
 
-## From Cleaning to Analysis in Galaxy  
+## From Cleaning to Analysis in Galaxy
 
-Once your dataset has been cleaned with OpenRefine, you often want to analyze it further or visualize specific aspects. This is where **Galaxy Workflows** become essential: they let you build reproducible pipelines that operate on your curated data, moving from one-off cleaning to structured analysis.  
+Once your dataset has been cleaned with OpenRefine, you often want to analyze it further or visualize specific aspects. This is where **Galaxy Workflows** become essential: they let you build reproducible pipelines that operate on your curated data, moving from one-off cleaning to structured analysis.
 
-## What are Galaxy Workflows?  
+## What are Galaxy Workflows?
 
-**Galaxy Workflows** are structured, stepwise pipelines you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research.  
+**Galaxy Workflows** are structured, stepwise pipelines you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research.
 
-A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web UI with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data).  
+A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web UI with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data).
 
-For findability and credit, the community uses **[WorkflowHub](https://workflowhub.eu/)**—a curated registry that supports multiple workflow technologies (including Galaxy) and promotes **FAIR** principles; it offers Spaces/Teams, permissions, versioning, and **DOIs via DataCite**, with metadata linking to identifiers like **[ORCID](https://orcid.org/)** so contributions enter scholarly knowledge graphs and are properly acknowledged.  
+For findability and credit, the community uses **[WorkflowHub](https://workflowhub.eu/)**—a curated registry that supports multiple workflow technologies (including Galaxy) and promotes **FAIR** principles; it offers Spaces/Teams, permissions, versioning, and **DOIs via DataCite**, with metadata linking to identifiers like **[ORCID](https://orcid.org/)** so contributions enter scholarly knowledge graphs and are properly acknowledged.
 
-In practice, you can iterate on a workflow in a familiar GUI, export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.  
+In practice, you can iterate on a workflow in a familiar GUI, export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
 
 
 > <agenda-title></agenda-title>
@@ -107,28 +107,28 @@ The users will familiarize themselves with the museum's metadata. In the next st
 
 > <hands-on-title>Opening the dataset with OpenRefine</hands-on-title>
 >
-> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data  
->    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`  
+> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data
+>    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`
 >
-> 2. Click on "Run Tool".  
+> 2. Click on "Run Tool".
 >
-> ![OpenRefine tool interface in Galaxy](images/openrefine.png)
+>    ![OpenRefine tool interface in Galaxy](images/openrefine.png)
 >
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box that allows you to start OpenRefine in a new tab.  
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box that allows you to start OpenRefine in a new tab.
 >
-> ![Open OpenRefine tool as an Interactive tool](images/interactive_tools.png)
+>    ![Open OpenRefine tool as an Interactive tool](images/interactive_tools.png)
 >
-> 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.  
+> 4. Here, you can see the OpenRefine GUI. Click on `Open Project`.
 >
-> ![Open OpenRefine interface](images/openrefine_interface.png)
+>    ![Open OpenRefine interface](images/openrefine_interface.png)
 >
 > 5. Click on `Galaxy file`. If the file does not appear, you may have started OpenRefine before it was fully loaded. Retry steps 3 and 4, and the file should be visible.
 >
-> ![Open OpenRefine Open Project as an input](images/openrefine_open_project.png)
+>    ![Open OpenRefine Open Project as an input](images/openrefine_open_project.png)
 >
-> 6. You can see the data loaded for you.  
+> 6. You can see the data loaded for you.
 >
-> ![Open OpenRefine GUI](images/openrefine_gui.png)
+>    ![Open OpenRefine GUI](images/openrefine_gui.png)
 >
 {: .hands_on}
 
@@ -149,37 +149,37 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 
 > <hands-on-title>Removing the blank rows</hands-on-title>
 >
-> 1. Click on the triangle on the left of `Record ID`.  
+> 1. Click on the triangle on the left of `Record ID`.
 >
 > ![Sort Record ID](images/sort.png)
 >
-> 2. Click on `Sort...`.  
+> 2. Click on `Sort...`.
 >
-> 3. Select `numbers` and click on `OK`.  
+> 3. Select `numbers` and click on `OK`.
 >
 > ![Sort Record ID options](images/sort2.png)
 >
-> 4. Above the table, click on `Sort` and select `Reorder rows permanently`.  
+> 4. Above the table, click on `Sort` and select `Reorder rows permanently`.
 >
 > ![Sort Record ID reorder permanently](images/sort3.png)
 >
-> 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.  
+> 5. Click on the triangle left of the `Record ID` column. Hover over `Edit cells` and select `Blank down`.
 >
 > ![Blank down Record ID](images/sort4.png)
 >
-> 6. Click on the triangle left of the `Record ID` column. Hover over `Facet`, then move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.  
+> 6. Click on the triangle left of the `Record ID` column. Hover over `Facet`, then move your mouse to `Customized facets` and select `Facet by blank (null or empty string)`.
 >
 > ![Facet by blank Record ID](images/sort5.png)
 >
-> 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.  
+> 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.
 >
 > ![Facet by blank true Record ID](images/sort6.png)
 >
-> 8. Click on the triangle to the left of the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.  
+> 8. Click on the triangle to the left of the column called `All`. Hover over `Edit rows`, and select `remove matching rows`.
 >
 > ![Remove matching rows Record ID](images/deduplicate.png)
 >
-> 9. Close the `Facet` by clicking on the cross (x) to see all rows.  
+> 9. Close the `Facet` by clicking on the cross (x) to see all rows.
 >
 {: .hands_on}
 
@@ -252,7 +252,7 @@ Are you ready for a little challenge? Let's investigate the categories column of
 >
 > 1. How many rows do you have after atomizing the categories column?
 > 2. How many entries do not have any category?
-> 
+>
 > > <solution-title></solution-title>
 > >
 > > 1. 168,476
@@ -299,7 +299,7 @@ Now, let's use faceting based on text.
 The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
 
 > <hands-on-title>Clustering of similar categories</hands-on-title>
-> 
+>
 > 1. Click on the `Cluster` button on the left in the `Facet/Filter` tab.
 > 2. Use `Key collision` as clustering method. Change the Keying function to `n-Gram fingerprint` and change the n-Gram size to `3`.
 >
@@ -314,7 +314,7 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 > ![Join multi-valued cells on Categories](images/join.png)
 >
 > 5. Now, you can close the clustering window by clicking on `close`.
-> 
+>
 > Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
 > 1. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
 > 2. Choose the pipe character (`\|`) as a separator and click on `OK`.
@@ -322,7 +322,7 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 >
 {: .hands_on}
 
-When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer. 
+When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer.
 
 ## Exporting your data back to Galaxy
 
@@ -356,12 +356,12 @@ When you’re happy with your analysis results, choose whether to export the dat
 
 # Run a Galaxy Workflow on your cleaned data
 
-Congratulations, you have successfully cleaned your data and improved its quality! 
+Congratulations, you have successfully cleaned your data and improved its quality!
 But what can you do with it now?
-This depends on your aims as a researcher. For us, it is interesting to extract further information from the data. 
-To make it easy for you, we created a so-called workflow, which links all the tools needed to do this analysis. 
-We wanted to know, from what year the museum had the most objects and what they were. 
-You can follow along and answer those questions with us, or explore the Galaxy tools on your own, to adapt the analysis to your needs. 
+This depends on your aims as a researcher. For us, it is interesting to extract further information from the data.
+To make it easy for you, we created a so-called workflow, which links all the tools needed to do this analysis.
+We wanted to know, from what year the museum had the most objects and what they were.
+You can follow along and answer those questions with us, or explore the Galaxy tools on your own, to adapt the analysis to your needs.
 In this case, be sure to check out our other tutorials, particularly the introductory ones.
 
 ## How to find and run existing workflows
@@ -399,7 +399,7 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 {: .hands_on}
 
 What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of what year most elements in the museum derive from, we first cut the column of production time from the table and filter only dates from the table that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset that is supposed to be created in 2041 is part of the table. We remove it. Datamash allows for summing up how many elements came to the museum in what year.  The ascending order, we visualise in a bar chart. To find out from what year most objects derive, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
-As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.   
+As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.
 
 ![Word cloud of objects' descriptions](images/display_1969.png)
 
