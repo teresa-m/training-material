@@ -24,7 +24,7 @@ NEAL (Nature+Energy Audio Labeller) {% cite Gibbons2023 %} is an open-source int
 
 The data we will work with in this tutorial is a 0:43min recording of a common blackbird (Turdus merula) recorded in Armenia above Alaverdi town. For more information, you can see metadata on the [xeno-canto site](https://xeno-canto.org/explore?query=nr:1008421).   
 
-In this tutorial, you will learn how to import an audio file into Galaxy, run the NEAL interactive tool, annotate the sound data, and export the resulting annotation file.  
+In this tutorial, you will learn how to import an audio file into Galaxy, run the NEAL interactive tool, annotate the spectrogram, and export the resulting annotation file.  
 
 Many of you may be new to Galaxy or to audio annotation, so we will go step by step. If you're new to Galaxy, feel free to check out other tutorials like [A short introduction to Galaxy]({% link topics/introduction/tutorials/galaxy-intro-short/tutorial.md %}) or [Galaxy Basics for everyone]({% link topics/introduction/tutorials/galaxy-intro-101-everyone/tutorial.md %}).
 
@@ -39,7 +39,7 @@ Many of you may be new to Galaxy or to audio annotation, so we will go step by s
 
 # Get data
 
-So, the first step is to download and upload your audio file to Galaxy. 
+So, the first step is to your audio file into Galaxy. 
 In this tutorial, we will use the recording mentioned earlier, but feel free to use your own file(s). The NEAL interactive tool allows working on multiple files, so you can upload the number of files you want.
 
 > <hands-on-title> Data Upload </hands-on-title>
@@ -62,15 +62,22 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 >    {% snippet faqs/galaxy/datasets_import_from_remote_files.md %}
 >
-> 4. Rename the dataset (default name: *Downloaded*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier.
+> 4. Rename the dataset (default name: *Download*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier. 
 >
 >    {% snippet faqs/galaxy/datasets_rename.md %}
+>    
+> > <tip-title>PRovide a dataset name during import</tip-title>
+> >
+> >   Note that you also can provide the **1008421.wav** filename on the "Paste/Fetch data" upload module to avoid renaming after importing the file.
+> >
+>{: .tip}
+>    
 >
-> 5. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
+> 6. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md %}
 >
-> 6. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
+> 7. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
@@ -93,15 +100,15 @@ All the work will be done inside the NEAL interactive tool, so let's run it.
 >
 > 3. You can now display the interactive interface. You can display it with different methods:
 >
->    1. You can open it with the status message "Open" 
+>    1. You can open it clicking ont the status message "Open" 
 >
 >      ![Open status](./images/open_status.png "Open status example")
 >
->    2. You can open it by clicking on the link next to the red square in the manage interactive tool panel.
+>    2. You can open it by clicking on the link next to the red square in the "Launch and manage interactive tool" panel.
 >
 >      ![Manage interactive tool](./images/manage_IT.png "Manage interactive tools panel")
 >
->    3. You can also click on the eye icon on the history.
+>    3. You can also click on the eye icon on the "yellow" "NEAL on dataX" history dataset.
 >
 >      ![History status](./images/history_status.png "History status")
 >
@@ -122,7 +129,7 @@ To start annotating your audio file, you will need to start the session.
 > 2. Click the green **Start labelling** button.  
 >     ![Green button](./images/green_button.png "Green button example")  
 >
-> 3. The **sonogram** of the audio will appear.  
+> 3. The **sonogram** of the audio file will appear.  
 >     ![Sonogram](./images/sonogram.png "Sonogram example")
 >
 {: .hands_on}
@@ -168,7 +175,7 @@ For this tutorial, you will only need the **Turdus merula** label you just added
 >
 > 1. Click and drag on the sonogram to select a **time–frequency region**.
 >
->    The selected area will be highlighted. With our data we can try to select at two different frequencies : 
+>    The selected area will be highlighted. Here we can try to two different frequencies ranges : 
 >
 >      - One selection between 1 kHz and 10 kHz:
 >       ![Selection on sonogram](./images/select.png "Selection on sonogram")
@@ -183,8 +190,8 @@ For this tutorial, you will only need the **Turdus merula** label you just added
 > > > <solution-title></solution-title>
 > > >
 > > > 1. There are two sounds: 
-> > >   - In the higher frequencies, you can hear Turdus merula sounds
-> > >   - In the lower frequencies, you can hear an insect noise.
+> > >   - In the higher frequencies, you can hear *Turdus merula* sounds
+> > >   - In the lower frequencies, you can hear a flying insect noise.
 > > >
 > > {: .solution}
 > {: .question}
@@ -192,15 +199,15 @@ For this tutorial, you will only need the **Turdus merula** label you just added
 
 ### Annotate the selection
 
-After the selection of an area, you can assign it a label. 
+After selection of an area, you can assign it a label. 
 
-> <hands-on-title> Add a label to the select area </hands-on-title>
+> <hands-on-title> Add a label to the selected area </hands-on-title>
 >
 > 1. After selecting a region, choose the label that matches what you hear in the **Class list**.
 >
 > 2. Click on the **Save selection** button 
 >       - This will link the time–frequency selection to a label. 
->       - You can now annotate the Turdus merula sound...
+>       - You can now annotate the *Turdus merula* sound...
 > ![Merula noise](./images/merula_noise.png "Merula Noise")
 >       - ... and the insect noise we selected in the previous step. 
 > ![Insect noise](./images/insect_noise.png "Insect Noise")
@@ -249,7 +256,7 @@ Back on Galaxy, you can now Shutdown the NEAL interactive tool to free resources
 >
 >  ![Shutdown example](./images/history_status.png "Shutdown example")
 >
-> 2. Click on the red square in the manage interactive tool panel. 
+> 2. Click on the red square in the "launch and manage interactive tools" panel. 
 >
 >  ![Shutdown example 2](./images/manage_IT.png "Shutdown example 2")
 >
@@ -278,7 +285,7 @@ You can now continue your work from where you left off.
 
 > <warning-title></warning-title>
 >
-> NEAL does not automatically save labels in its **Class List**.  
+> Using it into Galaxy, NEAL does not automatically save labels in its **Class List**.  
 > Labels are stored only inside the sonogram annotations.  
 > This means you may need to recreate/re-add labels before adding new annotations.  
 >
