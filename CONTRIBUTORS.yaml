@@ -2636,6 +2636,12 @@ sebastian-schaaf:
     former_affiliations:
       - eurosciencegateway
 
+sebastian-preissl:
+    name: Sebastian Preissl
+    github: false
+    joined: 2025-09
+
+
 sonalhenson:
     name: Sonal Henson
     joined: 2023-09
