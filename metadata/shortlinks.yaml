@@ -698,6 +698,8 @@ name:
   statistics/flexynesis_survival: "/topics/statistics/tutorials/flexynesis_survival/tutorial.html"
   statistics/flexynesis_unsupervised: "/topics/statistics/tutorials/flexynesis_unsupervised/tutorial.html"
   digital-humanities/introduction_to_dh: "/topics/digital-humanities/tutorials/introduction_to_dh/tutorial.html"
+  community/community-tutorial-table: "/topics/community/tutorials/community-tutorial-table/tutorial.html"
+  community/community-workflow-table: "/topics/community/tutorials/community-workflow-table/tutorial.html"
 id:
   T00000: "/topics/admin/tutorials/ansible/tutorial.html"
   T00001: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
@@ -2409,6 +2411,13 @@ id:
   E00035: "/events/2025-11-24-gat-brno.html"
   T00557: "/topics/digital-humanities/tutorials/introduction_to_dh/tutorial.html"
   W00361: "/topics/digital-humanities/tutorials/introduction_to_dh/workflows/introduction-to-digital-humanities.html"
+  T00558: "/topics/community/tutorials/community-tutorial-table/tutorial.html"
+  T00559: "/topics/community/tutorials/community-workflow-table/tutorial.html"
+  F00460: "/faqs/galaxy/collections_autobuild_list.html"
+  F00461: "/topics/community/faqs/create_codex.html"
+  N00120: "/news/2025/09/12/gta-orga-2026.html"
+  P00034: "/learning-pathways/sig-and-codex-creation.html"
+  W00362: "/topics/climate/tutorials/ocean_qcv_analysis/workflows/Galaxy-Workflow-Argo-Glider_Nitrate_QCV.html"
 misc:
   ansible-galaxy: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
   feeds: "/feeds/index.html"

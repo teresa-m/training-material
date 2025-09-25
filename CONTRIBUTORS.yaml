@@ -677,6 +677,7 @@ Sch-Da:
       - uni-freiburg
       - deKCD
       - elixir-europe
+      - nfdi4culture
 
 dadrasarmin:
     name: Armin Dadras
@@ -2635,6 +2636,12 @@ sebastian-schaaf:
     joined: 2024-05
     former_affiliations:
       - eurosciencegateway
+
+sebastian-preissl:
+    name: Sebastian Preissl
+    github: false
+    joined: 2025-09
+
 
 sonalhenson:
     name: Sonal Henson
