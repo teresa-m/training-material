@@ -135,7 +135,7 @@ You can check different labs for inspiration, such as the [microgalaxy lab](http
 If you want additional sections, for example, the "Microbial isolates" and "Microbiome" sections in the [microgalaxy lab](https://microbiology.usegalaxy.eu/).
 
 > <hands-on-title>Add community specific sections</hands-on-title>
-> 1. Find an appropriate template. You can use other files in your section folder, or browse other labs, such as [microgalaxy lab code](communities/biodiversity/lab/sections), and copy the raw code as a template.
+> 1. Find an appropriate template. You can use other files in your section folder, or browse other labs, such as [microgalaxy lab code](https://github.com/galaxyproject/galaxy_codex/tree/main/communities/microgalaxy/lab), and copy the raw code as a template.
 > 2. Create the file in your section folder. Name it with a digit (numerical order) and a descriptive name (i.e. "7_microbial_isolate").
 > 3. Copy the raw code in this newly created file.
 > 4. Update the code to display what you want.
