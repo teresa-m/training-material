@@ -32,6 +32,8 @@ The **Community lab**, a centralised webpage that enables communities to rapidly
 
 The aim is this tutorial is to create the files necessary to display the labs in each Galaxy instance.
 
+You can also use the [Galaxy Labs engine](https://labs.usegalaxy.org.au/).
+
 > <agenda-title></agenda-title>
 >
 > In this tutorial, we will cover:
@@ -161,6 +163,8 @@ You can use the [pull request done for the biodiversity lab](https://github.com/
 For the org instance, this tutorial will be updated later.
 You can use the [pull request done for the biodiversity lab](https://github.com/galaxyproject/usegalaxy-playbook/pull/427) as a reference.
 
+For the australian instance, this tutorial will be updated later.
+You can use the [pull request done for the biodiversity lab](https://github.com/usegalaxy-au/infrastructure/issues/2786#issuecomment-3330995427) as a reference.
 
 # Conclusion
 
