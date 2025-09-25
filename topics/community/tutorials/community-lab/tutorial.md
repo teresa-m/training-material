@@ -92,8 +92,8 @@ communities/<your community>/lab/sections_templates/
 > 8. On the left panel, click on "Populate labs"
 > 9. In the table, click on "Run workflow" and select the branch you just created "new lab for <Community-name>"
 > 10. Click on "Run workflow"
-
-This will create a Pull Request with the new files in the appropriate community folder. To find the Pull Request, on the top panel of the Galaxy codex repository, click on "Pull requests".
+>
+> This will create a Pull Request with the new files in the appropriate community folder. To find the Pull Request, on the top panel of the Galaxy codex repository, click on "Pull requests".
 {: .hands_on}
 
 </div>
@@ -105,8 +105,8 @@ This will create a Pull Request with the new files in the appropriate community 
 > 1. Fork and clone the [Galaxy Codex repo](https://github.com/galaxyproject/galaxy_codex)
 > 2. Set the `COMMUNITY` variable : `export $COMMUNITY=<your community>`
 > 3. Lauch `sources/bin/populate_labs.sh`
-
-This will create a bunch of the new files in the appropriate community folder (communities/<your community>/lab/).
+>
+> This will create a bunch of the new files in the appropriate community folder (communities/<your community>/lab/).
 {: .hands_on}
 
 </div>
@@ -144,7 +144,6 @@ If you want additional sections, for example, the "Microbial isolates" and "Micr
 > 7. Add the previously created file in the sections (see [microgalaxy base file](https://github.com/galaxyproject/galaxy_codex/blob/main/communities/biodiversity/lab/base.yml) for example)
 > 8. Save `communities/<your community>/lab/base.yml`
 > 9. Commit the changes, create the pull request (if not done previously)
-
 {: .hands_on}
 
 The Pull Request will be reviewed. Make sure to respond to any feedback.
