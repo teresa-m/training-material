@@ -31,7 +31,7 @@ funding:
 
 ---
 
-## Description
+# Description
 
 *Assemble a genome! Learn how to create and assess genome assemblies using the powerful combination of Nanopore and Illumina reads.*
 
@@ -67,7 +67,7 @@ This Galaxy tutorial based on material from the [Hybrid genome assembly - Nanopo
 
 # Background
 
-### How do we produce the genomic DNA for a bacterial isolate?
+## How do we produce the genomic DNA for a bacterial isolate?
 
 Traditional *in vitro* culture techniques are important. Take a sample (e.g. a swab specimen from an infected sore) and streak a 'loopful' on to solid growth medium that suppoprts the growth of the bacteria. **Technology from the time of Louis Pasteur!**
 
@@ -77,7 +77,7 @@ Mixtures of bacterial types can be sequenced e.g. prepare genomic DNA from envir
 
 One colony contains 10<sup>7</sup> – 10<sup>8</sup> cells. The genomic DNA extracted from one colony is enough for Illumina sequencing. Larger amounts of genomic DNA are required for Nanopore sequencing.
 
-### Shotgun sequencing - Illumina Sequencing Library
+## Shotgun sequencing - Illumina Sequencing Library
 
 Genomic DNA is prepared for sequencing by fragmenting/shearing: multiple copies of Chromosome + plasmid  --> ~500 bp fragments
 
