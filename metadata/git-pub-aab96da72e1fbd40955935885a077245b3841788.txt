@@ -1,3 +1,59 @@
+GTN_GTN:1758720727
+
+A	topics/digital-humanities/tutorials/open-refine-tutorial/data-library.yaml
+A	topics/digital-humanities/tutorials/open-refine-tutorial/faqs/index.md
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/cluster.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/cluster2.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/dataset_cleaned.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/deduplicate.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/display_1969.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/export_results3.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/extract_tasks.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/extract_tasks2.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/facet_categories_blank.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/filter_grel.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/filter_grel2.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/filter_grel3.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/interactive_tools.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/join.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/openrefine.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/openrefine_gui.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/openrefine_interface.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/openrefine_open_project.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/select_workflow.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort2.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort3.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort4.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort5.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/sort6.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/split_multi_valued_cells.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/text_facet.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/text_facet2.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/text_facet3.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/workflow.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/workflow_inputs.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/workflow_overview.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/workflowhub.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/images/workflows.png
+A	topics/digital-humanities/tutorials/open-refine-tutorial/tutorial.bib
+A	topics/digital-humanities/tutorials/open-refine-tutorial/tutorial.md
+A	topics/digital-humanities/tutorials/open-refine-tutorial/workflows/Visualise-amount-of-objects-in-Museum-Collection-tests.yml
+A	topics/digital-humanities/tutorials/open-refine-tutorial/workflows/Visualise-amount-of-objects-in-Museum-Collection.ga
+A	topics/digital-humanities/tutorials/open-refine-tutorial/workflows/index.md
+GTN_GTN:1758640034
+
+A	.github/dependabot.yml
+GTN_GTN:1758640010
+
+A	events/2025-09-24-wokshop-graz.md
+GTN_GTN:1758639982
+
+R097	metadata/git-mod-be9559b359c19fb43137ad22addfd4e6c74a6fbe.txt	metadata/git-mod-0c443308e8dc716482191d172bdb318ea2f2b238.txt
+R099	metadata/git-pub-be9559b359c19fb43137ad22addfd4e6c74a6fbe.txt	metadata/git-pub-0c443308e8dc716482191d172bdb318ea2f2b238.txt
+GTN_GTN:1758638065
+
+A	topics/introduction/images/activity_bar.png
 GTN_GTN:1758459883
 
 A	topics/proteomics/images/maxquant-msstats-lfq/upload.png
