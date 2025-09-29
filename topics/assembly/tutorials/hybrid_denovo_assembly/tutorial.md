@@ -259,7 +259,7 @@ Search for the `Quast` tool in the tools panel.
 > 2. View output:
 >    - `Quast` will produce a HTML report summarising it's results.
 >    - Open the report. It may look something like this:
-![quast_report](../../images/denovo_assembly/quast_draft_assembly.png)
+>      ![quast_report](../../images/denovo_assembly/quast_draft_assembly.png)
 >    - Note the:
 >      - Genome fraction (%)
 >      - \# mismatches per 100 kbp
