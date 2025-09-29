@@ -33,7 +33,7 @@ funding:
 
 ## Description
 
-*Assemble a genome! Learn how to create and assess genome assemblies using the powerful combination of Nanopore and Illumina reads*
+*Assemble a genome! Learn how to create and assess genome assemblies using the powerful combination of Nanopore and Illumina reads.*
 
 This tutorial explores how long and short read data can be combined to produce a high-quality 'finished' bacterial genome sequence. Termed 'hybrid assembly', we will use read data produced from two different sequencing platforms, Illumina (short read) and Oxford Nanopore Technologies (long read), to reconstruct a bacterial genome sequence.
 
@@ -484,7 +484,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 >    - `Unicycler` will output three files 
 >       - The assembly 
 >       - An assembly graph 
->       - SPAges graphs 
+>       - SPAdes graphs 
 >    - We are interested in the `Final Assembly` output, which is the assembly as a `fasta` file. 
 > 
 > 3. ***Rename*** the `Final Assembly` output to `Unicycler: Assembly`.
