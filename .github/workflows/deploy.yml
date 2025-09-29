@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'galaxyproject'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # Avg commits between successive monday:
           #  Min.   :  2.0
@@ -38,7 +38,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '19'
       - uses: actions/cache@v4
@@ -99,7 +99,7 @@ jobs:
           bundle exec ruby bin/lint-deploy.rb
 
       - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site/training-material/
