@@ -347,7 +347,7 @@ An important aspect of untargeted metabolomics is the definition of unknowns —
 At this stage, all elements are complete: we have the list of pseudo-spectra with an annotation, either as a chemical standard from the database, or an unknown occurring in a sizeable fraction of the injections. The only thing left to do is to calculate relative intensities for the pseudo-spectra, and to put the results in an easy-to-use table. This table consists in two parts. The first part is the information on the “features”, which here are the pseudo-spectra. The second part of the table contains the intensities of these features in the individual injections. 
 
 
-![Screenshot of peaktable.tsv output of metaMS.runGC](../../images/tuto_gcms_finale_table.png "Final table with unknowns and compounds found during **metaMS** processus")
+![Screenshot of peaktable.tsv output of metaMS.runGC](../../images/tuto_gcms_finale_table.png "Final table with unknowns and compounds found during the metaMS processus")
 
 The first eight lines are the standards, and the next ones are the unknowns that are identified by the pipeline. For each sample, "relative intensities" calculated by **metaMS** are given.
 In the manual interpretation of this kind of data, the intensities of one or two “highly specific” features (called quantifiers) are often used to achieve relative quantitation. In **metaMS** the reported intensities are calculated differently.
