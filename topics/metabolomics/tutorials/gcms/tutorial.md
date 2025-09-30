@@ -480,8 +480,8 @@ Don't forget to always check your files' format for compatibility with further a
 > {% snippet faqs/galaxy/datasets_rename.md %}
 >
 > > <warning-title> Be careful of the file format</warning-title>
-> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to further GC-MS processing with **metaMS**, you need to identify which datasets can be used with which tool. For example to be able to use *runGC* function you need to have a RData object which is at least **merged** (output from **xcms findChromPeaks Merger** {% icon tool %}). 
-After following option 1 steps you obtained tabular files that can be used in a large variety of analyses, as well as an MSP file (if option 1 was used). Always check the format needed for further tools, as these format are 'text format' but with characteristics that may matter in further steps. 
+> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to proceed with GC-MS processing with **metaMS**, you need to identify which datasets can be used with which tool. For example to be able to use *runGC* function you need to have an RData object which is at least **merged** (output from **xcms findChromPeaks Merger** {% icon tool %}). 
+After following the option 1 steps you obtained tabular files that can be used in a large variety of analyses, as well as an MSP file (if option 1 was used). Always check the format needed for further tools, as these format are 'text format' but with characteristics that may matter in further steps. 
 With option 2, if you want to process your data with XCMS or other tools you may also have to **align** them with **xcms groupChromPeaks (group)** {% icon tool %}). It means that you should have at least a file named `xset.merged.RData` to be able to continue XCMS processing.
 > {: .warning} 
 
