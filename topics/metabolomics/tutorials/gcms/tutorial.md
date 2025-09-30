@@ -334,7 +334,7 @@ Once **metaMS** have created the pseudo-spectra for each unknown compound in eac
 
 ## Unknowns research
 
-An important aspect of untargeted metabolomics is the definition of unknowns—features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e., pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
+An important aspect of untargeted metabolomics is the definition of unknowns - features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e. pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
 If an MSP database has been added to the *runGC* function inputs, then the function returns a table where all patterns that have a match with a DB entry are shown with their name. The other non-matching pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 One strenght of **metaMS** is its ability to use pseudo-spectra (1) for alignment of unknows between samples and (2) to compare unknown experimental pseudo-spectra to previously created in-house spectra databse (in MSP format). By doing so **metaMS** *runGC* function can serve as an annotation tool. You just have to set  - *"Use Personnal DataBase option"* : `show` and add you in-house database file as input.
 
@@ -434,10 +434,10 @@ To recap your [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)
 > > Here are the different steps made through this tutorial: 
 > >  - **(Not with XCMS)** import of the data into the Galaxy instance
 > >  - **MSNbase readMSData** {% icon tool %} to read and prepare the MS data for the extraction step
-> >  - XCMS peak picking with **xcms findChromPeaks (xcmsSet)** {% icon tool %} tool
-> >  - (Not with XCMS but necessary) merge my datas into one file with **xcms findChromPeaks Merger** {% icon tool %} tool
-> >  - XCMS grouping with **xcms groupChromPeaks (group)** {% icon tool %} tool
-> >  - **(Not done)** XCMS retention time correction, then grouping again with xcms adjustRtime (retcor) {% icon tool %} tool
+> >  - XCMS peak picking with the **xcms findChromPeaks (xcmsSet)** {% icon tool %} tool
+> >  - (Not directly XCMS processing, but necessary in the Galaxy tool suit) merge my data into one file with **xcms findChromPeaks Merger** {% icon tool %} tool
+> >  - XCMS grouping with the **xcms groupChromPeaks (group)** {% icon tool %} tool
+> > 
 > >  - XCMS integration of missing peaks with **xcms fillChromPeaks (fillPeaks)** {% icon tool %} tool
 > > 
 > {: .solution}
