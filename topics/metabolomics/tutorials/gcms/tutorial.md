@@ -246,7 +246,7 @@ Although this training material is dedicated to GC-MS analysis with the metaMS p
 
 # Processing with metaMS (option 1)
 
-**metaMS** is an R package for MS-based metabolomics data. It was made to ease GC-MS data deconvolution and alignement steps using functions from **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format.
+**metaMS** is an R package for MS-based metabolomics data. It was made to ease GC-MS data deconvolution and alignment steps using functions from **XCMS** and **CAMERA** packages. In its Galaxy implementation, the two main outputs of **metaMS** are: (1) a table of feature intensities in all samples, which can be analyzed with multivariate methods immediately, and (2) an MSP (`.msp`) file containing GC-MS spectra in a common spectral database format.
 The biggest difference between **XCMS** only workflow ([option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)) or **XCMS + metaMS** GC-MS data processing (option 1) is that rather than a feature-based analysis with individual peaks, as in the [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2) case, **metaMS** performs a pseudospectrum-based analysis and use it to align compound between samples. One other advantage is that **metaMS** allows creation of MSP (`.msp`) spectra export files ready for annotation.
 
 > <comment-title></comment-title>
@@ -262,7 +262,7 @@ The standard workflow of **metaMS** for GC-MS data is the following:
 The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in Galaxy. It takes as inputs an {% icon param-collection %} *.RData* file after **XCMS** peak picking  and optionally for annotation purposes an alkane reference file (in either `.csv` or `.tsv` format) for RI calculation and/or a spectral database in `.msp` format.
 
 
-## Deconvolution and Alignement with metaMS
+## Deconvolution and Alignment with metaMS
 
 The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and Alignment steps with *runGC* function.
 
@@ -321,7 +321,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    {: .details}
 {: .details}
 
-## Alignement
+## Alignment
 
 Once **metaMS** has created the pseudo-spectra for each unknown compound in each file, we can start the alignment process. This is done by *comparing each pseudospectrum* to each other in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index), the two pseudo-spectra are considered as corresponding to the same compound. This process will create the *dataMatrix* and *variableMetadata* outputs, where aligned pseudo-spectra for different samples will belong to the same line in the final *variableMetadata* and will be considered as Unknown compound X. 
 
@@ -330,13 +330,13 @@ Once **metaMS** has created the pseudo-spectra for each unknown compound in each
 
 If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 
-Once **metaMS** have created the pseudo-spectra for each unknown compound in each file, we can start the alignement process. This is done by *comparing every pseudospectrum* to each others in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index), the two pseudo-spectra are considered as corresponding to the same compound. This process will create the *dataMatrix* and *variableMetadata* outputs, where aligned pseudo-spectra for different samples will belong to the same line in the final *variableMetadata* and will be considered as Unknown compound X. 
+Once **metaMS** have created the pseudo-spectra for each unknown compound in each file, we can start the alignment process. This is done by *comparing every pseudospectrum* to each others in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index), the two pseudo-spectra are considered as corresponding to the same compound. This process will create the *dataMatrix* and *variableMetadata* outputs, where aligned pseudo-spectra for different samples will belong to the same line in the final *variableMetadata* and will be considered as Unknown compound X. 
 
 ## Unknowns research
 
 An important aspect of untargeted metabolomics is the definition of unknowns—features that occur repeatedly in a minimum number or fraction of samples (as defined by the `min.class.fract` and `min.class.size` parameters in the metaMS settings), but for which no annotation has been found. In **metaMS**, these unknown features are found by comparing all patterns (i.e., pseudo-spectra which are groups of features) within a certain retention time (or retention index) difference on their spectral characteristics.
 If an MSP database has been added to the *runGC* function inputs, then the function returns a table where all patterns that have a match with a DB entry are shown with their name. The other non-matching pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
-One strenght of **metaMS** is its ability to use pseudo-spectra (1) for alignement of unknows between samples and (2) to compare unknown experimental pseudo-spectra to previously created in-house spectra databse (in MSP format). By doing so **metaMS** *runGC* function can serve as an annotation tool. You just have to set  - *"Use Personnal DataBase option"* : `show` and add you in-house database file as input.
+One strenght of **metaMS** is its ability to use pseudo-spectra (1) for alignment of unknows between samples and (2) to compare unknown experimental pseudo-spectra to previously created in-house spectra databse (in MSP format). By doing so **metaMS** *runGC* function can serve as an annotation tool. You just have to set  - *"Use Personnal DataBase option"* : `show` and add you in-house database file as input.
 
 The *runGC* process will always create an MSP file as output (either with only unknown spectra or with a mix of annotated ones and unknowns). That MSP file can be used for database search online (as Golm ({% cite Kopka2005 %}) and MassBank ({% cite Horai2010 %})) or locally (NIST MSSEARCH) for NIST search (as shown in the following [PDF tutorial](https://workflow4metabolomics.org/sites/default/files/fichiers/documents/w4m_HowToUseNIST_V01.pdf).
 
@@ -394,7 +394,7 @@ To recap your [option 1](#processing-with-metams-option-1) journey, here are som
 
 # Process GC-MS data with a full XCMS workflow (option 2)
 
-This option follows the standard **XCMS** workflow with GC-MS data at start to obtain in the end a *dataMatrix* file and its corresponding *variableMetadata* file. The main difference with the [option 1](#processing-with-metams-option-1) is that the *dataMatrix* file will contain individual peaks rather than pseudo-spectra, and the *variableMetadata* file will contain information about each peak, such as its retention time, m/z, and intensity. **No** `.msp` file will be generated in this case, as the peaks are not grouped into pseudo-spectra so the annotation process will be different.
+This option follows the standard **XCMS** workflow with GC-MS data as start to obtain in the end a *dataMatrix* file and its corresponding *variableMetadata* file. The main difference with the [option 1](#processing-with-metams-option-1) is that the *dataMatrix* file will contain individual peaks rather than pseudo-spectra, and the *variableMetadata* file will contain information about each peak, such as its retention time, m/z, and intensity. **No** `.msp` file will be generated in this case, as the peaks are not grouped into pseudo-spectra so the annotation process will be different.
 
 > <hands-on-title>Example untargeted GC-MS data processing with the standard XCMS workflow</hands-on-title>
 >
