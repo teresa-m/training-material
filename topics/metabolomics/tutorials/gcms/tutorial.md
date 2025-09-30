@@ -392,6 +392,10 @@ To recap your [option 1](#processing-with-metams-option-1) journey, here are som
 > {: .solution}
 {: .question}
 
+</div>
+
+<div class="Process-GC-MS-data-with-XCMS-function-directly" markdown="1">
+ 
 # Process GC-MS data with a full XCMS workflow (option 2)
 
 This option follows the standard **XCMS** workflow with GC-MS data as start to obtain in the end a *dataMatrix* file and its corresponding *variableMetadata* file. The main difference with the [option 1](#processing-with-metams-option-1) is that the *dataMatrix* file will contain individual peaks rather than pseudo-spectra, and the *variableMetadata* file will contain information about each peak, such as its retention time, m/z, and intensity. **No** `.msp` file will be generated in this case, as the peaks are not grouped into pseudo-spectra so the annotation process will be different.
@@ -450,7 +454,6 @@ To recap your [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)
 {: .question}
 
 </div>
-
    
 ># Verify your data after the pre-processing and clean datasets
 >
