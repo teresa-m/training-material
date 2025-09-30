@@ -264,7 +264,7 @@ The *runGC* function is implemented in **metaMS.runGC {% icon tool %}** tool in 
 
 ## Deconvolution and Alignement with metaMS
 
-The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and Alignment steps with _runGC_ function.
+The peak picking is performed by the usual **XCMS** functions and the output file in `.RData` is used for deconvolution and Alignment steps with *runGC* function.
 
 > <hands-on-title> metaMS.runGC </hands-on-title>
 > 
@@ -297,7 +297,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 
 > <details-title> Definitions </details-title>
 >    > <details-title> Pseudo-spectra </details-title>
->    > The biggest difference between **XCMS** only or **XCMS + metaMS** GC-MS data processing is that rather than a feature-based analysis with individual peaks, as it is the case with **XCMS**, **metaMS** performs a pseudospectrum-based analysis. So, the basic entity is a set of m/z values showing a chromatographic peak at the same retention time. The idea behind that is that Electron Ionization (EI), which is the most widely used ionization mode in GC-MS analysis, generates a lot more ions for the same molecule than Electrospray Ionisation used in LC-MS. The _runGC_ function from **metaMS** is able to group all ions belonging to a molecule into one single cluster that will be used for statistical analysis. For each compound found by **metaMS**, a list of grouped m/z and their intensity is exported as pseudospectrum and this will be used for annotation purpose. For that, the MSP file format is used, which is a common format for mass spectra databases. The pseudospectra are created by grouping all m/z values of a chromatographic peak at the same retention time into one single entry, and then exporting this information in the `.msp` format.
+>    > The biggest difference between **XCMS** only or **XCMS + metaMS** GC-MS data processing is that rather than a feature-based analysis with individual peaks, as it is the case with **XCMS**, **metaMS** performs a pseudospectrum-based analysis. So, the basic entity is a set of m/z values showing a chromatographic peak at the same retention time. The idea behind that is that Electron Ionization (EI), which is the most widely used ionization mode in GC-MS analysis, generates a lot more ions for the same molecule than Electrospray Ionisation used in LC-MS. The *runGC* function from **metaMS** is able to group all ions belonging to a molecule into one single cluster that will be used for statistical analysis. For each compound found by **metaMS**, a list of grouped m/z and their intensity is exported as pseudospectrum and this will be used for annotation purpose. For that, the MSP file format is used, which is a common format for mass spectra databases. The pseudospectra are created by grouping all m/z values of a chromatographic peak at the same retention time into one single entry, and then exporting this information in the `.msp` format.
 >    > 
 >    > ![TIC](../../images/tuto_gcms_eic.png "Example of cluster of ions EIC's (left) and the associated pseudospectra (right)")
 >    > 
@@ -326,7 +326,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 Once **metaMS** has created the pseudo-spectra for each unknown compound in each file, we can start the alignment process. This is done by *comparing each pseudospectrum* to each other in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index), the two pseudo-spectra are considered as corresponding to the same compound. This process will create the *dataMatrix* and *variableMetadata* outputs, where aligned pseudo-spectra for different samples will belong to the same line in the final *variableMetadata* and will be considered as Unknown compound X. 
 
 
-![Match spectra](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
+![Illustration of two GC-MS spectra aligned for visual comparison](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
 
 If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 
@@ -477,7 +477,9 @@ Don't forget to always check your files' format for compatibility with further a
 > {% snippet faqs/galaxy/datasets_rename.md %}
 >
 > > <warning-title> Be careful of the file format</warning-title>
-> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to GC-MS processing with **metaMS**, you need to have a RData object which is at least **merged** (from **xcms findChromPeaks Merger** {% icon tool %} and if you want to process your data with XCMS or other tools you may also have to **align** them with **xcms groupChromPeaks (group)** {% icon tool %}). It means that you should have at least a file named `xset.merged.RData` (and maybe with some step more in it depending on the tool cascade used).
+> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to further GC-MS processing with **metaMS**, you need to identify which datasets can be used with which tool. For example to be able to use *runGC* function you need to have a RData object which is at least **merged** (output from **xcms findChromPeaks Merger** {% icon tool %}. 
+After following option 1 steps you obtained tabular files that can be used in a large variety of analyses, as well as an MSP file (if option 1 was used). Always check the format needed for further tools, as these format are 'text format' but with characteristics that may matter in further steps. 
+With option 2, if you want to process your data with XCMS or other tools you may also have to **align** them with **xcms groupChromPeaks (group)** {% icon tool %}). It means that you should have at least a file named `xset.merged.RData` to be able to continue XCMS processing.
 > {: .warning} 
 
 # Conclusion 
