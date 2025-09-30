@@ -1890,6 +1890,8 @@ Melkeb:
 melpetera:
     name: Mélanie Petera
     joined: 2019-06
+    affiliations:
+      - metabohub
 
 meltemktn:
     name: Meltem Kutnu
@@ -3148,6 +3150,8 @@ yguitton:
       country: FR
       lat: 47.76
       lon: -0.32
+    affiliations:
+      - metabohub
       
 yhoogstrate:
     name: Youri Hoogstrate
