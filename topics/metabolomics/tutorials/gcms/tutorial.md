@@ -367,15 +367,15 @@ To recap your [option 1](#processing-with-metams-option-1) journey, here are som
 
 > <question-title>getting an overview of your GC-MS processing steps</question-title>
 > 
->  **1** - How many known compounds have been detected by metaMS ?
+>  **1** - How many known compounds have been detected by metaMS?
 > > <solution-title></solution-title>
 > > 
-> > The answer is : **8**. Here you have to open the {% icon param-file %} `peaktable.tsv` and count.
+> > The answer is: **8**. Here you have to open the {% icon param-file %} `peaktable.tsv` and count.
 > > 
 > > 
 > {: .solution}
 > <br>
->  **2** - What is the relative intensity of D-Mannitol (6 TMS) in sample alg7 ?
+>  **2** - What is the relative intensity of D-Mannitol (6 TMS) in sample alg7?
 > > <solution-title></solution-title>
 > > 
 > > You should find 74 020 498 in the {% icon param-file %} `peaktable.tsv`.
@@ -383,10 +383,10 @@ To recap your [option 1](#processing-with-metams-option-1) journey, here are som
 > > 
 > {: .solution}
 > <br>
-> **3** - How many Unknowns were detected ?
+> **3** - How many Unknowns were detected?
 > > <solution-title></solution-title>
 > > 
-> > The answer is **198**. To be able to see number of Unknown compound detected you have to open the {% icon param-file %} `peaktable.tsv` file and go to the last ligne.
+> > The answer is **198**. To be able to see the number of Unknown compounds detected you have to open the {% icon param-file %} `peaktable.tsv` file and go to the last line.
 > > 
 > > 
 > {: .solution}
