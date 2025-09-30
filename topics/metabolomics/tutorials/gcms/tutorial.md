@@ -442,7 +442,7 @@ To recap your [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)
 > > 
 > {: .solution}
 > <br>
->  **2** - What is the complete name of your final RData file ?
+>  **2** - What is the complete name of your final RData file?
 > > <solution-title></solution-title>
 > > 
 > > During each step of the XCMS pre-processing, the name of the file which is processed is completed by the name of the step you used. So, finally your file should be named `xset.merged.groupChromPeaks.fillChromPeaks.RData`. That means (as seen in the previous question) you have run the findChromPeaks (xcmsSet) step, then a merge, a grouping and finally the filling of missing data.
