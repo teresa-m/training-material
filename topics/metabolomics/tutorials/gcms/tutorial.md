@@ -437,7 +437,6 @@ To recap your [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)
 > >  - XCMS peak picking with the **xcms findChromPeaks (xcmsSet)** {% icon tool %} tool
 > >  - (Not directly XCMS processing, but necessary in the Galaxy tool suit) merge my data into one file with **xcms findChromPeaks Merger** {% icon tool %} tool
 > >  - XCMS grouping with the **xcms groupChromPeaks (group)** {% icon tool %} tool
-> > 
 > >  - XCMS integration of missing peaks with **xcms fillChromPeaks (fillPeaks)** {% icon tool %} tool
 > > 
 > {: .solution}
