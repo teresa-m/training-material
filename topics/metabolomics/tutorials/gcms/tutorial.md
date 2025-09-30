@@ -468,23 +468,16 @@ Don't forget to always check your files' format for compatibility with further a
 >The pre-processing part of this analysis can be **quite time-consuming**, and already corresponds to quite a few number of steps, depending of your analysis. If you plan to proceed with further steps in Galaxy (statistics for example), we highly recommend, at this step of the GC-MS workflow, to split your analysis by beginning a new Galaxy history with **only the files you need** for further steps (that would be the final `.tsv` matrices - sampleMetadata, variableMetadata, dataMatrix - and the `.msp` spectral database). This will help you in limiting the chance to select the wrong dataset in further analysis, and bring a little **tidiness** for future review of your analysis process. This would also enable you to make alternative extractions in the future (by adjusting peak picking parameters) in the same history, without drowning your statistical analysis steps far bellow.
 >
 > To begin a new history with the files from your current history, you can **use the functionality ‘copy dataset’** and copy it into a new history.
-> >
-> > <tip-title>Copy dataset to a new history</tip-title>
-> >
-> > 1. Click on the {% icon galaxy-gear %} icon (**History options**) on the top of the history panel
-> > 2. Click on **Copy Dataset**
-> > 3. Select the desired files
-> > 4. Give a relevant name to the "New history"
-> > 5. Click on the new history name in the green box that have just appear to switch to this history
-> >
-> {: .tip}
+> 
+> {% snippet faqs/galaxy/histories_copy_dataset.md %}
+> 
 > 
 > You may have notice that the XCMS tools generate **output names that contain the different XCMS steps you used**, allowing easy traceability while browsing your history. Hence, when begining further processing steps (as statistics), we highly recommend you (in particular if you have used the [option 2](#process-gc-ms-data-with-a-full-xcms-workflow-option-2)) to first rename your datasets **with something short**, e.g. "dataMatrix", "variableMetadata", or anything not too long that you may find convenient.
 >
 > {% snippet faqs/galaxy/datasets_rename.md %}
 >
 > > <warning-title> Be careful of the file format</warning-title>
-> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to GC-MS processing with **metaMS**, you need to have a RData object which is at least **merged** (from **xcms findChromPeaks Merger** {% icon tool %} and if you want to process your data with XCMS or other tools you may also have to **align** them with **xcms groupChromPeaks (group)** {% icon tool %}). It means that you should have aat least a file named `xset.merged.RData` (and maybe with some step more in it depending on the tool cascade used).
+> > During each step of pre-processing, your dataset has its format changed and can have also its name changed. To be able to continue to GC-MS processing with **metaMS**, you need to have a RData object which is at least **merged** (from **xcms findChromPeaks Merger** {% icon tool %} and if you want to process your data with XCMS or other tools you may also have to **align** them with **xcms groupChromPeaks (group)** {% icon tool %}). It means that you should have at least a file named `xset.merged.RData` (and maybe with some step more in it depending on the tool cascade used).
 > {: .warning} 
 
 # Conclusion 
