@@ -270,23 +270,23 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 > 
 > 1.{% tool [metaMS.runGC](toolshed.g2.bx.psu.edu/repos/yguitton/metams_rungc/metams_runGC/3.0.0+metaMS1.24.0-galaxy0) %}  with the following parameters: 
 >   - {% icon param-file %} *"Rdata from xcms and merged"*: `xset.merged.RData` (output of the **xcms findChromPeaks Merger** {% icon tool %} step)
->   - *"Settings"* : `user_defined`
->   - *"RT range option"* : `hide` (If set to *show* you can limit the range of RT processed, for example remove solvant delays)
->   - *"RT_Diff"* :  `0.05` (Max time deviation in minute to cluster unknown pseudo-spectra between samples)
->   - *"Min_Features* : `5` (Minimal number of features required to have a valid pseudo-spectrum, compound with less ions will be discarded)
->   - *"similarity_threshold"* : `0.7` (Minimum cosine similarity between pseudo-spectra to be considers as equal)
->   - *"min.class.fract"* : `0.5` (Minimal fraction of samples in which a pseudo-spectrum should be present to be kept) 
->   - *"min.class.size"* : `2` (Minimum number of samples in which a pseudo-spectrum should be find) 
->   - *"Use Personnal DataBase option"* : `show` ( this activate the *"DB file"* selector) 
->     - {% icon param-file %} *"DB file"* :  `W4M0004_database_small.msp` (The file download from Zenodo, if not available set the *"Use Personnal DataBase option"* to *hide*)
->   - *"Use RI option* : `show` (choose *hide* if you want to skip RI calculation)
->     - {% icon param-file %} *"RI file"* : `reference_alkanes.csv` (Format should be strictly respected)
->   - *"Use RI as filter"* :`FALSE` (If set to TRUE only unknown spectra with close RI as those in database will be kept)
->   - *"RIshift"* : *"not used"*
+>   - *"Settings"*: `user_defined`
+>   - *"RT range option"*: `hide` (If set to *show* you can limit the range of RT processed, for example remove solvant delays)
+>   - *"RT_Diff"*: `0.05` (Max time deviation in minute to cluster unknown pseudo-spectra between samples)
+>   - *"Min_Features*: `5` (Minimal number of features required to have a valid pseudo-spectrum, compound with less ions will be discarded)
+>   - *"similarity_threshold"*: `0.7` (Minimum cosine similarity between pseudo-spectra to be considers as equal)
+>   - *"min.class.fract"*: `0.5` (Minimal fraction of samples in which a pseudo-spectrum should be present to be kept) 
+>   - *"min.class.size"*: `2` (Minimum number of samples in which a pseudo-spectrum should be find) 
+>   - *"Use Personnal DataBase option"*: `show` (This activates the *"DB file"* selector) 
+>     - {% icon param-file %} *"DB file"*:  `W4M0004_database_small.msp` (The file download from Zenodo; if not available set the *"Use Personnal DataBase option"* to *hide*)
+>   - *"Use RI option*: `show` (Choose *hide* if you want to skip RI calculation)
+>     - {% icon param-file %} *"RI file"*: `reference_alkanes.csv` (Format should be strictly respected)
+>   - *"Use RI as filter"*: `FALSE` (If set to TRUE only unknown spectra with close RI as those in database will be kept)
+>   - *"RIshift"*: *"not used"*
 >
 >    > <comment-title></comment-title>
 >    >
->    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"* : `hide` and *"Use RI option* : `hide`
+>    > For faster processing keep annotation modules *off* by setting *"Use Personnal DataBase option"*: `hide` and *"Use RI option*: `hide`
 >    {: .comment}
 > 
 >    > <tip-title>Export MSP file to external databases </tip-title>
