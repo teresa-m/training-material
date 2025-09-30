@@ -301,7 +301,7 @@ The peak picking is performed by the usual **XCMS** functions and the output fil
 >    > 
 >    > ![Example of visualisation of pseudospectrum information](../../images/tuto_gcms_eic.png "Example of cluster of ions through their EIC (left) and the associated pseudospectra (right)")
 >    > 
->    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC** : peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/)
+>    > This choice is motivated by several considerations. First of all, **in GC the amount of overlap is much less than in LC**: peaks are much narrower. This means that even a one- or two-second difference in retention time can be enough to separate the corresponding mass spectra. Secondly, EI MS spectra for many compounds are **available in extensive libraries like the [NIST library](http://www.nist.gov/srd/nist1a.cfm "NIST library")** or other online ones like [Golm Metabolome library](http://gmd.mpimp-golm.mpg.de/)
 >    {: .details}
 >
 >    > <details-title>MSP files </details-title>
@@ -328,7 +328,7 @@ Once **metaMS** has created the pseudo-spectra for each unknown compound in each
 
 ![Illustration of two GC-MS spectra aligned for visual comparison](../../images/tuto_gcms_match_spec.png "Best match between an experimental pseudospectrum (red) and a database entry (blue)")
 
-If an MSP database have been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name, the other pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
+If an MSP database has been added to the *runGC* function inputs then the function returns a table where all patterns that have a match with a DB entry are shown with their name. The other non-matching pseudo-spectra will be named UnknownX in the first column of the *variableMetadata* and *dataMatrix*.
 
 Once **metaMS** have created the pseudo-spectra for each unknown compound in each file, we can start the alignment process. This is done by *comparing every pseudospectrum* to each others in order to group/align similar MS spectra between samples. As a similarity measure, the weighted dot product is used as it is fast, simple, and gives good results ({% cite Stein1994 %}). The first step in the comparison is based on retention, since a comparison of either retention time or retention index is much faster than a spectral comparison. Since the weighted dot product uses scaled mass spectra, the scaling of the database is done once, and then used in all comparisons. If a pseudo-spectra Y from sample A is similar to pseudo-spectra X in sample B and they have close retention (time or index), the two pseudo-spectra are considered as corresponding to the same compound. This process will create the *dataMatrix* and *variableMetadata* outputs, where aligned pseudo-spectra for different samples will belong to the same line in the final *variableMetadata* and will be considered as Unknown compound X. 
 
