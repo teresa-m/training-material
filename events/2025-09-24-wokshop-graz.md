@@ -19,8 +19,8 @@ registration:
   deadline: 2025-09-24
 
 contributions:
-  organisers: [Nilchia]
-  instructors: [pavanvidem, Nilchia, sebastian-preissl]
+  organisers: [sebastian-preissl]
+  instructors: [pavanvidem, Nilchia]
   funding: [mwk, deNBI, uni-graz]
 
 location:
