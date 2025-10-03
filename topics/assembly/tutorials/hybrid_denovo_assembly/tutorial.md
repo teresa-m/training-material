@@ -3,32 +3,32 @@ layout: tutorial_hands_on
 title: Hybrid genome assembly - Nanopore and Illumina
 zenodo_link: https://doi.org/10.5281/zenodo.15756327
 tags:
-- assembly
-- nanopore
-- illumina
-- denovo
-- genomics
+  - assembly
+  - nanopore
+  - illumina
+  - denovo
+  - genomics
 questions:
-- How do long- and short-read assembly methods differ?
+  - How do long- and short-read assembly methods differ?
 objectives:
-- Understand how Nanopore and Illumina reads can be used together to produce a high-quality assembly
-- Become familiar with genome assembly and polishing programs
-- Learn how to assess the quality of a genome assembly, regardless of whether a reference genome is present or absent
-- Be able to assemble an unknown, previously undocumented genome to high-quality using Nanopore and Illumina reads!
+  - Understand how Nanopore and Illumina reads can be used together to produce a high-quality assembly
+  - Become familiar with genome assembly and polishing programs
+  - Learn how to assess the quality of a genome assembly, regardless of whether a reference genome is present or absent
+  - Be able to assemble an unknown, previously undocumented genome to high-quality using Nanopore and Illumina reads!
 time_estimation: 2h
 key_points:
-- Performing de novo genome assembly with a combination of long and short reads results in a high quality genome
-- There are multiple methods for performing hybrid de novo assembly
-- One option is to assemble the long reads using `Flye` and then polish with the short reads using `Pilon`
-- Alternatively, `Unicycler` creates an assembly graph from the short reads and then untangles the graph with the long reads
+  - Performing de novo genome assembly with a combination of long and short reads results in a high quality genome
+  - There are multiple methods for performing hybrid de novo assembly
+  - One option is to assemble the long reads using `Flye` and then polish with the short reads using `Pilon`
+  - Alternatively, `Unicycler` creates an assembly graph from the short reads and then untangles the graph with the long reads
 contributions:
   authorship:
-  - GraceAHall
-  - tflowers15
+    - GraceAHall
+    - tflowers15
   funding:
-  - unimelb
-  - melbournebioinformatics
-  - AustralianBioCommons
+    - unimelb
+    - melbournebioinformatics
+    - AustralianBioCommons
 
 ---
 
