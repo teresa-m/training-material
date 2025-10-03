@@ -2,30 +2,31 @@
 layout: tutorial_hands_on
 title: Integrating InvenioRDM-compatible Repositories with Galaxy
 tags:
-- fair
+  - fair
 level: Introductory
 questions:
-- How to connect InvenioRDM-compatible repositories to Galaxy?
+  - How to connect InvenioRDM-compatible repositories to Galaxy?
 objectives:
-- Learn how to integrate InvenioRDM repositories in Galaxy
-- Learn how to import records and files into Galaxy
-- Learn how to export Galaxy Histories to Zenodo
+  - Learn how to integrate InvenioRDM repositories in Galaxy
+  - Learn how to import records and files into Galaxy
+  - Learn how to export Galaxy Histories to Zenodo
 time_estimation: 30m
 key_points:
-- InvenioRDM-compatible repositories can be connected to Galaxy
-- Records and files can be imported into Galaxy
-- You can export your Galaxy Histories to Zenodo
+  - InvenioRDM-compatible repositories can be connected to Galaxy
+  - Records and files can be imported into Galaxy
+  - You can export your Galaxy Histories to Zenodo
 subtopic: core
-contributors:
-- tflowers15 
-- davelopez
-funding:
-- unimelb
-- melbournebioinformatics
-- AustralianBioCommons
-- uni-freiburg
-- eurosciencegateway
-- mwk
+contributions:
+  authorship:
+    - tflowers15 
+    - davelopez
+  funding:
+    - unimelb
+    - melbournebioinformatics
+    - AustralianBioCommons
+    - uni-freiburg
+    - eurosciencegateway
+    - mwk
 
 ---
 
