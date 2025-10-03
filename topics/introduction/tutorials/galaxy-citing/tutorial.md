@@ -2,32 +2,33 @@
 layout: tutorial_hands_on
 title: Best Practice for Citing Galaxy
 tags:
-- fair
-- introduction
+  - fair
+  - introduction
 level: Introductory
 questions:
-- How to cite Galaxy in Publications?
+  - How to cite Galaxy in Publications?
 objectives:
-- Understand how to cite Galaxy.
-- Prepare your methodology section based on your Galaxy Histories.
+  - Understand how to cite Galaxy.
+  - Prepare your methodology section based on your Galaxy Histories.
 time_estimation: 10m
 key_points:
-- Please remember to cite the primary Galaxy Project publication.
-- Reference the specific Galaxy server that was used.
-- When preparing your methodology we recommend publishing your Galaxy Histories and Workflows.
-- Remember to cite any public data used in your analysis.
-- You can extract a list of tool citations from your Galaxy History.
+  - Please remember to cite the primary Galaxy Project publication.
+  - Reference the specific Galaxy server that was used.
+  - When preparing your methodology we recommend publishing your Galaxy Histories and Workflows.
+  - Remember to cite any public data used in your analysis.
+  - You can extract a list of tool citations from your Galaxy History.
 subtopic: core
-contributors:
-- tflowers15
-- GarethPrice-Aus
-- mirelaminkova
-- MarisaJL
-funding:
-- unimelb
-- melbournebioinformatics
-- AustralianBioCommons
-- SURF
+contributions:
+  authorship:
+    - tflowers15
+    - GarethPrice-Aus
+    - mirelaminkova
+    - MarisaJL
+  funding:
+    - unimelb
+    - melbournebioinformatics
+    - AustralianBioCommons
+    - SURF
 
 ---
 
