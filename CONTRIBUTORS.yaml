@@ -677,6 +677,7 @@ Sch-Da:
       - uni-freiburg
       - deKCD
       - elixir-europe
+      - nfdi4culture
 
 dadrasarmin:
     name: Armin Dadras
@@ -1889,6 +1890,8 @@ Melkeb:
 melpetera:
     name: Mélanie Petera
     joined: 2019-06
+    affiliations:
+      - metabohub
 
 meltemktn:
     name: Meltem Kutnu
@@ -2636,6 +2639,12 @@ sebastian-schaaf:
     former_affiliations:
       - eurosciencegateway
 
+sebastian-preissl:
+    name: Sebastian Preissl
+    github: false
+    joined: 2025-09
+
+
 sonalhenson:
     name: Sonal Henson
     joined: 2023-09
@@ -3135,7 +3144,15 @@ xtrojak:
 yguitton:
     name: Yann Guitton
     joined: 2019-06
-
+    email: yann.guitton@inrae.fr
+    orcid: 0000-0002-4479-0636
+    location:
+      country: FR
+      lat: 47.76
+      lon: -0.32
+    affiliations:
+      - metabohub
+      
 yhoogstrate:
     name: Youri Hoogstrate
     joined: 2017-09
