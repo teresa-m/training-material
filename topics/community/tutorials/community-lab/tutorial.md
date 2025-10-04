@@ -27,12 +27,12 @@ contributions:
 ---
 
 The **Community lab**, a centralised webpage that enables communities to rapidly aggregate, curate, integrate, display, and launch relevant tools, workflows, and training on different Galaxy servers. This user-friendly interface, built on the Galaxy framework, provides community members with data analysis capacity without requiring programming expertise. Users can run individual tools or create complex workflows, with full provenance tracking to ensure reproducibility, designed specifically for the community research (Nasr et al., 2024).
-  *For example, [the microgalaxy lab (Europe)](https://microbiology.usegalaxy.eu/).*
+  *For example, [the microgalaxy lab (Europe)](https://microbiology.usegalaxy.eu).*
 
 
 The aim is this tutorial is to create the files necessary to display the labs in each Galaxy instance.
 
-You can also use the [Galaxy Labs engine](https://labs.usegalaxy.org.au/).
+You can also use the [Galaxy Labs engine](https://labs.usegalaxy.org.au).
 
 > <agenda-title></agenda-title>
 >
@@ -45,7 +45,8 @@ You can also use the [Galaxy Labs engine](https://labs.usegalaxy.org.au/).
 
 # Create the lab specific files (automatic)
 
-The labs are composed of various files, some that are specific to your community and some that are common between all the labs. To automatically create the necessary files from a set of templates, a script was generated ("`sources/bin/populate_labs.sh`)
+The labs are composed of various files, some that are specific to your community and some that are common between all the labs.
+To automatically create the necessary files from a set of templates, a script was generated ("`sources/bin/populate_labs.sh`)
 
 This script will create the following structure and files:
 communities/<your community>/lab/
@@ -128,7 +129,7 @@ Files that do not require a manual update :
 - "communities/<your community>/lab/sections/*" --> No change required.
 
 The files in the section folders contain the code for each table visible in the lab.
-You can check different labs for inspiration, such as the [microgalaxy lab](https://microbiology.usegalaxy.eu/).
+You can check different labs for inspiration, such as the [microgalaxy lab](https://microbiology.usegalaxy.eu).
 
 # Create community specific sections to personalize your community lab
 
@@ -152,17 +153,16 @@ The Pull Request will be reviewed. Make sure to respond to any feedback.
 
 For the lab to be accessible from the different instances, you need to add files in each instance independently.
 
-For the French instance (usegalaxy.fr), all the steps are described in [Issue 297](https://gitlab.com/ifb-elixirfr/usegalaxy-fr/infrastructure/-/issues/297).
+For the French instance (https://usegalaxy.fr), all the steps are described in [Issue 297](https://gitlab.com/ifb-elixirfr/usegalaxy-fr/infrastructure/-/issues/297).
 You can use the [merge request done for the biodiversity lab](https://gitlab.com/ifb-elixirfr/usegalaxy-fr/infrastructure/-/merge_requests/1302) as a reference.
 
-For the European instance, this tutorial will be updated later.
+For the European instance (https://usegalaxy.eu), this tutorial will be updated later.
 You can use the [pull request done for the biodiversity lab](https://github.com/usegalaxy-eu/infrastructure-playbook/pull/1629) as a reference.
 
-
-For the org instance, this tutorial will be updated later.
+For the American instance (https://usegalaxy.org), this tutorial will be updated later.
 You can use the [pull request done for the biodiversity lab](https://github.com/galaxyproject/usegalaxy-playbook/pull/427) as a reference.
 
-For the australian instance, this tutorial will be updated later.
+For the Australian instance (https://usegalaxy.org.au), this tutorial will be updated later.
 You can use the [pull request done for the biodiversity lab](https://github.com/usegalaxy-au/infrastructure/issues/2786#issuecomment-3330995427) as a reference.
 
 # Conclusion
