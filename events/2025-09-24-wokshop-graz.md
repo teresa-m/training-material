@@ -24,6 +24,9 @@ contributions:
   funding: [mwk, deNBI, uni-graz]
 
 location:
+  geo:
+    lat: 47.0805168
+    lon: 15.4465704
   name: University of Graz
   address:  Mozartgasse 14
   postcode: 8010
