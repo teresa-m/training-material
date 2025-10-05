@@ -108,9 +108,10 @@ The new `Manage Your Remote File Sources` section is available under `User → P
 
 
 > <details-title>Do you want to add a different repository to Galaxy?</details-title>
->   There are a number of additional repository types that you can connect to Galaxy and use to importing and exporting data.
+> 
+> There are a number of additional repository types that you can connect to Galaxy and use to importing and exporting data.
 >
->    {% snippet faqs/galaxy/manage_your_repositories.md %}
+> {% snippet faqs/galaxy/manage_your_repositories.md %}
 >
 {: .details}
 
