@@ -700,6 +700,8 @@ name:
   digital-humanities/introduction_to_dh: "/topics/digital-humanities/tutorials/introduction_to_dh/tutorial.html"
   community/community-tutorial-table: "/topics/community/tutorials/community-tutorial-table/tutorial.html"
   community/community-workflow-table: "/topics/community/tutorials/community-workflow-table/tutorial.html"
+  digital-humanities/open-refine-tutorial: "/topics/digital-humanities/tutorials/open-refine-tutorial/tutorial.html"
+  community/community-lab: "/topics/community/tutorials/community-lab/tutorial.html"
 id:
   T00000: "/topics/admin/tutorials/ansible/tutorial.html"
   T00001: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
@@ -2418,6 +2420,10 @@ id:
   N00120: "/news/2025/09/12/gta-orga-2026.html"
   P00034: "/learning-pathways/sig-and-codex-creation.html"
   W00362: "/topics/climate/tutorials/ocean_qcv_analysis/workflows/Galaxy-Workflow-Argo-Glider_Nitrate_QCV.html"
+  T00560: "/topics/digital-humanities/tutorials/open-refine-tutorial/tutorial.html"
+  E00036: "/events/2025-09-24-wokshop-graz.html"
+  W00363: "/topics/digital-humanities/tutorials/open-refine-tutorial/workflows/Visualise-amount-of-objects-in-Museum-Collection.html"
+  T00561: "/topics/community/tutorials/community-lab/tutorial.html"
 misc:
   ansible-galaxy: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
   feeds: "/feeds/index.html"
