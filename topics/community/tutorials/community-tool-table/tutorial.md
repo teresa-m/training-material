@@ -39,9 +39,9 @@ To provide the research community with a comprehensive list of available Galaxy 
 
 ![A diagram illustrating the Galaxy Codex pipeline, showcasing the various steps involved in creating a community Galaxy tool table.](./images/galaxy_tool_metadata_extractor_pipeline.png "Workflow of the Galaxy Codex pipeline. Tool wrappers are parsed from different repositories and additional metadata is retrieved from bio.tools, BioConda, and the main public Galaxy servers. Upon filtering and manual curation of the data for specific scientific communities, the data is transformed into interactive web tables and a tool usage statistic-base word cloud, that can be integrated into any website.")
 
-The pipeline creates a [table with all tools and their metadata](https://galaxyproject.github.io/galaxy_codex/). This table can be **filtered to only include tools that are relevant to a specific research community**. Here is an example for the microbial related tools:
+The pipeline creates a [table with all tools and their metadata](https://galaxyproject.github.io/galaxy_codex/communities/). This table can be **filtered to only include tools that are relevant to a specific research community**. Here is an example for the microbial related tools:
 
-<iframe id="edam" src="https://galaxyproject.github.io/galaxy_codex/microgalaxy/" frameBorder="0" width="100%" height="600px"> ![Interactive table for microgalaxy tools](./images/microgalaxy_tools.png) </iframe>
+<iframe id="edam" src="https://galaxyproject.github.io/galaxy_codex/communities/microgalaxy/resources/" frameBorder="0" width="100%" height="600px"> ![Interactive table for microgalaxy tools](./images/microgalaxy_tools.png) </iframe>
 
 The generated community-specific table can be used as is (e.g. downloadable tsv file) and/or embedded (e.g. into a Galaxy Hub page or Galaxy subdomain). This table allows further filtering and searching for fine-grained tool selection.
 
@@ -194,7 +194,7 @@ The interactive table you have created can be embedded in your community page on
 >      width="100%"
 >      height="600"
 >      frameBorder="0"
->      src="https://galaxyproject.github.io/galaxy_codex/<your_community>/">
+>      src="https://galaxyproject.github.io/galaxy_codex/communities/<your_community>/resources/">
 >    </iframe>
 >    ```
 >
