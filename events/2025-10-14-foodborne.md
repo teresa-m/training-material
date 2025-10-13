@@ -24,7 +24,6 @@ mode: onsite
 contributions:
   organisers: [annahenger]
   instructors: [wm75, EngyNasr, santinofaack]
-  funding: [elixir-europe]
 
 location:
   name: FHNW University of Applied Sciences and Arts Northwestern Switzerland
