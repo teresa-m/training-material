@@ -23,7 +23,7 @@ mode: onsite
 
 contributions:
   organisers: [annahenger]
-  instructors: [annahenger, EngyNasr, wm75]
+  instructors: [wm75, EngyNasr, santinofaack]
   funding: [elixir-europe]
 
 location:
@@ -50,7 +50,7 @@ tags:
 # Add GTN tutorials by supplying the topic and tutorial name
 program:
   - section: "Preliminary schedule"
-    description: The workshop will take place on site in Room 01.S.01
+    description: The workshop will take place on site in Room 02.W.03
     tutorials:
       - type: custom
         name: "Welcome"
