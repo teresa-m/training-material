@@ -55,7 +55,7 @@ program:
       - type: custom
         name: "Welcome"
         time: "09:30 to 10:00"
-      - name: galaxy-intro-101
+      - name: galaxy-intro-peaks2genes
         topic: introduction
         time: "10:00 to 12:00"
       - type: custom
