@@ -23,7 +23,7 @@ mode: onsite
 
 contributions:
   organisers: [annahenger]
-  instructors: [annahenger, EngyNasr, paulzierep]
+  instructors: [annahenger, EngyNasr, wm75]
   funding: [elixir-europe]
 
 location:
