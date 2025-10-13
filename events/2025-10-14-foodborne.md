@@ -22,7 +22,7 @@ mode: onsite
 #  deadline: 2025-10-14
 
 contributions:
-  organisers: [annahenger]
+  organisers: [annahenger, abdullahkahraman]
   instructors: [wm75, EngyNasr, santinofaack]
 
 location:
