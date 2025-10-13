@@ -3,7 +3,7 @@ layout: event
 title: "A practical workshop for (foodborne) pathogen detection from (direct Nanopore) sequencing data using Galaxy"
 
 description: |
-    The purpose of this workshop is to gain knowledge on detect (foodborne) pathogens from (direct Nanopore) sequencing data using Galaxy. The workshop will be on October 14th 2024 as a 1-day hybrid (F2F at FHNW Muttenz, Switzerland and online), free and practical workshop.
+    The purpose of this workshop is to gain knowledge on detect (foodborne) pathogens from (direct Nanopore) sequencing data using Galaxy. The workshop will be on October 14th 2024 as a 1-day F2F at FHNW Muttenz, Switzerland, free and practical workshop.
 
 date_start: 2025-10-14
 date_end: 2025-10-14
@@ -17,9 +17,9 @@ contact_email: anna.henger@biolytix.ch
 # async: false
 mode: onsite
 
-registration:
-  link: https://galaxyproject.org/events/2023-02-02-foodborne-pathogen-detection-workshop/ # needs to be updated if the registration is still open!!!
-  deadline: 2025-09-24
+#registration:
+  #link: https://galaxyproject.org/events/2023-02-02-foodborne-pathogen-detection-workshop/ # needs to be updated if the registration is still open!!!
+#  deadline: 2025-10-14
 
 contributions:
   organisers: [annahenger]
@@ -54,23 +54,16 @@ program:
     tutorials:
       - type: custom
         name: "Welcome"
-        time: "09:00 to 09:30"
-      - name: galaxy-intro-short
-        topic: introduction
         time: "09:30 to 10:00"
-      - name: galaxy-intro-peaks2genes
+      - name: galaxy-intro-101
         topic: introduction
         time: "10:00 to 12:00"
       - type: custom
         time: "12:00 to 13:00" 
         name: Lunch
-      - type: custom
-        time: "13:00 to 13:30"
-        name: "Foodborne pathogen detection"
-        description: "talk"
       - name: pathogen-detection-from-nanopore-foodborne-data
         topic: microbiome
-        time: "13:30 to 15:30"
+        time: "13:00 to 15:30"
       - type: custom
         name: "Q&A and Closing"
         time: "15:30 to 16:00"
@@ -80,7 +73,7 @@ program:
 
 Biolytix and the Freiburg Galaxy team teamed up over the last year to develop Galaxy-based workflows for accessible and scalable detection and identification of foodborne pathogens, thanks to an EOSC-Life internal grant for academia-industry collaborations.
 
-To share about the workflows and (foodborne) pathogen detection in general, we organize a 1-day hybrid (F2F at FHNW Muttenz, Switzerland and online), free and practical workshop on October 14th, 2025 to learn how to detect (foodborne) pathogens from (direct Nanopore) sequencing data using Galaxy, an open-source platform for FAIR data analysis.
+To share about the workflows and (foodborne) pathogen detection in general, we organize a 1-day F2F at FHNW Muttenz, Switzerland , free and practical workshop on October 14th, 2025 to learn how to detect (foodborne) pathogens from (direct Nanopore) sequencing data using Galaxy, an open-source platform for FAIR data analysis.
 
 ## Topics
 
@@ -110,14 +103,11 @@ Please see the Program tab.
 ## Registration
 
 
-The number of places in this workshop is limited. Capacity: Maximum 40 participants with:
-
-- Maximum 20 onsite
-- Maximum 20 online
+The number of places in this workshop is limited. 
 
 
 
-If you have further questions, please contact Anna Henger ([anna.henger@biolytix.ch](mailto:anna.henger@biolytix.ch))
+If you want to register, please contact Diana Hormisch ([diana.hormisch@biolytix.ch](mailto:diana.hormisch@biolytix.ch)) or Anna Henger ([anna.henger@biolytix.ch](mailto:anna.henger@biolytix.ch))
 
 
 ## Getting to FHNW Muttenz
