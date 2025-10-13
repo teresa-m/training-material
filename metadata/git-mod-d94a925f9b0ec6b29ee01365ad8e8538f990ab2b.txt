@@ -1,3 +1,20 @@
+GTN_GTN:1760088022
+
+_layouts/tutorial_hands_on.html
+GTN_GTN:1759939295
+
+news/_posts/2025-10-08-joined-teachV.md
+GTN_GTN:1759847177
+
+events/2025-11-24-gat-brno.md
+GTN_GTN:1759740708
+
+metadata/shortlinks.yaml
+GTN_GTN:1759740660
+
+metadata/git-mod-e0b11612e2c5a441841ccb15b1016765c15c91bd.txt
+metadata/git-pub-e0b11612e2c5a441841ccb15b1016765c15c91bd.txt
+metadata/github.yml
 GTN_GTN:1759600222
 
 learning-pathways/sig-and-codex-creation.md

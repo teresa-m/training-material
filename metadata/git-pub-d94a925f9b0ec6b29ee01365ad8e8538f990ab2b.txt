@@ -1,3 +1,10 @@
+GTN_GTN:1759939295
+
+A	news/_posts/2025-10-08-joined-teachV.md
+GTN_GTN:1759740660
+
+R099	metadata/git-mod-aab96da72e1fbd40955935885a077245b3841788.txt	metadata/git-mod-e0b11612e2c5a441841ccb15b1016765c15c91bd.txt
+R099	metadata/git-pub-aab96da72e1fbd40955935885a077245b3841788.txt	metadata/git-pub-e0b11612e2c5a441841ccb15b1016765c15c91bd.txt
 GTN_GTN:1759600222
 
 A	topics/community/tutorials/community-lab/tutorial.md
