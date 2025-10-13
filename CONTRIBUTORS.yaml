@@ -79,16 +79,15 @@ abretaud:
 
 abdullahkahraman:
     name: Abdullah Kahraman
+    github: false
     joined: 2025-10
-    affiliations:
-      - FHNW
 
 abdulrahmanazab:
     name: Abdulrahman Azab
     joined: 2019-01
     affiliations:
       - eurosciencegateway
-
+      
 abueg:
     name: Linelle Abueg
     twitter: llabueg
