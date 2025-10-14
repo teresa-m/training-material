@@ -45,9 +45,9 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 > 1. Create a new history for this tutorial and give it a name, e.g., "NEAL tutorial" for you to find it again later if needed.
 >
->     {% snippet faqs/galaxy/histories_create_new.md %}
+>    {% snippet faqs/galaxy/histories_create_new.md %}
 >
->     {% snippet faqs/galaxy/histories_rename.md %}
+>    {% snippet faqs/galaxy/histories_rename.md %}
 > 
 > 2. Import the example audio file from [xeno-canto](https://xeno-canto.org/1008421/download)
 >    
