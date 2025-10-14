@@ -159,7 +159,7 @@ In this tutorial, we annotate all 22 example images using the tool's `Auto label
 > 3. Close the tool 
 > Once you have finished annotating all your images, you can safely close the interactive environment.
 > Click on the small cross at the top-right corner of the AnyLabeling window.
-> ![al close](../../images/yolo-train/al_close.png){: width="50%"}
+> ![Closing AnyLabeling](../../images/yolo-train/al_close.png){: width="50%"}
 > Wait a few moments for the interface to close completely and return to the Galaxy workspace.
 {: .hands_on}
 
