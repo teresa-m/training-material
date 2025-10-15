@@ -62,7 +62,7 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 > 3. Rename the dataset (default name: *Download*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier.
 >
->     {% snippet faqs/galaxy/datasets_rename.md %}
+>    {% snippet faqs/galaxy/datasets_rename.md %}
 >    
 > > <tip-title>Provide a dataset name during import</tip-title>
 > >
@@ -72,7 +72,7 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >    
 > 4. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
 >
->     {% snippet faqs/galaxy/datasets_change_datatype.md %}
+>    {% snippet faqs/galaxy/datasets_change_datatype.md %}
 >
 > 5. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
 >
