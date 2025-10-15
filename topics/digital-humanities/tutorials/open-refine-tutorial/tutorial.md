@@ -95,8 +95,8 @@ We suggest that you download the data from the Zenodo record as explained below.
 >
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
-> 4. Ensure that the datatype of "phm_collection_adapted" is "tsv". Otherwise, use convert datatype.
-> 5. Verify that the datatype of "stopwords-en" is "txt". If not, convert the datatype.
+> 3. Ensure that the datatype of "phm_collection_adapted" is "tsv". Otherwise, use convert datatype.
+> 4. Verify that the datatype of "stopwords-en" is "txt". If not, convert the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
@@ -224,13 +224,13 @@ Take a look at the `Categories` column of your dataset. Most objects were attrib
 >    Many different categories describe the object. You may notice duplicates categorising the same object twice.
 >    We also want to remove those to ensure we only have unique categories that describe a single object.
 >
-> 6. Click on the triangle on the left of `Categories`, hover over `Edit cells`, and click on `Transform...`.
+> 5. Click on the triangle on the left of `Categories`, hover over `Edit cells`, and click on `Transform...`.
 >
 >    ![Edit cells Categories](images/filter_grel.png)
 >
 >    ![Transform Categories](images/filter_grel2.png)
 >
-> 7. In the new window, use the following text `value.split('|').uniques().join('|')` as "Expression" and click on `OK`.
+> 6. In the new window, use the following text `value.split('|').uniques().join('|')` as "Expression" and click on `OK`.
 >
 {: .hands_on}
 
@@ -319,7 +319,7 @@ You can now see, from which category the museum has the most objects, one of our
 
 ## Clustering
 
-The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes.
+The clustering allows you to solve issues regarding case inconsistencies, incoherent use of either the singular or plural form, and simple spelling mistakes. We apply those to the object categories for the next step of cleaning.
 
 > <hands-on-title>Clustering of similar categories</hands-on-title>
 >
@@ -332,19 +332,24 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 >
 >    ![Clustered and merged similar Categories](images/cluster2.png)
 >
-> 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all of the suggestions by clicking on `select > all` and then clicking on `Merge selected and re-cluster`.
->
->    ![Join multi-valued cells on Categories](images/join.png)
+> 4. Here, you can see different suggestions from OpenRefine to cluster different categories and merge them into one. In our tutorial, we merge all the suggestions by clicking on `Select all` and then clicking on `Merge selected and re-cluster`.
 >
 > 5. Now, you can close the clustering window by clicking on `close`.
 >
->    Be careful! Some methods are too aggressive, so you might end up clustering values that do not belong together. Now that the values have been clustered individually, we can put them back together in a single cell.
+>    Be careful with clustering! Some settings are very aggressive, so you might end up clustering values that do not belong together!
+>
+>    Now that the different categories have been clustered individually, we can reassemble them in the respective object single cell.
+>    
 > 6. Click the Categories triangle and hover over the `Edit cells` and click on `Join multi-valued cells`.
-> 7. Choose the pipe character (`\|`) as a separator and click on `OK`.
+> 7. Choose the pipe character (`|`) as a separator and click on `OK`.
+>
+>    ![Join multi-valued cells on Categories](images/join.png)
+>    
 > The rows now look like before, with a multi-valued Categories field.
 >
 {: .hands_on}
 
+You have now successfully split, cleaned and re-joined the various categories of objects in the museum's metadata! Congratulations.
 When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer.
 
 ## Exporting your data back to Galaxy
