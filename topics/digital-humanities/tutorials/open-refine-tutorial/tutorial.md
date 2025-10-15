@@ -22,6 +22,8 @@ contributions:
     - dianichj
     - dadrasarmin
     - Sch-Da
+  reviewing:
+    - Sch-Da
   funding:
     - nfdi4culture
 requirements:
@@ -93,12 +95,14 @@ We suggest that you download the data from the Zenodo record as explained below.
 >
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
-> 3. **Rename** {% icon galaxy-pencil %} the dataset: "**Powerhouse Museum metadata**."
-> 4. Ensure that the datatype is "tsv". Otherwise, use convert datatype.
+> 4. Ensure that the datatype of "phm_collection_adapted" is "tsv". Otherwise, use convert datatype.
+> 5. Check that the datatype of "stopwords-en" is txt. If not, convert the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
 {: .hands_on}
+
+In this first part, we will focus on working with the metadata from the Powerhouse Museum. The additional
 
 # Use OpenRefine to explore and clean your dataset
 
@@ -108,14 +112,14 @@ Access OpenRefine as an interactive tool in Galaxy and explore your data.
 
 > <hands-on-title>Opening the dataset with OpenRefine</hands-on-title>
 >
-> 1. Open the {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data
+> 1. Open the tool {% tool [OpenRefine](interactive_tool_openrefine) %}: Working with messy data
 >    - *"Input file in tabular format"*:  `openrefine-phm-collection.tsv`
 >
 > 2. Click on "Run Tool".
 >
 >    ![OpenRefine tool interface in Galaxy](images/openrefine.png)
 >
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box, which allows you to start OpenRefine in a new tab.
+> 3. After around 30 seconds, a red dot appears over the interactive tools section on the left panel. Click on "interactive tools". A new window opens. Make sure to wait until you see the symbol with an arrow pointing outside the box, which indicates that you can start OpenRefine in a new tab. Now you can open OpenRefine by clicking on its name.
 >
 >    ![Open OpenRefine tool as an Interactive tool](images/interactive_tools.png)
 >
@@ -146,9 +150,11 @@ Access OpenRefine as an interactive tool in Galaxy and explore your data.
 
 Great, now that the dataset is in OpenRefine, we can start cleaning it.
 
-## Remove blank rows
+## Remove duplicates
 
-> <hands-on-title>Removing the blank rows</hands-on-title>
+In large datasets, errors are common. Some basic cleaning exercises can help enhance the data quality. One of those steps is to remove duplicate entries. 
+
+> <hands-on-title>Removing duplicates</hands-on-title>
 >
 > 1. Click on the triangle on the left of `Record ID`.
 >
@@ -172,7 +178,7 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 >
 >    ![Facet by blank Record ID](images/sort5.png)
 >
-> 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. Click on `true`.
+> 7. On the left, a new option appears under `Facet/Filter` with the title `Record ID`. It shows two choices, `true` and `false`. Click on `true`.
 >
 >    ![Facet by blank true Record ID](images/sort6.png)
 >
@@ -180,7 +186,7 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 >
 >    ![Remove matching rows Record ID](images/deduplicate.png)
 >
-> 9. Close the `Facet` by clicking on the cross (x) to see all rows.
+> 9. Close the `Record ID` under `Facet/Filter` by clicking on the cross (x) to see all rows.
 >
 {: .hands_on}
 
@@ -195,7 +201,7 @@ Great, now that the dataset is in OpenRefine, we can start cleaning it.
 > {: .solution}
 {: .question}
 
-The dataset does not contain any more blank rows now. But we need to do more cleaning to improve the dataset.
+The dataset no longer contains duplicates based on the Record ID. However, we need to perform further cleaning to enhance the dataset.
 
 ## Use GREL
 
