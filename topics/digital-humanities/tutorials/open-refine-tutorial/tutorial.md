@@ -43,23 +43,23 @@ This tutorial shows how to use **OpenRefine** in Galaxy to clean and visualize d
 
 **OpenRefine** is a free, open-source “data wrangler” built for messy, heterogeneous, evolving datasets. It imports common formats (CSV/TSV, Excel, JSON, XML) and domain-specific ones used across GLAM (Galleries, Libraries, Archives and Museums) and official statistics (MARC, RDF serializations, PC-Axis).
 
-It is **non-destructive** — OpenRefine does not alter your source files, but works on copies and saves projects locally. Facets and filters let you audit categories, surface outliers, and triage inconsistencies without code. Its **clustering** tools consolidate near-duplicates using both key-collision methods (fingerprint, n-gram, phonetic) and edit-distance/nearest-neighbour methods (Levenshtein, PPM) so you can standardize names and places at scale while keeping human oversight.
+It is **non-destructive**—OpenRefine does not alter your source files, but works on copies and saves projects locally. Facets and filters enable you to audit categories, surface outliers, and triage inconsistencies without writing code. Its **clustering** tools consolidate near-duplicates using both key-collision methods (fingerprint, n-gram, phonetic) and edit-distance/nearest-neighbour methods (Levenshtein, PPM) so you can standardize names and places at scale while keeping human oversight.
 
-For enrichment, OpenRefine speaks the **Reconciliation API** to match local values to external authorities (e.g. **Wikidata**, **ROR**) and optionally pull back richer metadata. Transformations—both point-and-click and **GREL** formulas—are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning and easy peer review. Finished tables export cleanly to **CSV/TSV**, ODS/XLS(X), SQL statements, templated JSON, Google Sheets, or can be exported back to Galaxy.
+For enrichment, OpenRefine speaks the **Reconciliation API** to match local values to external authorities (e.g. **Wikidata**, **ROR**) and, optionally, retrieve richer metadata. Transformations—both point-and-click and **GREL** formulas—are recorded as a stepwise, undoable history that you can export as JSON and re-apply to other datasets, enabling reproducible cleaning and easy peer review. Finished tables can be exported cleanly to **CSV/TSV**, ODS/XLS(X), SQL statements, templated JSON, Google Sheets, or can be exported back to Galaxy.
 
 ## From Cleaning to Analysis in Galaxy
 
-Once your dataset has been cleaned with OpenRefine, you often want to analyze it further or visualize specific aspects. This is where **Galaxy Workflows** become essential: they let you build reproducible pipelines that operate on your curated data, moving from one-off cleaning to structured analysis.
+Once your dataset has been cleaned with OpenRefine, you often want to analyze it further or visualize specific aspects. This is where **Galaxy Workflows** become essential: they enable you to build reproducible pipelines that operate on your curated data, transitioning from one-off cleaning to structured analysis.
 
 ## What are Galaxy Workflows?
 
-**Galaxy Workflows** are structured, stepwise pipelines you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research.
+**Galaxy Workflows** are structured, step-by-step pipelines that you build and run entirely in the browser—either extracted from a recorded analysis *history* or assembled in the visual editor. They can be annotated, shared, published, imported, and rerun, making them ideal for teaching, collaboration, and reproducible research.
 
-A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web UI with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data).
+A captured analysis is easy to share: export the workflow as JSON (**`.ga`**: tools, parameters, and Input/Output) or export a provenance-rich run as a **[Workflow Run RO-Crate](https://www.researchobject.org/workflow-run-crate/)** bundling the definition with inputs, outputs, and invocation metadata. This lowers the barrier to entry (no local installs; web User-Interface (UI) with pre-installed tools and substantial compute) while preserving best practices (histories track tool versions and parameters; workflows are easily re-applied to new data).
 
 For findability and credit, the community uses **[WorkflowHub](https://workflowhub.eu/)**—a curated registry that supports multiple workflow technologies (including Galaxy) and promotes **FAIR** principles; it offers Spaces/Teams, permissions, versioning, and **DOIs via DataCite**, with metadata linking to identifiers like **[ORCID](https://orcid.org/)** so contributions enter scholarly knowledge graphs and are properly acknowledged.
 
-In practice, you can iterate on a workflow in a familiar GUI, export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
+In practice, you can iterate on a workflow in a familiar Graphic-User-Interface (GUI), export the exact definition or a run package, and deposit it where peers can discover, reuse, review, and cite it—closing the loop between simple authoring and robust scholarly dissemination.
 
 
 > <agenda-title></agenda-title>
@@ -73,7 +73,7 @@ In practice, you can iterate on a workflow in a familiar GUI, export the exact d
 
 # Hands on: Get the data
 
-We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing collection metadata. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and put it on Zenodo for long-term reusability. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* And *what objects does the museum have from that year?*
+We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing a metadata collection. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and uploaded it to Zenodo for long-term reuse. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* And *what objects does the museum have from that year?*
 
 **Why this dataset?** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 
@@ -82,10 +82,11 @@ We suggest that you download the data from the Zenodo record as explained below.
 > <hands-on-title>Upload your data</hands-on-title>
 >
 > 1. Create a new history for this tutorial and name it "Powerhouse Museum — OpenRefine"
-> 2. Import the file from [Zenodo]({{page.zenodo_link}}):
+> 2. Import the files from [Zenodo]({{page.zenodo_link}}):
 >
 >    ```
->    https://zenodo.org/records/17047254
+>    https://zenodo.org/records/17047254/files/phm_collection_adapted.tsv
+>    https://zenodo.org/records/17047254/files/stopwords-en.txt
 >    ```
 >
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
@@ -101,7 +102,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 
 # Use OpenRefine to explore and clean your dataset
 
-The users will familiarize themselves with the museum's metadata. In the next step, they will clean the metadata using various steps to enhance its quality and accessibility.
+Access OpenRefine as an interactive tool in Galaxy and explore your data.
 
 ## Start OpenRefine
 
@@ -114,7 +115,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >
 >    ![OpenRefine tool interface in Galaxy](images/openrefine.png)
 >
-> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box that allows you to start OpenRefine in a new tab.
+> 3. After around 30 seconds, using the interactive tools section on the left panel, you can open OpenRefine by clicking on its name. Make sure to wait until you see the symbol with an arrow > pointing outside the box, which allows you to start OpenRefine in a new tab.
 >
 >    ![Open OpenRefine tool as an Interactive tool](images/interactive_tools.png)
 >
@@ -126,7 +127,7 @@ The users will familiarize themselves with the museum's metadata. In the next st
 >
 >    ![Open OpenRefine Open Project as an input](images/openrefine_open_project.png)
 >
-> 6. You can see the data loaded for you.
+> 6. You can see the data that has been loaded for you.
 >
 >    ![Open OpenRefine GUI](images/openrefine_gui.png)
 >
