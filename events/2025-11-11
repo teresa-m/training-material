@@ -18,19 +18,19 @@ tags:
 - ecology
 
 # Practical Information
-date_start: 2025-04-11
-date_end: 2025-11-13 # 
+date_start: 2025-11-25
+date_end: 2025-11-27 # 
 
 cost: free # 
-audience: This event is intended for any scientist interesting in ecology data analysis and notably biodiversity indicator production.
+audience: This event is intended for any scientist interesting in ecology data analysis and notably biodiversity indicator production. Regarding remote participation can be complicated, maybe only some part of the event will be open to remote participation (as a minimum the tuesday morning and beginning of afternoon).  
 contact_email: yvan.le-bras@mnhn.fr
 async: false
 mode: hybrid
 
 registration:
   link: contact Yvan
-  # deadline: 2024-01-01
-  # open: false # set this if registration is not open yet
+  deadline: 2025-11-20
+  open: yes
 
 # Location of the event
 # For online events, just the 'name' is enough
@@ -111,8 +111,4 @@ program:
         time: "9:30 - 12:30"
 ---
 
-Longer description of the course. This will be added to the overview page of your course.
-
-You can add anything you like here, text, images, tables.
-
-All in markdown format.
+Since 2023, Galaxy Ecology initiative was joined by french Museum of Natural History (MNHN) and National Centre for Scientific Research (CNRS) colleagues working on Antarctica conservation notably through the Convention on the Conservation of Antarctic Marine Living Resources (CCAMLR) organization. Thanks to 2 years developping tools, workflows and training tutorials as methodologies to facilitate scientific cooperation in such Antarctica context, we now can provides production services thanks to the European Galaxy instance and more than other, feedbacks on works done and benefits to go towards FAIRization of analytical processes to help conservtion of nature, in Antarctica but more broadly through our partiicpation to GEO BON!  
