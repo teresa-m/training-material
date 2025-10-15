@@ -41,6 +41,15 @@ contributions:
   authorship:
   - pavanvidem
 
+answer_histories:
+  - label: UseGalaxy.eu - scATAC-seq FASTQ to Count Matrix
+    history: https://usegalaxy.eu/u/videmp/h/scatac-seq-fastq-to-count-matrix
+    date: 2025-10-15
+  - label: UseGalaxy.eu - scATAC-seq Count Matrix Filtering
+    history: https://usegalaxy.eu/u/videmp/h/scatac-seq-count-matrix-filtering
+    date: 2025-10-15
+
+
 gitter: Galaxy-Training-Network/galaxy-single-cell
 
 ---
@@ -314,7 +323,7 @@ For count matrix creation, we will use **Build count matrix** from **EpiScanpy**
 > >
 > > > <solution-title></solution-title>
 > > >
-> > > 1. There were initially 1230 regions in the `narrow Peaks` file. Now there are 1046 regions after deduplication. Around 15% (184) of regions have the same peak boundaries.
+> > > 1. There were initially 1229 regions in the `narrow Peaks` file. Now there are 1046 regions after deduplication. Around 15% (184) of regions have the same peak boundaries.
 > > >
 > > {: .solution}
 > >
