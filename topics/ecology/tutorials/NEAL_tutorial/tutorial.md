@@ -50,7 +50,6 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >    {% snippet faqs/galaxy/histories_rename.md %}
 > 
 > 2. Import the example audio file from [xeno-canto](https://xeno-canto.org/1008421/download)
->    
 >    Audio file :
 >    
 >    ```
@@ -61,22 +60,21 @@ In this tutorial, we will use the recording mentioned earlier, but feel free to 
 >
 >    {% snippet faqs/galaxy/datasets_import_from_remote_files.md %}
 >
-> 4. Rename the dataset (default name: *Download*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier. 
+> 3. Rename the dataset (default name: *Download*) to something more explicit, e.g., **1008421.wav** to have a name linked to the xeno-canto identifier.
 >
 >    {% snippet faqs/galaxy/datasets_rename.md %}
 >    
-> > <tip-title>PRovide a dataset name during import</tip-title>
+> > <tip-title>Provide a dataset name during import</tip-title>
 > >
 > >   Note that you also can provide the **1008421.wav** filename on the "Paste/Fetch data" upload module to avoid renaming after importing the file.
 > >
 >{: .tip}
 >    
->
-> 6. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
+> 4. Make sure the dataset's datatype is `.wav`, as the tool only supports this format.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md %}
 >
-> 7. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
+> 5. You can add a tag to your dataset if you need to distinguish multiple datasets in your history.
 >
 >    {% snippet faqs/galaxy/datasets_add_tag.md %}
 >
@@ -99,14 +97,14 @@ All the work will be done inside the NEAL interactive tool, so let's run it.
 >
 > 3. You can now display the interactive interface. You can display it with different methods:
 >
->    1. You can open it clicking ont the status message "Open" 
+>    1. You can open it clicking ont the status message "Open"
 >
 >      ![Open status](./images/open_status.png "Open status example")
->
+>    
 >    2. You can open it by clicking on the link next to the red square in the "Launch and manage interactive tool" panel.
 >
 >      ![Manage interactive tool](./images/manage_IT.png "Manage interactive tools panel")
->
+>    
 >    3. You can also click on the eye icon on the "yellow" "NEAL on dataX" history dataset.
 >
 >      ![History status](./images/history_status.png "History status")
@@ -207,9 +205,12 @@ After selection of an area, you can assign it a label.
 > 2. Click on the **Save selection** button 
 >       - This will link the time–frequency selection to a label. 
 >       - You can now annotate the *Turdus merula* sound...
-> ![Merula noise](./images/merula_noise.png "Merula Noise")
->       - ... and the insect noise we selected in the previous step. 
-> ![Insect noise](./images/insect_noise.png "Insect Noise")
+>         
+>     ![Merula noise](./images/merula_noise.png "Merula Noise")
+> 
+>       - ... and the insect noise we selected in the previous step.
+> 
+>     ![Insect noise](./images/insect_noise.png "Insect Noise")
 >
 {: .hands_on}
 
@@ -251,11 +252,11 @@ Back on Galaxy, you can now Shutdown the NEAL interactive tool to free resources
 >
 > To do so you can :
 >
-> 1. Click on the square on the tool running in your galaxy history. 
+> 1. Click on the square on the tool running in your galaxy history.
 >
 >  ![Shutdown example](./images/history_status.png "Shutdown example")
->
-> 2. Click on the red square in the "launch and manage interactive tools" panel. 
+> 
+> 2. Click on the red square in the "launch and manage interactive tools" panel.  
 >
 >  ![Shutdown example 2](./images/manage_IT.png "Shutdown example 2")
 >
