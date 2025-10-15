@@ -96,7 +96,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 >    {% snippet faqs/galaxy/datasets_import_from_data_library.md %}
 >
 > 4. Ensure that the datatype of "phm_collection_adapted" is "tsv". Otherwise, use convert datatype.
-> 5. Check that the datatype of "stopwords-en" is txt. If not, convert the datatype.
+> 5. Verify that the datatype of "stopwords-en" is "txt". If not, convert the datatype.
 >
 >    {% snippet faqs/galaxy/datasets_change_datatype.md datatype="datatypes" %}
 >
@@ -205,11 +205,15 @@ The dataset no longer contains duplicates based on the Record ID. However, we ne
 
 ## Use GREL
 
+There are many ways to manipulate your dataset in OpenRefine. One of them is the Google Refine Expression Language (GREL). With the help of GREL, you can, for example, create custom facets or add columns by fetching URLs. We will use it to find and replace errors. For more information, refer to the [GREL documentation](https://openrefine.org/docs/manual/expressions).
+
+Take a look at the `Categories` column of your dataset. Most objects were attributed to various categories, separated by "\|". However, several fields contain "\|\|" instead of "\|". We want to unify those.
+
 > <hands-on-title>Find and replace typos using GREL</hands-on-title>
 >
-> To remove the occurance of double pipe \|\| from the file we can do the following:
+> To remove the occurance of double pipe "\|\|" from the file we can do the following:
 > 1. Click on the triangle on the left of `Categories` and select `Text filter`.
-> 2. On the left, using the `Facet/Filter` section, search for the occurrence of \| and \|\|. There are 71061 rows with \| and 9 rows with \|\|. We want to remove these 9 lines as they are there by mistake.
+> 2. On the left, using the `Facet/Filter` section, search for the occurrence of "\|" and "\|\|". There are 71061 rows with "\|" and 9 rows with "\|\|". We want to remove these nine lines as they were added by mistake.
 > 3. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
 >
