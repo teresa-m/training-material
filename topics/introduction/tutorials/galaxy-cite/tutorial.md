@@ -69,12 +69,12 @@ This is also found on the Galaxy Project Hub with more specific examples of how 
 ## Citing a Galaxy Service
 
 ### Service Descriptions
-Each public Galaxy service benefits from being able to track the amazing work done by researchers using its service. Provided below are the DOIs for the four main `usegalaxy.*` services. The linked papers are available on Zenodo at [https://zenodo.org/communities/galaxy/](https://zenodo.org/communities/galaxy/):
+Each public Galaxy service benefits from being able to track the amazing work done by researchers using its service. Provided below are the DOIs for the four main `usegalaxy.*` services. The linked papers are available on Zenodo in the Galaxy Project Zenodo Community at [https://zenodo.org/communities/galaxy/](https://zenodo.org/communities/galaxy/):
 
-- Galaxy Australia - DOI for [Galaxy Australia (`usegalaxy.org.au`)](https://docs.google.com/document/d/1l5lkRLSJPZ6OesE5G0M6bmyizOIehtniOmS6c3jDNuw/edit?tab=t.0)
+- Galaxy Australia - `https://doi.org/10.5281/zenodo.17298823`
 - Galaxy Europe - DOI for [Galaxy Europe (`usegalaxy.eu`)](https://docs.google.com/document/d/1obJEODI8K8V7pHOwclbCvYwQ9W1XGH0ahjHgFht49yg/edit?tab=t.0)
-- Galaxy France - DOI for [Galaxy France (`usegalaxy.fr`)](https://docs.google.com/document/d/1zQ9LudBYjk02ejTGN7FoVoumrnEFF1V0L4PCwnXzCm0/edit?tab=t.0)
-- Galaxy Main - DOI for [Galaxy Main (`usegalaxy.org`)](https://docs.google.com/document/d/10TwJ2p3U1vvj0hsyyqRc9z1LL7ZmEQ1dKfmeCm2zQZk/edit?tab=t.0)
+- Galaxy France - `https://doi.org/10.5281/zenodo.17298858`
+- Galaxy Main - `https://doi.org/10.5281/zenodo.17298864`
 
 We recommend including the relevant service name and DOI link in your Methods.
 
