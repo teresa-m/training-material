@@ -75,7 +75,7 @@ In practice, you can iterate on a workflow in a familiar Graphic-User-Interface 
 
 # Hands on: Get the data
 
-We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing a metadata collection. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and uploaded it to Zenodo for long-term reuse. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer two questions: *From what year does the museum have the most objects?* And *what objects does the museum have from that year?*
+We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing a metadata collection. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and uploaded it to Zenodo for long-term reuse. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer three questions: From **which category** does the museum have the most objects? From **what year** does the museum have the most objects? And **what objects does the museum have from that year?**
 
 **Why this dataset?** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 
@@ -224,7 +224,7 @@ Take a look at the `Categories` column of your dataset. Most objects were attrib
 >    Many different categories describe the object. You may notice duplicates categorising the same object twice.
 >    We also want to remove those to ensure we only have unique categories that describe a single object.
 >
-> 6. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
+> 6. Click on the triangle on the left of `Categories`, hover over `Edit cells`, and click on `Transform...`.
 >
 >    ![Edit cells Categories](images/filter_grel.png)
 >
@@ -254,13 +254,11 @@ Each entry can be assigned to more than one category. To leverage those keywords
 
 > <hands-on-title>Atomization</hands-on-title>
 >
-> 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Split multi-valued cells...`.
+> 1. Click on the triangle on the left of `Categories`, hover over `Edit cells`, and click on `Split multi-valued cells...`.
 >
 >    ![Atomization of Categories](images/split_multi_valued_cells.png)
 >
 > 2. Define the `Separator` as `\|` (pipe). Click on `OK`.
->
->    ![Facet Blank of atomized Categories](images/facet_categories_blank.png)
 >
 {: .hands_on}
 
@@ -275,17 +273,19 @@ Are you ready for a little challenge? Let's investigate the categories column of
 > >
 > > 1. 168,476
 > > 2. Click on the triangle on the left of `Categories` and hover over `facet` and move your mouse over `Customized facets`, and click on `Facet by blank (null or empty string)`. The `true` value for blank entries is 447.
+> >    
+> >   ![Facet Blank of atomized Categories](images/facet_categories_blank.png)
 > >
 > {: .solution}
 {: .question}
 
-Now, let's use faceting based on text.
-
 ## Faceting
 
-> <hands-on-title>Atomization</hands-on-title>
+Now that the `Categories` field is cleaned, we can check the occurrence of categories with various facets.
+
+> <hands-on-title>Faceting</hands-on-title>
 >
-> 1. Click on the triangle on the left of `Categories`, hover over `facet`, and click on`Text facet`.
+> 1. Click on the triangle on the left of `Categories`, hover over `Facet`, and click on `Text facet`.
 > 2. On the left panel, it mentions the total number of choices. The default value of `count limit` is low for this dataset, and we should increase it. Click on `Set choice count limit`.
 >
 >    ![Text faceting of atomized Categories](images/text_facet.png)
@@ -300,13 +300,18 @@ Now, let's use faceting based on text.
 >
 {: .hands_on}
 
+You can now see, from which category the museum has the most objects, one of our initial questions about the dataset.
+
 > <question-title></question-title>
 >
 > 1. What are the top 3 categories? How many items are associated with each of them?
 >
 > > <solution-title></solution-title>
 > >
-> > 1. Numismatics (8011), Ceramics (7389), and Clothing and Dress (7279)
+> > 1. Numismatics (8011), Ceramics (7389), and Clothing and Dress (7279).
+> >    Congratulations, you have just answered our first question: from which category does the museum have the most objects?
+> >    It is numismatic objects, meaning coins. This makes a lot of sense; coins have a long history and convey a lot of information. They are therefore very interesting for researchers.
+> >    Moreover, they are robust and compact, making them durable and relatively easy for museums to store.
 > >
 > {: .solution}
 {: .question}
