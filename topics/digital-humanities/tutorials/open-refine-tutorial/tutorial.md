@@ -75,9 +75,9 @@ In practice, you can iterate on a workflow in a familiar Graphic-User-Interface 
 
 # Hands on: Get the data
 
-We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing a metadata collection. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and uploaded it to Zenodo for long-term reuse. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer three questions: From **which category** does the museum have the most objects? From **what year** does the museum have the most objects? And **what objects does the museum have from that year?**
+We will work with a slightly adapted dataset from the **[Powerhouse Museum](https://powerhouse.com.au/)** (Australia’s largest museum group) containing a metadata collection. The museum shared the dataset online before giving API access to its collection. We slightly adapted the dataset and uploaded it to Zenodo for long-term reuse. The tabular file (**36.4 MB**) includes **14 columns** for **75,811** objects, released under a **[Creative Commons Attribution Share Alike (CCASA) license](http://creativecommons.org/licenses/by-nc/2.5/au/)**. We will answer three questions: From **which category** does the museum have the most objects? From **which year** does the museum have the most objects? And **what objects does the museum have from that year?**
 
-**Why this dataset?** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. During cleaning, you will compute sanity checks (after de-duplication, the dataset drops to **XXXX** unique records; a facet reveals **XXXX** distinct categories and **XXXX** items with no category). Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
+**Why this dataset?** It is credible, openly published, and realistically messy—ideal for practising problems scholars encounter at scale. Records include a **Categories** field populated from the **Powerhouse Museum Object Names Thesaurus (PONT)**, a controlled vocabulary reflecting Australian usage. The tutorial deliberately surfaces common quality issues—blank values that are actually stray whitespace, duplicate rows, and multi-valued cells separated by the pipe character `|` (including edge cases where **double pipes** `||` inflate row counts)—so we can practice systematic inspection before any analysis. Without careful atomization and clustering, these irregularities would bias statistics, visualizations, and downstream reconciliation.
 
 We suggest that you download the data from the Zenodo record as explained below. This helps us with the reproducibility of the results.
 
@@ -328,7 +328,7 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 >
 >    ![Cluster and edit column Categories](images/cluster.png)
 >
-> 3. Click on the `cluster` button in the middle window.
+> 3. Click on the `Cluster` button in the middle window.
 >
 >    ![Clustered and merged similar Categories](images/cluster2.png)
 >
@@ -350,26 +350,17 @@ The clustering allows you to solve issues regarding case inconsistencies, incohe
 {: .hands_on}
 
 You have now successfully split, cleaned and re-joined the various categories of objects in the museum's metadata! Congratulations.
-When you’re happy with your analysis results, choose whether to export the dataset into your Galaxy history or download it directly onto your computer.
+As before the splitting of columns, we are now back to 75725 rows.
+When you are satisfied with your data, choose whether to export the dataset to your Galaxy history or download it directly to your computer.
 
 ## Exporting your data back to Galaxy
 
-> <hands-on-title>Exporting the results and history</hands-on-title>
->
-> 1. Click on `Export` at the top of the table.
-> 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab. Alternatively, you can download your cleaned dataset in various formats such as CSV, TSV, and Excel. You can also close the extra tab that contains OpenRefine and click on the orange item `OpenRefine on data [and a number]`. You do not need it for your next steps
->
->    ![Export results of OpenRefine](images/export_results3.png)
->
-> 3. You can find a new dataset in your Galaxy History (with a green background) that contains your cleaned dataset for further analysis.
-> 4. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
->
->    ![Cleaned dataset](images/dataset_cleaned.png)
->
-{: .hands_on}
+Exporting your data back to Galaxy allows you to analyse or visualise it with further tools in the platform.
+But OpenRefine also allows you to export your operation history, detailing all the steps you took in JSON format.
+This way, you can import it later and reproduce the exact same analysis. To do so:
 
-> <hands-on-title>Exporting the results and history</hands-on-title>
-> Additionally, you can download the tasks you performed using OpenRefine in JSON format. This way, you can import it later and reproduce the exact same analysis. To do so:
+> <hands-on-title>Exporting the OpenRefine history</hands-on-title>
+> 
 > 1. Click on `Undo/Redo` on the left panel.
 > 2. Click on `Extract...`.
 >
@@ -382,13 +373,33 @@ When you’re happy with your analysis results, choose whether to export the dat
 >
 {: .hands_on}
 
+However, you will also ensure that you save your data. You can download your cleaned dataset in various formats, such as CSV, TSV, and Excel, within OpenRefine. 
+For further analysis or visualisation, we suggest you export it to your Galaxy history.
+
+> <hands-on-title>Exporting the results and history</hands-on-title>
+>
+> 1. Click on `Export` at the top of the table.
+> 2. Select `Galaxy exporter`. Wait a few seconds. In a new page, you will see a text as follows: "Dataset has been exported to Galaxy, please close this tab". When you see this, you can close that tab.
+>
+>    ![Export results of OpenRefine](images/export_results3.png)
+>
+> 3. You can now close the OpenRefine interactive tool. For that, go to your history with the orange item `OpenRefine on data [and a number]`. This is your interactive tool. Click "OK" on the small square (it says "Stop this interactive tool" when you mouse over it). You do not need it for your next steps.
+> 4. You can find a new dataset (named something like "openrefine-Galaxy file.tsv") in your Galaxy History (with a green background). It contains your cleaned dataset for further analysis.
+> 5. You can click on the eye icon ({% icon galaxy-eye %}) and investigate the table.
+>
+>    ![Cleaned dataset](images/dataset_cleaned.png)
+>
+{: .hands_on}
+
+Awesome work! However, you may recall that we still have two unanswered questions about our data: From which year does the museum have the most objects? And what objects does the museum have from that year?
+
 # Run a Galaxy Workflow on your cleaned data
 
 Congratulations, you have successfully cleaned your data and improved its quality!
 But what can you do with it now?
-This depends on your aims as a researcher. For us, it is interesting to extract further information from the data.
-To make it easy for you, we created a so-called workflow, which links all the tools needed to do this analysis.
-We wanted to know, from what year the museum had the most objects and what they were.
+This depends on your research objectives. For us, it is interesting to extract further information from the data.
+To make it easier for you, we have created a workflow that links all the tools needed for this analysis.
+We wanted to know which year the museum had the most objects and what they were.
 You can follow along and answer those questions with us, or explore the Galaxy tools on your own, to adapt the analysis to your needs.
 In this case, be sure to check out our other tutorials, particularly the introductory ones.
 
@@ -426,11 +437,11 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >
 {: .hands_on}
 
-What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of what year most elements in the museum derive from, we first cut the column of production time from the table and filter only dates from the table that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset that is supposed to be created in 2041 is part of the table. We remove it. Datamash allows for summing up how many elements came to the museum in what year.  The ascending order, we visualise in a bar chart. To find out from what year most objects derive, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
-As a result, we get that most objects from the museum are negatives from Davis Mist, which he created in that year and gave to the museum.
+What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of which year most elements in the museum derive from, we first remove the column of production time from the table and filter only the dates that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset, which is supposed to have been created in 2041, is part of the table. We remove it. Datamash allows for summarising how many elements arrived at the museum in each year.  The ascending order, we visualise in a bar chart. To determine from which year most objects originate, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
+As a result, we find that most objects from the museum are negatives from Davis Mist, which he created that year and donated to the museum.
 
 ![Word cloud of objects' descriptions](images/display_1969.png)
 
 # Conclusion
 
-Congratulations! You used OpenRefine to clean your data and ran a workflow from Galaxy with your results! You now know how to do basic steps in Galaxy, run OpenRefine as an interactive tool and get your data from Galaxy to OpenRefine and back. On the way, you have learned basic data cleaning, like facetting, to enhance the quality of your data. To extract further information from the cleaned data, running a pre-designed workflow showed you a glimpse into Galaxy. Of course, you can always do your own analysis with the tools most useful for you, instead.
+Congratulations! You used OpenRefine to clean your data and ran a workflow from Galaxy with your results! You now know how to perform basic steps in Galaxy, run OpenRefine as an interactive tool, and transfer data from Galaxy to OpenRefine and back. On the way, you have learned basic data cleaning techniques, such as facetting, to enhance the quality of your data. To extract further information from the cleaned data, running a pre-designed workflow showed you a glimpse into Galaxy. Of course, you can always conduct your own analysis using the tools most useful to you, instead.
