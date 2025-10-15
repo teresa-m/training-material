@@ -221,9 +221,8 @@ Take a look at the `Categories` column of your dataset. Most objects were attrib
 >
 >    The expression replaces \|\| with \|. If you search for the occurrence of \|\| again, you will no longer get any results. 
 >
->    There are currently many different categories within one cell, which is not so easy to work with.
->    We, therefore, split the values of the `Categories` column up into individual cells. This is possible by using the pipe character.
->    That way, we can also remove double occurrences of the same categories for one object.
+>    Many different categories describe the object. You may notice duplicates categorising the same object twice.
+>    We also want to remove those to ensure we only have unique categories that describe a single object.
 >
 > 6. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 >
@@ -250,10 +249,11 @@ These expressions split categories at the pipe separator and join the unique one
 
 ## Atomization
 
+Once the duplicate records have been removed, we can examine the content of the "Categories" column more closely. Different categories are separated from each other by pipe (\|). 
+Each entry can be assigned to more than one category. To leverage those keywords, the values in the Categories column must be split into individual cells using the pipe character.
+
 > <hands-on-title>Atomization</hands-on-title>
 >
-> Once the duplicate records have been removed, we can have a closer look at the Categories column. Different categories are separated from each other by pipe (\|). Each entry can have more
-> than one category. In order to analyze in detail the use of the keywords, the values of the Categories column need to be split up into individual cells on the basis of the pipe character.
 > 1. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Split multi-valued cells...`.
 >
 >    ![Atomization of Categories](images/split_multi_valued_cells.png)
