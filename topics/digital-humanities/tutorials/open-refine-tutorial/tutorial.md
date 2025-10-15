@@ -207,29 +207,35 @@ The dataset no longer contains duplicates based on the Record ID. However, we ne
 
 There are many ways to manipulate your dataset in OpenRefine. One of them is the Google Refine Expression Language (GREL). With the help of GREL, you can, for example, create custom facets or add columns by fetching URLs. We will use it to find and replace errors. For more information, refer to the [GREL documentation](https://openrefine.org/docs/manual/expressions).
 
-Take a look at the `Categories` column of your dataset. Most objects were attributed to various categories, separated by "\|". However, several fields contain "\|\|" instead of "\|". We want to unify those.
+Take a look at the `Categories` column of your dataset. Most objects were attributed to various categories, separated by "\|". However, several fields contain "\|\|" instead of "\|" as a separator. We want to unify those.
 
 > <hands-on-title>Find and replace typos using GREL</hands-on-title>
 >
 > To remove the occurance of double pipe "\|\|" from the file we can do the following:
 > 1. Click on the triangle on the left of `Categories` and select `Text filter`.
-> 2. On the left, using the `Facet/Filter` section, search for the occurrence of "\|" and "\|\|". There are 71061 rows with "\|" and 9 rows with "\|\|". We want to remove these nine lines as they were added by mistake.
-> 3. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
+> 2. On the left, using the `Facet/Filter` section, search for the occurrence of \| and \|\|. There are 71061 rows with "\|" and 9 rows with "\|\|". We would like to remove these nine lines, as they were added by mistake.
+> 3. Click on the triangle on the left of `Categories`, hover over `Edit cells`, and click on `Transform...`.
 > 4. In the new window, use the following text `value.replace('||', '|')` as "Expression" and click on `OK`.
 >
 >    ![Custom text transform on column Categories](images/filter_grel3.png)
 >
->    We can also remove the double occurrence of the same for different entries as follows:
+>    The expression replaces \|\| with \|. If you search for the occurrence of \|\| again, you will no longer get any results. 
 >
-> 5. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
+>    There are currently many different categories within one cell, which is not so easy to work with.
+>    We, therefore, split the values of the `Categories` column up into individual cells. This is possible by using the pipe character.
+>    That way, we can also remove double occurrences of the same categories for one object.
+>
+> 6. Click on the triangle on the left of `Categories`, hover over `edit cells`, and click on `Transform...`.
 >
 >    ![Edit cells Categories](images/filter_grel.png)
 >
 >    ![Transform Categories](images/filter_grel2.png)
 >
-> 6. In the new window, use the following text `split('|').uniques().join('|')` as "Expression" and click on `OK`.value.
+> 7. In the new window, use the following text `value.split('|').uniques().join('|')` as "Expression" and click on `OK`.
 >
 {: .hands_on}
+
+These expressions split categories at the pipe separator and join the unique ones within this column. As a result, duplicate categories for one object are deleted.
 
 > <question-title></question-title>
 >
