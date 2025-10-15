@@ -555,9 +555,9 @@
             "when": null,
             "workflow_outputs": [
                 {
-                    "label": "anndata_out",
+                    "label": "Anndata object",
                     "output_name": "anndata_out",
-                    "uuid": "49239b87-804b-48d3-b01a-f56698398b50"
+                    "uuid": "adcce063-b4d3-4d8e-9d1e-5bb15247ac11"
                 }
             ]
         },
@@ -616,13 +616,13 @@
             "name": "Inspect AnnData",
             "outputs": [
                 {
-                    "name": "X",
+                    "name": "var",
                     "type": "tabular"
                 }
             ],
             "position": {
-                "left": 2450,
-                "top": 352.761667998748
+                "left": 2439.9556464484453,
+                "top": 368.9750124359457
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/anndata_inspect/anndata_inspect/0.10.9+galaxy1",
@@ -632,10 +632,10 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"h5ad\", \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/hg38.len\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"inspect\": {\"info\": \"X\", \"__current_case__\": 1}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"h5ad\", \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/hg38.len\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"inspect\": {\"info\": \"var\", \"__current_case__\": 4}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "0.10.9+galaxy1",
             "type": "tool",
-            "uuid": "0f53a7e6-a0bf-4863-bbbf-2c1121154e7a",
+            "uuid": "46a020f8-fc7b-4c28-9e04-d659241af9b7",
             "when": null,
             "workflow_outputs": []
         },
@@ -655,52 +655,13 @@
             "name": "Inspect AnnData",
             "outputs": [
                 {
-                    "name": "var",
-                    "type": "tabular"
-                }
-            ],
-            "position": {
-                "left": 2450,
-                "top": 522.761667998748
-            },
-            "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/anndata_inspect/anndata_inspect/0.10.9+galaxy1",
-            "tool_shed_repository": {
-                "changeset_revision": "afe044e6bc93",
-                "name": "anndata_inspect",
-                "owner": "iuc",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "tool_state": "{\"__input_ext\": \"h5ad\", \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/hg38.len\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"inspect\": {\"info\": \"var\", \"__current_case__\": 4}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "0.10.9+galaxy1",
-            "type": "tool",
-            "uuid": "46a020f8-fc7b-4c28-9e04-d659241af9b7",
-            "when": null,
-            "workflow_outputs": []
-        },
-        "15": {
-            "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/anndata_inspect/anndata_inspect/0.10.9+galaxy1",
-            "errors": null,
-            "id": 15,
-            "input_connections": {
-                "input": {
-                    "id": 11,
-                    "output_name": "anndata_out"
-                }
-            },
-            "inputs": [],
-            "label": null,
-            "name": "Inspect AnnData",
-            "outputs": [
-                {
                     "name": "general",
                     "type": "txt"
                 }
             ],
             "position": {
-                "left": 2450,
-                "top": 692.761667998748
+                "left": 2441.307650559492,
+                "top": 554.34084808176
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/anndata_inspect/anndata_inspect/0.10.9+galaxy1",
@@ -715,10 +676,18 @@
             "type": "tool",
             "uuid": "014bff00-4f5c-4eb7-abde-8608b7d6c5af",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": "Anndata info",
+                    "output_name": "general",
+                    "uuid": "420096ff-010d-46cd-abd8-5b34dd54c364"
+                }
+            ]
         }
     },
-    "tags": [],
-    "uuid": "7bc0e694-c088-40f5-b20a-ef0bc011c7c8",
-    "version": 4
+    "tags": [
+        "name:single-cell"
+    ],
+    "uuid": "9f7a149c-8e72-4de7-80f8-59ac1a438b03",
+    "version": 5
 }
