@@ -140,7 +140,7 @@ Integration of InvenioRDM and Zenodo into Galaxy now enables you to export your 
 
 For instructions on connecting to Zenodo and preparing your history, see the following tutorial on the Galaxy Training Network:
 
-- [Integrating InvenioRDM-compatible Repositories with Galaxy](https://training.galaxyproject.org/training-material/topics/fair/tutorials/inveniordm-integration/tutorial.html)
+- [Integrating InvenioRDM-compatible Repositories with Galaxy]({% link topics/fair/tutorials/inveniordm-integration/tutorial.md %})
 
 ## Making a Workflow public
 
