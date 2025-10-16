@@ -153,7 +153,7 @@ Two repository options that we recommend for publishing your Workflows are:
 
 For instructions on preparing your workflow, see the following tutorial on the Galaxy Training Network:
 
-- [Annotate, prepare tests and publish Galaxy workflows in workflow registries](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/workflow-fairification/tutorial.html)
+- [Annotate, prepare tests and publish Galaxy workflows in workflow registries]({% link topics/galaxy-interface/tutorials/workflow-fairification/tutorial.md %})
 
 ## Citing Public Data
 
