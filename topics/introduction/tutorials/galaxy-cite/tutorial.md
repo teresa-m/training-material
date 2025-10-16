@@ -1,6 +1,6 @@
 ---
 layout: tutorial_hands_on
-title: Best Practice for Citing Galaxy
+title: Best Practices for Citing Galaxy
 tags:
   - fair
   - introduction
