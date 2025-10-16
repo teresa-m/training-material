@@ -28,7 +28,7 @@ contributions:
     - unimelb
     - melbournebioinformatics
     - AustralianBioCommons
-    - SURF
+    - surf
 
 ---
 
