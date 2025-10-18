@@ -80,7 +80,6 @@ program:
   - section: "Tuesday: Introduction"  # section title is optional
     description: |
       Galaxy platform and Galaxy Ecology introduction
-      Markdown formatted
     tutorials:
       - type: custom
         name: Galaxy & Galaxy Ecology introduction
@@ -103,7 +102,6 @@ program:
   - section: "Wednesday: Hack!"
     description: |
       Galaxy platform and Galaxy Ecology hackathon/collaboration fest
-      Markdown formatted
     tutorials:
       - type: custom
         name: collaboration fest / hackathon
@@ -112,7 +110,6 @@ program:
   - section: "thursday: Hack again!"
     description: |
       Galaxy platform and Galaxy Ecology hackathon/collaboration fest
-      Markdown formatted
     tutorials:
       - type: custom
         name: collaboration fest / hackathon
