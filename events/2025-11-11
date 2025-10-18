@@ -101,11 +101,19 @@ program:
         time: "15:30 - 18:00"
 
   - section: "Wednesday: Hack!"
+    description: |
+      Galaxy platform and Galaxy Ecology hack
+      Markdown formatted
+    tutorials:
       - type: custom
         name: collaboration fest / hackathon
         time: "9:30 - 18:00"
 
   - section: "thursday: Hack again!"
+    description: |
+      Galaxy platform and Galaxy Ecology hack
+      Markdown formatted
+    tutorials:
       - type: custom
         name: collaboration fest / hackathon
         time: "9:30 - 12:30"
