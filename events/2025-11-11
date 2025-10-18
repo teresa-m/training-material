@@ -102,7 +102,7 @@ program:
 
   - section: "Wednesday: Hack!"
     description: |
-      Galaxy platform and Galaxy Ecology hack
+      Galaxy platform and Galaxy Ecology hackathon/collaboration fest
       Markdown formatted
     tutorials:
       - type: custom
@@ -111,7 +111,7 @@ program:
 
   - section: "thursday: Hack again!"
     description: |
-      Galaxy platform and Galaxy Ecology hack
+      Galaxy platform and Galaxy Ecology hackathon/collaboration fest
       Markdown formatted
     tutorials:
       - type: custom
