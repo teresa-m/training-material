@@ -415,7 +415,9 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >
 > ![Workflow imported to Galaxy](images/workflow.png)
 >
-> Let's assume that you have imported a workflow to your Galaxy account.
+> This is one way of importing a workflow to your account.
+> 
+> Let's assume you have done this and imported the workflow to your Galaxy account.
 > 1. You can find all workflows available to you by clicking on the Workflows Icon ({% icon galaxy-workflows-activity %}) on the left panel.
 >
 >    ![Workflows button](images/workflows.png)
@@ -425,20 +427,57 @@ In this case, be sure to check out our other tutorials, particularly the introdu
 >    ![Select this workflow](images/select_workflow.png)
 >
 > 3. Determine the inputs as follows:
->    Input: `openrefine-Galaxy file.tsv`
+>    
+>    Input: `openrefine-Galaxy file.tsv`—This is the file you cleaned in OpenRefine.
+>    
 >    stop_words_english: `stop_words_english.txt`, which is the file we provided to you in this tutorial.
 >
 >    ![Determine the inputs of the workflow](images/workflow_inputs.png)
 >
-> 5. Click on the `Run Workflow` button at the top.
-> 6. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
+> 4. Click on the `Run Workflow` button at the top.
+> 5. You can follow the stages of different jobs (computational tasks). They will be created, scheduled, executed, and completed. When everything is green, your workflow has run fully and the results are ready.
 >
 >    ![Overview of the workflow](images/workflow_overview.png)
 >
 {: .hands_on}
 
-What can you see here? To follow along, we made all substeps of the task available as outputs. To answer our question of which year most elements in the museum derive from, we first remove the column of production time from the table and filter only the dates that derive from specific years, not year ranges. Regular expressions help clean remaining inconsistencies in the dataset. Sorting the production date in descending order reveals that one faulty dataset, which is supposed to have been created in 2041, is part of the table. We remove it. Datamash allows for summarising how many elements arrived at the museum in each year.  The ascending order, we visualise in a bar chart. To determine from which year most objects originate, we use another sorting order. We parse the input as a conditional statement to search for object descriptions from the objects of that year. In our case, this is 1969. From all object descriptions from 1969, we create a word cloud using the offered stop word list.
-As a result, we find that most objects from the museum are negatives from Davis Mist, which he created that year and donated to the museum.
+What can you see here? To follow along, we made all substeps of the task available as outputs. 
+To answer our question of which year most elements in the museum derive from, we first cut the column of production time from the table.
+You can see this in the file `Cut on Data (Number)`.
+From this, we filter only the dates that derive from specific years, not year ranges. (See `Filter Tabular on Data (Number)`.) 
+You can click on the arrow in a cirlce button of this dataset (`Run job again`) to see what exact input was used to exclude year ranges.
+Regular expressions help clean remaining inconsistencies in the dataset. (Dataset: `Column Regex Find And Replace on Data (Number)`)
+Sorting the production date in descending order, as done in dataset `Sort on data (lowest Number)`, reveals that one faulty dataset, which is supposed to have been created in 2041, is part of the table. 
+We remove it in the next step with the tool `Remove beginning`.
+
+The tool **Datamash** allows for summarising how many elements arrived at the museum in each year.  (Dataset: `Datamash on data (Number)`.)
+After we apply this tool, the dataset is no longer 7738 lines long, but only 259. 
+This is because the amount of times, each year appeared in the table was summed up in a second column.
+Sorting in ascending order (`Sort on data (Number)`) shows a chronological dataset with the earliest enties in the beginning and the most recent entries at the end of the table.
+This, we can easily visualise in a (particularly crowded) bar chart directly within Galaxy. (`Bar chart on data (Number)`)
+But this is not the most optimal view to show us, what year most objects derive from.
+
+To determine from which year most objects originate, we use another sorting order (`Sort on Data (highest number)`). 
+
+> <question-title></question-title>
+>
+> 1. From what year does the museum have most objects?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. The dataset `Sort on data (highest number)` shows the amount of objexts by year, sorted from most to least. 288 items are noted for the year 1969 in the first row. This is the year from which the museum has most (clearly datable) objects.
+> >
+> {: .solution}
+{: .question}
+
+The next four steps parse this year as a conditional statement step by step. (`Select first on data (Number)`, `Cut on data (Number)`, `Parse parameter value on data (Number)` and `Compose text parameter value`.)  
+This means, even if you upload another dataset, the highest number is always selected and taken as an input for the next steps.
+
+Based on this input, which is determined by the year with the highest input, ` Search in textfiles on data (Number)` now searches for object descriptions from the 288 objects of the most prominent year.
+
+From all object descriptions from that year, we create a word cloud of the object descriptions by using the offered stop word list.
+This helps us quickly determine, what kinds of objects the museum has from this popular year.
+The dataset `Word cloud image` shows that most objects from the museum are negatives from Davis Mist, a famous Australian photographer, which he created that year and donated to the museum.
 
 ![Word cloud of objects' descriptions](images/display_1969.png)
 
