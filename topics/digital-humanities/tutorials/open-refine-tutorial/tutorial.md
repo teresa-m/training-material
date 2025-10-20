@@ -102,7 +102,7 @@ We suggest that you download the data from the Zenodo record as explained below.
 >
 {: .hands_on}
 
-In this first part, we will focus on working with the metadata from the Powerhouse Museum. The additional
+In this first part, we will focus on working with the metadata from the Powerhouse Museum. 
 
 # Use OpenRefine to explore and clean your dataset
 
