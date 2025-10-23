@@ -32,7 +32,6 @@ contributions:
 
 ---
 
-# Description
 
 *Assemble a genome! Learn how to create and assess genome assemblies using the powerful combination of Nanopore and Illumina reads.*
 
