@@ -73,7 +73,7 @@ Traditional *in vitro* culture techniques are important. Take a sample (e.g. a s
 
 Mixtures of bacterial types can be sequenced e.g. prepare genomic DNA from environmental samples containing bacteria - water, soil, faecal samples etc. (Whole Metagenome Sequencing)
 
-![image](https://user-images.githubusercontent.com/10491057/93856582-8d409700-fcfc-11ea-9f0c-951e4ab05519.png)
+![image_of_bacterial_growth_of_a_sample](../../images/denovo_assembly/sample_bacterial_growth.png)
 
 One colony contains 10<sup>7</sup> – 10<sup>8</sup> cells. The genomic DNA extracted from one colony is enough for Illumina sequencing. Larger amounts of genomic DNA are required for Nanopore sequencing.
 
@@ -87,7 +87,7 @@ Note: Nanopore sequencing - there is usually no need to shear the genomic DNA as
 
 In this section, you will use `Flye` to create a draft genome assembly from Nanopore reads. We will perform assembly, then assess the quality of our assembly using two tools: `Quast` and `Busco`.
 
-![method1](../../images/denovo_assembly/nanopore_illumina_hybrid_assembly.png)
+![hybrid_assembly_starting_with_nanpore_reads_workflow_diagram](../../images/denovo_assembly/nanopore_illumina_hybrid_assembly.png)
 
 ## Upload data
 
@@ -460,7 +460,7 @@ In this section, we will use a purpose-built tool called `Unicycler` to perform 
 
 `Unicycler` uses our Nanopore and Illumina read sets together as input, and returns an assembly. Once we have created the assembly, we will assess its quality using `Quast` and `Busco` and compare with our previous polished assembly. We will also perform BUSCO analysis on the supplied reference genome itself, to record a baseline for our theoretical best `Busco` report.
 
-![method2](../../images/denovo_assembly/unicycler_hybrid_assembly.png)
+![unicycler_hybrid_assembly_workflow_diagram](../../images/denovo_assembly/unicycler_hybrid_assembly.png)
 
 ### Hybrid de novo assembly with Unicycler
 
