@@ -83,7 +83,7 @@ Genomic DNA is prepared for sequencing by fragmenting/shearing: multiple copies 
 
 Note: Nanopore sequencing - there is usually no need to shear the genomic DNA as specialist methods are used to minimise shearing during DNA preparation. For Nanopore sequencing, the longer the DNA fragments, the better!
 
-# Section 1: Nanopore draft assembly, Illumina polishing
+# Nanopore draft assembly, Illumina polishing
 
 In this section, you will use `Flye` to create a draft genome assembly from Nanopore reads. We will perform assembly, then assess the quality of our assembly using two tools: `Quast` and `Busco`.
 
