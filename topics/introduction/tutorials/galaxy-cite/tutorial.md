@@ -50,7 +50,7 @@ This is a short primer on how to cite Galaxy in your publication and also how to
 Citing Galaxy comes in two main actions: 
 
 1. Citing the global **Galaxy Project** that provides the core code that all Galaxy instances operate on. 
-2. Citing the instance of Galaxy you did your work on.
+2. Citing the **instance of Galaxy**, you did your work on.
 
 ## Citing Galaxy Project
 Please cite Galaxy Project’s primary publication: 
