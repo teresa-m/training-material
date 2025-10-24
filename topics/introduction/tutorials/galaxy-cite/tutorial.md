@@ -10,7 +10,7 @@ questions:
 objectives:
   - Apply the Galaxy citation guidelines to your own work.
   - Prepare your methodology section based on your Galaxy Histories.
-time_estimation: 10m
+time_estimation: 20m
 key_points:
   - Please remember to cite the primary Galaxy Project publication.
   - Reference the specific Galaxy server that was used.
