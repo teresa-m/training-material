@@ -47,7 +47,7 @@ Combining read data from the long and short read sequencing platforms allows the
 
 Nanopore sequencing technology is rapidly improving, expect the cost difference to reduce!!
 
-- **Data:** Nanopore reads, Illlumina reads, bacterial organism (*Bacillus subtilis*) reference genome
+- **Data:** Nanopore reads, Illumina reads, bacterial organism (*Bacillus subtilis*) reference genome
 - **Tools:** Flye, Pilon, Unicycler, Quast, Busco
 - **Pipeline:** Hybrid de novo genome assembly - Nanopore draft Illumina polishing
 - **Pipeline:** Hybrid de novo genome assembly - Unicycler
@@ -73,7 +73,7 @@ Traditional *in vitro* culture techniques are important. Take a sample (e.g. a s
 
 Mixtures of bacterial types can be sequenced e.g. prepare genomic DNA from environmental samples containing bacteria - water, soil, faecal samples etc. (Whole Metagenome Sequencing)
 
-![image of the bacterial growth of a sample](../../images/denovo_assembly/sample_bacterial_growth.png)
+![image of bacterial growth of a sample](../../images/denovo_assembly/sample_bacterial_growth.png)
 
 One colony contains $$10^7 – 10^8$$ cells. The genomic DNA extracted from one colony is enough for Illumina sequencing. Larger amounts of genomic DNA are required for Nanopore sequencing.
 
@@ -87,7 +87,7 @@ Note: Nanopore sequencing - there is usually no need to shear the genomic DNA as
 
 In this section, you will use `Flye` to create a draft genome assembly from Nanopore reads. We will perform assembly, then assess the quality of our assembly using two tools: `Quast` and `Busco`.
 
-![workflow diagram for hybrid assembly starting with nanpore read](../../images/denovo_assembly/nanopore_illumina_hybrid_assembly.png)
+![workflow diagram for hybrid assembly starting with nanopore read](../../images/denovo_assembly/nanopore_illumina_hybrid_assembly.png)
 
 ## Upload data
 
@@ -151,12 +151,12 @@ In this tutorial, we know our organism is within the 'Bacillales' order.
 >      - *"Select a gene predictor"*: `Augustus`
 >    - *"Auto-detect or select lineage?"*: `Select lineage`
 >      -  *"Lineage"*: `Bacillales`
->    - *"Which outputs should be generated"*: Tick `Select all` to get full output list
+>    - *"Which outputs should be generated"*: `Short summary text`
 > 
 > 2. View output:
 >    - After the program has run, look at the `short summary` output. 
 >    - It may look something like this:
->      ![busco_output](../../images/denovo_assembly/busco_reference_assembly.png)
+>      ![output busco report for reference assembly](../../images/denovo_assembly/busco_reference_assembly.png)
 > 
 {: .hands_on}
 
@@ -213,14 +213,14 @@ We need to check if our assembly is good quality or not. It is paramount that ge
 >      - *"Select a gene predictor"*: `Augustus`
 >    - *"Auto-detect or select lineage?"*: `Select lineage`
 >      -  *"Lineage"*: `Bacillales`
->    - *"Which outputs should be generated"*: Tick `Select all` to get full output list
+>    - *"Which outputs should be generated"*: `Short summary text`
 > 
 > 2. View output:
 >    - After the program has run, look at the `short summary` output. 
 >    - It may look something like this:
->      ![busco_output](../../images/denovo_assembly/busco_draft_assembly.png)
+>      ![output busco report for draft assembly](../../images/denovo_assembly/busco_draft_assembly.png)
 >    - The `full table` is also useful. It gives a detailed list of the genes we are searching for, and information about whether they were missing, fragmented, or complete in our assembly.
->      ![busco_table](../../images/denovo_assembly/busco_table_draft_assembly.png)
+>      ![output busco table for draft assembly](../../images/denovo_assembly/busco_table_draft_assembly.png)
 > 
 {: .hands_on}
 
@@ -231,7 +231,7 @@ We need to check if our assembly is good quality or not. It is paramount that ge
 > 
 > > <solution-title></solution-title>
 > > 
-> > We see that many genes are fragmented or missing. Our draft genome assembly isn't as good as the reference genome ***yet***.
+> > We see that many genes are fragmented or missing. Our draft genome assembly isn't as good as the reference genome ***yet***. This is because we have so far only used the Nanopore long-read sequences, which have higher base-level error rates than short reads. In the next steps we will use Illumina short reads to correct for errors in the assembled Nanopore reads.
 > > 
 > {: .solution}
 > 
@@ -259,7 +259,7 @@ Search for the `Quast` tool in the tools panel.
 > 2. View output:
 >    - `Quast` will produce a HTML report summarising it's results.
 >    - Open the report. It may look something like this:
->      ![quast_report](../../images/denovo_assembly/quast_draft_assembly.png)
+>      ![output quast report for reference assembly](../../images/denovo_assembly/quast_draft_assembly.png)
 >    - Note the:
 >      - Genome fraction (%)
 >      - \# mismatches per 100 kbp
@@ -454,7 +454,7 @@ Our next step is to use a purpose-built hybrid de novo assembly tool, and compar
 
 
 
-## Section 2: Purpose-built hybrid assembly tool - Unicycler
+## Purpose-built hybrid assembly tool - Unicycler
 
 In this section, we will use a purpose-built tool called `Unicycler` to perform hybrid assembly.
 
@@ -519,7 +519,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 4. At time of writing, these were the `Quast` results:
 > 
-> ![quast_result](../../images/denovo_assembly/quast_unicycler_assembly.png)
+> ![output quast report for unicycler assembly](../../images/denovo_assembly/quast_unicycler_assembly.png)
 > 
 {: .hands_on}
 
@@ -535,7 +535,7 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 
 > 4. At time of writing, these were the `Busco` results:
 > 
-> ![busco_result](../../images/denovo_assembly/busco_unicycler_assembly.png)
+> ![output busco report for unicycler assembly](../../images/denovo_assembly/busco_unicycler_assembly.png)
 > 
 {: .hands_on}
 
