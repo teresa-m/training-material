@@ -8,7 +8,7 @@ level: Introductory
 questions:
   - How to cite Galaxy in Publications?
 objectives:
-  - Understand how to cite Galaxy.
+  - Apply the Galaxy citation guidelines to your own work.
   - Prepare your methodology section based on your Galaxy Histories.
 time_estimation: 10m
 key_points:
