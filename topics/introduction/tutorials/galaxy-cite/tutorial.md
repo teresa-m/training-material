@@ -168,6 +168,8 @@ Galaxy can all citations of the tools used in your history. You can directly ext
 
 > <hands-on-title>Extracting Tool Citations</hands-on-title>
 >
+> 1. Export a list of tool citations from your History
+>
 > {% snippet faqs/galaxy/cite-tools-used-in-a-history.md %}
 > 
 > > <comment-title></comment-title>
