@@ -97,7 +97,7 @@ The new `Manage Your Remote File Sources` section is available under `User → P
 > 4. Once set up, your InvenioRDM integration, in this case, `My Zenodo Sandbox`, will appear in the list where you can manage or delete it.
 > ![InvenioRDM Integration](../../images/4-instance-created.png)
 > 
-> 5. Your selected integrations will appear first when browsing import/export locations. 
+> 5. Your selected integrations will appear first when browsing import/export locations. You can find them by clicking on the `Upload` button in the activity bar.
 > ![Browse Remote Files](../../images/5-upload-import.png)
 {: .hands_on}
 
