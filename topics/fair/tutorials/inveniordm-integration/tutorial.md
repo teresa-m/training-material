@@ -36,7 +36,7 @@ contributions:
 
 Discover a more streamlined approach to research data management with Galaxy's integration with InvenioRDM-compatible repositories.
 
-<agenda-title></agenda-title>
+> <agenda-title></agenda-title>
 > In this tutorial we will deal with:
 >
 > 1. TOC
