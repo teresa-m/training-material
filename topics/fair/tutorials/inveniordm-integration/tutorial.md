@@ -71,12 +71,20 @@ For testing purposes, you can use the [Zenodo sandbox instance](https://sandbox.
 To be able to upload files and browse protected records, you need to create an account and set up your PAT (Personal Access Token). In this case, in the Zenodo sandbox instance. To create a new token:
 
 > <hands-on-title>Create Your Personal Access Token</hands-on-title>
-> 
-> 1. Go to your `user settings` and select the `Applications` tab.
 >
-> 2. Then, click on `New token` and give it a name and the necessary permissions.
+> 1. Open [Zenodo](https://zenodo.org) and `Log in` or create an account.
+> 
+> 2. Go to your `user settings` in the top right corner and select the `Applications` tab.
+>
+> 3. Then, click on `New token` and give it a name and the necessary permissions.
 >
 >    ![Zenodo PAT](../../images/zenodo-pat.png)
+>
+> > <comment-title></comment-title>
+> > You will only be able to view and copy the access token when it is first created, so you should copy and securely store the token at this time. If you lose your copy of the access token, then you will need to generate a new one.
+> >
+> {: .comment}
+> 
 {: .hands_on}
 
 ## How to integrate InvenioRDM repositories in Galaxy 25.0
@@ -91,7 +99,7 @@ The new `Manage Your Remote File Sources` section is available under `User → P
 > 2. Click `+ Create` to configure a new integration. You'll see a list of available integrations, including `S3, Dropbox, InvenioRDM, Zenodo`, and more (depending on your Galaxy server).
 > ![Create New Integration](../../images/2-create-new.png)
 > 
-> 3. Select `InvenioRDM` to configure it and enter your **credentials or relevant connection details**.
+> 3. Select `InvenioRDM` to configure it and enter your **credentials or relevant connection details**. (This will be the access token created in the previous section if using the Zenodo sandbox.)
 > ![Configure InvenioRDM](../../images/3-invenio-template-filled.png)
 > 
 > 4. Once set up, your InvenioRDM integration, in this case, `My Zenodo Sandbox`, will appear in the list where you can manage or delete it.
@@ -127,6 +135,7 @@ Once you have integrated an InvenioRDM repository into Galaxy, you will be able 
 >
 > 2. Search for the Zenodo sandbox instance. Remember that this will only appear if the InvenioRDM plugin is configured to connect to the Zenodo sandbox in your Galaxy instance.
 > ![Choose Remote Files](../../images/choose-remote-files.png)
+>
 {: .hands_on}
 
 Once you have selected the Zenodo sandbox instance, you can browse public records and import them into your Galaxy history. You can choose to import the full record or individual files in the same way you would import files from any other remote source.
@@ -146,6 +155,7 @@ You can export your history directly to Zenodo. A benefit of publishing your his
 > 
 > 4. Once you have selected the repository, you can decide whether to create a new record or upload the history to an existing draft record.
 > ![Export History to RDM Repository](../../images/export-history.png)
+>
 {: .hands_on}
 
 You can always edit the record metadata directly from the Zenodo sandbox web interface. Once you are satisfied with the record, you can publish it, generating a DOI that others can use to cite your research. Of course, in the case of the sandbox instance, the DOI is not minted and your data is not stored permanently. But the experience is the same as with the production instance.
