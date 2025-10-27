@@ -4,7 +4,6 @@ title: Integrating InvenioRDM-compatible Repositories with Galaxy
 tags:
   - fair
   - InvenioRDM
-level: Introductory
 questions:
   - How to connect InvenioRDM-compatible repositories to Galaxy?
 objectives:
