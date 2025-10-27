@@ -3,6 +3,7 @@ layout: tutorial_hands_on
 title: Best Practices for Citing Galaxy
 tags:
   - fair
+  - how-to-cite-galaxy
   - introduction
 level: Introductory
 questions:
