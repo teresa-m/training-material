@@ -148,16 +148,26 @@ For instructions on connecting to Zenodo and exporting your history, see the fol
 
 ## Making a Workflow public
 
-If you used a workflow in your analysis, we recommend publishing this alongside your data and in your article. In addition to providing a complete description of your method, the published workflow will also make your approach reproducible and citeable.
+We recommend publishing a workflow alongside your data and in your article. In addition to providing a complete description of your method, the published workflow will also make your approach reproducible and citeable.
+
+If you have not created and used a workflow for your analysis, Galaxy can automatically create a workflow based on the analysis you have performed in a history.
+
+> <hands-on-title>Extract a Workflow from a History</hands-on-title>
+>
+> 1. Extract a Workflow from a Galaxy History
+>
+> {% snippet faqs/galaxy/workflows_extract_from_history.md %}
+>
+{: .hands_on}
+
+For instructions on preparing your workflow, see the following tutorial on the Galaxy Training Network:
+
+- [Annotate, prepare tests and publish Galaxy workflows in workflow registries]({% link topics/galaxy-interface/tutorials/workflow-fairification/tutorial.md %})
 
 Two repository options that we recommend for publishing your Workflows are:
 
 - WorkflowHub ([https://workflowhub.eu/](https://workflowhub.eu/))
 - Dockstore ([https://dockstore.org/](https://dockstore.org/)) 
-
-For instructions on preparing your workflow, see the following tutorial on the Galaxy Training Network:
-
-- [Annotate, prepare tests and publish Galaxy workflows in workflow registries]({% link topics/galaxy-interface/tutorials/workflow-fairification/tutorial.md %})
 
 ## Citing Public Data
 
