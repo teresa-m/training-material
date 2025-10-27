@@ -121,6 +121,8 @@ Users can add tags to their Galaxy histories to organise and connect them to spe
 
 > <hands-on-title>Adding Tags to a History</hands-on-title>
 >
+> 1. Add Tags to your History
+>
 > {% snippet faqs/galaxy/histories_tagging.md %}
 >
 {: .hands_on}
