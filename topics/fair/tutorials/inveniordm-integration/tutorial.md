@@ -15,7 +15,7 @@ time_estimation: 30m
 key_points:
   - InvenioRDM-compatible repositories can be connected to Galaxy
   - Records and files can be imported into Galaxy
-  - You can export your Galaxy Histories to Zenodo
+  - Galaxy Histories are directly exportable to Zenodo
 subtopic: fair-data
 contributions:
   authorship:
