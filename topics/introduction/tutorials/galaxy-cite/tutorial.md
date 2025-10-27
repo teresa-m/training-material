@@ -16,7 +16,6 @@ key_points:
   - Analysis methods can be made transparent and reproducible by publishing Galaxy Histories and Workflows.
   - Public data used in an analysis should always be cited.
   - A list of tool citations can be extracted directly from your Galaxy History.
-subtopic: core
 contributions:
   authorship:
     - tflowers15
