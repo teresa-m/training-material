@@ -117,7 +117,7 @@ The new `Manage Your Remote File Sources` section is available under `User → P
 
 # Importing records and files into Galaxy
 
-Once you have integrated an InvenioRDM respository into Galaxy, you will be able to import records and files stored in the remote repository into Galaxy.
+Once you have integrated an InvenioRDM repository into Galaxy, you will be able to import records and files stored in the remote repository into Galaxy.
 
 > <hands-on-title>Importing Files</hands-on-title>
 > 
