@@ -102,7 +102,7 @@ The new `Manage Your Remote File Sources` section is available under `User → P
 
 
 > <comment-title></comment-title>
-> If you want to integrate the "real" Zenodo instance, we recommend using the Zenodo integration instead of InvenioRDM. This will improve the integration further by making it more prominent in some parts of the Galaxy interface.
+> We are using the Zenodo Sandbox for demonstration purposes. If you want to integrate the "real" Zenodo instance, we recommend using the Zenodo integration instead of InvenioRDM, already in the `+ Create` Galaxy integration step. This will improve the integration further by making it more prominent in some parts of the Galaxy interface.
 >
 {: .comment}
 
