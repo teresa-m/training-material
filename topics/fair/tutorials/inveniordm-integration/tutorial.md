@@ -9,7 +9,8 @@ questions:
 objectives:
   - Learn how to integrate InvenioRDM repositories in Galaxy
   - Learn how to import records and files into Galaxy
-  - Learn how to export Galaxy Histories to Zenodo
+  - Apply the integration to export Galaxy Histories to Zenodo 
+  - Generate a DOI that can be cited by others.
 time_estimation: 30m
 key_points:
   - InvenioRDM-compatible repositories can be connected to Galaxy
