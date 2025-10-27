@@ -160,7 +160,7 @@ If you used a public data source in your work, we recommend you cite both the da
 
 ## Extracting Tool Citations from a Galaxy History
 
-Galaxy can provide a list of the tools used in your history using the following steps. You might find this helpful when writing up your methods, but it is also the quickest way to add all these tools to your references.
+Galaxy can all citations of the tools used in your history. You can directly extract them from your history. It is the quickest way to add all these tools to your references, and you might find this helpful when writing up your methods.
 
 > <hands-on-title>Extracting Tool Citations</hands-on-title>
 >
