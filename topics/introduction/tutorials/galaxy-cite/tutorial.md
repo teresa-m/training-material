@@ -111,6 +111,8 @@ We also suggest providing a description/context of the History in the `History A
 
 > <hands-on-title>Annotating a History</hands-on-title>
 >
+> 1. Add an annotation to your History.
+>
 > {% snippet faqs/galaxy/histories_annotation.md %}
 >
 {: .hands_on}
