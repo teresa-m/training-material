@@ -136,7 +136,8 @@ You can export your history directly to Zenodo. A benefit of publishing your his
 
 > <hands-on-title>Exporting a History</hands-on-title>
 > 
-> 1. From the history menu, you can select `Export History to File`
+> 1. From the history menu {% icon galaxy-history-options %}
+, you can select `Export History to File`
 >
 > 2. Then choose `to RDM repository`. 
 > 
