@@ -150,7 +150,7 @@ You can always edit the record metadata directly from the Zenodo sandbox web int
 
 # Conclusion
 
-In this tutorial, we have covered how to connect an InvenioRDM-compatible respository, such as a Zenodo repository, to a Galaxy instance. We have also shown how to import files and records from Zenodo into Galaxy and how to export a Galaxy History to Zenodo.
+In this tutorial, we have connected an InvenioRDM-compatible repository, such as a Zenodo repository, to a Galaxy instance. We have also imported files and records from Zenodo into Galaxy and exported a Galaxy History to Zenodo.
 
 # References
 
