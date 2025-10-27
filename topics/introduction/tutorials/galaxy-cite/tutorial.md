@@ -133,6 +133,8 @@ Galaxy provides a number of options for sharing histories which allows others to
 
 > <hands-on-title>Sharing a History</hands-on-title>
 >
+> 1. Choose one or several ways to share your History.
+>
 > {% snippet faqs/galaxy/histories_sharing.md %}
 >
 {: .hands_on}
