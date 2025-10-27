@@ -7,7 +7,7 @@ level: Introductory
 questions:
   - How to connect InvenioRDM-compatible repositories to Galaxy?
 objectives:
-  - Learn how to integrate InvenioRDM repositories in Galaxy
+  - Apply the integration of an InvenioRDM repository in Galaxy
   - Learn how to import records and files into Galaxy
   - Apply the integration to export Galaxy Histories to Zenodo 
   - Generate a DOI that can be cited by others.
