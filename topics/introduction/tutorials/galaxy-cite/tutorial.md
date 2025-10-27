@@ -100,7 +100,7 @@ We recommend cleaning up your History when preparing to make your History public
 > <hands-on-title>Clean up Unneeded Datasets</hands-on-title>
 >
 > 1. `Delete` and `Delete (permanently)` (purge) any failed jobs.
-> - `Delete` and `Delete (permanently)` (purge) any datasets/job outputs that were used for testing and are not required for the final, published analysis.
+> 2. `Delete` and `Delete (permanently)` (purge) any datasets/job outputs that were used for testing and are not required for the final, published analysis.
 > - `Delete` and `Delete (permanently)` (purge) any datasets that you don't want to share publicly (e.g. restricted data, unpublished results) - but make sure you save them to a private history first.
 > 
 > {% snippet faqs/galaxy/datasets_deleting.md %}
