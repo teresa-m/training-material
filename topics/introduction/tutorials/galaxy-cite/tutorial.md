@@ -11,11 +11,11 @@ objectives:
   - Prepare your methodology section based on your Galaxy Histories.
 time_estimation: 20m
 key_points:
-  - Please remember to cite the primary Galaxy Project publication.
-  - Reference the specific Galaxy server that was used.
-  - When preparing your methodology, we recommend publishing your Galaxy Histories and Workflows.
-  - Remember to cite any public data used in your analysis.
-  - You can extract a list of tool citations from your Galaxy History.
+  - The Galaxy Project primary publication should always be cited.
+  - When analysing data using a public Galaxy server, include an acknowledgement for the Galaxy server(s) used.
+  - Analysis methods can be made transparent and reproducible by publishing Galaxy Histories and Workflows.
+  - Public data used in an analysis should always be cited.
+  - A list of tool citations can be extracted directly from your Galaxy History.
 subtopic: core
 contributions:
   authorship:
