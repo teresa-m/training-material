@@ -121,7 +121,7 @@ Once you have integrated an InvenioRDM respository into Galaxy, you will be able
 
 > <hands-on-title>Importing Files</hands-on-title>
 > 
-> 1. From the Upload tool, you can select `Choose remote files`
+> 1. Open the Upload tool, and select `Choose remote files`
 > ![Upload Tool](../../images/upload-tool.png)
 >
 > 2. Search for the Zenodo sandbox instance. Remember that this will only appear if the InvenioRDM plugin is configured to connect to the Zenodo sandbox in your Galaxy instance.
