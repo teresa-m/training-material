@@ -47,7 +47,7 @@ The generated community-specific table can be used as is (e.g. downloadable tsv 
 
 The pipeline is **fully automated** and executes on a **weekly** basis. Any research community can apply the pipeline to create a table specific to their community.
 
-The aim is this tutorial is to create such table for a community.
+The aim of this tutorial is to create such table for a community.
 
 > <agenda-title></agenda-title>
 >
