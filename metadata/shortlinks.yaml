@@ -2428,6 +2428,8 @@ id:
   N00121: "/news/2025/10/08/joined-teachV.html"
   T00562: "/topics/ecology/tutorials/NEAL_tutorial/tutorial.html"
   E00037: "/events/2025-10-14-foodborne.html"
+  E00038: "/events/2025-11-26-TKFDM.html"
+  E00039: "/events/2026-03-09-hts-workshop-freiburg.html"
 misc:
   ansible-galaxy: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
   feeds: "/feeds/index.html"

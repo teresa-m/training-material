@@ -2,8 +2,6 @@
 layout: event
 title: "Workshop on high-throughput sequencing data analysis with Galaxy"
 
-# external: "https://galaxyproject.org/events/2025-03-10-galaxy-workshop-freiburg/"
-
 description: |
     This course introduces scientists to the data analysis platform Galaxy. The course is designed for beginners; no prior programming skills are required.
 
