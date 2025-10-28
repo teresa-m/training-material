@@ -105,7 +105,7 @@ communities/<your community>/lab/sections_templates/
 >
 > 1. Fork and clone the [Galaxy Codex repo](https://github.com/galaxyproject/galaxy_codex)
 > 2. Set the `COMMUNITY` variable : `export $COMMUNITY=<your community>`
-> 3. Lauch `sources/bin/populate_labs.sh`
+> 3. Launch `sources/bin/populate_labs.sh`
 >
 > This will create a bunch of the new files in the appropriate community folder (communities/<your community>/lab/).
 {: .hands_on}
