@@ -152,9 +152,10 @@ In this tutorial, we know our organism is within the 'Bacillales' order.
 >    - *"Auto-detect or select lineage?"*: `Select lineage`
 >      -  *"Lineage"*: `Bacillales`
 >    - *"Which outputs should be generated"*: `Short summary text`
+>   
+> 2. ***Rename*** the `short summary` output to `Busco on Reference`.
 > 
-> 2. View output:
->    - After the program has run, look at the `short summary` output. 
+> 3. View the `Busco on Reference` output:
 >    - It may look something like this:
 >      ![output busco report for reference assembly](../../images/denovo_assembly/busco_reference_assembly.png)
 > 
@@ -215,8 +216,9 @@ We need to check if our assembly is good quality or not. It is paramount that ge
 >      -  *"Lineage"*: `Bacillales`
 >    - *"Which outputs should be generated"*: `Short summary text`
 > 
-> 2. View output:
->    - After the program has run, look at the `short summary` output. 
+> 2. ***Rename*** the `short summary` output to `Busco on Flye: Assembly`.
+> 
+> 3. View the `Busco on Flye: Assembly` output:
 >    - It may look something like this:
 >      ![output busco report for draft assembly](../../images/denovo_assembly/busco_draft_assembly.png)
 >    - The `full table` is also useful. It gives a detailed list of the genes we are searching for, and information about whether they were missing, fragmented, or complete in our assembly.
@@ -255,8 +257,11 @@ Search for the `Quast` tool in the tools panel.
 >    - *"Type of assembly?"*: `Genome`
 >    - *"Use a reference genome?"*: `Yes`
 >      - *"Reference genome"*: `reference_genome.fasta`
+>    - *"Output files"*: Select `HTML reports`, `Tabular reports`
 > 
-> 2. View output:
+> 2. ***Rename*** the `tabular report` output to `Quast on Flye: Assembly`.
+> 
+> 3. View output:
 >    - `Quast` will produce a HTML report summarising it's results.
 >    - Open the report. It may look something like this:
 >      ![output quast report for reference assembly](../../images/denovo_assembly/quast_draft_assembly.png)
@@ -348,8 +353,10 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 > 2. Change the *"Contigs/scaffolds file"* input to `Flye: Polished assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
+>
+> 4. ***Rename*** the `tabular report` output to `Quast on Flye: Polished assembly`.
 > 
-> 4. After `Quast` has finished, open the HTML report. 
+> 5. After `Quast` has finished, open the HTML report. 
 >    - Make note of `# mismatches per 100 kbp` and `# indels per 100 kbp`.
 > 
 {: .hands_on}
@@ -375,8 +382,10 @@ We are now interested to see how much `Pilon` improved our draft assembly.
 > 2. Change the *"Sequences to analyse"* input to `Flye: Polished assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
+>
+> 4. ***Rename*** the `short summary` output to `Busco on Flye: Polished assembly`.
 > 
-> 4. After `Busco` has finished, open the `short summary` output.
+> 5. After `Busco` has finished, open the `Busco on Flye: Polished assembly` output.
 > 
 {: .hands_on}
 
@@ -516,8 +525,10 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 2. Change the *"Contigs/scaffolds file"* input to `Unicycler: Assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
+>   
+> 4. ***Rename*** the `tabular report` output to `Quast on Unicycler: Assembly`.
 > 
-> 4. At time of writing, these were the `Quast` results:
+> 5. At time of writing, these were the `Quast` results:
 > 
 > ![output quast report for unicycler assembly](../../images/denovo_assembly/quast_unicycler_assembly.png)
 > 
@@ -532,10 +543,36 @@ Run `Unicycler` using the Nanopore and Illumina read sets.
 > 2. Change the *"Sequences to analyse"* input to `Unicycler: Assembly`.
 > 
 > 3. Click the `Run Tool` button to submit the job.
+>
+> 4. ***Rename*** the `short summary` output to `Busco on Unicycler: Assembly`.
 > 
-> 4. At time of writing, these were the `Busco` results:
+> 5. At time of writing, these were the `Busco` results:
 > 
 > ![output busco report for unicycler assembly](../../images/denovo_assembly/busco_unicycler_assembly.png)
+> 
+{: .hands_on}
+
+We can now create an aggregate summary report from all of our `Quast` and `Busco` outputs using `MultiQC`, which enables us to easily compare the quality of our genome assemblies.
+
+> <hands-on-title>Run MultiQC</hands-on-title>
+>
+> 1. {% tool [MultiQC](toolshed.g2.bx.psu.edu/repos/iuc/multiqc/multiqc/1.27+galaxy4) %}:
+>    - *"1: Results"*:
+>      - *"Which tool was used generate logs?"*: `BUSCO`
+>      - *"Output of BUSCO"*: `Busco on Reference`, `Busco on Fly: Assembly`, `Busco on Fly: Polished assembly`, `Busco on Unicycler: Assembly`, 
+>    - Click `+ Insert Results` to add a second results field
+>    - *"2: Results"*:
+>      - *"Which tool was used generate logs?"*: `QUAST`
+>      - *"Output of Quast"*: `Quast on Fly: Assembly`, `Quast on Fly: Polished assembly`, `Quast on Unicycler: Assembly`
+>
+> 2. View the `Webpage` output from `MultiQC`:
+>    - At time of writing, these were the results.
+>      - The number of BUSCOs identified in each assembly by `Busco`:
+>        ![buscos identified in each assembly](../../images/denovo_assembly/busco_plot_bacillales_odb10.png)
+>      - A table of `Quast` statistics for each assembly:
+>        ![table of quast statistics](../../images/denovo_assembly/quast_table_statistics.png)
+>      - The number of contigs identified in each assembly by `Quast`:
+>        ![number of contigs in each assembly](../../images/denovo_assembly/quast_num_contigs.png) 
 > 
 {: .hands_on}
 
