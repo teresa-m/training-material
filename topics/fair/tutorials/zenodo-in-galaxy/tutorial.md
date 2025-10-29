@@ -34,7 +34,7 @@ contributions:
 
 # Overview
 
-Discover a more streamlined approach to research data management with Galaxy's integration with InvenioRDM-compatible repositories.
+Discover a more streamlined approach to research data management with Galaxy's integration with Zenodo.
 
 > <agenda-title></agenda-title>
 > In this tutorial we will deal with:
@@ -54,7 +54,7 @@ Zenodo can be connected to Galaxy, offering a streamlined experience in managing
 
 [Zenodo](https://zenodo.org/) is an open repository for all scholarship, enabling researchers from all disciplines to share and preserve their research outputs, regardless of size or format. Free to upload and free to access, Zenodo makes scientific outputs of all kinds citable, shareable and discoverable for the long term.
 
-It's worth noting that [Zenodo, in October 2023, migrated to InvenioRDM as its underlying technical platform](https://blog.zenodo.org/2023/10/13/2023-10-13-zenodo-rdm/). This move not only makes this integration fully compatible with Zenodo but also signals a commitment to enhanced features and scalability, further bolstering the integration's potential benefits for researchers.
+It's worth noting that [Zenodo, in October 2023, migrated to InvenioRDM as its underlying technical platform](https://blog.zenodo.org/2023/10/13/2023-10-13-zenodo-rdm/). This move signals a commitment to enhanced features and scalability, further bolstering the integration's potential benefits for researchers.
 
 # Getting started
 
@@ -70,7 +70,7 @@ To be able to upload files and browse protected records, you need to create an a
 >
 > 3. Then, click on `New token` and give it a name and the necessary permissions.
 >
->    ![Zenodo PAT](../../images/zenodo-pat.png)
+>    ![Zenodo PAT](../../images/production-zenodo-pat.png)
 >
 > > <comment-title></comment-title>
 > > You will only be able to view and copy the access token when it is first created, so you should copy and securely store the token at this time. If you lose your copy of the access token, then you will need to generate a new one.
@@ -81,7 +81,7 @@ To be able to upload files and browse protected records, you need to create an a
 
 ## How to connect Zenodo to Galaxy 25.0
 
-The new `Manage Your Repositories` section is available under `User → Preferences`. We will integrate the Zenodo Sandbox instance for demonstration purposes, but you can also configure your institution's InvenioRDM instance. Here’s how it works:
+The new `Manage Your Repositories` section is available under `User → Preferences`. Here’s how it works:
 
 > <hands-on-title>Connecting to Galaxy</hands-on-title>
 > 
@@ -94,10 +94,10 @@ The new `Manage Your Repositories` section is available under `User → Preferen
 > 3. Select `Zenodo` to configure it and enter your **credentials or relevant connection details**. (This will be the access token created in the previous section if using the Zenodo sandbox.)
 > ![Configure Zenodo](../../images/3-zenodo-template-filled.png)
 > 
-> 4. Once set up, your InvenioRDM integration, in this case, `My Zenodo Sandbox`, will appear in the list where you can manage or delete it.
+> 4. Once set up, the Zenodo integration, in this case named `My Zenodo`, will appear in the list where you can manage or delete it.
 > ![Zenodo Integration](../../images/4-instance-created-zenodo.png)
 > 
-> 5. Your selected integrations will appear first when browsing import/export locations. You can find them by clicking on the `Upload` button in the activity bar.
+> 5. The Zenodo integration, along with any other integrations that you have set up, will appear first when browsing import/export locations. You can find them by clicking on the `Upload` button in the activity bar.
 > ![Browse Remote Files](../../images/5-upload-import-zenodo.png)
 {: .hands_on}
 
