@@ -92,13 +92,13 @@ The new `Manage Your Repositories` section is available under `User → Preferen
 > ![Create New Integration](../../images/2-create-new.png)
 > 
 > 3. Select `Zenodo` to configure it and enter your **credentials or relevant connection details**. (This will be the access token created in the previous section if using the Zenodo sandbox.)
-> ![Configure Zenodo](../../images/3-invenio-template-filled.png)
+> ![Configure Zenodo](../../images/3-zenodo-template-filled.png)
 > 
 > 4. Once set up, your InvenioRDM integration, in this case, `My Zenodo Sandbox`, will appear in the list where you can manage or delete it.
-> ![Zenodo Integration](../../images/4-instance-created.png)
+> ![Zenodo Integration](../../images/4-instance-created-zenodo.png)
 > 
 > 5. Your selected integrations will appear first when browsing import/export locations. You can find them by clicking on the `Upload` button in the activity bar.
-> ![Browse Remote Files](../../images/5-upload-import.png)
+> ![Browse Remote Files](../../images/5-upload-import-zenodo.png)
 {: .hands_on}
 
 
@@ -120,7 +120,7 @@ Once you have connect Zenodo to Galaxy, you will be able to import records and f
 > ![Upload Tool](../../images/upload-tool.png)
 >
 > 2. Search for the Zenodo instance. Remember that this will only appear if the Zenodo plugin is configured to connect to Zenodo in your Galaxy instance.
-> ![Choose Remote Files](../../images/choose-remote-files.png)
+> ![Choose Remote Files](../../images/choose-remote-files-zenodo.png)
 >
 {: .hands_on}
 
@@ -138,7 +138,7 @@ You can export your history directly to Zenodo. A benefit of publishing your his
 > 2. Then choose `to My Zenodo`. 
 > 
 > 3. You can decide whether to create a new record or upload the history to an existing draft record.
-> ![Export History to Zenodo](../../images/export-history.png)
+> ![Export History to Zenodo](../../images/export-history-zenodo.png)
 >
 {: .hands_on}
 
