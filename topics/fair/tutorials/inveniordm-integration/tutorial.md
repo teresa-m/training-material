@@ -72,7 +72,7 @@ To be able to upload files and browse protected records, you need to create an a
 
 > <hands-on-title>Create Your Personal Access Token</hands-on-title>
 >
-> 1. Open [Zenodo](https://zenodo.org) and `Log in` or create an account.
+> 1. Open the [Zenodo sandbox instance](https://sandbox.zenodo.org/) and `Log in` or create an account.
 > 
 > 2. Go to your `user settings` in the top right corner and select the `Applications` tab.
 >
@@ -82,6 +82,11 @@ To be able to upload files and browse protected records, you need to create an a
 >
 > > <comment-title></comment-title>
 > > You will only be able to view and copy the access token when it is first created, so you should copy and securely store the token at this time. If you lose your copy of the access token, then you will need to generate a new one.
+> >
+> {: .comment}
+>
+> > <comment-title></comment-title>
+> > As InvenioRDM is the underlying technical platform for Zenodo and the Zenodo sandbox instance, you will be able to follow the above steps 2 and 3 to create a PAT after you have logged in to your chosen repository service that uses InvenioRDM.
 > >
 > {: .comment}
 > 
