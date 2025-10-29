@@ -94,11 +94,11 @@ To be able to upload files and browse protected records, you need to create an a
 
 ## How to integrate InvenioRDM repositories in Galaxy 25.0
 
-The new `Manage Your Remote File Sources` section is available under `User → Preferences`. We will integrate the Zenodo Sandbox instance for demonstration purposes, but you can also configure your institution's InvenioRDM instance. Here’s how it works:
+The new `Manage Your Repositories` section is available under `User → Preferences`. We will integrate the Zenodo Sandbox instance for demonstration purposes, but you can also configure your institution's InvenioRDM instance. Here’s how it works:
 
 > <hands-on-title>Integration in Galaxy</hands-on-title>
 > 
-> 1. Navigate to `User → Preferences → Manage Your Remote File Sources`. If you haven't set up any integrations yet, you'll see an empty list.
+> 1. Navigate to `User → Preferences → Manage Your Repositories`. If you haven't set up any integrations yet, you'll see an empty list.
 > ![Manage Your Remote File Sources](../../images/1-empty-file-sources-list.png)
 >
 > 2. Click `+ Create` to configure a new integration. You'll see a list of available integrations, including `S3, Dropbox, InvenioRDM, Zenodo`, and more (depending on your Galaxy server).
