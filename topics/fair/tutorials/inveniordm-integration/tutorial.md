@@ -116,7 +116,7 @@ The new `Manage Your Repositories` section is available under `User → Preferen
 
 
 > <comment-title></comment-title>
-> We are using the Zenodo Sandbox for demonstration purposes. If you want to integrate the "real" Zenodo instance, we recommend using the Zenodo integration instead of InvenioRDM, already in the `+ Create` Galaxy integration step. This will improve the integration further by making it more prominent in some parts of the Galaxy interface.
+> We are using the Zenodo Sandbox for demonstration purposes. If you want to integrate the "real" Zenodo instance, we recommend using the Zenodo integration instead of InvenioRDM, already in the `+ Create` Galaxy integration step. This will improve the integration further by making it more prominent in some parts of the Galaxy interface. See the tutorial, [Uploading Data to Zenodo from Galaxy]({% link topics/fair/tutorials/zenodo-in-galaxy/tutorial.md %}), for a step by step guide.
 >
 {: .comment}
 
