@@ -146,7 +146,9 @@ You can always edit the record metadata directly from the Zenodo web interface. 
 
 # Conclusion
 
-In this tutorial, we have connected Zenodo to a Galaxy instance. We have also imported files and records from Zenodo into Galaxy and exported a Galaxy History to Zenodo.
+In this tutorial, we have connected Zenodo to a Galaxy instance. We have also imported files and records from Zenodo into Galaxy and exported a Galaxy History to Zenodo. 
+
+To see how to connect any InvenioRDM-compatible respository to Galaxy, see the tutorial, [Integrating InvenioRDM-compatible Repositories with Galaxy]({% link topics/fair/tutorials/inveniordm-integration/tutorial.md %}).
 
 # References
 
