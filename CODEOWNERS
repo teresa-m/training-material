@@ -51,10 +51,10 @@ topics/visualisation/              @shiltemann  @hexylena
 
 # Spanish tutorials
 # Notify both the spanish team (@beatrizserrano @nomadscientist @davelopez) as the topic team
-topics/introduction/tutorials/galaxy-intro-short/             @beatrizserrano @nomadscientist @davelopez    @jennaj
-topics/single-cell/tutorials/scrna-case_alevin/               @beatrizserrano @nomadscientist @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
-topics/single-cell/tutorials/scrna-intro/                     @beatrizserrano @nomadscientist @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
-topics/single-cell/tutorials/scrna_case_basic-pipeline/       @beatrizserrano @nomadscientist @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
+topics/introduction/tutorials/galaxy-intro-short/             @beatrizserrano @davelopez    @jennaj
+topics/single-cell/tutorials/scrna-case_alevin/               @beatrizserrano @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
+topics/single-cell/tutorials/scrna-intro/                     @beatrizserrano @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
+topics/single-cell/tutorials/scrna_case_basic-pipeline/       @beatrizserrano @davelopez    @mtekman  @pavanvidem  @hexhowells  @MarisaJL  @heylf
 
 # Lines starting with '#' are comments.
 # # Order is important. The last matching pattern has the most precedence.
