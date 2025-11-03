@@ -2430,6 +2430,8 @@ id:
   E00037: "/events/2025-10-14-foodborne.html"
   E00038: "/events/2025-11-26-TKFDM.html"
   E00039: "/events/2026-03-09-hts-workshop-freiburg.html"
+  E00040: "/events/2025-03-06-biont-fair.html"
+  E00041: "/events/2025-11-11_ecology.html"
 misc:
   ansible-galaxy: "/topics/admin/tutorials/ansible-galaxy/tutorial.html"
   feeds: "/feeds/index.html"
