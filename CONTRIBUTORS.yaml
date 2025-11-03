@@ -1102,6 +1102,13 @@ GokceOGUZ:
     location:
       country: SG
 
+GraceAHall:
+    name: Grace Hall
+    joined: 2025-09
+    affiliations:
+      - unimelb
+      - melbournebioinformatics
+      
 guerler:
     name: Aysam Guerler
     joined: 2017-09
