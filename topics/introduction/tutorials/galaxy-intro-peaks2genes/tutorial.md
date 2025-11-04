@@ -47,7 +47,7 @@ answer_histories:
   history: https://usegalaxy.eu/u/teresa-m/h/gtn-peaks-to-genes-introduction-part-2
   date: 2025-08-19
 recordings:
-- youtube_id: TODO
+- youtube_id: IeHu63FVlGY
   length: 1H41M
   galaxy_version: 25.0.4.dev0
   date: '2025-11-03'
