@@ -98,13 +98,17 @@ Not everyone has the same background and that's ok!
 {: .hands_on}
 
 
-The Galaxy interface consists of three main parts:
+The Galaxy interface is divided into four sections (panels):
+* The Activity Bar on the left: _This is where you will navigate to the resources in Galaxy (Tools, Workflows, Histories etc.)_
+* Currently active "Activity Panel" on the left: _By default, the {% icon tool %} **Tools** activity will be active and its panel will be expanded_
+* Viewing panel in the middle: _The main area for context for your analysis_
+* History of analysis and files on the right: _Shows your "current" history; i.e.: Where any new files for your analysis will be stored_
 
-1. The available tools are listed on the left
-2. Your analysis history is recorded on the right
-3. The central panel will let you run analyses and view outputs
+![Screenshot of the Galaxy interface with aforementioned structure](../../images/galaxy_interface.png)
 
-![Galaxy interface screenshot showing history panel on the right, tools panel on the left, and main panel at the center]({% link shared/images/galaxy_interface.png %})
+The first time you use Galaxy, there will be no files in your history panel.
+
+
 
 
 # Create a history
@@ -122,7 +126,7 @@ In other words, using a workflow makes it possible to apply the same procedure t
 
 > <hands-on-title>Create history</hands-on-title>
 >
-> 1. Make sure you start from an empty analysis history.
+> 1. Make sure you start from an empty history.
 >
 >    {% snippet faqs/galaxy/histories_create_new.md %}
 >
@@ -318,9 +322,9 @@ Like we mentioned before, there are often multiple ways to reach your answer in 
 >    - Tool: **Group** data by a column and perform aggregate operation on other columns {% icon tool %}
 >    - Input dataset: `iris clean` dataset to answer the same question.
 >
-> 2. Did you get the same answer as before?
+> 2. **Rename** {% icon galaxy-pencil %} the dataset to `iris species group`
 >
-> 3. **Rename** {% icon galaxy-pencil %} the dataset to `iris species group`
+> 3. Did you get the same answer as before?
 >
 > > <solution-title></solution-title>
 > > 1. {% tool [Group](Grouping1) %}   with the following parameters:
@@ -554,7 +558,7 @@ Galaxy makes this very easy with the `Extract workflow` option. This means any t
 >
 >    This will make the creation of the workflow easier.
 >
-> 2. Click on {% icon galaxy-gear %} (**History options**) at the top of your history panel and select **Extract workflow**.
+> 2. Click on {% icon galaxy-history-options %} (**History options**) at the top of your history panel and select **Extract workflow**.
 >
 >    ![`Extract Workflow` entry in the history options menu](../../images/history_menu_extract_workflow.png)
 >
@@ -572,7 +576,7 @@ Galaxy makes this very easy with the `Extract workflow` option. This means any t
 >
 >    ![`Where workflows go` list](../../images/101_foreveryone_workflow.png)
 >
-> 6. Click on **Workflow** in the top menu of Galaxy.
+> 6. Click on **Workflow** in the activity bar on the left side.
 >    - Here you have a list of all your workflows.
 >    - Your newly created workflow should be listed at the top:
 >
@@ -596,7 +600,7 @@ We can examine the workflow in Galaxy's workflow editor. Here you can view/chang
 > <hands-on-title>Editing our workflow</hands-on-title>
 >
 > 1. Open the **workflow editor**
->    - Click on the dropdown menu {% icon galaxy-dropdown %} (triangle icon) to the right of your workflow name.
+>    - Click on the Edit {% icon galaxy-wf-edit %} of your freshly created or imported workflow.
 >
 > 2. Select **Edit** to launch the workflow editor.
 >    - You should see something like this:
