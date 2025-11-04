@@ -84,7 +84,7 @@ The files are created and updated automatically using GitHub actions, you just n
 >        env: 
 >          COMMUNITY: <community-name>
 >    ```
-> 6. Replace <community-name> by the name of your community
+> 6. Replace `<community-name>` by the name of your community
 > 7. Commit changes the changes to a new branch that you name "new lab for <Community-name>"
 >
 {: .hands_on}
