@@ -32,7 +32,6 @@ contributions:
 
 ---
 
-# Overview
 
 Discover a more streamlined approach to research data management with Galaxy's integration with Zenodo.
 
