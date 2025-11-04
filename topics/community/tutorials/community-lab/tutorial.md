@@ -100,7 +100,7 @@ Files to update :
 - `communities/<your community>/lab/CONTRIBUTORS` --> Add the handles of everyone who contributed in the lab
 - `communities/<your community>/lab/README.md` --> Change all `<your-community>` by your community name
 - `communities/<your community>/lab/base.yml` --> Change all `<your-community>` by your community name
-- "communities/<your community>/lab/intro.html" --> Include a description of your community.
+- `communities/<your community>/lab/intro.html` --> Include a description of your community.
 
 Files that do not require a manual update : 
 - "communities/<your community>/lab/conclusion.html" --> No change required.
