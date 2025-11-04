@@ -90,7 +90,7 @@ The files are created and updated automatically using GitHub actions, you just n
 {: .hands_on}
 
 After that, your commit will be reviewed (and approved) by admins.
-On the following Sunday (or upon request), this action will be launched and will create the new files in the appropriate community folder (communities/<your community>/lab/).
+On the following Sunday (or upon request), this action will be launched and will create the new files in the appropriate community folder (`communities/<your community>/lab/`).
 
 # Modify the generated files to personalize your community lab
 
