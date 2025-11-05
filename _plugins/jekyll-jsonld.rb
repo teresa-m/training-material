@@ -137,6 +137,7 @@ module Jekyll
         }
         if !contributor.nil? && contributor.key?('orcid') && contributor['orcid']
           person['identifier'] = "https://orcid.org/#{contributor['orcid']}"
+          person['@id'] = "https://orcid.org/#{contributor['orcid']}"
         end
 
         person
