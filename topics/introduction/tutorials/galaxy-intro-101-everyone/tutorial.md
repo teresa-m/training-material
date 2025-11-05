@@ -600,9 +600,9 @@ We can examine the workflow in Galaxy's workflow editor. Here you can view/chang
 > <hands-on-title>Editing our workflow</hands-on-title>
 >
 > 1. Open the **workflow editor**
->    - Click on the Edit {% icon galaxy-wf-edit %} of your freshly created or imported workflow.
+>    - Click on **Workflows** {% icon galaxy-workflows-activity %} at the interactive bar and locate your freshly created or imported workflow.
 >
-> 2. Select **Edit** to launch the workflow editor.
+> 2. Select {% icon galaxy-wf-edit %} **Edit** to launch the workflow editor.
 >    - You should see something like this:
 >
 >    ![Workflow editor](../../images/101_foreveryone_workflow_editor.png)
@@ -613,11 +613,12 @@ We can examine the workflow in Galaxy's workflow editor. Here you can view/chang
 > 3. **Hiding intermediate outputs**
 >    - We can tell Galaxy which outputs of a workflow are important and should be shown in our history when we run it, and which can be hidden.
 >    - By default, all outputs will be shown
->    - Click the **checkbox** next to the outputs to mark them as important:
+>    - Click the **checkbox** {% icon galaxy-selector %} next to the outputs to mark them as important:
 >        - `outfile` in  **Unique** {% icon tool %}
 >        - `out_file1` in **Group** {% icon tool%} step
 >            - This should be the Group tool where we performed the counting, you can check which one that is by clicking on it and looking at the parameter settings in the **Details** box on the right.
 >        - `png` in both **Scatterplot w ggplot2** {% icon tool %} steps
+>    - To hide all other datasets in your history you will need to unselect the **eye** icon {% icon galaxy-eye %} in each tool box where you did not select the **checkbox** {% icon galaxy-selector %}
 >    - Now, when we run the workflow, we will only see these final outputs
 >        - i.e. the two dataset with species, the dataset with number of samples by species and the two scatterplots.
 >
@@ -636,7 +637,7 @@ We can examine the workflow in Galaxy's workflow editor. Here you can view/chang
 > 5. **Save your workflow** (important!) by clicking on the {% icon galaxy-save %} icon at the top right of the screen.
 >
 >
-> 6. **Return** to the analysis view by clicking on the Home icon {% icon galaxy-home %} (or **Analyze Data** on older Galaxy versions) at the top menu bar.
+> 6. **Return** to the analysis view by clicking on **Galaxy** (or the Home icon {% icon galaxy-home %} or **Analyze Data** on older Galaxy versions) at the top menu bar.
 >
 {: .hands_on}
 
@@ -693,17 +694,18 @@ With this adjustment, we can reuse our workflow on the data, and analyze and vis
 >
 > To analyze the diamonds price/4 Cs dataset by reusing our workflow:
 >
-> 1. Open the **workflow menu** (top menu bar).
+> 1. Open the **workflow menu** (from activity bar, left side).
 >    - Find the workflow you made in the previous section,
->    - Select the option `Run`.
+>    - Select the option `Run` {% icon workflow-run %}.
 >    - The central panel will change to allow you to configure and launch the workflow.
+>    - Click on **Expanded workflow form**
 >
 > 2. Select the `diamonds` dataset as the input dataset.
 >
 > 3. Customize the first scatter plot:
 >
 >    This step is preconfigured to plot column 1 along the x and column 2 along the y axis, while grouping by column 5.
->    This is fine and will result in *price* getting plotted against *carat* with grouping by *cut*, but you would want to adjust the plot title and axis labels accordingly:
+>    This is fine and will result in *price* getting plotted against *carat* with grouping by *cut*, but you would want to adjust the plot title and axis labels accordingly. To change any parameter click on the pencil icon {% icon galaxy-wf-edit %}:
 >
 >    - Change *"Plot title"* to `Diamond price as a function of carat with cut as a factor`
 >    - Change *"Label for x axis"* to `Weight of the diamond (carat)`
@@ -770,7 +772,7 @@ One of the most important features of Galaxy comes at the end of an analysis. Wh
 
 > <hands-on-title>Share history</hands-on-title>
 > 1. Share your history with your neighbour.
-> 2. Find the history shared by your neighbour. Histories shared with specific users can be accessed by those users under their top masthead "User" menu under `Histories shared with me`.
+> 2. Find the history shared by your neighbour. Histories shared with specific users can be accessed by opening the history menu for the activity bar and selecting in the History menu the **Shared with Me** tab.
 {: .hands_on}
 
 # Conclusion
