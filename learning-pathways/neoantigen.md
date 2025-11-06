@@ -9,8 +9,8 @@ title: Neoantigen discovery using the iPepGen pipeline
 description: |
   This learning path introduces a comprehensive immunopeptidogenomics (iPepGen) workflow for neoantigen discovery using label-free mass spectrometry data. The modules guide you through fusion and variant database generation, peptide identification with FragPipe, peptide validation using PepQuery2, and immunogenicity assessment through HLA binding predictions and IEDB screening.
 
-cover-image: shared/images/proteomics.png
-cover-image-alt: image of a 3D protein folding structure
+cover-image: shared/images/neoantigen_lp.png
+cover-image-alt: image of neoantigen mutation
 
 editorial_board:
 - subinamehta
@@ -76,19 +76,5 @@ New to immunopeptidogenomics or neoantigen prediction? Follow this learning path
 
 ## One-Click Neoantigen Workflow
 
-This new [One-Click Neoantigen Workflow](https://usegalaxy.eu/u/galaxyp/w/ipepgen-one-click-workflow) brings together all key modules of the neoantigen discovery process into a single, streamlined analysis within Galaxy. Instead of launching each tutorial separately, users can now execute the entire end-to-end pipeline—from database creation to HLA binding prediction—with just one click. The workflow integrates:
-
-**Module 1a: Fusion Database Generation** – build personalized fusion peptide databases from RNA-seq data.
-
-**Module 1b: Non-Reference Database Generation** – construct proteogenomic databases using somatic variants and indels.
-
-**Module 2: Database Merge and FragPipe Discovery** – merge databases and identify putative neopeptides using FragPipe.
-
-**Module 3: PepQuery2 Verification** – validate peptide-spectrum matches for candidate neoantigens.
-
-**Module 4: Variant Annotation** – annotate neopeptides with their genomic and proteomic context.
-
-**Module 5a–b: HLA and IEDB Binding Predictions** – assess MHC affinity and immunogenic potential.
-
-With this one-click design, researchers can explore the entire neoantigen discovery adventure—automated, reproducible, and ready for discovery—without ever leaving Galaxy.
+This new [One-Click Neoantigen Workflow](https://usegalaxy.eu/u/galaxyp/w/ipepgen-one-click-workflow) brings together all key modules of the neoantigen discovery process into a single, streamlined analysis within Galaxy. Instead of launching each tutorial separately, users can now execute the entire end-to-end pipeline—from database creation to HLA binding prediction—with just one click —without ever leaving Galaxy.
 
