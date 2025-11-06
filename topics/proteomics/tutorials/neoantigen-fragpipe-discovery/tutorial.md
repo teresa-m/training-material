@@ -168,15 +168,16 @@ In this workflow, FragPipe is used after FASTA database validation to ensure tha
 The **FragPipe Manifest Generator** creates the experimental design file required by FragPipe, mapping each raw LC–MS/MS file to its experimental factors (e.g., experiment and bioreplicate). This manifest ensures consistent labeling of runs for downstream identification and quantification. In this workflow, we generate a simple design with a single experiment and a single bioreplicate, and we explicitly set the scan data type to **DDA** to match acquisition.
 
 > <hands-on-title> FragPipe Manifest Generator </hands-on-title>
->
-> 1. **Open** the FragPipe Manifest Generator (Galaxy Version 23.0+galaxy0).
-> 2. Set the following parameters:
+> 
+> 1. {% tool [FragPipe Manifest Generator](toolshed.g2.bx.psu.edu/repos/galaxyp/fragpipe/fragpipe_manifest_generator/23.0+galaxy0) %} with the following parameters:
 >    - {% icon param-file %} “Proteomics spectrum files” (mzML, mzXML, or Thermo .raw): select the MS file for this run.
->    - “Assign experiments → Comma-separated experiment numbers”: 1
->    - “Assign bioreplicates → Comma-separated bioreplicate numbers”: 1
->    - “Assign scan_data_types → Data Type”: DDA
+>    - In *"Assign experiments"*: `Enter column values`
+>        - In *"Comma-separated experiment numbers"*: `1`
+>    - In *"Assign bioreplicates"*: `Enter column values`
+>        - In *"Comma-separated bioreplicate numbers"*: `1`
+>    - In *“Assign scan_data_types"*: `Assign to all scan files`
+>        - In *"Data Type”*: `DDA`
 >
-> 3. **Execute** to produce a FragPipe-compatible manifest (tabular) listing each file with its assigned Experiment, Bioreplicate, and DataType.
 {: .hands_on}
 
 > <question-title></question-title>
@@ -193,8 +194,15 @@ The **FragPipe Manifest Generator** creates the experimental design file require
 >
 {: .question}
 
-> **Tip:** If your acquisition includes mixed data types (e.g., DIA or IMS-DDA), set the Data Type per file accordingly. Ensure raw file names are stable and meaningful—renaming files after manifest creation can break downstream steps.
-``
+
+> <tip-title>Mixed Data Types</tip-title>
+>
+> If your acquisition includes mixed data types (e.g., DIA or IMS-DDA), set the Data Type per file accordingly. Ensure raw file names are stable and meaningful—renaming files after manifest creation can break downstream steps.
+>
+> 
+{: .tip}
+
+
 > <hands-on-title> Fragpipe </hands-on-title>
 >
 > 1. {% tool [FragPipe -  Academic Research and Education User License (Non-Commercial)](toolshed.g2.bx.psu.edu/repos/galaxyp/fragpipe/fragpipe/23.0+galaxy0) %} with the following parameters:
@@ -220,7 +228,7 @@ The **FragPipe Manifest Generator** creates the experimental design file require
 >                - *"Precursor Charge Override"*: `Use default`
 >        - In *"Validation"*:
 >            - *"Run Validation"*: `Yes`
->                - *"PSM Validation"*: `Run Percolator`
+>                - *"PSM Validation"*: `Run MSBooster and Percolator`
 >                - *"Run Protein Prophet"*: `Yes`
 >                - *"Generate Philosopher Reports"*: `Yes`
 >        - In *"Quant (MS1)"*:
