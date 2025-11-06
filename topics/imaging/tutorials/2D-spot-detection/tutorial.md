@@ -9,7 +9,7 @@ questions:
   - "How can I count the number of detected spots automatically?"
 objectives:
   - Perform a 2D spots/blobs detection in an image fetched from IDR
-  - Count the detected spots and blo
+  - Count the detected spots and blobs
 key_points:
 - Fluorescent markers can be detected using Galaxy
 - Objects can be automatically counted and the intensity range can be plotted
@@ -85,8 +85,8 @@ and selected the 10th z-stack for analysis.
 >    -  *"Limit the download to a selected region of the image?"*: `No, download the entire image plane`
 >    -  *"Skip failed retrievals?"*: `No`
 >    -  *"Download images in a tarball?"*: `No`
-> 3. {% tool [Extract dataset](__EXTRACT_DATASET__)} with the following parameters:
->    - *"Input List"*: `Download IDR/OMERO` (output of IDR Download tool)
+> 3. {% tool [Extract dataset](__EXTRACT_DATASET__) %} with the following parameters:
+>    - {% icon param-collection %} *"Input List"*: `Download IDR/OMERO` (output of IDR Download tool)
 >    - *"How should a dataset be selected?"*: `The first dataset`
 > 4. Rename {% icon galaxy-pencil %} the generated file to `RNA_input.tiff`.
 {: .hands_on}

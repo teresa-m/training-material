@@ -63,7 +63,7 @@ The example used in this tutorial deals with PLK1 knocked down cells. PLK1 is an
 
 # Getting data
 
-The dataset required for this tutorial contains a screen of DAPI stained HeLa nuclei ([more information](https://zenodo.org/record/3360236)). We will use a sample image from this dataset for training basic image processing skills in Galaxy.
+The dataset required for this tutorial contains a screen of DAPI stained HeLa nuclei ([more information](https://zenodo.org/record/3362976)). We will use a sample image from this dataset for training basic image processing skills in Galaxy.
 
 > <hands-on-title>Data upload</hands-on-title>
 >
