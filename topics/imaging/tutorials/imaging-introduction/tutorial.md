@@ -52,8 +52,8 @@ This tutorial shows how to use Galaxy to perform basic image analysis tasks such
 
 # Getting Data
 
-The dataset required for this tutorial is available from [Zenodo](https://zenodo.org/record/3362976) and
-contains a screen of [DAPI](https://en.wikipedia.org/wiki/DAPI) stained [HeLa](https://en.wikipedia.org/wiki/HeLa) nuclei ([more information](https://zenodo.org/record/3362976)). We will use a sample image from this dataset for training basic image processing skills in Galaxy.
+The dataset required for this tutorial is available from [Zenodo]({{ page.zenodo_link }}) and
+contains a screen of [DAPI](https://en.wikipedia.org/wiki/DAPI) stained [HeLa](https://en.wikipedia.org/wiki/HeLa) nuclei ([more information]({{ page.zenodo_link }})). We will use a sample image from this dataset for training basic image processing skills in Galaxy.
 
 Our objective is to automatically count the number of cells contained in this image. In order to achieve this, we will enhance the quality of the image, automatically detect the nuclei and segment the nuclei and count them.
 
@@ -64,11 +64,11 @@ Our objective is to automatically count the number of cells contained in this im
 >
 >    {% snippet faqs/galaxy/histories_create_new.md %}
 >
-> 2. Import the following dataset from [Zenodo](https://zenodo.org/record/3362976) or from the data library (ask your instructor).
+> 2. Import the following dataset from [Zenodo]({{ page.zenodo_link }}) or from the data library (ask your instructor).
 >    - **Important:** Choose the type of data as `zip`.
 >
 >    ```
->    https://zenodo.org/record/3362976/files/B2.zip
+>    {{ page.zenodo_link }}/files/B2.zip
 >    ```
 >
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}

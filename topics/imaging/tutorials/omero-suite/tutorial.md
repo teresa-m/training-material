@@ -90,12 +90,12 @@ To this end, we have prepared an integrative dataset with images, metadata and r
 >
 >    {% snippet faqs/galaxy/histories_create_new.md %}
 >
-> 2. Import the nuclei imaging data from [Zenodo](https://zenodo.org/records/14205500) or 
+> 2. Import the nuclei imaging data from [Zenodo]({{ page.zenodo_link }}) or 
 > from the shared data library:
 >    - **Important:** Choose the correct data type if prompted.
 >
 >    ```
->    https://zenodo.org/records/14205500
+>    {{ page.zenodo_link }}
 >    ```
 >
 >    {% snippet faqs/galaxy/datasets_import_via_link.md %}
