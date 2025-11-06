@@ -87,7 +87,7 @@ The dataset required for this tutorial contains a screen of DAPI stained HeLa nu
 >    - *"Extract single file"*: `Single file`
 >    - *"Filepath"*: `B2--W00026--P00001--Z00000--T00000--dapi.tif`
 >
-> 4. Rename {% icon galaxy-pencil %} the dataset to `testinput.tif`
+> 4. Rename {% icon galaxy-pencil %} the dataset to `testinput.tiff`
 >
 >    {% snippet faqs/galaxy/datasets_rename.md %}
 >
@@ -135,7 +135,7 @@ First, we will create and test a workflow which extracts mean DAPI intensity, ar
 > <hands-on-title>Create feature extraction workflow</hands-on-title>
 >
 > 1. {% tool [Filter 2-D image](toolshed.g2.bx.psu.edu/repos/imgteam/2d_simple_filter/ip_filter_standard/1.12.0+galaxy1) %} with the following parameters to smooth the image:
->    - {% icon param-file %} *"Input image"*: `testinput.tif` file
+>    - {% icon param-file %} *"Input image"*: `testinput.tiff` file
 >    - *"Filter type"*: `Gaussian`
 >    - *"Sigma"*: `3`
 > 2. {% tool [Threshold image](toolshed.g2.bx.psu.edu/repos/imgteam/2d_auto_threshold/ip_threshold/0.18.1+galaxy3) %} with the following parameters to segment the image:
@@ -161,7 +161,7 @@ First, we will create and test a workflow which extracts mean DAPI intensity, ar
 > 6. {% tool [Extract image features](toolshed.g2.bx.psu.edu/repos/imgteam/2d_feature_extraction/ip_2d_feature_extraction/0.18.1+galaxy0) %} with the following parameters to extract features the final readout from the segmented objects:
 >    - {% icon param-file %} *"Label map"*: output of {% tool [Filter label map by rules](toolshed.g2.bx.psu.edu/repos/imgteam/2d_filter_segmentation_by_features/ip_2d_filter_segmentation_by_features/0.0.1-4) %}
 >    - *"Use the intensity image to compute additional features"*: `Use intensity image`
->    - {% icon param-file %} *"Intensity image"*: `testinput.tif` file
+>    - {% icon param-file %} *"Intensity image"*: `testinput.tiff` file
 >    - *"Select features to compute"*: `Select features`
 >    - *"Available features"*:
 >      - {% icon param-check %} `Mean Intensity (requires original image)`
