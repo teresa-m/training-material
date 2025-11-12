@@ -78,7 +78,7 @@ tutorial]({% link topics/admin/tutorials/gxadmin/tutorial.md %}).
 >    --- a/requirements.yml
 >    +++ b/requirements.yml
 >    @@ -11,3 +11,6 @@
->       version: 0.3.1
+>       version: 0.3.4
 >     - src: usegalaxy_eu.certbot
 >       version: 0.1.11
 >    +# gxadmin (used in cleanup, and later monitoring.)
