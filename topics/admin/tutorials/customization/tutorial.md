@@ -188,7 +188,7 @@ This page can be used to communicate what your instance is about, and share news
 >     	# automatically copied around. The welcome page is one of them. In
 >     	# production, this step is skipped, so we will manually alias that.
 >     	location /static/welcome.html {
->    -		alias {{ galaxy_server_dir }}/static/welcome.html.sample;
+>    -		alias {{ galaxy_server_dir }}/static/welcome.sample.html;
 >    +		alias {{ galaxy_mutable_config_dir }}/welcome.html;
 >     		expires 24h;
 >     	}
