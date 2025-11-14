@@ -3,7 +3,7 @@ layout: event
 title: "A Galaxy Introduction for Everyone"
 
 description: |
-    The purpose of this workshop is to get to know Galaxy, and the Galaxy training Network.
+    The purpose of this workshop is to get to know Galaxy, and the Galaxy Training Network.
 
 date_start: 2025-11-18
 date_end: 2025-11-18
